@@ -1,5 +1,5 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
 
 public class DSA_STR_LongSubStringWithoutRepeatedChar {
     public static void main(String[] args) {
@@ -10,26 +10,32 @@ public class DSA_STR_LongSubStringWithoutRepeatedChar {
     }
 
     public static String longestSubstringWithoutRepeating(String s) {
-        int maxLength = 0;
-        int start = 0;
-        int maxStart = 0;
-        Map<Character, Integer> charIndexMap = new HashMap<>();
+        Set<Character> window = new HashSet<>();  // to check duplicates quickly
+        int start = 0, end = 0;
+        int maxLen = 0, maxStart = 0;
 
-        for (int end = 0; end < s.length(); end++) {
-            char currentChar = s.charAt(end);
+        // Expand the window by moving the end pointer
+        while (end < s.length()) {
+            char c = s.charAt(end); // Current character to consider
 
-            if (charIndexMap.containsKey(currentChar) && charIndexMap.get(currentChar) >= start) {
-                start = charIndexMap.get(currentChar) + 1;
+            // If duplicate, shrink from left until it's removed
+            while (window.contains(c)) {
+                window.remove(s.charAt(start));
+                start++;
             }
 
-            charIndexMap.put(currentChar, end);
+            // Add current character to moving window
+            window.add(c);
 
-            if (end - start + 1 > maxLength) {
-                maxLength = end - start + 1;
+            // Update max length if needed
+            if (end - start + 1 > maxLen) {
+                maxLen = end - start + 1;
                 maxStart = start;
             }
+            end++;
         }
-        String longestSubstring = s.substring(maxStart, maxStart + maxLength);
-        return longestSubstring;
+
+        return s.substring(maxStart, maxStart + maxLen);
     }
+
 }
