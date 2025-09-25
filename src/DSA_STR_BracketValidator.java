@@ -27,7 +27,7 @@ public class BracketValidator {
         return stack.isEmpty();
     }
 
-    static void main(String[] args) {
+    public static void main(String[] args) {
         String test1 = "{[()]}";     // Valid
         String test2 = "{[(])}";     // Invalid
         String test3 = "((()))";     // Valid
