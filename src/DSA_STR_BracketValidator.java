@@ -39,6 +39,7 @@ public class BracketValidator {
         System.out.println(test4 + " -> " + isValid(test4));
         
         }
+}
 // How it works:
 // - It uses a `Stack` to keep track of opening brackets.
 // - For each closing bracket, it checks if the top of the stack matches the corresponding opening bracket.
