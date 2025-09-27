@@ -69,5 +69,23 @@ public class CJ_Math_Functions {
         } else {
             System.out.println(num2 + " is Even");    
         }
+
+        //Check Armstrong number
+        // What is Armstrong number?
+        // An Armstrong number of three digits is an integer such that the sum of the cubes of its digits is equal to the number itself. 
+        //For example, 371 is an Armstrong number since
+        int armstrongNum = 153;
+        int sum = 0;
+        int temp = armstrongNum;
+        while(temp > 0) {
+            int digit = temp % 10;
+            sum += Math.pow(digit, 3);
+            temp /= 10;
+        }
+        if(sum == armstrongNum) {
+            System.out.println(armstrongNum + " is an Armstrong number");
+        } else {
+            System.out.println(armstrongNum + " is not an Armstrong number");
+        }
     }
 }

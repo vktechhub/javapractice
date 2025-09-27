@@ -1,6 +1,6 @@
 import java.util.Stack;
 
-public class BracketValidator {
+public class DSA_STR_BracketValidator {
 
     public static boolean isValid(String input) {
         Stack<Character> stack = new Stack<>();

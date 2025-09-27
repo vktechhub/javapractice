@@ -1,14 +1,16 @@
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class CJ_Collection_Types {
+public class CJ_Collection_1_Types {
     public static void main(String[] args) {
 
         // Collection
         Collection<String> c = new ArrayList<>();
+        Collection<String> c1 = new LinkedList<>(c);
+        Collection<String> c2 = new HashSet<>(c);
         c.add("One");
         c.add("Two");
-        System.out.println("Collection:- " + c);
+        System.out.println("Collection:- c - " + c); // Print all elements
 
         //List
         List<String> li = new ArrayList<>();
@@ -17,7 +19,7 @@ public class CJ_Collection_Types {
         li.add("Orange");
         System.out.println("List:- " + li);
         System.out.println("List of Elements are:- ");
-        for(String s : li){
+        for(String s : li){                        // Print all elements using for loop
             System.out.println(s);
         }
 
