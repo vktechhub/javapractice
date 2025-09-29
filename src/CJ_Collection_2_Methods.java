@@ -99,7 +99,76 @@ public class CJ_Collection_2_Methods {
         // pop() - Removes and returns the top element of the LinkedList (as a stack
 
         //Set Methods - Overview (In addition to Collection methods)
+        // add() - Adds an element to the set (overrides Collection's add to ensure uniqueness)
+        // remove() - Removes a specified element from the set (overrides Collection's remove)
+        // contains() - Returns true if the set contains a specified element (overrides Collection's
+        // isEmpty() - Returns true if the set is empty (overrides Collection's isEmpty)
+        // size() - Returns the number of elements in the set (overrides Collection's size)
+        // iterator() - Returns an iterator to traverse the elements of the set (overrides Collection's iterator)
+        Set<String> fruits = new HashSet<>();
        
         // HashSet Methods - Overview (not in Collection and Set methods)
+        // addAll() - Adds all elements from a specified collection to the set
+        // retainAll() - Retains only the elements in the set that are contained in a specified collection
+        // removeAll() - Removes from the set all elements that are contained in a specified collection
+        // clear() - Removes all elements from the set
+        // toArray() - Converts the set to an array
+        //hashCode() - Returns the hash code value for the set
+        //equals() - Compares the specified object with the set for equality
+        Set<String> fruitsSet = new HashSet<>();
+
+        //TreeSet Methods - Overview (not in Collection and Set Methods)
+
+        //Map Methods - Overview
+        // put() - Adds a key-value pair to the map
+        // putAll() - Adds all the key-value pairs from a specified map to the map
+        // get() - Returns the value associated with a specified key
+        // remove() - Removes the key-value pair associated with a specified key
+        // containsKey() - Returns true if the map contains a specified key
+        // containsValue() - Returns true if the map contains a specified value
+        // keySet() - Returns a set of all the keys in the map
+        // values() - Returns a collection of all the values in the map
+        // entrySet() - Returns a set of all the key-value pairs in the map
+        // isEmpty() - Returns true if the map is empty
+        // size() - Returns the number of key-value pairs in the map
+        // clear() - Removes all the key-value pairs from the map
+        Map<String, Integer> fruitsMap = new HashMap<>();
+
+        //HashMap Methods - Overview (not in Collection and Map Methods)
+        // putIfAbsent() - Adds a key-value pair to the map if the key is not already present
+        // replace() - Updates the value associated with a specified key
+        // getOrDefault() - Returns the value associated with a specified key, or a default value if the key is not present
+        // forEach() - Performs the given action for each entry in the map
+        // compute() - Computes a new value for a specified key using the given function
+        // computeIfAbsent() - Computes a value for a specified key if the key is not already present
+        // computeIfPresent() - Computes a new value for a specified key if the key is already present
+        // merge() - Merges the specified value with the existing value for a specified key using the given function
+        //hashCode() - Returns the hash code value for the map
+        //equals() - Compares the specified object with the map for equality
+        Map<String, Integer> fruitsHashMap = new HashMap<>();
+
+        //Queue Methods - Overview (In addition to Collection methods)
+        // offer() - Adds an element to the end of the queue
+        // poll() - Removes and returns the head of the queue
+        // peek() - Returns the head of the queue without removing it
+        Queue<String> fruitsQueue = new LinkedList<>();
+
+        //Deque Methods - Overview (In addition to Collection and Queue methods)
+        // addFirst() - Adds an element at the front of the deque
+        // addLast() - Adds an element at the end of the deque
+        // removeFirst() - Removes and returns the first element of the deque
+        // removeLast() - Removes and returns the last element of the deque
+        // peekFirst() - Returns the first element of the deque without removing it
+        // peekLast() - Returns the last element of the deque without removing it
+        Deque<String> fruitsDeque = new LinkedList<>();
+
+        //ArrayDeque Methods - Overview (In addition to Collection and Deque methods)
+        // offerFirst() - Adds an element at the front of the deque
+        // offerLast() - Adds an element at the end of the deque
+        // pollFirst() - Removes and returns the first element of the deque
+        // pollLast() - Removes and returns the last element of the deque
+        // peekFirst() - Returns the first element of the deque without removing it
+        // peekLast() - Returns the last element of the deque without removing it
+        ArrayDeque<String> fruitsArrayDeque = new ArrayDeque<>();
     }
 }
