@@ -14,9 +14,10 @@ public class CJ_Collection_2_Common_Methods {
         // 8. clear() - Removes all the elements from the collection
         // 9. iterator() - Returns an iterator to traverse the elements of the collection
         // 10. toArray() - Converts the collection to an array
+        // 11. forEach() - Performs the given action for each element of the collection
         // Operations with another Collection
-        // 11. addAll(Collection c) - Adds all elements from the specified collection to this collection
-        // 12. containsAll() - Returns true if the collection contains all the elements of a specified collection
+        // 51. addAll(Collection c) - Adds all elements from the specified collection to this collection
+        // 52. containsAll() - Returns true if the collection contains all the elements of a specified collection
         // 13. retainAll() - Retains only the elements in the collection that are contained in a specified collection
         // 14. removeAll() - Removes all the elements of a specified collection from the collection
 
@@ -63,6 +64,8 @@ public class CJ_Collection_2_Common_Methods {
 
         Object[] fruitsArray_of_Collection = fruitsCollection.toArray(); // toArray() - Convert to array
         System.out.println("Array from Collection: " + Arrays.toString(fruitsArray_of_Collection));
+
+        fruitsCollection.forEach(fruit -> System.out.print("For each: " + fruit + " ")); System.out.println(""); // forEach() - Perform action for each element
 
         Collection<String> anotherCollection = new ArrayList<>();
         Collections.addAll(anotherCollection, "Apple", "Banana", "Grapes", "Pineapple" , "Kiwi", "Guava");
@@ -127,6 +130,8 @@ public class CJ_Collection_2_Common_Methods {
         Object[] fruitsArray_of_List = fruitsList.toArray(); // toArray() - Convert to array
         System.out.println("Array from List: " + Arrays.toString(fruitsArray_of_List));
 
+        fruitsList.forEach(fruit -> System.out.print("For each: " + fruit + " ")); System.out.println(""); // forEach() - Perform action for each element
+
         List<String> anotherList = new ArrayList<>();
         Collections.addAll(anotherList, "Apple", "Banana", "Grapes", "Pineapple" , "Kiwi", "Guava");
         System.out.println("anotherList - " + anotherList);
@@ -189,6 +194,8 @@ public class CJ_Collection_2_Common_Methods {
 
         Object[] fruitsArray_of_ArrayList = fruitsArrayList.toArray(); // toArray() - Convert to array
         System.out.println("Array from ArrayList: " + Arrays.toString(fruitsArray_of_ArrayList));
+
+        fruitsArrayList.forEach(fruit -> System.out.print("For each: " + fruit + " ")); System.out.println(""); // forEach() - Perform action for each element
 
         ArrayList<String> anotherArrayList = new ArrayList<>();
         Collections.addAll(anotherArrayList, "Apple", "Banana", "Grapes", "Pineapple" , "Kiwi", "Guava");
@@ -253,6 +260,8 @@ public class CJ_Collection_2_Common_Methods {
         Object[] fruitsArray_of_LinkedList = fruitsLinkedList.toArray(); // toArray() - Convert to array
         System.out.println("Array from LinkedList: " + Arrays.toString(fruitsArray_of_LinkedList));
 
+        fruitsLinkedList.forEach(fruit -> System.out.print("For each: " + fruit + " ")); System.out.println(""); // forEach() - Perform action for each element
+
         LinkedList<String> anotherLinkedList = new LinkedList<>();
         Collections.addAll(anotherLinkedList, "Apple", "Banana", "Grapes", "Pineapple" , "Kiwi", "Guava");
         System.out.println("anotherLinkedList - " + anotherLinkedList);
@@ -315,6 +324,8 @@ public class CJ_Collection_2_Common_Methods {
 
         Object[] fruitsArray_of_Set = fruitsSet.toArray(); // toArray() - Convert to array
         System.out.println("Array from Set: " + Arrays.toString(fruitsArray_of_Set));
+
+        fruitsSet.forEach(fruit -> System.out.print("For each: " + fruit + " ")); System.out.println(""); // forEach() - Perform action for each element
 
         Set<String> anotherSet = new HashSet<>();
         Collections.addAll(anotherSet, "Apple", "Banana", "Grapes", "Pineapple" , "Kiwi", "Guava");
@@ -379,6 +390,8 @@ public class CJ_Collection_2_Common_Methods {
         Object[] fruitsArray_of_HashSet = fruitsHashSet.toArray(); // toArray() - Convert to array
         System.out.println("Array from HashSet: " + Arrays.toString(fruitsArray_of_HashSet));
 
+        fruitsHashSet.forEach(fruit -> System.out.print("For each: " + fruit + " ")); System.out.println(""); // forEach() - Perform action for each element
+
         HashSet<String> anotherHashSet = new HashSet<>();
         Collections.addAll(anotherHashSet, "Apple", "Banana", "Grapes", "Pineapple" , "Kiwi", "Guava");
         System.out.println("anotherHashSet - " + anotherHashSet);
@@ -441,6 +454,8 @@ public class CJ_Collection_2_Common_Methods {
 
         Object[] fruitsArray_of_LinkedHashSet = fruitsLinkedHashSet.toArray(); // toArray() - Convert to array
         System.out.println("Array from LinkedHashSet: " + Arrays.toString(fruitsArray_of_LinkedHashSet));
+
+        fruitsLinkedHashSet.forEach(fruit -> System.out.print("For each: " + fruit + " ")); System.out.println(""); // forEach() - Perform action for each element
 
         LinkedHashSet<String> anotherLinkedHashSet = new LinkedHashSet<>();
         Collections.addAll(anotherLinkedHashSet, "Apple", "Banana", "Grapes", "Pineapple" , "Kiwi", "Guava");
@@ -505,6 +520,8 @@ public class CJ_Collection_2_Common_Methods {
         Object[] fruitsArray_of_TreeSet = fruitsTreeSet.toArray(); // toArray() - Convert to array
         System.out.println("Array from TreeSet: " + Arrays.toString(fruitsArray_of_TreeSet));
 
+        fruitsTreeSet.forEach(fruit -> System.out.print("For each: " + fruit + " ")); System.out.println(""); // forEach() - Perform action for each element
+
         TreeSet<String> anotherTreeSet = new TreeSet<>();
         Collections.addAll(anotherTreeSet, "Apple", "Banana", "Grapes", "Pineapple" , "Kiwi", "Guava");
         System.out.println("anotherTreeSet - " + anotherTreeSet);
@@ -567,6 +584,8 @@ public class CJ_Collection_2_Common_Methods {
 
         Object[] fruitsArray_of_Queue = fruitsQueue.toArray(); // toArray() - Convert to array
         System.out.println("Array from Queue: " + Arrays.toString(fruitsArray_of_Queue));
+
+        fruitsQueue.forEach(fruit -> System.out.print("For each: " + fruit + " ")); System.out.println(""); // forEach() - Perform action for each element
 
         Queue<String> anotherQueue = new ArrayDeque<>();
         Collections.addAll(anotherQueue, "Apple", "Banana", "Grapes", "Pineapple" , "Kiwi", "Guava");
@@ -631,6 +650,8 @@ public class CJ_Collection_2_Common_Methods {
         Object[] fruitsArray_of_Deque = fruitsDeque.toArray(); // toArray() - Convert to array
         System.out.println("Array from Deque: " + Arrays.toString(fruitsArray_of_Deque));
 
+        fruitsDeque.forEach(fruit -> System.out.print("For each: " + fruit + " ")); System.out.println(""); // forEach() - Perform action for each element
+
         Deque<String> anotherDeque = new ArrayDeque<>();
         Collections.addAll(anotherDeque, "Apple", "Banana", "Grapes", "Pineapple" , "Kiwi", "Guava");
         System.out.println("anotherDeque - " + anotherDeque);
@@ -694,6 +715,8 @@ public class CJ_Collection_2_Common_Methods {
         Object[] fruitsArray_of_ArrayDeque = fruitsArrayDeque.toArray(); // toArray() - Convert to array
         System.out.println("Array from ArrayDeque: " + Arrays.toString(fruitsArray_of_ArrayDeque));
 
+        fruitsArrayDeque.forEach(fruit -> System.out.print("For each: " + fruit + " ")); System.out.println(""); // forEach() - Perform action for each element
+
         ArrayDeque<String> anotherArrayDeque = new ArrayDeque<>();
         Collections.addAll(anotherArrayDeque, "Apple", "Banana", "Grapes", "Pineapple" , "Kiwi", "Guava");
         System.out.println("anotherArrayDeque - " + anotherArrayDeque);
@@ -756,6 +779,8 @@ public class CJ_Collection_2_Common_Methods {
 
         Object[] fruitsArray_of_PriorityQueue = fruitsPriorityQueue.toArray(); // toArray() - Convert to array
         System.out.println("Array from PriorityQueue: " + Arrays.toString(fruitsArray_of_PriorityQueue));
+
+        fruitsPriorityQueue.forEach(fruit -> System.out.print("For each: " + fruit + " ")); System.out.println(""); // forEach() - Perform action for each element
 
         PriorityQueue<String> anotherPriorityQueue = new PriorityQueue<>();
         Collections.addAll(anotherPriorityQueue, "Apple", "Banana", "Grapes", "Pineapple" , "Kiwi", "Guava");

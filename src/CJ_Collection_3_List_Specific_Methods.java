@@ -10,6 +10,8 @@ public class CJ_Collection_3_List_Specific_Methods {
         // lastIndexOf() - Returns the index of the last occurrence of a specified element
         // listIterator() - Returns a list iterator to traverse the elements of the list
         // subList() - Returns a view of a portion of the list between specified indices
+        // sort() - Sorts the elements of the list in natural order or using a specified comparator
+        // equals() - Compares the list with another list for equality  
 
         System.out.println("--------------------------------------------------");
         // List Methods - Other than Collection methods
@@ -79,6 +81,8 @@ public class CJ_Collection_3_List_Specific_Methods {
 
         System.out.println("After modification: " + fruitsList);
 
+        Collections.sort(fruitsList);
+        System.out.println("After sorting: " + fruitsList);
 
         System.out.println("--------------------------------------------------");
         // ArrayList Methods - Other than Collection methods
@@ -146,6 +150,8 @@ public class CJ_Collection_3_List_Specific_Methods {
         }
 
         System.out.println("After modification: " + fruitsArrayList);
+        Collections.sort(fruitsArrayList);
+        System.out.println("After sorting: " + fruitsArrayList);
         System.out.println("--------------------------------------------------");
         // LinkedList Methods - Other than Collection methods
         System.out.println("LinkedList - Other than Collection methods:");
@@ -212,6 +218,8 @@ public class CJ_Collection_3_List_Specific_Methods {
         }
 
         System.out.println("After modification: " + fruitsLinkedList);
+        Collections.sort(fruitsLinkedList);
+        System.out.println("After sorting: " + fruitsLinkedList);
         System.out.println("--------------------------------------------------");
 
     }
