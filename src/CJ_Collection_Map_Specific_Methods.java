@@ -1,5 +1,5 @@
 import java.util.*;
-public class CJ_Collection_4_Map_Methods {
+public class CJ_Collection_Map_Specific_Methods {
     public static void main(String[] args) {
 
         //Map Methods - Overview
