@@ -1,16 +1,14 @@
+import java.util.*;
+
 public class CJ_Collection_5_LinkedList_Specific_Methods {
     public static void main(String[] args) {
         //LinkedList Methods - Overview (In addition to Collection and List methods)
-        // addFirst() - Adds an element at the beginning of the LinkedList
-        // addLast() - Adds an element at the end of the LinkedList
-        // getFirst() - Returns the first element of the LinkedList
-        // getLast() - Returns the last element of the LinkedList
-        // removeFirst() - Removes the first element of the LinkedList
-        // removeLast() - Removes the last element of the LinkedList
-        // offer() - Adds an element to the end of the LinkedList (as a queue)
-        // poll() - Removes and returns the first element of the LinkedList (as a queue)
-        // push() - Adds an element at the top of the LinkedList (as a stack)
-        // pop() - Removes and returns the top element of the LinkedList (as a stack)
+        // LinkedList is a doubly linked list implementation of the List and Deque interfaces(Deque extends Queue).
+        // Stack and Queue both can be implemented using LinkedList.
+        // It allows for efficient insertions and deletions at both ends of the list.
+        LinkedList<String> fruitsLinkedList = new LinkedList<>();
+        Collections.addAll(fruitsLinkedList, "Fig", "Grape", "Honeydew", "Apple", "Banana", "Cherry", "Date", "Fig", "Grape");
+        System.out.println("fruitsLinkedList: " + fruitsLinkedList);
 
     }
 }
