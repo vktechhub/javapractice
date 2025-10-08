@@ -1,7 +1,7 @@
 import java.util.*;
 
 // find middle using Single Linked list
-public class DSA_TP_FindMiddle_SingleLinkedList {
+public class Pending_DSA_TP_FindMiddle_SingleLinkedList {
     public static void main(String[] args) {
         SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
         list.addLast(10);

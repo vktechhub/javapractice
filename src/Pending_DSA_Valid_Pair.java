@@ -1,6 +1,6 @@
 import java.util.HashMap;
 
-public class DSA_Valid_Pair {
+public class Pending_DSA_Valid_Pair {
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4, 5, 6};
         int count =0 ;
