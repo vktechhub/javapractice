@@ -1,0 +1,9 @@
+Math functions:-
+    The Math.pow() method in Java is used to calculate a number raised to the power of some other number.
+
+        double base = 30;
+        double exponent = 2;
+        double out = Math.pow(base, exponent);
+        int out = (int) Math.pow(base, exponent);
+
+
