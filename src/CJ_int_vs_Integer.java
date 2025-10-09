@@ -1,0 +1,36 @@
+
+public class CJ_int_vs_Integer {
+
+  public static void main(String[] args) {
+          Integer a = 1;
+          Integer b = 1;
+
+          Integer x = 1000;
+          Integer y = 1000;
+          
+          int a1 = 1;
+          int b1 = 1;
+
+          int x1 = 1000;
+          int y1 = 1000;
+
+          // This will print true
+          System.out.println("Integer Check (a == b):- " + (a == b));
+
+          // This will print false
+          System.out.println("Integer Check (x == y):- " + (x == y));
+          
+          System.out.println("Integer Check (x.equals(y))):- " + (x.equals(y))); // This will be true
+          
+          // This will print true
+          System.out.println("Integer Check (a1 == b1):- " + (a1 == b1));
+
+          // This will print false
+          System.out.println("Integer Check (x1 == y1):- " + (x1 == y1));
+          
+          }
+}
+// How it works:
+// Data type :
+// int: This is a primitive data type. It directly stores the integer value in memory.
+// Integer: This is a wrapper class for the int primitive. It is an object that encapsulates an int value.
