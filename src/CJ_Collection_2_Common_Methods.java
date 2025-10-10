@@ -62,6 +62,8 @@ public class CJ_Collection_2_Common_Methods {
         }
         System.out.println();
 
+        System.out.print("Reverse Iteration over collection: ");
+
         Object[] fruitsArray_of_Collection = fruitsCollection.toArray(); // toArray() - Convert to array
         System.out.println("Array from Collection: " + Arrays.toString(fruitsArray_of_Collection));
 

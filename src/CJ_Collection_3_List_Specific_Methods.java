@@ -84,6 +84,28 @@ public class CJ_Collection_3_List_Specific_Methods {
         Collections.sort(fruitsList);
         System.out.println("After sorting: " + fruitsList);
 
+        Collections.reverse(fruitsList);
+        System.out.println("After reversing: " + fruitsList);
+
+        Collections.shuffle(fruitsList);
+        System.out.println("After shuffling: " + fruitsList);
+
+        Collections.rotate(fruitsList, 2);
+        System.out.println("After rotating by 2: " + fruitsList);
+
+        Collections.swap(fruitsList, 0, fruitsList.size() - 1);
+        System.out.println("After swapping first and last: " + fruitsList);
+
+        System.out.println("Minimum element: " + Collections.min(fruitsList));
+        System.out.println("Maximum element: " + Collections.max(fruitsList));
+
+        //synchronized List - thread-safe version of the list
+        List<String> sList = Collections.synchronizedList(fruitsList);
+        System.out.println("Synchronized List: " + sList);
+
+        Collections.fill(fruitsList, "Fruit");
+        System.out.println("After filling with 'Fruit': " + fruitsList);
+
         System.out.println("--------------------------------------------------");
         // ArrayList Methods - Other than Collection methods
         System.out.println("ArrayList - Other than Collection methods:");
@@ -152,6 +174,29 @@ public class CJ_Collection_3_List_Specific_Methods {
         System.out.println("After modification: " + fruitsArrayList);
         Collections.sort(fruitsArrayList);
         System.out.println("After sorting: " + fruitsArrayList);
+
+        Collections.reverse(fruitsArrayList);
+        System.out.println("After reversing: " + fruitsArrayList);
+
+        Collections.shuffle(fruitsArrayList);
+        System.out.println("After shuffling: " + fruitsArrayList);
+
+        Collections.rotate(fruitsArrayList, 2);
+        System.out.println("After rotating by 2: " + fruitsArrayList);
+
+        Collections.swap(fruitsArrayList, 0, fruitsArrayList.size() - 1);
+        System.out.println("After swapping first and last: " + fruitsArrayList);
+
+        System.out.println("Minimum element: " + Collections.min(fruitsArrayList));
+        System.out.println("Maximum element: " + Collections.max(fruitsArrayList));
+
+        //synchronized List - thread-safe version of the list
+        List<String> sList_AList = Collections.synchronizedList(fruitsArrayList);
+        System.out.println("Synchronized List: " + sList_AList);
+
+        Collections.fill(fruitsArrayList, "Fruit");
+        System.out.println("After filling with 'Fruit': " + fruitsArrayList);
+
         System.out.println("--------------------------------------------------");
         // LinkedList Methods - Other than Collection methods
         System.out.println("LinkedList - Other than Collection methods:");
@@ -220,6 +265,29 @@ public class CJ_Collection_3_List_Specific_Methods {
         System.out.println("After modification: " + fruitsLinkedList);
         Collections.sort(fruitsLinkedList);
         System.out.println("After sorting: " + fruitsLinkedList);
+
+        Collections.reverse(fruitsLinkedList);
+        System.out.println("After reversing: " + fruitsLinkedList);
+
+        Collections.shuffle(fruitsLinkedList);
+        System.out.println("After shuffling: " + fruitsLinkedList);
+
+        Collections.rotate(fruitsLinkedList, 2);
+        System.out.println("After rotating by 2: " + fruitsLinkedList);
+
+        Collections.swap(fruitsLinkedList, 0, fruitsLinkedList.size() - 1);
+        System.out.println("After swapping first and last: " + fruitsLinkedList);
+
+        System.out.println("Minimum element: " + Collections.min(fruitsLinkedList));
+        System.out.println("Maximum element: " + Collections.max(fruitsLinkedList));
+
+        //synchronized List - thread-safe version of the list
+        List<String> sList_LList = Collections.synchronizedList(fruitsLinkedList);
+        System.out.println("Synchronized List: " + sList_LList);
+
+        Collections.fill(fruitsLinkedList, "Fruit");
+        System.out.println("After filling with 'Fruit': " + fruitsLinkedList);
+
         System.out.println("--------------------------------------------------");
 
     }
