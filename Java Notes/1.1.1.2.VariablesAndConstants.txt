@@ -1,0 +1,46 @@
+✍️ 5. Naming Rules
+
+Must start with a letter, _, or $.
+
+Cannot start with a number.
+
+Cannot be a Java keyword (like class, int, if).
+
+Use camelCase:
+studentName, maxScore, isValid.
+
+
+Int, byte, short, long, float, double, char, boolean
+
+
+General Syntax for Variable Declaration
+<access_modifier> <static_modifier> <final_modifier> <data_type> <variable_name> = <value>;
+Example:- public static final int MAX_SCORE = 100;
+access_modifier	
+Optional. Can be public, private, protected, or default (package-private).
+Private - only within the same class
+Default (No modifier) - within the same package only
+Protected - same package and subclasses in any package
+Public - Accessible from anywhere
+Best Practices:
+Use private for fields and internal methods.
+Use public for APIs and utility classes/methods.
+Use protected in inheritance hierarchies.
+Avoid default unless package-level access is intended.
+Static - Optional. Means the variable belongs to the class, not instances.
+Final - Optional. Makes the variable a constant (value cannot change).
+dataType - Mandatory. Any valid Java type (primitive or reference).
+Primitive Types:
+byte, short, int, long
+float, double
+char
+boolean
+Reference Types:
+Class names (String, Integer, List, etc.)
+variableName - Mandatory. Must follow Java naming rules.
+Must begin with a letter, $, or _
+Cannot be a keyword
+Follow camelCase by convention for variables
+= value	 - Optional. Assigns an initial value (initialization).
+Use final to declare a variable whose value cannot change (i.e., a constant):
+final double PI = 3.14159;
