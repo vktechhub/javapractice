@@ -1,0 +1,15 @@
+Generics are not a separate data type category —
+they are a feature of reference types (specifically, of classes, interfaces, and methods).
+
+✅ Generics are type parameters, not data types themselves.
+
+They let you create classes, interfaces, and methods that work with different data types safely (type-safe, compile-time checking).
+
+
+
+🧱 Generics Can Be Used In
+Where	            Example	                            Explanation
+Generic Class	    class Box<T> { T value; }	        T is a type parameter
+Generic Interface	interface Comparable<T>	            Used in sorting, etc.
+Generic Method	<T> void print(T item)	                Works for any type
+Generic Collection	List<String>, Map<Integer, String>	Part of Java Collections Framework

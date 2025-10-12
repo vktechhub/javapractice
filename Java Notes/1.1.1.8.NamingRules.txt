@@ -1,0 +1,8 @@
+Naming Rules 
+
+✍️ 1. for Data types
+        Must start with a letter, _, or $.
+        Cannot start with a number.
+        Cannot be a Java keyword (like class, int, if).
+        Use camelCase:
+        studentName, maxScore, isValid.

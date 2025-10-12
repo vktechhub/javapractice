@@ -1,0 +1,39 @@
+Record
+A record is a special type of class introduced in Java 14 (preview) and made official in Java 16.
+It is designed for classes that are just data carriers — like simple DTOs (Data Transfer Objects) or POJOs with:
+private fields
+constructor
+getters
+equals(), hashCode(), and toString()
+✅ A record automatically provides all these — you don’t have to write them yourself!
+
+Example:
+record Person(String name, int age) { }
+
+For record Person(String name, int age) Java automatically creates:
+
+// 1. Private final fields
+private final String name;
+private final int age;
+
+// 2. Canonical constructor
+public Person(String name, int age) {
+    this.name = name;
+    this.age = age;
+}
+
+// 3. Accessor methods (getters, but without 'get' prefix)
+public String name() { return name; }
+public int age() { return age; }
+
+// 4. equals(), hashCode(), and toString() methods
+// all auto-generated based on fields
+
+
+So you can use:
+
+Person p = new Person("Vignesh", 25);
+System.out.println(p.name());     // Output: Vignesh
+System.out.println(p.age());      // Output: 25
+System.out.println(p);            // Output: Person[name=Vignesh, age=25]
+

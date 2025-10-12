@@ -1,0 +1,156 @@
+✅ In short:
+Annotations are special reference data types that act as metadata — they describe the information about the code, 
+not part of the code logic itself to execute it.
+They tell the compiler, IDE, tools, or frameworks or runtime environment to understand how to handle certain pieces of code.
+✅ Think of them as labels or tags attached to your code that can influence its behavior or provide information to other tools/frameworks.
+
+🧾 Summary Table
+Aspect	            Description
+Category	        Reference data Type
+Purpose	            Provide metadata for compiler, tools, or runtime
+Defined As	        Special interface (@interface)
+Retention Levels	SOURCE, CLASS, RUNTIME
+Common Examples	@   Override, @Deprecated, @FunctionalInterface, @SuppressWarnings
+Usage	            Improves readability, safety, and framework integration
+
+🧠 Basic Syntax
+@AnnotationName(optionalValues)
+
+Example:
+@Override
+public String toString() {
+    return "Hello";
+}
+
+➡️ Technically, every annotation you define is a special interface extending java.lang.annotation.Annotation.
+
+⚙️ How They Work
+
+Annotations can:
+    Give instructions to the compiler (e.g., @Override)
+    Influence code generation or processing tools
+    Provide runtime metadata for frameworks like Spring, Hibernate, JUnit, etc.
+
+🔹 Built-in Annotations in Java
+Annotation	        Purpose	Used On
+@Override	        Ensures a method actually overrides a superclass method	Methods
+@Deprecated	        Marks an element as outdated (discourages use)	Methods, classes, fields
+@SuppressWarnings	Tells compiler to ignore specific warnings	Variables, methods, classes
+@SafeVarargs	    Suppresses warnings on generic varargs	Methods, constructors
+@FunctionalInterface	Marks an interface with a single abstract method	Interfaces
+
+🧩 1️⃣ @Override
+
+✅ Purpose:
+Tells the compiler a method is meant to override a parent class method.
+
+Example:
+class Animal {
+    void speak() { System.out.println("Animal sound"); }
+}
+
+class Dog extends Animal {
+    @Override
+    void speak() {
+        System.out.println("Bark");
+    }
+}
+
+If the parent method name/signature is wrong, the compiler shows an error — preventing mistakes.
+
+🧩 2️⃣ @Deprecated
+
+✅ Purpose:
+Marks a method/class/field as obsolete or unsafe, telling developers not to use it.
+
+Example:
+@Deprecated
+void oldMethod() {
+    System.out.println("This method is deprecated");
+}
+
+If you call it:
+oldMethod(); // Compiler shows warning
+
+➡️ You can still use it, but Java warns you during compilation.
+
+🧩 3️⃣ @SuppressWarnings
+
+✅ Purpose:
+Suppresses compiler warnings for cleaner builds.
+
+Example:
+@SuppressWarnings("unchecked")
+void example() {
+    List list = new ArrayList(); // raw type warning suppressed
+}
+
+🧩 4️⃣ @FunctionalInterface
+
+✅ Purpose:
+Marks an interface that should have only one abstract method (used in lambdas).
+
+Example:
+@FunctionalInterface
+interface Greeting {
+    void sayHello();
+}
+
+
+If you try to add another abstract method, compiler gives an error.
+
+⚡ Custom Annotations (User-Defined)
+
+You can also define your own annotations:
+
+Example:
+@interface MyAnnotation {
+    String author();
+    int version() default 1;
+}
+
+
+Usage:
+
+@MyAnnotation(author = "Vignesh", version = 2)
+class Example { }
+
+🧮 Retention Policies
+
+Define how long the annotation is kept (important for runtime frameworks):
+
+Policy	Description
+SOURCE	Available only in source code (discarded by compiler)
+CLASS	Present in class file but not available at runtime
+RUNTIME	Available during program execution via Reflection
+
+Example:
+
+import java.lang.annotation.*;
+
+@Retention(RetentionPolicy.RUNTIME)
+@interface Info { String value(); }
+
+🧭 Where You Can Use Annotations
+Target	Example
+Class / Interface / Enum / Record	@Deprecated class OldClass {}
+Method	@Override void run() {}
+Field	@Deprecated int oldValue;
+Parameter	void test(@NonNull String name)
+Constructor	@Deprecated MyClass() {}
+Local Variable	@SuppressWarnings("unused") int temp = 0;
+🧠 Behind the Scenes
+
+Every annotation you define:
+
+Is stored in .class files
+
+Can be read at runtime via the Reflection API
+
+Example:
+
+if (Example.class.isAnnotationPresent(MyAnnotation.class)) {
+    MyAnnotation info = Example.class.getAnnotation(MyAnnotation.class);
+    System.out.println(info.author());  // "Vignesh"
+}
+

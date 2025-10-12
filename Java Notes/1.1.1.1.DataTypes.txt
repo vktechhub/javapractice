@@ -1,4 +1,4 @@
-🧩 Primitive Data Types
+🧩 1. Primitive Data Types
 Type	Size	Range	                    Example
 byte	8-bit	-128 to 127	                byte b = 10;
 short	16-bit	-32,768 to 32,767	        short s = 1000;
@@ -9,11 +9,11 @@ double	64-bit	More precise decimal	    double pi = 3.14159;
 char	16-bit Unicode char	'A', '9', etc.	char grade = 'A';
 boolean	1-bit (true/false)	Logical values	boolean isReady = true;
 
-📦 Reference Data Types
+📦 2. Reference Data Types
 Reference types store the address (reference) of an object, not the actual value.
 They are created using classes, interfaces, arrays, Collections or enums.
 
-🧱 1. Class Type
+🧱 2.1. Class Type
 Created from a class definition. Holds objects created from user-defined or built-in classes.
 
 First Example:-
@@ -22,7 +22,7 @@ Student s1 = new Student();           // Custom class
 Second Example:-
 String name = "Vignesh";              // String is a class (special case, no need for new)
 
-🔢 2. Wrapper Classes (for Primitives)
+🔢 2.2. Wrapper Classes (for Primitives)
 
 Used to wrap primitive types into objects.
 (Commonly used with collections, generics, etc.) (e.g., List<Integer> instead of List<int>).
@@ -37,14 +37,14 @@ double	    Double	        Double price = 99.99;
 char	    Character	    Character grade = 'A';
 boolean	    Boolean	        Boolean flag = true;
 
-🧮 3. Arrays
+🧮 2.3. Arrays
 A group of elements of the same data type of fixed array size.
 Reference points to the memory block where array elements are stored.
 
 int[] marks = {85, 90, 95};
 String[] names = new String[5];
 
-🧰 4. Collections Framework
+🧰 2.4. Collections Framework
 Java provides powerful collection classes for storing groups of objects.
 Used for dynamic, flexible data structures (unlike fixed-size arrays).
 
@@ -54,60 +54,39 @@ Set	        Set<E>	    HashSet, LinkedHashSet, TreeSet
 Map	        Map<K, V>	HashMap, LinkedHashMap, TreeMap	
 Queue	    Queue<E>	LinkedList, PriorityQueue, ArrayDeque
 
-🧩 5. Interface Types
+🧩 2.5. Interface Types
 Reference variable can also refer to an object of a class that implements an interface.
 Allows polymorphism (object behaves as per the interface it implements).\
 
 Runnable task = new Thread();
 List<Integer> list = new ArrayList<>();
 
-🎚️ 6. Enum Types
+🎚️ 2.6. Enum Types
 Used for fixed sets of constants. 
 Type-safe alternative to using constant integers or strings.
 
 enum Day { MONDAY, TUESDAY, WEDNESDAY }
 Day today = Day.MONDAY;
 
-🌐 7. Null Reference
-All reference types can hold a null value (means: “no object” assigned).
-String name = null;  // reference doesn’t point to any object
+2.7. Annotations
+Annotations are a special type of reference data type that provide metadata — information about code, not part of the code logic itself.
+They tell the compiler, tools, or runtime environment how to handle certain pieces of code (classes, methods, fields, etc.).
 
-8. Record
+2.8. Record
 A record is a special type of class introduced in Java 14 (preview) and made official in Java 16.
-It is designed for classes that are just data carriers — like simple DTOs (Data Transfer Objects) or POJOs with:
-private fields
-constructor
-getters
-equals(), hashCode(), and toString()
-✅ A record automatically provides all these — you don’t have to write them yourself!
-
-Example:
+Example:- 
 record Person(String name, int age) { }
 
 For record Person(String name, int age) Java automatically creates:
-
 // 1. Private final fields
-private final String name;
-private final int age;
-
 // 2. Canonical constructor
-public Person(String name, int age) {
-    this.name = name;
-    this.age = age;
-}
-
 // 3. Accessor methods (getters, but without 'get' prefix)
-public String name() { return name; }
-public int age() { return age; }
-
 // 4. equals(), hashCode(), and toString() methods
 // all auto-generated based on fields
 
 
-So you can use:
 
-Person p = new Person("Vignesh", 25);
-System.out.println(p.name());     // Output: Vignesh
-System.out.println(p.age());      // Output: 25
-System.out.println(p);            // Output: Person[name=Vignesh, age=25]
+⚡ 3. Special Reference Value: null
+All reference types can hold a null value (means: “no object” assigned).
+String name = null; // reference doesn't point anywhere
 
