@@ -1,0 +1,69 @@
+General Syntax for Variable Declaration
+        <access_modifier> <static_modifier> <final_modifier> <data_type> <variable_name> = <value>;
+
+Example:- 
+    public static final int max_Score = 100;
+
+access_modifier	
+    Optional. Can be public, private, protected, or default (package-private).
+    Private - only within the same class
+    Default (No modifier) - within the same package only
+    Protected - same package and subclasses in any package
+    Public - Accessible from anywhere
+    Best Practices:
+            Use private for fields and internal methods.
+            Use public for APIs and utility classes/methods.
+            Use protected in inheritance hierarchies.
+            Avoid default unless package-level access is intended.
+Static - Optional. Means the variable belongs to the class, not instances.
+Final - Optional. Makes the variable a constant (value cannot change).
+        final double PI = 3.14159;
+
+dataType - Mandatory. Any valid Java type (primitive or reference).
+            Primitive Types:
+                    byte, short, int, long
+                    float, double
+                    char
+                    boolean
+            Reference Types:
+                    Class names (String, Integer, List, etc.)
+variableName - Mandatory. Must follow Java naming rules.
+            Must begin with a letter, $, or _
+            Cannot be a keyword
+            Follow camelCase by convention for variables
+= value	 - Optional. Assigns an initial value (initialization).
+
+Multiple Variable Declarations
+        int x = 5, y = 10, z = 15; // Different values
+        int x = y = z = 10;        // Same value
+
+More examples:-
+    Primitive
+        int age = 40;
+        static final double price_Of_Product = 10.34;
+        final char genderOfStudent = 'M';
+        private boolean isPassed = true;
+        long population = 1400000000L;
+        float temperature = 36.6f;
+        byte smallNumber = 10;
+        short distance = 1500;
+    Reference
+        String name = "Vignesh";
+        Integer number = 100;
+        Double average = 85.5;
+        Character symbol = '@';
+    Array
+        int[] marks = {90, 85, 78};
+        String[] colors = {"Red", "Green", "Blue"};
+        double[] prices = new double[3];
+
+    Variables with Different Access Modifiers
+        public class Student {
+            public String name = "Kanna";   // accessible from anywhere
+            protected int rollNumber = 12;  // same package + subclasses
+            String course = "BCA";          // default (package-level)
+            private double marks = 92.5;    // only inside this class
+        }
+        💡 Access modifiers control who can access the variable.
+    
+

@@ -24,8 +24,21 @@ String name = "Vignesh";              // String is a class (special case, no nee
 
 🔢 2.2. Wrapper Classes (for Primitives)
 
-Used to wrap primitive types into objects.
-(Commonly used with collections, generics, etc.) (e.g., List<Integer> instead of List<int>).
+Wrapper classes are object representations of primitive data types.
+Why Do We Need Wrapper Classes?
+    * Many Java frameworks and APIs (like Collections, Streams, Generics, Reflection, JDBC, etc.) require objects, not primitives.
+            (e.g., List<Integer> instead of List<int>).
+    * Primitives don’t have methods. Wrappers provide useful methods for working with values.
+            int num = 10;
+            String binary = Integer.toBinaryString(num);  // convert to binary string
+            System.out.println(Integer.MAX_VALUE);  // 2147483647
+    * Autoboxing and Unboxing:- Java automatically converts between primitives and wrappers when needed.
+            int x = 5;
+            Integer y = x;     // autoboxing (primitive → object)
+            int z = y;         // unboxing (object → primitive)
+    * Primitives cannot be null, but wrappers can.
+            int a = 0;          // must have a value
+            Integer b = null;   // can represent “no value”
 
 Primitive	Wrapper Class	Example
 byte	    Byte	        Byte b = 10;
@@ -40,9 +53,8 @@ boolean	    Boolean	        Boolean flag = true;
 🧮 2.3. Arrays
 A group of elements of the same data type of fixed array size.
 Reference points to the memory block where array elements are stored.
-
-int[] marks = {85, 90, 95};
-String[] names = new String[5];
+    int[] marks = {85, 90, 95};
+    String[] names = new String[5];
 
 🧰 2.4. Collections Framework
 Java provides powerful collection classes for storing groups of objects.
@@ -52,11 +64,11 @@ Category	Interface	Common Implementations
 List	    List<E>	    ArrayList, LinkedList	
 Set	        Set<E>	    HashSet, LinkedHashSet, TreeSet	
 Map	        Map<K, V>	HashMap, LinkedHashMap, TreeMap	
-Queue	    Queue<E>	LinkedList, PriorityQueue, ArrayDeque
+Queue	    Queue<E>	LinkedList, PriorityQueue, ArrayDeque, ConcurrentHashMap
 
 🧩 2.5. Interface Types
 Reference variable can also refer to an object of a class that implements an interface.
-Allows polymorphism (object behaves as per the interface it implements).\
+Allows polymorphism (object behaves as per the interface it implements).
 
 Runnable task = new Thread();
 List<Integer> list = new ArrayList<>();
@@ -83,8 +95,6 @@ For record Person(String name, int age) Java automatically creates:
 // 3. Accessor methods (getters, but without 'get' prefix)
 // 4. equals(), hashCode(), and toString() methods
 // all auto-generated based on fields
-
-
 
 ⚡ 3. Special Reference Value: null
 All reference types can hold a null value (means: “no object” assigned).

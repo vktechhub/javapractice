@@ -1,0 +1,18 @@
+* A String in Java is actually an object, which means it contains methods that can perform certain operations on strings.
+* Strings are used for storing text.
+* A String variable is representated as a collection of characters surrounded by double quotes:
+        String str = "Hello";
+
+Methods
+    str.length() - length of a string
+    str.toUpperCase() - converts a string to upper case letters.
+    str.toLowerCase() - converts a string to lower case letters.
+    str.indexOf("xyz) - returns the index (the position) of the first occurrence of a specified text
+    str.charAt()      - to access a character at a specific position in a string
+    str1.equals(str2) - To compare two value of strings
+    str.trim()       = to remove whitespaces from the beginning and at the end of the string
+    str.contains()
+    str.startsWith()
+    str.endsWith()
+    str.format()
+    str.
