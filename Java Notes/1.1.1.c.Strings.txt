@@ -3,16 +3,64 @@
 * A String variable is representated as a collection of characters surrounded by double quotes:
         String str = "Hello";
 
-Methods
-    str.length() - length of a string
-    str.toUpperCase() - converts a string to upper case letters.
-    str.toLowerCase() - converts a string to lower case letters.
-    str.indexOf("xyz) - returns the index (the position) of the first occurrence of a specified text
-    str.charAt()      - to access a character at a specific position in a string
-    str1.equals(str2) - To compare two value of strings
-    str.trim()       = to remove whitespaces from the beginning and at the end of the string
-    str.contains()
-    str.startsWith()
-    str.endsWith()
-    str.format()
-    str.
+String Methods
+
+Basic:-
+        str.length() - length of a string
+        str.isEmpty() - Check if the String is empty
+        str.isBlank() - Check if the String is blank
+
+Character Access
+        str.charAt()      - to access a character at a specific position in a string
+        str.toCharArray() - converts a string to an array of characters
+
+SubString and Slicing
+        str.substring(begin) - extracts a part of a string and returns it as a new string
+        str.substring(begin, end) - extracts a part of a string between the begin and end indexes, and returns it as a new string
+        str.subSequence(begin, end) - extracts a part of a string and returns it as a new character sequence
+        str.subSequence() - extracts a part of a string and returns it as a new character sequence
+
+Searching
+        str.contains() - checks whether a string contains a sequence of characters
+        str.startsWith() - checks whether a string starts with the specified characters
+        str.endsWith() - checks whether a string ends with the specified characters
+        str.indexOf() - returns the index (the position) of the first occurrence of a specified text in a string
+        str.lastIndexOf() - returns the index of the last occurrence
+
+Case  Conversion
+        str.toUpperCase() - converts a string to upper case letters
+        str.toLowerCase() - converts a string to lower case letters
+
+Trimming
+        str.trim() - removes whitespace from both ends of a string
+        str.strip() - removes whitespace from both ends of a string
+        str.stripLeading() - removes whitespace from the beginning of a string
+        str.stripTrailing() - removes whitespace from the end of a string
+
+Joining and Splitting
+        str.concat(str2) - concatenates (joins) two or more strings
+        str.join() - joins multiple strings into one string, with a specified delimiter
+        str.split() - splits a string into an array of substrings, based on a specified delimiter
+        str.join(delimiter, elements) - joins multiple strings into one string, with a specified delimiter
+
+Comparision
+        str.equals() - compares two strings for equality
+        str.equalsIgnoreCase() - compares two strings for equality, ignoring case differences
+        str.compareTo() - compares two strings lexicographically
+        str.compareToIgnoreCase() - compares two strings lexicographically, ignoring case differences
+
+Replace
+        str.replace(oldChar, newChar) - replaces all occurrences of a specified character with another character
+        str.replace(oldString, newString) - replaces all occurrences of a specified substring with another substring
+        str.replaceAll(regex, replacement) - replaces each substring that matches the given regular expression with the given replacement
+        str.replaceFirst(regex, replacement) - replaces the first substring that matches the given regular expression with the given replacement
+
+Other Useful Methods
+        str.format() - formats a string using specified format specifiers and arguments
+        str.toString() - returns the string representation of an object
+        str.valueOf() - converts different types of values to a string
+        str.hashCode() - returns the hash code of a string
+        str.matches() - checks if a string matches a specified regular expression
+        str.repeat(count) - repeats the string a specified number of times
+        str.intern() - returns a canonical representation for the string object
+

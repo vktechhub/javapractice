@@ -16,16 +16,26 @@ public class CJ_String_Methods {
         // Length of the string
         System.out.println("Length: " + str.length());
 
-        // Substring
-        System.out.println("Substring: " + str.substring(7, 12));
-        System.out.println("Substring from index 7: " + str.substring(7));
+        // Is empty
+        System.out.println("Is empty: " + str.isEmpty());
+        System.out.println("Is str2 empty: " + str2.isEmpty());
+        System.out.println("Is str2 blank: " + str2.isBlank());
+        System.out.println("Is str3 empty: " + str3.isEmpty());
+        System.out.println("Is str3 blank: " + str3.isBlank());
 
         // Character at a specific index
+        System.out.println("Character at index 1 of 'Java':- " + "Java".charAt(1));
         System.out.println("Character at index 5: " + str.charAt(5));
         char[] strArray = str.toCharArray();
         for (char c : strArray) {
             System.out.println("Char: " + c);
         }
+        System.out.println("");
+
+        // Substring
+        System.out.println("Substring: " + str.substring(7, 12));
+        System.out.println("Substring from index 7: " + str.substring(7));
+        System.out.println("Subsequence: " + str.subSequence(7, 12));
         System.out.println("");
 
         // Index of a substring
@@ -42,28 +52,11 @@ public class CJ_String_Methods {
         // Check if string ends with a suffix
         System.out.println("Ends with '!': " + str.endsWith("!"));
 
-        // Is empty
-        System.out.println("Is empty: " + str.isEmpty());
-        System.out.println("Is str2 empty: " + str2.isEmpty());
-        System.out.println("Is str2 blank: " + str2.isBlank());
-        System.out.println("Is str3 empty: " + str3.isEmpty());
-        System.out.println("Is str3 blank: " + str3.isBlank());
-
         // Convert to uppercase
         System.out.println("Uppercase: " + str.toUpperCase());
 
         // Convert to lowercase
         System.out.println("Lowercase: " + str.toLowerCase());
-
-        // Replace
-        System.out.println("Replaced: " + str.replace("World", "Java"));
-        System.out.println("Replaced (char): " + str.replace('l', 'L'));
-        System.out.println("Replaced (String): " + str.replace("l", "L"));
-        System.out.println("Replaced Char sequence: " + str.replace("hello", "HELLO"));
-        // replaceAll (using regex)
-        System.out.println("Replaced All (regex): " + str.replaceAll("l", "L"));
-        // ReplaceFirst (using regex)
-        System.out.println("Replaced First (regex): " + str.replaceFirst("l", "L"));
 
         // Trim (removes leading and trailing spaces)
         System.out.println("Trimmed: '" + str.trim() + "'");
@@ -74,7 +67,6 @@ public class CJ_String_Methods {
         //stripTrailing
         System.out.println("Strip Trailing: '" + str.stripTrailing() + "'");
         System.out.println("");
-
 
         System.out.println("Concat str and str4: " + str.concat(str4));
 
@@ -93,9 +85,18 @@ public class CJ_String_Methods {
         System.out.println("Equals: " + str.equals(str1));
         System.out.println("Equals Ignore Case: " + str.equalsIgnoreCase(str1.toUpperCase()));
 
-        
         System.out.println("Compare To: " + str4.compareTo(str5));
         System.out.println("Compare To Ignore Case: " + str4.compareToIgnoreCase(str5.toUpperCase()));
+
+        // Replace
+        System.out.println("Replaced: " + str.replace("World", "Java"));
+        System.out.println("Replaced (char): " + str.replace('l', 'L'));
+        System.out.println("Replaced (String): " + str.replace("l", "L"));
+        System.out.println("Replaced Char sequence: " + str.replace("hello", "HELLO"));
+        // replaceAll (using regex)
+        System.out.println("Replaced All (regex): " + str.replaceAll("l", "L"));
+        // ReplaceFirst (using regex)
+        System.out.println("Replaced First (regex): " + str.replaceFirst("l", "L"));
 
         //valueof
         int num = 100;
@@ -107,6 +108,8 @@ public class CJ_String_Methods {
         System.out.println("Interned String: " + str4.intern());
 
         System.out.println("Hash Code of str: " + str.hashCode());
+        System.out.println("To String: " + str.toString());
+        System.out.println("Matches (regex): " + str.matches(".*World.*"));
         System.out.println("------------------------------------------");
         System.out.println("String Formatting:  ");
         //syntax
