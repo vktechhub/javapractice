@@ -1,0 +1,34 @@
+What is Constructor
+
+Types of Constructor
+
+Default Constructor during object creation
+
+Parameterized Constructor
+
+Constructor Overloading
+
+Constructor Chaining
+
+this() and super() in Constructor
+
+Constructor is a special type of method that is called when an object of a class is created. 
+It is used to initialize the object's properties and allocate memory for the object. 
+A constructor has the same name as the class and does not have a return type. 
+It can take parameters to initialize the object's properties with specific values.
+
+Here are some key points about constructors in Java:
+1. Default Constructor: If no constructor is defined in a class, the Java compiler automatically provides a default constructor that initializes the object with default values.
+2. Parameterized Constructor: A constructor can take parameters to initialize the object's properties with specific values.
+3. Constructor Overloading: A class can have multiple constructors with different parameter lists, allowing for different ways to create objects.
+4. Constructor Chaining: A constructor can call another constructor in the same class or in the superclass using the this() or super() keywords.
+
+5. this() and super(): 
+The this() keyword is used to call another constructor in the same class, while the super() keyword is used to call a constructor in the superclass. 
+These keywords must be the first statement in the constructor. 
+
+Default Constructor during inheritance
+    When a subclass is created, it inherits the properties and methods of its superclass. 
+    If the superclass has a default constructor, it is called automatically when the subclass is instantiated. 
+    If the superclass does not have a default constructor, the subclass must explicitly call a superclass constructor using the super() keyword.  
+
