@@ -1,0 +1,98 @@
+Java Collection Framework (JCF) is a set of classes and interfaces that provide ready-made data structures to store and manipulate groups of objects efficiently.
+
+How it is created:-
+    * Collections extends Iterable interface.
+        * List, Set, Queue, Deque extends Collection interface.
+        * List allows duplicate elements and maintains insertion order.
+        * Set does not allow duplicate elements.
+        * Queue follows FIFO (First In First Out) order.
+        * Deque allows insertion and removal of elements from both ends.
+    * Map stores key-value pairs and does not allow duplicate keys.
+        * Map does not extend Collection interface.
+    * Map is used to store key-value pairs. List, Set, Queue, Deque are used to store single elements.
+        
+Implementation:- 
+    * ArrayList, and LinkedList are implementations of the List interface.
+    * HashSet, LinkedHashSet, and TreeSet are implementations of the Set interface.
+    * HashMap, TreeMap, and LinkedHashMap are implementations of the Map interface.
+    * PriorityQueue is a implementation of the Queue interface.
+    * ArrayDeque and LinkedList are implementations of the Deque interface.
+    * ConcurrentHashMap, CopyOnWriteArrayList, and BlockingQueue are part of the java.util.concurrent package and provide thread-safe implementations of Map, List, and Queue respectively.
+    * Vector, and Stack are legacy classes that were part of the original Java Collections framework but are now considered outdated and replaced by newer classes like ArrayList and Deque.
+
+Usage Scenarios:
+    Summary
+        ●	Use List when order and duplicates matter.
+        ●	Use Set when uniqueness is required.
+        ●	Use Map for key-value mappings.
+        ●	Use Queue/Deque for processing order-sensitive tasks (FIFO/LIFO).
+        ●	Use Concurrent collections when working in multi-threaded environments.
+
+    🧠 Quick Decision Table
+        * List:-
+            * Maintain insertion order with duplicates	-> ArrayList, LinkedList
+            * Fast indexed access	-> ArrayList
+            * Frequent insertion/removal	-> LinkedList (with caution)
+            * Read Heavy, Thread-safe list with low writes	-> CopyOnWriteArrayList
+        * Set:-
+            * Unique items / Remove duplicates from a list	-> HashSet
+            * Maintain insertion order without duplicates	-> LinkedHashSet
+            * Sorted unique items	-> TreeSet
+        * Queue:- 
+            * Priority-based queue	-> PriorityQueue
+            * Blocking queue	-> ArrayBlockingQueue, LinkedBlockingQueue
+            * Blocking producer-consumer queue	-> LinkedBlockingQueue
+        * Deque:-
+            * Undo/redo stack	-> Deque, Stack
+            * FIFO buffer	-> ArrayDeque, LinkedList
+            * Stack (LIFO)	-> Deque (via ArrayDeque)
+            * Multi-threaded queue	-> BlockingQueue, ConcurrentLinkedQueue
+            * Double-ended queue	-> ArrayDeque, LinkedList
+        * Map:-
+            * Key-value cache	-> HashMap, ConcurrentHashMap
+            * Fast key-value access	-> HashMap
+            * Key-value thread-safe access	-> ConcurrentHashMap
+            * Sorted key-value pairs	-> TreeMap
+            * Maintain insertion order of key-value pairs	-> LinkedHashMap
+        * Concurrent Collections:-
+            * Thread-safe map	-> ConcurrentHashMap
+            * Thread-safe list	-> CopyOnWriteArrayList
+            * Thread-safe queue	-> BlockingQueue, ConcurrentLinkedQueue
+        * Legacy Collections:-
+            * Legacy synchronized list	-> Vector
+            * Legacy synchronized map	-> Hashtable
+            * Legacy synchronized set	-> Stack
+            * Legacy synchronized queue	-> PriorityQueue
+
+Detailed Explanation of Commonly Used Collections:
+Array is a fixed-size data structure that can hold multiple values of the same type. 
+Collections are dynamic data structures that can grow and shrink in size and can hold objects of different types. ( By storing different data types by storing objects of different classes that share a common superclass or interface or primitive types. 
+Example:
+List<Animal> contains objects of different subclasses like Dog, Cat, and Bird.
+List<Object> contains objects of different classes like String, Integer, and Double.)
+
+ArrayList is a resizable array implementation of the List interface. It can grow and shrink dynamically.
+LinkedList is a doubly-linked list implementation of the List and Deque interfaces. It allows for efficient insertions and deletions at both ends of the list.
+HashSet is a collection that implements the Set interface and uses a hash table for storage. It does not allow duplicate elements and provides constant-time performance for basic operations like add, remove, and contains.
+LinkedHashSet is a collection that implements the Set interface and maintains the insertion order of elements. It uses a hash table and a linked list for storage.
+TreeSet is a collection that implements the Set interface and uses a red-black tree for storage. It stores elements in a sorted order and does not allow duplicate elements.
+HashMap is a collection that implements the Map interface and uses a hash table for storage. It stores key-value pairs and allows for fast retrieval of values based on their keys.
+TreeMap is a collection that implements the Map interface and uses a red-black tree for storage. It stores key-value pairs in a sorted order based on the keys.
+LinkedHashMap is a collection that implements the Map interface and maintains the insertion order of key-value pairs. It uses a hash table and a linked list for storage.
+PriorityQueue is a collection that implements the Queue interface and uses a priority heap for storage. It orders elements based on their natural ordering or a specified comparator.
+Deque (Double-Ended Queue) is a collection that allows elements to be added or removed from both ends. It can be implemented using LinkedList or ArrayDeque.
+ArrayDeque is a resizable array implementation of the Deque interface. It provides efficient insertions and deletions at both ends of the deque.   
+Vector is a synchronized, resizable array implementation of the List interface. It is similar to ArrayList but is thread-safe.
+Stack is a subclass of Vector that implements a last-in-first-out (LIFO) stack data structure. It provides methods for pushing and popping elements from the top of the stack.
+Hashtable is a synchronized implementation of the Map interface that uses a hash table for storage. It does not allow null keys or values and is considered legacy, with HashMap being the preferred alternative in most cases.
+ConcurrentHashMap is a thread-safe implementation of the Map interface that allows for concurrent access and updates by multiple threads. It uses a segmented locking mechanism to improve performance in multi-threaded environments.
+
+Collections vs Arrays:
+1. Size: Arrays have a fixed size, while collections can grow and shrink dynamically.
+2. Type: Arrays can hold primitive types (e.g., int, char) and objects, while collections can only hold objects.
+3. Flexibility: Collections provide more flexible and powerful data manipulation methods (e.g., sorting, searching) compared to arrays.
+4. Performance: Arrays may offer better performance for simple operations due to their fixed size and contiguous memory allocation, while collections may have overhead due to dynamic resizing and additional features.
+5. Thread Safety: Some collections (e.g., Vector, Hashtable) are synchronized and thread-safe, while arrays are not inherently thread-safe.
+6. Memory Usage: Arrays may use less memory for small, fixed-size data sets, while collections may have additional overhead for managing dynamic sizing and other features.
+7. Ease of Use: Collections provide a more user-friendly API with built-in methods for common operations, while arrays require manual implementation for such operations.
+

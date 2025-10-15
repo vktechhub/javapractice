@@ -1,0 +1,55 @@
+Functions supported based on Collection type
+
+🛠 Common methods for all collections(List, Set and Queue):-
+    ●	CName.add(E) - Adds an element(E) to the collection
+    ●	Collections.addAll(CName, E1, E2, E3) - Adds multiple elements into a collection
+    ●	CName.contains(E) - Returns true if the collection contains a specified element
+    ●	CName.remove(E) - Removes a specified element from the collection
+    ●	CName.removeif(condition) - Removes all elements that match a given condition (Java 8 and above)
+        ○	CName.removeIf(EName -> EName.startsWith(“x”)) - Removes all elements that starts with
+        ○	CName.removeIf(EName -> EName.endsWith(“x”)) - Removes all elements that ends with
+        ○	CName.removeIf(EName -> EName.contains(“x”)) - Removes all elements that contains
+        ○	CName.removeIf(EName -> EName.length() < n) - Removes all elements that has length less than n
+        ○	CName.removeIf(EName -> (EName < n)) - Removes all elements that is less than
+        ○	CName.removeIf(EName -> (EName > n)) - Removes all elements that is greater than
+    ●	CName.size() - Returns the number of elements in the collection
+    ●	CName.isEmpty() - Returns true if the collection is empty
+    ●	CName.clear() - Removes all the elements from the collection
+    ●	CName.iterator() - Returns an iterator to traverse the elements of the collection
+        ○	IteratorName.hasNext()
+        ○	IteratorName.next()
+    ●	CName.toArray() - Converts the collection to an array
+    ●	CName.toString() - Converts the collection to a String
+    ●	CName.forEach(EName -> statement) - Performs the given action for each element of the collection
+            // Operations with another Collection
+    ●	CName.addAll(anotherCName) - Adds all elements from the specified collection to this collection
+    ●	CName.containsAll(anotherCName) - Returns true if the collection contains all the elements of a specified collection
+    ●	CName.retainAll(anotherCName) - Retains only the elements in the collection that are contained in a specified collection
+    ●	CName.removeAll(anotherCName) - Removes all the elements of a specified collection from the collection
+🛠 List methods in addition to Collection(also available for ArrayList and LinkedList)
+    ●	LName.get(index) - Returns the element at a specified index
+    ●	LName.set(index, E) - Updates the element at a specified index
+    ●	LName.add(index, E) - Adds an element at a specified index
+    ●	LName.remove(index) - Removes the element at a specified index
+    ●	LName.indexOf() - Returns the index of the first occurrence of a specified element
+    ●	LName.lastIndexOf() - Returns the index of the last occurrence of a specified element
+    ●	LName.listIterator() - Returns a list iterator to traverse the elements of the list
+        ○	IteratorName.hasNext();
+        ○	IteratorName.Next();
+        ○	IteratorName.hasPrevious();
+        ○	IteratorName.Previous();
+        ○	IteratorName.remove();
+        ○	IteratorName.set(E);
+        ○	IteratorName.add(E);
+    ●	LName.subList() - Returns a view of a portion of the list between specified indices
+    ●	CList.equals(anotherList) - Compares the list with another list for equality  
+    ●	Collections.sort(LName) - Sorts the elements of the list in natural order or using a specified comparator
+    ●	Collections.sort(LName) - 
+    ●	Collections.reverse(LName) - 
+    ●	Collections.shuffle(LName) - 
+    ●	Collections.rotate(LName) - 
+    ●	Collections.swap(LName) - 
+    ●	Collections.min(LName) - 
+    ●	Collections.max(LName) - 
+    ●	Collections.synchronizedList(LName) - 
+    ●	Collections.fill(LName) - 
