@@ -1,8 +1,17 @@
+Note: 
+CName - Collection instance Name
+LName - List instance Name
+E or EName - Element Name / value to be processed
+
+
 Functions supported based on Collection type
 
 🛠 Common methods for all collections(List, Set and Queue):-
-    ●	CName.add(E) - Adds an element(E) to the collection
-    ●	Collections.addAll(CName, E1, E2, E3) - Adds multiple elements into a collection
+    ●	CName.add(E)    - Adds an element(E) to the collection
+    ●	Collections.addAll(CName, E1, E2, E3,...) - Adds multiple elements into a collection
+    ●	Collections.addAll(CName, anotherCName) - Adds all elements from another collection into a collection
+    ●	CName.clone() - Creates a shallow copy of the collection
+    ●	CollectionType CName-new = new CollectionType<>(CName 1, CName 2, CName 3, ...) - Creates a new collection by combining multiple collections
     ●	CName.contains(E) - Returns true if the collection contains a specified element
     ●	CName.remove(E) - Removes a specified element from the collection
     ●	CName.removeif(condition) - Removes all elements that match a given condition (Java 8 and above)
@@ -26,7 +35,14 @@ Functions supported based on Collection type
     ●	CName.containsAll(anotherCName) - Returns true if the collection contains all the elements of a specified collection
     ●	CName.retainAll(anotherCName) - Retains only the elements in the collection that are contained in a specified collection
     ●	CName.removeAll(anotherCName) - Removes all the elements of a specified collection from the collection
-🛠 List methods in addition to Collection(also available for ArrayList and LinkedList)
+    ●	CName.equals(anotherCName) - Compares the collection with another collection for equality
+    ●	CName.stream() - Returns a sequential stream with the collection as its source (Java 8 and above)
+    ●	CName.parallelStream() - Returns a parallel stream with the collection as its source (Java 8 and above)
+    ●	CName.spliterator() - Returns a spliterator over the elements in the collection (Java 8 and above)
+    ●	CName.hashCode() - Returns the hash code value for the collection
+
+
+🛠 Common List methods - not in Collection(also available for ArrayList and LinkedList)
     ●	LName.get(index) - Returns the element at a specified index
     ●	LName.set(index, E) - Updates the element at a specified index
     ●	LName.add(index, E) - Adds an element at a specified index
@@ -34,22 +50,95 @@ Functions supported based on Collection type
     ●	LName.indexOf() - Returns the index of the first occurrence of a specified element
     ●	LName.lastIndexOf() - Returns the index of the last occurrence of a specified element
     ●	LName.listIterator() - Returns a list iterator to traverse the elements of the list
-        ○	IteratorName.hasNext();
-        ○	IteratorName.Next();
-        ○	IteratorName.hasPrevious();
-        ○	IteratorName.Previous();
-        ○	IteratorName.remove();
-        ○	IteratorName.set(E);
-        ○	IteratorName.add(E);
+        ○	IteratorName.hasNext() - Checks if there is a next element;
+        ○	IteratorName.next() - Returns the next element;
+        ○	IteratorName.hasPrevious() - Checks if there is a previous element;
+        ○	IteratorName.previous() - Returns the previous element;
+        ○	IteratorName.remove() - Removes the last element returned by the iterator;
+        ○	IteratorName.set(E) - Replaces the last element returned by the iterator;
+        ○	IteratorName.add(E) - Inserts the specified element into the list;
     ●	LName.subList() - Returns a view of a portion of the list between specified indices
     ●	CList.equals(anotherList) - Compares the list with another list for equality  
     ●	Collections.sort(LName) - Sorts the elements of the list in natural order or using a specified comparator
-    ●	Collections.sort(LName) - 
-    ●	Collections.reverse(LName) - 
-    ●	Collections.shuffle(LName) - 
-    ●	Collections.rotate(LName) - 
-    ●	Collections.swap(LName) - 
-    ●	Collections.min(LName) - 
-    ●	Collections.max(LName) - 
-    ●	Collections.synchronizedList(LName) - 
-    ●	Collections.fill(LName) - 
+    ●	Collections.reverse(LName) - Reverses the order of the elements in the list
+    ●	Collections.shuffle(LName) - Randomly shuffles the elements in the list
+    ●	Collections.rotate(LName) - Rotates the elements in the list
+    ●	Collections.swap(LName) - Swaps the elements at the specified positions in the list
+    ●	Collections.min(LName) - Returns the minimum element in the list
+    ●	Collections.max(LName) - Returns the maximum element in the list
+    ●	Collections.synchronizedList(LName) - Returns a synchronized (thread-safe) list backed by the specified list
+    ●	Collections.fill(LName) - Fills the specified list with the specified element
+
+# ArrayList only methods:-
+    ●	ArrayList.ensureCapacity(n) - Increases the capacity of the ArrayList instance, if necessary, to ensure that it can hold at least the number of elements specified by the minimum capacity argument n
+    ●	ArrayList.trimToSize() - Trims the capacity of the ArrayList instance to be the list's current size
+
+# Queue only methods:-
+    ●	QueueName.offer(E) - Inserts the specified element into the queue
+    ●	QueueName.peek() - Retrieves, but does not remove, the head of the queue, or returns null if the queue is empty
+    ●	QueueName.element() - Retrieves, but does not remove, the head of the queue. Throws an exception if the queue is empty
+    ●	QueueName.poll() - Retrieves and removes the head of the queue, or returns null if the queue is empty
+    ●	QueueName.remove() - Retrieves and removes the head of the queue. Throws an exception if the queue is empty
+
+# Deque only methods:-
+    ●	DequeName.addFirst(E) - Inserts the specified element at the front of the deque
+    ●	DequeName.addLast(E) - Inserts the specified element at the end of the deque
+    ●	DequeName.offerFirst(E) - Inserts the specified element at the front of the deque, or returns false if it cannot be added
+    ●	DequeName.offerLast(E) - Inserts the specified element at the end of the deque, or returns false if it cannot be added
+    ●	DequeName.getFirst() - Retrieves, but does not remove, the first element of the deque. Throws an exception if the deque is empty
+    ●	DequeName.getLast() - Retrieves, but does not remove, the last element of the deque. Throws an exception if the deque is empty
+    ●	DequeName.peekFirst() - Retrieves, but does not remove, the first element of the deque, or returns null if the deque is empty
+    ●	DequeName.peekLast() - Retrieves, but does not remove, the last element of the deque, or returns null if the deque is empty
+    ●	DequeName.removeFirst() - Removes and returns the first element of the deque. Throws an exception if the deque is empty
+    ●	DequeName.removeLast() - Removes and returns the last element of the deque. Throws an exception if the deque is empty
+    ●	DequeName.pollFirst() - Removes and returns the first element of the deque, or returns null if the deque is empty
+    ●	DequeName.pollLast() - Removes and returns the last element of the deque, or returns null if the deque is empty
+    ●	DequeName.descendingIterator() - Returns an iterator that iterates over the elements in the deque in reverse order
+
+    # Stack methods supported via Deque interface:-
+        ●	DequeName.push(E) - Pushes an element onto the stack represented by this deque (equivalent to addFirst)
+        ●	DequeName.pop() - Pops an element from the stack represented by this deque (equivalent to removeFirst). Throws an exception if the deque is empty
+
+# ArrayDeque and LinkedList methods -
+    supports Queue, Deque and stack methods
+
+# HashSet and LinkedHashSet methods:-
+    * SuppressWarnings("unchecked") - to avoid unchecked warnings during clone operation
+    
+# TreeSet methods:-
+    * SuppressWarnings("unchecked") - to avoid unchecked warnings during clone operation
+    ●	TreeSet.first() - Returns the first (lowest) element in the set
+    ●	TreeSet.last() - Returns the last (highest) element in the set
+    ●	TreeSet.headSet(E toElement) - Returns a view of the portion of the set whose elements are strictly less than toElement
+    ●	TreeSet.tailSet(E fromElement) - Returns a view of the portion of the set whose elements are greater than or equal to fromElement
+    ●	TreeSet.subSet(E fromElement, E toElement) - Returns a view of the portion of the set whose elements range from fromElement, inclusive, to toElement, exclusive
+    ●	TreeSet.pollFirst() - Retrieves and removes the first (lowest) element, or returns null if the set is empty
+    ●	TreeSet.pollLast() - Retrieves and removes the last (highest) element, or returns null if the set is empty
+    * TreeSet.lower(E e) - Returns the next element in the set less than the given element, or null if there is no such element
+    * TreeSet.floor(E e) - Returns the next element in the set less than or equal to the given element, or null if there is no such element
+    * TreeSet.ceiling(E e) - Returns the next element in the set greater than or equal to the given element, or null if there is no such element
+    * TreeSet.higher(E e) - Returns the next element in the set strictly greater than the given element, or null if there is no such element
+    ●	TreeSet.comparator() - Returns the comparator used to order the elements in the set, or null if the set uses the natural ordering of its elements
+
+# Map common methods:-
+    ●	MapName.put(key, value) - Associates the specified value with the specified key in the map
+    ●	MapName.putIfAbsent(key, value) - Associates the specified value with the specified key if it is not already associated with a value
+    ●	MapName.putAll(anotherMap) - Copies all of the mappings from the specified map to this map
+    ●	MapName.get(key) - Returns the value to which the specified key is mapped, or null if the map contains no mapping for the key
+    ●	MapName.containsKey(key) - Returns true if this map contains a mapping for the specified key
+    ●	MapName.containsValue(value) - Returns true if this map maps one or more keys to the specified value
+    ●	MapName.size() - Returns the number of key-value mappings in this map
+    ●	MapName.isEmpty() - Returns true if this map contains no key-value mappings
+    ●	MapName.keySet() - Returns a Set view of the keys contained in this map
+    ●	MapName.values() - Returns a Collection view of the values contained in this map
+    ●	MapName.entrySet() - Returns a Set view of the mappings contained in this map
+    ●	MapName.forEach((key, value) -> statement) - Performs the given action for each entry in this map until all entries have been processed or the action throws an exception (Java 8 and above)
+    ●	MapName.getOrDefault(key, defaultValue) - Returns the value to which the specified key is mapped, or defaultValue if this map contains no mapping for the key (Java 8 and above)
+    ●	MapName.remove(key) - Removes the mapping for a key from this map if it is present
+    ●	MapName.remove(key, value) - Removes the entry for the specified key only if it is currently mapped to the specified value
+    ●	MapName.replace(key, oldValue, newValue) - Replaces the entry for the specified key only if currently mapped to the specified value
+    ●	MapName.replace(key, value) - Replaces the entry for the specified key only if it is currently mapped to some value
+    ●	MapName.clear() - Removes all of the mappings from this map
+    ●	MapName.replaceAll((key, oldValue) -> newValue) - Replaces each entry's value with the result of invoking the given function on that entry until all entries have been processed or the function throws an exception (Java 8 and above)
+    ●	MapName.compute(key, (k, v) -> newValue) - Attempts to compute a mapping for the specified key
+    ●	MapName.equals(anotherMap) - Returns true if this map is equal to another map

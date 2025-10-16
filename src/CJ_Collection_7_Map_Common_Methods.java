@@ -11,6 +11,8 @@ public class CJ_Collection_7_Map_Common_Methods {
         map.put(3, "Three");
         map.put(1, "One");
         map.put(4, "Four");
+        map.putIfAbsent(2, "Two Duplicate"); // Will not overwrite existing key
+        map.putIfAbsent(5, "Five");
         System.out.println("Map: " + map);
         System.out.println("Get value for key 1: " + map.get(1));
         System.out.println("Contains key 2: " + map.containsKey(2));
