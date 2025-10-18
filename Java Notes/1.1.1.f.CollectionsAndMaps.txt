@@ -12,7 +12,7 @@ How it is created:-
     * Map is used to store key-value pairs. List, Set, Queue, Deque are used to store single elements.
         
 Implementation:- 
-    * ArrayList, LinkedList, CopyOnWriteArrayList are implementations of the List interface.
+    * ArrayList, LinkedList, CopyOnWriteArrayList, Vector, Stack are implementations of the List interface.
     * HashSet, LinkedHashSet, and TreeSet are implementations of the Set interface.
     * HashMap,  LinkedHashMap, TreeMap and ConcurrentHashMap are implementations of the Map interface.
     * PriorityQueue and BlockingQueue are implementations of the Queue interface.

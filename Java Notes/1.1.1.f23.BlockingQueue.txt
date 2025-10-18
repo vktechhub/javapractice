@@ -1,0 +1,19 @@
+A BlockingQueue is part of the java.util.concurrent package, not java.util.
+
+It extends the Queue interface and adds thread-safe, blocking operations for producer–consumer scenarios.
+
+In other words:
+    It’s a Queue, but with built-in synchronization and waiting behavior.
+    It blocks threads automatically when the queue is full (on insertion) or empty (on removal).
+
+That’s why it’s categorized under the Concurrent Collections group.
+
+
+Common BlockingQueue Implementations
+Class	                    Description
+ArrayBlockingQueue	        Fixed-size array-based blocking queue
+LinkedBlockingQueue	        Linked-node based, optionally bounded
+PriorityBlockingQueue	    Ordered elements, unbounded
+DelayQueue	                Elements become available after a delay
+SynchronousQueue	        No internal storage — each put waits for a take
+LinkedTransferQueue	        Optimized for high concurrency
