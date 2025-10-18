@@ -1,5 +1,6 @@
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class CJ_Collection_1_Types {
     public static void main(String[] args) {
@@ -8,12 +9,17 @@ public class CJ_Collection_1_Types {
         Collection<String> c = new ArrayList<>();
         Collection<String> c1 = new LinkedList<>(c);
         Collection<String> c2 = new HashSet<>(c);
+        Collection<String> c3 = new CopyOnWriteArrayList<>()
         c.add("One");
         c.add("Two");
         System.out.println("Collection:- c - " + c); // Print all elements
 
         //List
         List<String> li = new ArrayList<>();
+        List<String> li1 = new LinkedList<>();
+        List<String> li2 = new CopyOnWriteArrayList<>();
+        var li3 = new CopyOnWriteArrayList<String>();
+        li.add("Banana");
         li.add("Mango");
         li.add("Apple");
         li.add("Orange");
@@ -53,6 +59,8 @@ public class CJ_Collection_1_Types {
 
         //Set
         Set<String> st = new HashSet<>();
+        Set<String> st1 = new LinkedHashSet<>();
+        Set<String> st2 = new TreeSet<>();
         Collections.addAll(st,"A","B","C","D","E","F");
         System.out.println("Set:- " + st);
 
@@ -94,6 +102,11 @@ public class CJ_Collection_1_Types {
         PriorityQueue<Integer> p = new PriorityQueue<>();
         Collections.addAll(p,3,10,5,7,2);
         System.out.println("PriorityQueue:- " + p);
+
+        //Blocking Queue
+        Queue<Integer> bq = new ArrayDeque<>();
+        Collections.addAll(bq,3,10,5,7,2);
+        System.out.println("BlockingQueue:- " + bq);
 
         //Map
         Map<String, Integer> m1 = new HashMap<>();

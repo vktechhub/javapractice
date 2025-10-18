@@ -12,10 +12,10 @@ How it is created:-
     * Map is used to store key-value pairs. List, Set, Queue, Deque are used to store single elements.
         
 Implementation:- 
-    * ArrayList, and LinkedList are implementations of the List interface.
+    * ArrayList, LinkedList, CopyOnWriteArrayList are implementations of the List interface.
     * HashSet, LinkedHashSet, and TreeSet are implementations of the Set interface.
-    * HashMap, TreeMap, and LinkedHashMap are implementations of the Map interface.
-    * PriorityQueue is a implementation of the Queue interface.
+    * HashMap,  LinkedHashMap, TreeMap and ConcurrentHashMap are implementations of the Map interface.
+    * PriorityQueue and BlockingQueue are implementations of the Queue interface.
     * ArrayDeque and LinkedList are implementations of the Deque interface.
     * ConcurrentHashMap, CopyOnWriteArrayList, and BlockingQueue are part of the java.util.concurrent package and provide thread-safe implementations of Map, List, and Queue respectively.
     * Vector, and Stack are legacy classes that were part of the original Java Collections framework but are now considered outdated and replaced by newer classes like ArrayList and Deque.
