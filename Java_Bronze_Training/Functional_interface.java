@@ -1,11 +1,10 @@
 @FunctionalInterface
 interface i1 {
     void method1();
-    void method2();
 }
 
 class i1Impl implements i1 {
-    
+
     public void method1() {
         System.out.println("Method 1 implementation in class");
     }

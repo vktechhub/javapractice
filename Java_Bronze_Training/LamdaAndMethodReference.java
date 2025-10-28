@@ -1,26 +1,32 @@
-public class LamdaAndMethodReference {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
+import java.util.function.Consumer;
 
-        // Lambda Expression
-        MyInterface m1 = () -> System.out.println("My Abstract Method Implementation");
-        m1.myAbstractMethod();
+@FunctionalInterface
+interface i1 {
+    void method1();
+}
 
-        // Method Reference
-        MyInterface2 m2 = () -> System.out::println("My Abstract Method Implementation");
-        m2.myAbstractMethod();
+class i1Impl implements i1 {
+
+    public void method1() {
+        System.out.println("Method 1 implementation in class");
     }
 }
 
+public class LamdaAndMethodReference {
 
-@FunctionalInterface
-interface MyInterface {
-    default void myDefaultMethod() {}
-    void myAbstractMethod();
-}
+    public static void main(String[] args) {
 
-@FunctionalInterface
-interface MyInterface2 {
-    default void myDefaultMethod() {}
-    void myAbstractMethod();
+        // Normal way of implementing functional interface
+        i1 obj = new i1Impl();
+        obj.method1();
+
+        // Using Lambda expression
+        i1 obj2 = () -> System.out.println("Method 1 implementation using Lambda");
+        obj2.method1();
+
+        // Using Method Reference
+        Consumer<String> obj3 = System.out::println;
+        obj3.accept("Method 1 implementation using Method Reference");
+    }
 }
+    
