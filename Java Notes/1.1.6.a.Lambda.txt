@@ -1,12 +1,19 @@
 Lambda Expressions in Java
-    Lambda expressions are a way to provide clear and concise syntax for writing anonymous methods (also known as "function literals" or "closures"). They are particularly useful in the context of functional programming and can be used to implement functional interfaces (interfaces with a single abstract method).
+    A lambda expression is a short block of code that takes in parameters and returns a value. 
+    Lambdas look similar to methods, but they do not need a name, and they can be written right inside a method body.
 
     Syntax:
-    (parameters) -> expression
+        No parameters:
+                () -> expression
+        One parameter:
+                parameter -> expression
+        Multiple parameters:
+                (parameter1, parameter2) -> expression
 
     Example:
-    (a, b) -> a + b
-    (x) -> x * 2
-    (name) -> "Hello, " + name
+        () -> System.out.println("Hello, World!")
+        (x) -> x * 2
+        (a, b) -> a + b
+        (name) -> "Hello, " + name
 
     

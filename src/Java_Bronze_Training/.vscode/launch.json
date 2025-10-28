@@ -1,0 +1,42 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Fixed_List",
+            "request": "launch",
+            "mainClass": "Fixed_List",
+            "projectName": "Java_Bronze_Training_e036abac"
+        },
+        {
+            "type": "java",
+            "name": "Functional_interface",
+            "request": "launch",
+            "mainClass": "Functional_interface",
+            "projectName": "Java_Bronze_Training_e036abac"
+        },
+        {
+            "type": "java",
+            "name": "InterfaceDemo",
+            "request": "launch",
+            "mainClass": "InterfaceDemo",
+            "projectName": "Java_Bronze_Training_e036abac"
+        },
+        {
+            "type": "java",
+            "name": "Lamda",
+            "request": "launch",
+            "mainClass": "Lamda",
+            "projectName": "Java_Bronze_Training_e036abac"
+        }
+    ]
+}
