@@ -1,6 +1,6 @@
 import java.util.function.*;
 
-public class FunctionDemo {
+public class c1_b1_BuiltInFunctionalInterfaces {
     public static void main(String[] args) {
         Function<Integer, Integer> sq1 = x -> x * x;
         System.out.println("Square of 5: " + sq1.apply(5));

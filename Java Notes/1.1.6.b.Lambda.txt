@@ -1,6 +1,9 @@
 Lambda Expressions in Java
+    Lambda expressions provide a concise way to represent an anonymous function, primarily used with functional interfaces.
     A lambda expression is a short block of code that takes in parameters and returns a value. 
     Lambdas look similar to methods, but they do not need a name, and they can be written right inside a method body.
+    The target type of a lambda expression must be a either built-in or user-defined functional interface
+         If a lambda expression is passed as an argument to a method, the corresponding parameter in the method signature must be of a functional interface type.
 
     Syntax:
         No parameters:
@@ -9,11 +12,68 @@ Lambda Expressions in Java
                 parameter -> expression
         Multiple parameters:
                 (parameter1, parameter2) -> expression
+        Multiple lines:
+                (parameter1, parameter2) -> {
+                    // statements
+                    return expression;
+                }
 
     Example:
-        () -> System.out.println("Hello, World!")
-        (x) -> x * 2
-        (a, b) -> a + b
-        (name) -> "Hello, " + name
+        // No parameters
+                Runnable runnable = () -> System.out.println("Hello, World!"); 
+                runnable.run();
 
-    
+                Supplier<Integer> five = () -> 5; 
+                System.out.println(five.get());
+
+        // One parameter
+                Function<Integer, Integer> doubleIt = (x) -> x * 2; 
+                System.out.println(doubleIt.apply(5));
+
+        // Multiple parameters
+                BiFunction<Integer, Integer, Integer> add = (a, b) -> a + b;
+                System.out.println(add.apply(3, 4));
+
+                // multiline lambda
+                Function<Integer, Integer> square = (x) -> {
+                System.out.println("Calculating square...");
+                return x * x;
+                };
+                System.out.println(square.apply(5));
+
+        // Lambda passed to method argument
+                public class LambdaExample {
+                        @FunctionalInterface
+                        interface Processor {
+                                void process(String data);
+                        }
+
+                        public static void performAction(Processor p, String message) {
+                                p.process(message);
+                        }
+
+                        public static void main(String[] args) {
+                                performAction(s -> System.out.println("Processing: " + s), "Some data"); // Processor is the target type
+                        }
+                }
+
+        // Lambda with Explicit Type Declaration.
+        // type inference often makes explicit type declarations unnecessary for lambda parameters, they can be included for clarity.
+                (ParameterDataType Parameter) -> expression
+
+                Eg:- 
+                Predicate<String> isLong = (String s) -> s.length() > 5;
+                System.out.println("Is 'Java' long? " + isLong.test("Java"));
+
+        // Lambda with var 
+        // From Java 11, the var keyword can be used for lambda parameter types, allowing local variable type inference for lambda parameters.
+
+                Function<String, String> toUpperCase = (var input) -> input.toUpperCase();
+                System.out.println("Uppercase: " + toUpperCase.apply("hello"));
+
+        // Lambda with Method References.
+        // When a lambda expression simply calls an existing method, a method reference can be used as a more concise alternative.
+
+                List<String> names = Arrays.asList("Alice", "Bob");
+                names.forEach(System.out::println); // Method reference for s -> System.out.println(s)
+

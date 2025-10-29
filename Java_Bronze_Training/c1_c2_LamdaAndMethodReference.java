@@ -12,7 +12,7 @@ class i1Impl implements i1 {
     }
 }
 
-public class LamdaAndMethodReference {
+public class c1_c2_LamdaAndMethodReference {
 
     public static void main(String[] args) {
 

@@ -6,7 +6,7 @@
 //          instance::instanceMethod
 // 3. Reference to an Instance Method of an Arbitrary Object
 //          ClassName::instanceMethod
-//          ContainingType::instanceMethod
+//          ContainingType::instanceMethod - ? ContainingType can be interface also
 // 4. Reference to a Constructor
 //          ClassName::new
 
@@ -36,7 +36,14 @@ class Person{
     }
 }
 
-public class MethodReference {
+interface MyInterface{
+    void show();
+    static void display(){
+        System.out.println("MyInterface Show method called");
+    }
+}
+
+public class c1_c_MethodReference {
 
     public static void main(String[] args) {
         // 1. Reference to a Static Method
@@ -58,6 +65,11 @@ public class MethodReference {
         //3. Reference to an Instance Method of an Arbitrary Object
         Runnable r3 = Person::AppInfoDisplay;   // Syntax :- ClassName :: instanceMethodName
         r3.run();
+
+        System.out.println("Instance Method of an Arbitrary Object of an Interface");
+        MyInterface myInterface = () -> System.out.println("Show method implementation");
+        myInterface.show(); // Lambda passed to method
+        MyInterface.display();  // Static method of interface called directly
 
         System.out.println("Constructor calling");
         //4. Reference to a Constructor

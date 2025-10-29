@@ -34,7 +34,7 @@ class Message {
     }
 }
 
-public class MethodReference1 {
+public class c1_c_MethodReference1 {
 
     // ---------- 1️⃣ Static Method ----------
     public static int add(int x, int y) {

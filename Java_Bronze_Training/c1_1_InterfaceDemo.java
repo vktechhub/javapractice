@@ -63,7 +63,7 @@ class SpecialAnimal implements Animal, Human {
     }
 }
 
-class InterfaceDemo {
+class c1_1_InterfaceDemo {
     public static void main(String[] args) {
         Animal dog = new Dog();
         dog.eat();

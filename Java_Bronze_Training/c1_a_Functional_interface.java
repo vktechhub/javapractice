@@ -10,7 +10,7 @@ class i1Impl implements i1 {
     }
 }
 
-public class Functional_interface {
+public class c1_a_Functional_interface {
 
     public static void main(String[] args) {
         i1 obj = new i1Impl();

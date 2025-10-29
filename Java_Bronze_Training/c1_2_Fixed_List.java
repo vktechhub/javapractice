@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Fixed_List {
+public class c1_2_Fixed_List {
     public static void main(String[] args) {
         List<String> fruits = new ArrayList<>();
         fruits.add("Apple");    
