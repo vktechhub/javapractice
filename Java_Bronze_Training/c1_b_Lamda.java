@@ -1,6 +1,9 @@
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.Arrays;
+import java.util.*;
 
 interface i0 {
     void method0(); // abstract method, hence this interface is functional interface
