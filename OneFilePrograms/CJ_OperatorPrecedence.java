@@ -21,17 +21,16 @@ public class CJ_OperatorPrecedence {
 
         System.out.println("\n===== MULTIPLICATIVE (*, /, %) — Left to Right =====");
         {
-            int a = 7 * 3;    // 21
-            int b = 7 / 3;    // 2 (integer division)
-            int c = 7 % 3;    // 1
-            System.out.println("7*3=" + a + ", 7/3=" + b + ", 7%3=" + c);
+            int a = 7 * 3 / 2 % 3;    // 1
+            int b = 7 * 3 ;                     // 21
+            int c = 7 * 3 / 2 ;             // 10
+            System.out.println("7*3=" + b + ", 7*3/2=" + c + ", 7*3/2%3=" + a);
         }
 
         System.out.println("\n===== ADDITIVE (+, -) — Left to Right =====");
         {
-            int a = 10 + 5 - 2; // (10+5)-2 = 13
-            String s = "Hi " + "there"; // string concatenation
-            System.out.println("10+5-2=" + a + ", \"Hi \"+\"there\"=" + s);
+            int a = 10 * 5 + 5 / 2 - 2;         // 50 + 2 - 2 = 50
+            System.out.println("10*5 + 5/2 - 2 = " + a);
         }
 
         System.out.println("\n===== SHIFT (<<, >>, >>>) — Left to Right =====");
