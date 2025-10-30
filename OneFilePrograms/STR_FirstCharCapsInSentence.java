@@ -1,12 +1,12 @@
-    public class STR_FirstCharCaps {
+    public class STR_FirstCharCapsInSentence {
     /**
      * @param args
      */
     public static void main(String[] args) {
         String input = "hello wORLD, I am VIGNESHKANNA";
-        System.out.println(input);
+        System.out.println("Input : " + input);
         String output = capitalizeFirstCharacter(input);
-        System.out.println(output);
+        System.out.println("Output: " + output);
     }
 
     /**
