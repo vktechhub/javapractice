@@ -20,18 +20,18 @@ Associativity decides the order of evaluation when two or more operators of the 
     so it’s evaluated as (10 - 5) - 2 = 3.
 
 🔹 3. Operator Precedence Table (Highest → Lowest)
-Category	Operators	Associativity
-Postfix	expr++, expr--	Left to Right
-Unary	++expr, --expr, +expr, -expr, ~, !	Right to Left
-Multiplicative	*, /, %	Left to Right
-Additive	+, -	Left to Right
-Shift	<<, >>, >>>	Left to Right
-Relational	<, <=, >, >=, instanceof	Left to Right
-Equality	==, !=	Left to Right
-Bitwise AND	&	Left to Right
-Bitwise XOR	^	Left to Right
-Bitwise OR	`	`
-Logical AND	&&	Left to Right
-Logical OR	`	
-Ternary	?:	Right to Left
-Assignment	=, +=, -=, *=, /=, %= , &=, ^=, `	=, <<=, >>=, >>>=`
+Category	        Operators	                        Associativity
+Postfix	            expr++, expr--	                    Left to Right
+Unary	            ++expr, --expr, +expr, -expr, ~, !	Right to Left
+Multiplicative	    *, /, %	                            Left to Right
+Additive	        +, -	                            Left to Right
+Shift	            <<, >>, >>>	                        Left to Right
+Relational	        <, <=, >, >=, instanceof	        Left to Right
+Equality	        ==, !=	                            Left to Right
+Bitwise AND	        &	                                Left to Right
+Bitwise XOR	        ^	                                Left to Right
+Bitwise OR	        |	                                Left to Right
+Logical AND	        &&	                                Left to Right
+Logical OR	        ||	                                Left to Right
+Ternary	            ?:	                                Right to Left
+Assignment	        =, +=, -=, *=, /=, %= , &=, ^=, `	=, <<=, >>=, >>>=`
