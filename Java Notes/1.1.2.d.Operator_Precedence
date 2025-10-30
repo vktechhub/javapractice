@@ -1,0 +1,37 @@
+🔹 1. What is Operator Precedence?
+
+Operator precedence determines which operator is evaluated first in an expression that has more than one operator.
+
+    For example:
+    int result = 10 + 5 * 2;
+    Here, * has higher precedence than +,
+    so multiplication happens first → 10 + (5 * 2) = 20.
+
+🔹 2. What is Associativity?
+
+Associativity decides the order of evaluation when two or more operators of the same precedence appear in an expression.
+
+    For example:
+
+    int result = 10 - 5 - 2;
+
+
+    Both - operators have the same precedence and left-to-right associativity,
+    so it’s evaluated as (10 - 5) - 2 = 3.
+
+🔹 3. Operator Precedence Table (Highest → Lowest)
+Category	Operators	Associativity
+Postfix	expr++, expr--	Left to Right
+Unary	++expr, --expr, +expr, -expr, ~, !	Right to Left
+Multiplicative	*, /, %	Left to Right
+Additive	+, -	Left to Right
+Shift	<<, >>, >>>	Left to Right
+Relational	<, <=, >, >=, instanceof	Left to Right
+Equality	==, !=	Left to Right
+Bitwise AND	&	Left to Right
+Bitwise XOR	^	Left to Right
+Bitwise OR	`	`
+Logical AND	&&	Left to Right
+Logical OR	`	
+Ternary	?:	Right to Left
+Assignment	=, +=, -=, *=, /=, %= , &=, ^=, `	=, <<=, >>=, >>>=`
