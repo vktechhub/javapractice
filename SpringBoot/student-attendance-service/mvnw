@@ -1,0 +1,3 @@
+#!/bin/sh
+MVNW_REPOURL="https://repo.maven.apache.org/maven2"
+exec mvn "$@"
