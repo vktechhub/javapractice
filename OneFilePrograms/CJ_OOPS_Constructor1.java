@@ -1,14 +1,5 @@
-public class CJ_OOPS_Constructors {
-    public static void main(String[] args) {
-        Car myCar = new Car("Toyota", 2020);
-        System.out.println("Main method executed");
-        System.out.println(myCar.getDetails());
-    }
 
-}
-
-    // Constructors in Java
-    class Car {
+    public class CJ_OOPS_Constructor1 {
         String model;
         int year;
         {
@@ -18,8 +9,8 @@ public class CJ_OOPS_Constructors {
             System.out.println("Static initializer block called: ");
         }
 
-        // Constructor
-        public Car(String model, int year) {
+        // Private Constructor
+        private CJ_OOPS_Constructor1(String model, int year) {
             this.model = model;
             this.year = year;
             System.out.println("Constructor called: ");
@@ -28,4 +19,11 @@ public class CJ_OOPS_Constructors {
             System.out.println("getDetails method called: ");
             return "Model: " + model + ", Year: " + year;
         }
+
+        public static void main(String[] args) {
+        CJ_OOPS_Constructor1 myCar = new CJ_OOPS_Constructor1("Toyota", 2020);
+        System.out.println("Main method executed");
+        System.out.println(myCar.getDetails());
+    }
+
 }
