@@ -1,38 +1,49 @@
 Here’s a practical cheat-sheet for when to choose which Java functional interface—especially when you plan to use method references.
 
-1. **Supplier<T>**
-   - Use when you need to generate or supply values without any input.
-   - Method Reference Example: `ClassName::staticMethod` or `instance::instanceMethod` that returns a value.
-   - Example: `Supplier<Double> randomValue = Math::random;`
+1. **Function<T, R>**
+   - Represents an operation that accepts a single input argument and returns a value.
+   - Example: Function to calculate string length
+          Function<String, Integer> stringToLength = String::length;`
+   - Specialized versions like IntFunction<R>, LongFunction<R>, DoubleFunction<R>, ToIntFunction<T>, ToLongFunction<T>, ToDoubleFunction<T>, IntToLongFunction, etc., for primitive type conversions.
+   - BiFunction<T, U, R>: Takes two arguments and returns a result.
 
-2. **Consumer<T>**
-   - Use when you need to perform an action on a single input without returning a result.
-   - Method Reference Example: `ClassName::staticMethod` or `instance::instanceMethod` that takes one argument and returns void.
-   - Example: `Consumer<String> print = System.out::println;`
+2. **Supplier<T>**
+   - Represents an operation that supplies a result without taking any input argument and returns a value.
+   - Example: 
+          Supplier<Double> randomValue = () -> Math.random();
+          Double randomNumber = randomValue.get();
 
-3. **Function<T, R>**
-   - Use when you need to transform an input of type T to an output of type R.
-   - Method Reference Example: `ClassName::staticMethod` or `instance::instanceMethod` that takes one argument and returns a value.
-   - Example: `Function<String, Integer> stringToLength = String::length;`
+3. **Predicate<T>**
+   - Represents an operation that tests a condition on a single input argument and returns a boolean result either true or false.
+          Predicate<Integer> isEven = n -> n % 2 == 0;
+          boolean result = isEven.test(4);
 
-4. **Predicate<T>**
+4. **Consumer<T>**
+   - Represents an operation that accepts a single input argument and returns no result.
+   - Example: 
+          Consumer<String> print = s -> System.out.println(s);
+          print.accept("some text");
+
+
+
+
 
 
    Pick the interface by: inputs ▸ output ▸ purpose
 🧭 Java Functional Interface Reference (for Lambdas & Method References)
 Inputs	Interface	        Output	Need / Purpose / Use it when…
-T	    Consumer<T>	        void	Perform an action	               You want to “use” a value (e.g., print, log, save) without returning anything
-T, U	BiConsumer<T,U>	    void	Perform an action using two inputs	You want to handle two values together (e.g., key–value pairs)
-T	    Function<T,R>	    R	    Transform input to output	       You need to map or convert a value from one type to another
-T, U	BiFunction<T,U,R>	R	    Combine two inputs into one output	You want to produce a result from two inputs
-T	    UnaryOperator<T>	T	    Modify and return same type	       You want to apply a change and get the same type back (e.g., trim, uppercase)
-T, T	BinaryOperator<T>	T	    Combine two of the same type	You want to reduce or aggregate values of the same type (e.g., sum, concat)
-T	    Predicate<T>	    boolean	Test a condition	You want to check or filter based on a condition
-T, U	BiPredicate<T,U>	boolean	Test a condition on two inputs	You want to compare or match two inputs (e.g., equals, startsWith)
-—	    Supplier<T>	        T	    Supply or generate a value	You want to create or provide something without input (factory/lazy creation)
-—	    Runnable	        void	Run a task (no return)	You want to execute a task with no input or output
-—	    Callable<V>	        V	    Run a task that returns a value	You want to execute a task that returns a result and may throw exceptions
-T, T	Comparator<T>	    int	    Compare two values	You want to define sorting or ordering logic
+T	      Consumer<T>	        void	Perform an action	               You want to “use” a value (e.g., print, log, save) without returning anything
+T, U	   BiConsumer<T,U>	    void	Perform an action using two inputs	You want to handle two values together (e.g., key–value pairs)
+T	      Function<T,R>	    R	    Transform input to output	       You need to map or convert a value from one type to another
+T, U	   BiFunction<T,U,R>	R	    Combine two inputs into one output	You want to produce a result from two inputs
+T	      UnaryOperator<T>	T	    Modify and return same type	       You want to apply a change and get the same type back (e.g., trim, uppercase)
+T, T	   BinaryOperator<T>	T	    Combine two of the same type	You want to reduce or aggregate values of the same type (e.g., sum, concat)
+T	      Predicate<T>	    boolean	Test a condition	You want to check or filter based on a condition
+T, U	   BiPredicate<T,U>	boolean	Test a condition on two inputs	You want to compare or match two inputs (e.g., equals, startsWith)
+—	      Supplier<T>	        T	    Supply or generate a value	You want to create or provide something without input (factory/lazy creation)
+—	      Runnable	        void	Run a task (no return)	You want to execute a task with no input or output
+—	      Callable<V>	        V	    Run a task that returns a value	You want to execute a task that returns a result and may throw exceptions
+T, T	   Comparator<T>	    int	    Compare two values	You want to define sorting or ordering logic
 
 ⚠️ “Calculator” isn’t a standard JDK functional interface. You likely meant Callable (task that returns a value) or the Operator types (Unary/Binary) used for “calculations”. If you do have a custom Calculator, prefer using the closest standard interface above unless you truly need custom semantics.
 

@@ -4,7 +4,13 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        
+        {
+            "type": "java",
+            "name": "c1_b1_BuiltInFunctionalInterfaces",
+            "request": "launch",
+            "mainClass": "c1_b1_BuiltInFunctionalInterfaces",
+            "projectName": ""
+        },
         {
             "type": "java",
             "name": "c1_a_Functional_interface",
