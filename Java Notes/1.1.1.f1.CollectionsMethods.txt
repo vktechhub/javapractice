@@ -60,6 +60,7 @@ Functions supported based on Collection type
     ●	LName.subList() - Returns a view of a portion of the list between specified indices
     ●	CList.equals(anotherList) - Compares the list with another list for equality  
     ●	Collections.sort(LName) - Sorts the elements of the list in natural order or using a specified comparator
+    ●	Collections.sort(LName, comparator) - Sorts the elements of the list using the specified comparator
     ●	Collections.reverse(LName) - Reverses the order of the elements in the list
     ●	Collections.shuffle(LName) - Randomly shuffles the elements in the list
     ●	Collections.rotate(LName) - Rotates the elements in the list

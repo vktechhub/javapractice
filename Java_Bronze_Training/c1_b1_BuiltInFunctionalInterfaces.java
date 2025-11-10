@@ -1,36 +1,16 @@
-import java.util.function.BiFunction;
-import java.util.function.BinaryOperator;
-import java.util.function.Function;
-import java.util.function.IntFunction;
-import java.util.function.ToIntFunction;
-import java.util.function.UnaryOperator;
+
 
 public class c1_b1_BuiltInFunctionalInterfaces {
     public static void main(String[] args) {
-        
-        // Function accepts one argument and returns.
-        // apply method is used to execute the function.
-        
-        Function<Integer, Integer> sq1 = x -> x * x;
-        System.out.println("Square of 5: " + sq1.apply(5));
 
-        // IntFunction accepts 
-        // apply method 
-        IntFunction<Integer> sq2 = x -> x * x;
-        System.out.println("Square of 5: " + sq2.apply(5));
+        // Predicate is a boolean-valued functional interface of one argument.
+        // Argument can be of any reference type.
+        // test method is used to evaluate the predicate, which returns a boolean.
+        Predicate<Integer> isEven = x -> x % 2 == 0;
+        boolean result = isEven.test(4);
 
-        ToIntFunction<Integer> sq3 = x -> x * x;
-        System.out.println("Square of 5: " + sq3.applyAsInt(5));
+        // Function accepts one argument(of type) and returns an object.
 
-        UnaryOperator<Integer> sq4 = x -> x * x;
-        System.out.println("Square of 5: " + sq4.apply(5));
-
-        BinaryOperator<Integer> add = (a, b) -> a + b;
-        System.out.println("Sum of 3 and 4: " + add.apply(3, 4));
-
-        BiFunction<Integer, Integer, Integer> add2 = (a, b) -> a + b;
-        System.out.println("Sum of 3 and 4: " + add2.apply(3, 4));
-
-
+    
     }
 }
