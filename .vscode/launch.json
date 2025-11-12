@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CJ_ObjectClass",
+            "request": "launch",
+            "mainClass": "CJ_ObjectClass",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "c1_b1_BuiltInFunctionalInterfaces",
             "request": "launch",
             "mainClass": "c1_b1_BuiltInFunctionalInterfaces",
