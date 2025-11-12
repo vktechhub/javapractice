@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Num_LoopVsStream",
+            "request": "launch",
+            "mainClass": "Num_LoopVsStream",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "STR_StringVsArray",
+            "request": "launch",
+            "mainClass": "STR_StringVsArray",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "CJ_ObjectClass",
             "request": "launch",
             "mainClass": "CJ_ObjectClass",
