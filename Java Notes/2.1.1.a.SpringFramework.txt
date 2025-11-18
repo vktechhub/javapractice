@@ -1,0 +1,6 @@
+Spring framework consists of many modules / Components
+    * Spring Core
+    * Spring DAO
+    * Spring AOP
+    * Spring Web
+    

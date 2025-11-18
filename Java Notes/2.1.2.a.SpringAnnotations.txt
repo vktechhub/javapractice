@@ -1,0 +1,10 @@
+
+
+
+
+@Autowired
+* If many Constructors were there, you can apply @Autowired on only one Construtor.
+* @Autowired becomes optional in classes with Single Constructor from Spring version > 4.3
+
+* Use @Component + @Autowired Constructor (Recommended modern way) 
+

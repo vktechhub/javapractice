@@ -1,0 +1,11 @@
+Difference between Spring AOP and Spring IOC
+
+Parameter           Spring AOP                                      Spring IOC
+Full form           Spring Aspect-Oriented Programming              Spring Inversion of Control
+Main Concept        Handling cross-cutting concerns                 Dependency injection and object lifecycle management. 
+Purpose             Logging,transaction management & security.      Managing object creation and injecting dependencies
+Design Pattern      Proxy Pattern                                   Factory and Singleton pattern
+Implementation      Using pointcuts, join points and advices.       Using BeanFactory or ApplicationContext.
+Effects on code     Adds behavior without modifying actual code.    Wires and manages object dependencies.
+Configure           Annotation like @Aspact or via AOP namespace.   Java-based configurations or we can Configured XML file.
+
