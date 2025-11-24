@@ -1,0 +1,8 @@
+Skils focus:-
+Maven, Git, Jenkins, Advanced Java, Spring Framework
+
+Interface:-
+    Abstract methods
+    Variables
+    Default methods
+    Static methods
