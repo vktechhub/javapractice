@@ -1,5 +1,4 @@
-Generics are not a separate data type category —
-they are a feature of reference types (specifically, of classes, interfaces, and methods).
+Generics are not a separate data type category, as they are a feature of reference types (specifically, of classes, interfaces, and methods).
 
 ✅ Generics are type parameters, not data types themselves.
 
