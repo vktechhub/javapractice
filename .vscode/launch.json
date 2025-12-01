@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CJ_ComparatorVsComparable",
+            "request": "launch",
+            "mainClass": "CJ_ComparatorVsComparable",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "CJ_UnaryOperators",
+            "request": "launch",
+            "mainClass": "CJ_UnaryOperators",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "Num_LoopVsStream",
             "request": "launch",
             "mainClass": "Num_LoopVsStream",

@@ -1,0 +1,17 @@
+Comparator and Comparable in Java:-
+
+Comparable interface and compareTo() method: 
+    This is used for defining the natural ordering of objects within a class. 
+    A class implements the Comparable interface and overrides the compareTo(T o) method. 
+    This method returns:
+        A negative integer if the current object is less than the specified object.
+        Zero if the current object is equal to the specified object.
+        A positive integer if the current object is greater than the specified object.
+
+Comparator interface and compare() method: 
+    This is used for defining custom ordering of objects, allowing for multiple sorting criteria. 
+    A Comparator is typically implemented in a separate class or as a lambda expression. 
+    The compare(T o1, T o2) method takes two objects and returns 
+        a negative integer if the first object is less than the second,
+        zero if the first object is equal to the second,
+        a positive integer if the first object is greater than the second.
