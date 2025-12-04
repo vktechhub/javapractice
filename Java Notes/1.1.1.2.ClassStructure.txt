@@ -1,0 +1,58 @@
+Variables / Fields / Properties / Attributes
+------------------------------
+In Java, variables (also known as fields, properties, or attributes) are used to store data. They can be classified based on their scope, lifetime, and access level.
+
+Methods / Procedures / Routines / Behaviors / Operations / Actions / Paragraphs / Functions
+------------------------------
+Methods (also known as procedures, routines, behaviors, operations, actions, paragraphs, or functions) are blocks of code that perform specific tasks. 
+They can take parameters, return values, and can be called/invoked from other parts of the program.
+
+Attributes Vs Parameters
+------------------------------
+Attributes (also known as fields, properties, or variables) are data members of a class that are passed to methods or used within the class.
+Parameters (also known as arguments) are Values that are passed to methods to provide input data for processing.
+
+Classes / Blueprints / Templates / Data Types
+------------------------------
+Classes (also known as blueprints, templates, or data types) define the structure and behavior of objects. They encapsulate data and methods that operate on that data.
+
+Objects / Instances / Entities / Items
+------------------------------
+Objects (also known as instances, entities, or items) are concrete realizations of classes. 
+They hold specific values for the fields defined in the class and can invoke the methods defined in the class.
+
+Packages / Namespaces / Modules / Libraries
+------------------------------
+Packages (also known as namespaces, modules, or libraries) are used to organize classes and interfaces into a hierarchical structure.
+They help avoid naming conflicts and control access to classes and interfaces.
+
+Generics / Type Parameters / Templates
+------------------------------
+Generics (also known as type parameters or templates) allow you to create classes, interfaces, and methods that operate on a specified type.
+They provide type safety and eliminate the need for casting.
+
+Interfaces / Contracts / Protocols
+------------------------------
+Interfaces (also known as contracts or protocols) define a set of methods that a class must implement.
+They provide a way to achieve abstraction and multiple inheritance in Java. 
+
+Annotations / Metadata / Decorators
+------------------------------
+Annotations (also known as metadata or decorators) provide information about the program but are not part of the program itself.
+They can be used for various purposes, such as configuration, documentation, and code analysis.
+
+Enums / Enumerated Types / Constants
+------------------------------
+Enums (also known as enumerated types or constants) are special data types that define a set of named constant values.
+They are used to represent a fixed set of related values in a type-safe manner.
+
+Exceptions / Error Handling / Fault Management
+------------------------------
+Exceptions (also known as error handling or fault management) are used to handle errors and other exceptional conditions in a program.
+They provide a way to separate error-handling code from regular code and allow for graceful recovery from errors.
+
+Annotations / Metadata / Decorators
+------------------------------
+Annotations (also known as metadata or decorators) provide information about the program but are not part of the program itself.
+They can be used for various purposes, such as configuration, documentation, and code analysis.
+

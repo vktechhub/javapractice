@@ -1,3 +1,14 @@
+✅ 1. What Are Generics?
+Generics enable types (classes and interfaces) to be parameters when defining classes, interfaces, and methods. This allows for code reusability and type safety.
+Example:
+List<String> list = new ArrayList<>();
+here String is the type parameter for the generic class List.
+
+✅ 2. Key Concepts of Generics
+
+✅ Generics are type parameters, not data types themselves.
+Generics are not a separate data type category, as they are a feature of reference types (specifically, of classes, interfaces, and methods) that work with different data types safely (type-safe, compile-time checking).
+
 Why Do We Use Generics?
 * Generics allow you to write type-safe, reusable code.
 * They add type parameters (like <T>, <E>, <K, V>) to classes, interfaces, and methods.
@@ -5,135 +16,101 @@ Why Do We Use Generics?
 * Eliminate the need for casting
 * Reusable algorithms
 * Better readability
-✅ Generics are type parameters, not data types themselves.
-Generics are not a separate data type category, as they are a feature of reference types (specifically, of classes, interfaces, and methods) that work with different data types safely (type-safe, compile-time checking).
-
-
 
 🧱 Generics Can Be Used In
-Where	            Example	                            Explanation
-Generic Class	    class Box<T> { T value; }	        T is a type parameter
-Generic Interface	interface Comparable<T>	            Used in sorting, etc.
-Generic Method	<T> void print(T item)	                Works for any type
-Generic Collection	List<String>, Map<Integer, String>	Part of Java Collections Framework
-
-
+Where	                Example	                            Explanation
+Generic Class	        class Box<T> { T value; }	        T is a type parameter
+Generic Interface	    interface Comparable<T>	            Used in sorting, etc.
+Generic Method	<T>     void print(T item)	                Works for any type
+Generic Collection	    List<String>, Map<Integer, String>	Part of Java Collections Framework
 
 ✅ 3. Generic Type Parameters
-
 Common naming conventions:
 
 Symbol	Meaning
-T	Type
-E	Element
-K	Key
-V	Value
-N	Number
-?	Wildcard
+T	    Type
+E	    Element
+K	    Key
+V	    Value
+N	    Number
+?	    Wildcard
 
 Example:
-
 class Box<T> {
     private T value;
     public void set(T value) { this.value = value; }
     public T get() { return value; }
 }
 
-
 Usage:
-
 Box<Integer> box = new Box<>();
 box.set(100);
 System.out.println(box.get());
 
 ✅ 4. Generic Methods
-
 A method can define its own type parameter.
 
 public <T> void print(T value) {
     System.out.println(value);
 }
 
-
 Calling it:
-
 print("Hello");
 print(100);
 print(10.5);
 
-✅ 5. Bounded Generics
-Upper Bound (extends)
-
-Restricts type to subclass of a given class.
+✅ 5. Bounded Generics - Restricts type to subclass of a given class
+Upper Bound (extends):
 
 public <T extends Number> void show(T value) {
     System.out.println(value.doubleValue());
 }
 
+    Valid:
+        Integer
+        Double
+        Long
+    Invalid:
+        String
 
-Valid:
-
-Integer
-
-Double
-
-Long
-
-Invalid:
-
-String
-
-Lower Bound (super)
-
-Used mainly in collections.
+Lower Bound (super) - Used mainly in collections.
 
 public void addNumbers(List<? super Integer> list) {
     list.add(10);
     list.add(20);
 }
 
-
-Accepts:
-
-List<Integer>
-
-List<Number>
-
-List<Object>
+    Accepts:
+        List<Integer>
+        List<Number>
+        List<Object>
 
 ✅ 6. Wildcards (?)
 Unbounded Wildcard
-List<?> list
-
-
-You can't add elements (except null) because type is unknown.
-
+    List<?> list
+        Readable but NOT addable(except null) because type is unknown.
+    
 Upper Bounded Wildcard
-List<? extends Number>
-
-
-Readable but NOT addable (except null).
+    List<? extends Number>
+        Readable but NOT addable (except null).
 
 Lower Bounded Wildcard
-List<? super Integer>
-
+    List<? super Integer>
 
 Writable.
 
 📌 Summary
-Type	Read	Write
-List<?>	✔	✖
-List<? extends T>	✔	✖
-List<? super T>	✔	✔(T or child)
-✅ 7. PECS Rule (VERY important for interviews)
+Type	            Read	Write
+List<?>	            ✔	    ✖
+List<? extends T>	✔	    ✖
+List<? super T>	    ✔	    ✔(T or child)
 
-Producer Extends, Consumer Super
+✅ 7. PECS Rule 
+        Producer Extends, Consumer Super
+            Use ? extends T when you read/consume from the list
+            Use ? super T when you write/add to the list
 
-Use ? extends T when you read/consume from the list
-
-Use ? super T when you write/add to the list
-
-Example:
+            Example:
 
 List<? extends Number> producer = new ArrayList<Integer>();
 Number n = producer.get(0); // OK
@@ -144,92 +121,101 @@ consumer.add(10); // OK
 Integer x = consumer.get(0); // Needs cast
 
 ✅ 8. Generic Interfaces
-interface Mapper<T> {
-    T process(T input);
-}
+        interface Mapper<T> {
+            T process(T input);
+        }
 
-class StringMapper implements Mapper<String> {
-    public String process(String input) {
-        return input.toUpperCase();
-    }
-}
+        class StringMapper implements Mapper<String> {
+            public String process(String input) {
+                return input.toUpperCase();
+            }
+        }
 
 ✅ 9. Bounded Type Parameters with Multiple Bounds
-<T extends Number & Comparable<T>> void maxValue(T a, T b) {
-    System.out.println(a.compareTo(b) > 0 ? a : b);
-}
+        <T extends Number & Comparable<T>> void maxValue(T a, T b) {
+            System.out.println(a.compareTo(b) > 0 ? a : b);
+        }
 
 
-✔ Class must come first
-✔ Interfaces can follow
+        ✔ Class must come first
+        ✔ Interfaces can follow
 
 ✅ 10. Generic Constructors
-class Test {
-    <T> Test(T value) {
-        System.out.println(value);
-    }
-}
+            class Test {
+                <T> Test(T value) {
+                    System.out.println(value);
+                }
+            }
 
 ✅ 11. Type Erasure (Runtime Behavior)
+            ✔ Generics exist only at compile time
+            ✔ JVM sees raw types
 
-Important interview concept.
+            Example:
 
-✔ Generics exist only at compile time
-✔ JVM sees raw types
+            List<String> l1 = new ArrayList<>();
+            List<Integer> l2 = new ArrayList<>();
+            System.out.println(l1.getClass() == l2.getClass()); // true
 
-Example:
-
-List<String> l1 = new ArrayList<>();
-List<Integer> l2 = new ArrayList<>();
-System.out.println(l1.getClass() == l2.getClass()); // true
-
-
-Because both become:
-
-List
+            Because both become:
+            List
 
 ✅ 12. Restrictions with Generics
 
-❌ No primitive types
-List<int> → not allowed
-Use List<Integer>
+        ❌ No primitive types
+        List<int> → not allowed
+        Use List<Integer>
 
-❌ Cannot instantiate generic type
-T obj = new T(); → error
+        ❌ Cannot instantiate generic type
+        T obj = new T(); → error
 
-❌ No static fields with generic type
-static T value; → not allowed
+        ❌ No static fields with generic type
+        static T value; → not allowed
 
-❌ No instanceof with parameterized types
-obj instanceof List<String> → not allowed
+        ❌ No instanceof with parameterized types
+        obj instanceof List<String> → not allowed
 
-✅ 13. Putting It All Together (Interview Problem)
-Write a method to find the maximum element in a list of Numbers:
-public static <T extends Comparable<T>> T max(List<T> list) {
-    T max = list.get(0);
-    for (T item : list) {
-        if (item.compareTo(max) > 0) {
-            max = item;
+        ❌ Cannot create arrays of parameterized types
+        List<String>[] arr = new List<String>[10]; → not allowed
+        
+✅ 13. Write a method to find the maximum element in a list of Numbers:
+
+        public static <T extends Comparable<T>> T max(List<T> list) {
+            T max = list.get(0);
+            for (T item : list) {
+                if (item.compareTo(max) > 0) {
+                    max = item;
+                }
+            }
+            return max;
         }
-    }
-    return max;
-}
+
+        Usage:
+        List<Integer> nums = List.of(1, 3, 2, 10);
+        System.out.println(max(nums)); // 10
+
+✅ 14. Summary of Generics in Java
+        ✔ Generics provide type safety and reusability
+        ✔ They allow parameterization of types
+        ✔ Support for generic classes, interfaces, and methods
+        ✔ Bounded type parameters restrict types
+        ✔ Wildcards provide flexibility in method parameters
 
 
-Usage:
 
-List<Integer> nums = List.of(1, 3, 2, 10);
-System.out.println(max(nums)); // 10
 
-🎯 Want more?
+✔ How generics are implemented internally (type erasure)
+        ✔ Generics exist only at compile time
+        ✔ JVM sees raw types
+        
 
-I can teach you:
+
 
 ✔ Generics best practices
-✔ Real-time code examples
-✔ Generics interview questions & answers
-✔ Complex wildcard scenarios
-✔ Generics in Java Collections
-✔ How generics are implemented internally (type erasure)
-
-Just tell me which direction you want to go next.
+        ✔ Use meaningful type parameter names
+        ✔ Follow PECS rule for collections
+        ✔ Avoid raw types
+        ✔ Use bounded type parameters when necessary
+        ✔ Understand limitations and restrictions of generics
+        ✔ How generics are implemented internally (type erasure)
+        

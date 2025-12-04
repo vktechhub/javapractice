@@ -1,37 +1,37 @@
 General Syntax for Variable Declaration
         <access_modifier> <static_modifier> <final_modifier> <data_type> <variable_name> = <value>;
 
-Example:- 
-    public static final int max_Score = 100;
+        Example:- 
+            public static final int max_Score = 100;
 
-access_modifier	
-    Optional. Can be public, private, protected, or default (package-private).
-    Private - only within the same class
-    Default (No modifier) - within the same package only
-    Protected - same package and subclasses in any package
-    Public - Accessible from anywhere
-    Best Practices:
-            Use private for fields and internal methods.
-            Use public for APIs and utility classes/methods.
-            Use protected in inheritance hierarchies.
-            Avoid default unless package-level access is intended.
-Static - Optional. Means the variable belongs to the class, not instances.
-Final - Optional. Makes the variable a constant (value cannot change).
-        final double PI = 3.14159;
+        access_modifier	
+            Optional. Can be public, private, protected, or default (package-private).
+            Private - only within the same class
+            Default (No modifier) - within the same package only
+            Protected - same package and subclasses in any package
+            Public - Accessible from anywhere
+            Best Practices:
+                    Use private for fields and internal methods.
+                    Use public for APIs and utility classes/methods.
+                    Use protected in inheritance hierarchies.
+                    Avoid default unless package-level access is intended.
+        Static - Optional. Means the variable belongs to the class, not instances.
+        Final - Optional. Makes the variable a constant (value cannot change).
+                final double PI = 3.14159;
 
-dataType - Mandatory. Any valid Java type (primitive or reference).
-            Primitive Types:
-                    byte, short, int, long
-                    float, double
-                    char
-                    boolean
-            Reference Types:
-                    Class names (String, Integer, List, etc.)
-variableName - Mandatory. Must follow Java naming rules.
-            Must begin with a letter, $, or _
-            Cannot be a keyword
-            Follow camelCase by convention for variables
-= value	 - Optional. Assigns an initial value (initialization).
+        dataType - Mandatory. Any valid Java type (primitive or reference).
+                    Primitive Types:
+                            byte, short, int, long
+                            float, double
+                            char
+                            boolean
+                    Reference Types:
+                            Class names (String, Integer, List, etc.)
+        variableName - Mandatory. Must follow Java naming rules.
+                    Must begin with a letter, $, or _
+                    Cannot be a keyword
+                    Follow camelCase by convention for variables
+        = value	 - Optional. Assigns an initial value (initialization).
 
 Multiple Variable Declarations
         int x = 5, y = 10, z = 15; // Different values
@@ -67,3 +67,19 @@ More examples:-
         💡 Access modifiers control who can access the variable.
     
 
+Types of Variables
+        Local Variables - Declared inside methods, constructors, or blocks. Scope is limited to that block.
+        Instance Variables - Declared in a class but outside any method. Each object has its own copy.
+        Static Variables - Declared with the static keyword. Shared among all instances of the class.
+
+Constants
+        Use the final keyword to declare constants. When final is used, the variable's value cannot be changed once assigned.
+        Example:
+            final double PI = 3.14159;
+            static final int MAX_SCORE = 100;
+
+        Best Practices for Constants:
+            Use uppercase letters with underscores for constant names (e.g., MAX_SCORE).
+            Declare constants as static final if they are class-level constants.
+            Group related constants in interfaces or classes for better organization.
+            
