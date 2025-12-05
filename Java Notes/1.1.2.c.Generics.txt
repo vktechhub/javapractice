@@ -86,24 +86,7 @@ public void addNumbers(List<? super Integer> list) {
         List<Object>
 
 ✅ 6. Wildcards (?)
-Unbounded Wildcard
-    List<?> list
-        Readable but NOT addable(except null) because type is unknown.
-    
-Upper Bounded Wildcard
-    List<? extends Number>
-        Readable but NOT addable (except null).
 
-Lower Bounded Wildcard
-    List<? super Integer>
-
-Writable.
-
-📌 Summary
-Type	            Read	Write
-List<?>	            ✔	    ✖
-List<? extends T>	✔	    ✖
-List<? super T>	    ✔	    ✔(T or child)
 
 ✅ 7. PECS Rule 
         Producer Extends, Consumer Super
