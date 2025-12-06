@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CJ_Collection_ConvenienceFactoryMethod",
+            "request": "launch",
+            "mainClass": "CJ_Collection_ConvenienceFactoryMethod",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "CJ_ComparatorVsComparable",
             "request": "launch",
             "mainClass": "CJ_ComparatorVsComparable",
