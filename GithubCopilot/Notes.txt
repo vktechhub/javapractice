@@ -1,0 +1,16 @@
+Github Copilot Notes
+
+commands in Github Copilot(to be entered in the command palette of your code editor):
+/help - Display help information about Github Copilot commands and features.
+/enable - Enable Github Copilot for your current project or repository.
+/disable - Disable Github Copilot for your current project or repository.
+/settings - Open the settings menu for Github Copilot to customize preferences.
+/feedback - Provide feedback about your experience with Github Copilot.
+/learn - Access tutorials and documentation to learn how to use Github Copilot effectively.
+/insert - Insert a code suggestion from Github Copilot into your current file.
+/next - Cycle to the next code suggestion provided by Github Copilot.
+/previous - Cycle to the previous code suggestion provided by Github Copilot.
+/clear - Clear all current code suggestions from Github Copilot.
+/review - Review the code suggestions made by Github Copilot for quality and relevance.
+/optimize - Optimize the code suggestions provided by Github Copilot for better performance.
+/report - Report an issue or bug encountered while using Github Copilot.

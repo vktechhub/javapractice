@@ -1,0 +1,41 @@
+JPA Annotations:-
+@Entity: This annotation is used to specify that the class is an entity and is mapped to a database table.
+@Table: This annotation is used to specify the name of the database table to which the entity is mapped.
+@Id: This annotation is used to specify the primary key of an entity.
+@GeneratedValue: This annotation is used to specify the generation strategy for the primary key values.
+@Column: This annotation is used to specify the details of the column to which a field or property is mapped.
+@OneToOne: This annotation is used to specify a one-to-one relationship between two entities.
+@OneToMany: This annotation is used to specify a one-to-many relationship between two entities.
+@ManyToOne: This annotation is used to specify a many-to-one relationship between two entities.
+@ManyToMany: This annotation is used to specify a many-to-many relationship between two entities.
+@JoinColumn: This annotation is used to specify the foreign key column for a relationship.
+@JoinTable: This annotation is used to specify the join table for a many-to-many relationship.
+@Embeddable: This annotation is used to specify that a class is embeddable and can be embedded in an entity.
+@Embedded: This annotation is used to specify that a field or property is an embedded object.   
+@Transient: This annotation is used to specify that a field or property is not persistent and should not be mapped to a database column.
+@Inheritance: This annotation is used to specify the inheritance strategy for entity classes.
+@DiscriminatorColumn: This annotation is used to specify the discriminator column for single table inheritance.
+@DiscriminatorValue: This annotation is used to specify the discriminator value for a subclass in single table inheritance.
+@Version: This annotation is used to specify the version field for optimistic locking.
+@Lob: This annotation is used to specify that a field or property should be treated as a large object (LOB) in the database.
+@NamedQuery: This annotation is used to define a static named query at the entity level.    
+@NamedQueries: This annotation is used to define multiple static named queries at the entity level.
+@SqlResultSetMapping: This annotation is used to define the mapping of the result set of a native SQL query to entities or scalar values.
+@Converter: This annotation is used to define a custom converter for mapping between the database and the entity attribute.
+@Convert: This annotation is used to specify the use of a custom converter for a specific entity attribute.
+@AttributeOverride: This annotation is used to override the mapping of an embedded attribute.
+@AttributeOverrides: This annotation is used to override the mappings of multiple embedded attributes.
+@Access: This annotation is used to specify the access type (field or property) for an entity or a specific attribute.
+@Cacheable: This annotation is used to specify whether the entity should be cached by the second-level cache.
+@OrderBy: This annotation is used to specify the ordering of a collection of entities.
+@OrderColumn: This annotation is used to specify a column that maintains the order of a list of entities.
+@ElementCollection: This annotation is used to specify a collection of basic or embeddable types.
+@CollectionTable: This annotation is used to specify the table that stores the collection of embeddable types or basic types.
+@MapKey: This annotation is used to specify the map key for a map collection.
+@MapKeyColumn: This annotation is used to specify the column that stores the map key for a map collection.
+@MapKeyJoinColumn: This annotation is used to specify the join column that stores the map key for a map collection of entities.
+@OrderColumn: This annotation is used to specify a column that maintains the order of a list of entities.
+@Fetch: This annotation is used to specify the fetch strategy (eager or lazy) for a relationship or collection.
+@BatchSize: This annotation is used to specify the batch size for fetching collections or entities.
+@FetchProfile: This annotation is used to define a fetch profile for optimizing entity loading.
+@NamedEntityGraph: This annotation is used to define a named entity graph for specifying fetch plans

@@ -3,26 +3,28 @@ For Non Functional Requirement(service logic) - Not for Business logic
 
 how to make aspect class
 
-@Aspect
+@Aspect     // indicates this is an aspect
+@Component // to make it spring managed
 class {
     // use aspect-advice annotations like @Before, @After, etc... and giving pointcut definition
 }
 
-@EnableAspectJAutoProxy
+@EnableAspectJAutoProxy         // to enable AOP support in Spring configuration class
+@Configuration                  // to make it spring managed
 class Main{
 }
 
 Understanding AOP Concepts
 1. Aspect: An Aspect is a modular unit of cross-cutting concerns. For example, a logging aspect can be applied across various methods in different classes.
 
-2. Advice: This is the action taken by an aspect at a particular join point. There are five types of advice:
+2. Join Point: A specific point in the execution of a program, such as method execution or exception handling, where an aspect can be applied.
+
+3. Advice: This is the action taken by an aspect at a particular join point. There are five types of advice:
     Before: Executed before the method call.
     After: Executed after the method call, regardless of its outcome.
     AfterReturning: Executed after the method returns a result, but not if an exception occurs.
     Around: Surrounds the method execution, allowing you to control the method execution and its result.
     AfterThrowing: Executed if the method throws an exception.
-
-3. Join Point: A specific point in the execution of a program, such as method execution or exception handling, where an aspect can be applied.
 
 4. Pointcut: A Pointcut is a predicate that defines where advice should be applied. It matches join points using expressions.
 

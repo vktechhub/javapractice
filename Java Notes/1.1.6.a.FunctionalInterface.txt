@@ -23,12 +23,7 @@ MyFunctionalInterface funcInterface = () -> System.out.println("Executing the fu
 funcInterface.execute(); // Output: Executing the functional interface method.
 
 Common Functional Interfaces in Java:
-Java provides several built-in functional interfaces in the java.util.function package, such as:    
-Predicate<T>: Represents a boolean-valued function of one argument.    
-Function<T, R>: Represents a function that accepts one argument and produces a result.
-Supplier<T>: Represents a supplier of results.    
-Consumer<T>: Represents an operation that accepts a single input argument and returns no result.
-BiFunction<T, U, R>: Represents a function that accepts two arguments and produces a result.
+Java provides several built-in functional interfaces in the java.util.function package.(Covered in detail in later sections))
 
 Benefits:
 Conciseness: Functional interfaces allow for more concise and readable code using lambda expressions.

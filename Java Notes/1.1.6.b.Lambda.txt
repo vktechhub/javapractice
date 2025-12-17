@@ -1,6 +1,6 @@
 Lambda Expressions in Java
     Lambda expressions provide a concise way to represent an anonymous function, primarily used with functional interfaces.
-    A lambda expression is a short block of code that takes in parameters and returns a value. 
+    A lambda expression is a short block of code that optionally takes in parameters and returns a value. 
     Lambdas look similar to methods, but they do not need a name, and they can be written right inside a method body.
     The target type of a lambda expression must be a either built-in or user-defined functional interface
          If a lambda expression is passed as an argument to a method, the corresponding parameter in the method signature must be of a functional interface type.
@@ -9,10 +9,10 @@ Lambda Expressions in Java
         No parameters:
                 () -> expression
         One parameter:
-                parameter -> expression
+                (parameter) -> expression
         Multiple parameters:
                 (parameter1, parameter2) -> expression
-        Multiple lines:
+        Multiple lines of expression:
                 (parameter1, parameter2) -> {
                     // statements
                     return expression;
@@ -23,23 +23,23 @@ Lambda Expressions in Java
                 Runnable runnable = () -> System.out.println("Hello, World!"); 
                 runnable.run();
 
-                Supplier<Integer> five = () -> 5; 
-                System.out.println(five.get());
+                Supplier<Integer> five = () -> 5;       // returns 5
+                System.out.println(five.get());         // Output: 5 ; get is the abstract method of Supplier interface used to retrieve the value
 
         // One parameter
-                Function<Integer, Integer> doubleIt = (x) -> x * 2; 
-                System.out.println(doubleIt.apply(5));
+                Function<Integer, Integer> doubleIt = (x) -> x * 2;     // returns double of the input
+                System.out.println(doubleIt.apply(5));                  // Output: 10 ; apply is the abstract method of Function interface used to apply the function to the input
 
         // Multiple parameters
-                BiFunction<Integer, Integer, Integer> add = (a, b) -> a + b;
-                System.out.println(add.apply(3, 4));
+                BiFunction<Integer, Integer, Integer> add = (a, b) -> a + b;    // returns sum of two inputs
+                System.out.println(add.apply(3, 4));                            // Output: 7 ; apply is the abstract method of BiFunction interface used to apply the function to the two inputs
 
                 // multiline lambda
-                Function<Integer, Integer> square = (x) -> {
-                System.out.println("Calculating square...");
-                return x * x;
+                Function<Integer, Integer> square = (x) -> {            // returns square of the input
+                System.out.println("Calculating square...");            // Output: Calculating square...
+                return x * x;                                           // returns square of x
                 };
-                System.out.println(square.apply(5));
+                System.out.println(square.apply(5));                    // Output: 25; 
 
         // Lambda passed to method argument
                 public class LambdaExample {
