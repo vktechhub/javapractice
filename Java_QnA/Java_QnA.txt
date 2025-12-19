@@ -230,19 +230,18 @@ D.Answer D.
 They map to relationships between tables in a database
 
 Java Persistence API: Configuring Fields & Performing CRUD Operations
-Question 1 of 22
-
-Question: If you have configured a table that you want to use to generated primary keys using the TABLE generation strategy, which of the following statements is true?
+Question: Which of the following are advantages of modelling relationships using embedded objects?
 Instruction: Choose all options that best answer the question. 
 
 A.Answer A.
-Every entity which uses the TABLE strategy needs to have a separate table
+Can represent relationships using composition in the object-oriented world
 
 B.Answer B.
-Multiple tables can share the same table for primary key generation
+Easier to use embeddables rather than individual fields
 
 C.Answer C.
-While sharing a database tables every entity which uses the TABLE strategy needs to have an entry in the shared table
+The same embeddable can be shared across multiple entities
 
 D.Answer D.
-Each table has an auto-incremented column for primary keys
+JPA providers are more performant with embedded objects
+

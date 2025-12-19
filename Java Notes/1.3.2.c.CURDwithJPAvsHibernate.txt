@@ -1,0 +1,84 @@
+JDBC structure:-
+1. Class.forName("com.database.Driver");
+2. Connection conn = DriverManager.getConnection("jdbc:database://host:port/dbname", "user", "password");
+3. PreparedStatement pstmt = conn.prepareStatement("SQL QUERY");
+4. // Set parameters if needed
+5. ResultSet rs = pstmt.executeQuery(); // For SELECT
+   or int rowsAffected = pstmt.executeUpdate(); // For INSERT, UPDATE, DELETE
+6. // Process ResultSet if needed
+7. rs.close();
+8. pstmt.close();
+9. conn.close();
+
+Config needed for JDBC :- 
+
+JPA structure:-
+1. EntityManagerFactory emf = Persistence.createEntityManagerFactory("unit-name");
+2. EntityManager em = emf.createEntityManager();
+3. EntityTransaction tx = em.getTransaction();
+4. tx.begin();
+5. // Perform CRUD operations
+    example: em.persist(entity);    // Create
+             em.find(EntityClass.class, id); // Read
+             em.merge(entity);               // Update
+             em.remove(entity);              // Delete
+
+6. tx.commit();
+7. em.close();
+8. emf.close();
+
+Config needed for JPA :- 
+
+Hibernate structure:-
+1. Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
+2. SessionFactory sessionFactory = cfg.buildSessionFactory();
+3. Session session = sessionFactory.openSession();
+4. Transaction tx = session.beginTransaction();
+5. // Perform CRUD operations
+    example: session.save(entity);    // Create
+             session.get(EntityClass.class, id); // Read
+             session.update(entity);               // Update
+             session.delete(entity);              // Delete
+
+6. tx.commit();
+7. session.close();
+8. sessionFactory.close();
+
+Config needed for Hibernate :- 
+
+Spring JDBC structure:-
+1. DataSource dataSource = new DriverManagerDataSource("jdbc:database://host:port/dbname", "user", "password");
+2. JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+3. // Perform CRUD operations
+    example: String sql = "INSERT INTO table_name (column1, column2) VALUES (?, ?)";
+             jdbcTemplate.update(sql, value1, value2); // Create
+
+             String sql = "SELECT * FROM table_name WHERE id = ?";
+             RowMapper<EntityClass> rowMapper = new BeanPropertyRowMapper<>(EntityClass.class);
+             EntityClass entity = jdbcTemplate.queryForObject(sql, rowMapper, id); // Read
+
+             String sql = "UPDATE table_name SET column1 = ? WHERE id = ?";
+             jdbcTemplate.update(sql, newValue, id); // Update
+
+             String sql = "DELETE FROM table_name WHERE id = ?";
+             jdbcTemplate.update(sql, id); // Delete
+4. // No explicit transaction management needed for simple operations
+5. // Additional operations as needed
+6. // No explicit close needed for DataSource and JdbcTemplate
+
+Config needed for Spring JDBC :- 
+
+Spring Hibernate structure:-
+1. Configure DataSource and SessionFactory beans in Spring configuration (XML or Java-based)
+2. @Autowired private SessionFactory sessionFactory;
+3. Session session = sessionFactory.getCurrentSession();
+4. // Perform CRUD operations
+    example: session.save(entity);    // Create
+             session.get(EntityClass.class, id); // Read
+             session.update(entity);               // Update
+             session.delete(entity);              // Delete
+5. // Transaction management can be handled by Spring's @Transactional annotation
+6. // No explicit close needed for SessionFactory when managed by Spring
+7. // Additional operations as needed
+
+Config needed for Spring Hibernate :- 
