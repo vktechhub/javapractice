@@ -1,0 +1,23 @@
+Different way of performing HTTP requests in Java:-
+
+Built-in JDK Libraries 
+    1. Using java.net.HttpURLConnection (available since JDK 1.1)
+        - Suitable for basic HTTP operations.
+    4. Using Java 11 HttpClient (available since JDK 11)
+        - Modern and feature-rich HTTP client built into the JDK.
+
+Popular Third-Party Libraries
+    2. Using Apache HttpClient (third-party library)
+        - More features and flexibility for complex HTTP operations.
+    3. Using OkHttp (third-party library)
+        - Efficient and easy-to-use HTTP client.
+    7. Using Retrofit (third-party library)
+        - Type-safe HTTP client for Android and Java.
+    8. Using Unirest (third-party library)
+        - Simplified HTTP client for making requests with minimal code.
+
+Spring Framework Libraries
+    5. Using Spring RestTemplate (part of Spring Framework)
+        - Simplifies RESTful web service consumption in Spring applications.
+    6. Using Spring WebClient (part of Spring WebFlux)
+        - Reactive and non-blocking HTTP client for Spring applications.

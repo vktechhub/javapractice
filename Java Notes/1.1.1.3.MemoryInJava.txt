@@ -24,3 +24,16 @@ Stack vs Heap Comparison
         Memory Management   | Managed by thread                | Managed by Garbage Collector
         Size                | Smaller                          | Larger
         Lifetime           | Short-lived (method scope)       | Long-lived (object lifetime)
+
+Heap and Stack 
+------------------------------
+When a Java program is executed, the JVM allocates memory for variables and objects in both stack and heap memory.
+
+1. Stack Memory Allocation:
+   - When a method is called, a new block is created in the stack memory to hold the method's local variables and references.
+   - Primitive data types are stored directly in the stack.
+   - References to objects created in heap memory are stored in the stack.
+
+2. Heap Memory Allocation:
+   - When an object is created using the new keyword, memory for that object is allocated in the heap.
+   - The reference to that object is returned and stored in the stack memory.

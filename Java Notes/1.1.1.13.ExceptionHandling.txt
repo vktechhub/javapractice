@@ -1,0 +1,141 @@
+Exception Handling in Java:-
+1. **Basics of Exception Handling**:
+   - Exceptions are events that disrupt the normal flow of a program's execution.
+   - Java provides a robust exception handling mechanism using `try`, `catch`, `finally`, `throw`, and `throws` keywords.
+2. **Types of Exceptions**:
+   - Checked Exceptions: These are exceptions that are checked at compile-time (e.g., `IOException`, `SQLException`).
+   - Unchecked Exceptions: These are exceptions that occur at runtime (e.g., `NullPointerException`, `ArrayIndexOutOfBoundsException`).
+   - Errors: These are serious problems that a reasonable application should not try to catch (e.g., `OutOfMemoryError`).
+3. **Try-Catch Block**:
+   - The `try` block contains code that may throw an exception.
+    - The `catch` block is used to handle the exception.
+    ```java 
+    try {
+         // code that may throw an exception
+    } catch (ExceptionType e) {
+         // code to handle the exception
+    }
+    ```
+
+4. **Finally Block**:
+   - The `finally` block is used to execute code that must run regardless of whether an exception occurred or not.
+   ```java  
+    try {
+          // code that may throw an exception
+    } catch (ExceptionType e) {
+          // code to handle the exception
+    } finally {
+          // code that will always execute
+    }
+    ```
+5. **Throwing Exceptions**:
+   - The `throw` keyword is used to explicitly throw an exception.
+   ```java  
+    throw new ExceptionType("Error message");
+    ```
+6. **Declaring Exceptions**:
+   - The `throws` keyword is used in method signatures to declare that a method may throw certain exceptions.
+   ```java  
+    public void methodName() throws ExceptionType {
+          // method code
+    }
+    ```
+7. **Custom Exceptions**:
+   - You can create your own exception classes by extending the `Exception` class.
+   ```java  
+    public class MyCustomException extends Exception {
+          public MyCustomException(String message) {
+               super(message);
+          }
+    }
+    ```
+
+8. **Multiple Catch Blocks**:
+   - You can have multiple `catch` blocks to handle different types of exceptions.
+            try {
+                // Code that may throw various exceptions
+                int[] numbers = {1, 2, 3};
+                System.out.println(numbers[10]); // ArrayIndexOutOfBoundsException
+                int result = 10 / 0; // ArithmeticException
+            } catch (ArrayIndexOutOfBoundsException e) {
+                System.out.println("Array index error: " + e.getMessage()); // Specific handler
+            } catch (ArithmeticException e) {
+                System.out.println("Cannot divide by zero: " + e.getMessage()); // Specific handler
+            } catch (RuntimeException e) {
+                System.out.println("A general runtime error occurred: " + e.getMessage()); // More general
+            } catch (Exception e) {
+                System.out.println("An general exception occurred: " + e.getMessage()); // Most general exception
+            }
+
+    Java Exception Hierarchy Order for Catch Blocks :
+        - When using multiple catch blocks, catch the more specific exceptions first, followed by the more general exceptions.
+        - Order of catch blocks matters; catch more specific exceptions first.
+                - IOException should be caught before SQLException if both are possible.
+
+        Specific Exceptions: 
+        These are the leaves of the exception hierarchy and should be caught first to allow for precise error handling for specific scenarios.
+                ArithmeticException (e.g., division by zero)
+                ArrayIndexOutOfBoundsException (e.g., accessing an invalid array index)
+                NullPointerException (e.g., calling a method on a null object)
+                FileNotFoundException (e.g., a file specified does not exist)
+                NumberFormatException (e.g., converting an invalid string to a number)
+        More General Exceptions (Superclasses): These should be placed after their subclasses in the catch order.
+                IOException (superclass for I/O errors like FileNotFoundException and EOFException)
+                RuntimeException (superclass for all unchecked exceptions like NullPointerException and ArithmeticException)
+                Exception (superclass of all checked and unchecked exceptions, except Error)
+                Throwable (the root class of the entire exception and error hierarchy) 
+
+Another notes:- 
+        Exception Hierarchy Overview
+                All exceptions in Java inherit from the Throwable class. 
+                    The main branches are Error and Exception. 
+                        The Exception branch further divides into checked and unchecked (runtime) exceptions. 
+
+                java.lang.Object
+                    java.lang.Throwable
+                        java.lang.Error (e.g., OutOfMemoryError, StackOverflowError - generally not handled by applications)
+                            java.lang.Exception (application-level conditions)
+                                Checked Exceptions (must be caught or declared, e.g., IOException, SQLException)
+                                Unchecked Exceptions / Runtime Exceptions (subclasses of RuntimeException, e.g., NullPointerException, ArrayIndexOutOfBoundsException, ArithmeticException) 
+                    
+
+    ```9. **Try-With-Resources**:
+   - This feature allows you to declare resources that will be automatically closed after the program is finished using them.
+   ```java  
+    try (ResourceType resource = new ResourceType()) {
+          // code that uses the resource
+    } catch (ExceptionType e) {
+          // handle exception
+    }
+    ```
+Example of Exception Handling in Java:
+```java
+import java.io.BufferedReader;
+import java.io.FileReader;  
+import java.io.IOException;
+public class ExceptionHandlingExample {
+    public static void main(String[] args) {
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new FileReader("example.txt"));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            System.err.println("An IOException occurred: " + e.getMessage());
+        } catch (Exception e) {
+            System.err.println("An unexpected error occurred: " + e.getMessage());
+        }
+        finally {
+            try {
+                if (reader != null) {
+                    reader.close();
+                }
+            } catch (IOException e) {
+                System.err.println("Failed to close the reader: " + e.getMessage());
+            }
+        }
+    }
+}
+

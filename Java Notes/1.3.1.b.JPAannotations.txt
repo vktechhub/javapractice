@@ -85,19 +85,15 @@ Large Objects:-
     * In JPA, large objects such as BLOBs (Binary Large Objects) and CLOBs (Character Large Objects) can be mapped using the @Lob annotation.
     * The @Lob annotation can be applied to fields or properties of type byte[], Byte[], String, java.sql.Clob, java.sql.Blob, etc.
     * When a field or property is annotated with @Lob, the JPA provider will handle the storage and retrieval of large objects appropriately.
+    @Lob: This annotation is used to specify that a field or property should be treated as a large object (LOB) in the database.
 
 
-@OneToOne: This annotation is used to specify a one-to-one relationship between two entities.
-@OneToMany: This annotation is used to specify a one-to-many relationship between two entities.
-@ManyToOne: This annotation is used to specify a many-to-one relationship between two entities.
-@ManyToMany: This annotation is used to specify a many-to-many relationship between two entities.
-@JoinColumn: This annotation is used to specify the foreign key column for a relationship.
-@JoinTable: This annotation is used to specify the join table for a many-to-many relationship.
+
 @Inheritance: This annotation is used to specify the inheritance strategy for entity classes.
 @DiscriminatorColumn: This annotation is used to specify the discriminator column for single table inheritance.
 @DiscriminatorValue: This annotation is used to specify the discriminator value for a subclass in single table inheritance.
 @Version: This annotation is used to specify the version field for optimistic locking.
-@Lob: This annotation is used to specify that a field or property should be treated as a large object (LOB) in the database.
+
 @NamedQuery: This annotation is used to define a static named query at the entity level.    
 @NamedQueries: This annotation is used to define multiple static named queries at the entity level.
 @SqlResultSetMapping: This annotation is used to define the mapping of the result set of a native SQL query to entities or scalar values.
@@ -107,8 +103,8 @@ Large Objects:-
 @AttributeOverrides: This annotation is used to override the mappings of multiple embedded attributes.
 @Access: This annotation is used to specify the access type (field or property) for an entity or a specific attribute.
 @Cacheable: This annotation is used to specify whether the entity should be cached by the second-level cache.
-@OrderBy: This annotation is used to specify the ordering of a collection of entities.
-@OrderColumn: This annotation is used to specify a column that maintains the order of a list of entities.
+
+
 @ElementCollection: This annotation is used to specify a collection of basic or embeddable types.
 @CollectionTable: This annotation is used to specify the table that stores the collection of embeddable types or basic types.
 @MapKey: This annotation is used to specify the map key for a map collection.

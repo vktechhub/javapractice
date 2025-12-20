@@ -1,0 +1,186 @@
+Summarize JPA relationship mapping and configuration.
+One to One unidirectional
+One to One bidirectional
+One to One with shared primary key
+One to One with Join Columns
+One to One with join table
+One to Many unidirectional
+One to Many mapping with Join Tables
+One to Many mapping with Join Columns
+One to Many mapping Eager loading
+One to Many mapping Lazy loading
+One to Many bidirectional
+Many to One unidirectional 
+Many to One bidirectional
+Many to One mapping multiple join columns
+Many to One mapping using Join Table
+Many to Many bidirectional
+Many to Many unidirectional
+
+Object relationships:- JPA provides several annotations to define relationships between entities.
+    @OneToOne: This annotation is used to specify a one-to-one relationship between two entities.
+        Default mechanism is to use a foreign key in one of the tables to reference the primary key of the other table.
+        The side that contains the foreign key is considered the owner of the relationship.
+        Other than foreign key, a one-to-one relationship can also be mapped using a join table or shared primary key.
+        * Table will have foreign key reference of the other table.
+                * with Join Columns: uses @JoinColumn to specify the foreign key column.
+                    @JoinColumn: This annotation is used to specify the foreign key column for a relationship.
+
+                    @JoinColumn vs @JoinColumns
+                    @JoinColumn defines a single foreign key column, while 
+                    @JoinColumns is a container used to group multiple @JoinColumn annotations for relationships that rely on a composite key (multiple columns) for the join condition. 
+
+                * with join table: uses @JoinTable to specify a separate join table for the relationship.
+                    @JoinTable: This annotation is used to specify the join table for a many-to-many relationship.
+                        @OneToOne
+                        @JoinTable(name = "user_address_jt",
+                                joinColumns = @JoinColumn(name = "user_id"),
+                                inverseJoinColumns = @JoinColumn(name = "address_id"))
+                        private Address address;
+
+                   * The joinColumns property specifies the foreign key relationship of the owning entity.
+                   * The inverseJoinColumns property specifies the foreign key relationship of the owned entity/inverse side.
+
+        * There are two types of one-to-one relationships:
+        * unidirectional: only one entity has a reference to the other.
+                // Owner entity
+                @OneToOne
+                @JoinColumn(name = "address_id") // Specifies the foreign key column in the owner's table
+                private Address address;
+
+        * bidirectional: both entities have references to each other.
+            * mappedBy: used on the inverse side of the relationship to indicate that the relationship is managed by the other entity.
+                // Owner entity
+                @OneToOne(mappedBy = "user") // Mapped by the field name in the inverse side
+                private Address address;
+                // Inverse entity
+                @OneToOne
+                @JoinColumn(name = "user_id")
+                private User user;
+        * shared primary key: both entities share the same primary key value.
+            * @MapsId: used to indicate that the primary key of the entity is also a foreign key to another entity.
+                @Entity
+                public class UserProfile {
+                    @Id
+                    private Long id;
+
+                    @OneToOne
+                    @MapsId // Maps the primary key of UserProfile to be the foreign key of User
+                    @JoinColumn(name = "user_id")
+                    private User user;
+                }
+
+    @ManyToOne: This annotation is used to specify a many-to-one relationship between two entities.
+        Many side is the owner of the relationship.
+        Default mechanism is to use a foreign key in the many side table to reference the primary key of the one side table.
+        Default loading:- Entities on the many side are lazily loaded by default
+        * unidirectional: only one entity has a reference to the other.
+                
+                // Many side (e.g., Phone)
+                @ManyToOne
+                @JoinColumn(name = "user_id")
+                private User user;
+        
+
+    @OneToMany: This annotation is used to specify a one-to-many relationship between two entities.
+        One side is the owner of the relationship.
+        * unidirectional: only one entity has a reference to the other.
+        Default loading:- Entities on the many side are lazily loaded by default
+                Default mechanism:- 
+                // One side (e.g., User)
+                @OneToMany
+                @JoinTable(name = "user_phone_jt",
+                        joinColumns = @JoinColumn(name = "user_id"),
+                        inverseJoinColumns = @JoinColumn(name = "phone_id"))
+                private Set<Phone> phones;
+
+    (1:M / M:1) Bidirectional - The many side is the owner. The one side uses mappedBy.
+        * The entity on the one side can be the owning side or the inverse side, but typically the many side is the owner.
+        * mappedBy: used on the inverse side of the relationship to indicate that the relationship is managed by the other entity.
+        Default mechanism is to use a foreign key in the many side table to reference the primary key of the one side table.
+        Default loading:- Entities on the many side are lazily loaded by default
+            // One side (e.g., User)
+            @OneToMany(mappedBy = "user")
+            private Set<Phone> phones;
+            // Many side (e.g., Phone) - Owner
+            @ManyToOne
+            @JoinColumn(name = "user_id")
+            private User user;
+
+    Many-to-One mapping multiple join columns: For composite primary keys or specific legacy database schemas, you can use multiple @JoinColumn annotations within a @JoinColumns wrapper
+            @ManyToOne
+            @JoinColumns({
+                @JoinColumn(name = "col1_id", referencedColumnName = "ref_col1"),
+                @JoinColumn(name = "col2_id", referencedColumnName = "ref_col2")
+            })
+            private RelatedEntity related;
+
+    Many-to-One mapping using Join Table: Similar to one-to-many, you can use a join table for many-to-one relationships.
+
+    @ManyToMany: This annotation is used to specify a many-to-many relationship between two entities.
+        A M:M relationship requires a third "join table" in the database to link the two entity tables.
+        Default mechanism is to use a join table with foreign keys referencing the primary keys of both entity tables.
+        Default loading:- Entities on the many side are lazily loaded by default
+        * There are two types of many-to-many relationships:
+        
+        Bidirectional: Both entities can navigate to each other. 
+        One side owns the relationship (specifies the join table details), the other uses mappedBy [1].
+                // Owner side (e.g., User)
+                @ManyToMany
+                @JoinTable(name = "user_group_jt",
+                        joinColumns = @JoinColumn(name = "user_id"),
+                        inverseJoinColumns = @JoinColumn(name = "group_id"))
+                private Set<Group> groups;
+                // Inverse side (e.g., Group)
+                @ManyToMany(mappedBy = "groups")
+                private Set<User> users;
+        Unidirectional: Only one entity can navigate to the other, configured with @ManyToMany and @JoinTable on the owning side [1].
+                // Owner side (e.g., User)
+                @ManyToMany
+                @JoinTable(name = "user_group_jt",
+                        joinColumns = @JoinColumn(name = "user_id"),
+                        inverseJoinColumns = @JoinColumn(name = "group_id"))
+                private Set<Group> groups;
+
+    Summary
+        @JoinColumn: Specifies a single foreign key column for relationships.
+        @JoinColumns property specifies the foreign key relationship of the owning entity.
+        The inverseJoinColumns property specifies the foreign key relationship of the owned entity/inverse side.
+        Multiple columns can be specified using @JoinColumns for composite keys.
+        @JoinTable: Specifies a join table for many-to-many relationships.
+        mappedBy: Indicates the inverse side of a bidirectional relationship.
+        MapsId : Maps the primary key of an entity to a foreign key of another entity.
+        
+
+
+Fetch Types (Eager vs. Lazy Loading)
+    These define when related entities are loaded from the database [1]. 
+
+Eager Loading: Related entities are fetched immediately along with the primary entity. 
+    This is the default for @OneToOne and @ManyToOne.
+        @ManyToOne(fetch = FetchType.EAGER)
+        private User user;
+Lazy Loading: Related entities are only loaded when they are first accessed (e.g., a method is called on the collection or related object). 
+        This is the default for @OneToMany and @ManyToMany and generally recommended for performance.
+        @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+        private Set<Phone> phones;
+
+Ordering
+    You can specify the order of collections using the @OrderBy annotation. This is useful for @OneToMany and @ManyToMany relationships.
+        @OneToMany(mappedBy = "user")
+        @OrderBy("name ASC") // Orders phones by name in ascending order
+        private Set<Phone> phones;
+
+    @OrderBy vs @OrderColumn:
+        @OrderBy: 
+            Orders elements when retrieved from the database based on specified criteria.
+            Database Impact:- Uses an ORDER BY clause in the SQL query at retrieval time.
+
+        @OrderColumn: 
+            Preserves the order in which elements were inserted into a List, using an explicit index column in the database.
+            Database Impact:- Requires an additional column in the database table (e.g., _ORDER or a custom name) to store the zero-based index of each element.
+                @OneToMany(mappedBy = "user")
+                @OrderColumn(name = "phone_order") // Maintains the order of phones based on the phone_order column
+                private List<Phone> phones;
+
+    

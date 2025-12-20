@@ -1,0 +1,43 @@
+Operators in Java are special symbols that perform specific operations on one, two, or more operands. 
+They are used to manipulate data and variables in various ways. 
+Here are some common types of operators in Java:
+1. Arithmetic Operators:
+   - `+` (Addition)
+   - `-` (Subtraction)
+   - `*` (Multiplication)
+   - `/` (Division)
+   - `%` (Modulus)
+2. Relational Operators:
+   - `==` (Equal to)
+    - `!=` (Not equal to)
+    - `>` (Greater than)
+    - `<` (Less than)
+    - `>=` (Greater than or equal to)
+    - `<=` (Less than or equal to)
+3. Logical Operators:
+    - `&&` (Logical AND)
+    - `||` (Logical OR)
+    - `!` (Logical NOT)
+4. Assignment Operators:
+    - `=` (Assignment)
+    - `+=` (Add and assign)         Example: int a = 5; a += 3; // Now a is 8
+    - `-=` (Subtract and assign)    Example: int b = 10; b -= 4; // Now b is 6    
+    - `*=` (Multiply and assign)    Example: int c = 7; c *= 2; // Now c is 14
+    - `/=` (Divide and assign)      Example: int d = 20; d /= 5; // Now d is 4
+    - `%=` (Modulus and assign)     Example: int e = 10; e %= 3; // Now e is 1
+5. Unary Operators:
+    - `++` (Increment)
+    - `--` (Decrement)
+    - `+` (Unary plus)
+    - `-` (Unary minus)
+6. Ternary Operator:
+    - `? :` (Conditional operator)
+7. Bitwise Operators:
+    - `&` (Bitwise AND)
+    - `|` (Bitwise OR)
+    - `^` (Bitwise XOR)
+    - `~` (Bitwise NOT)
+    - `<<` (Left shift)
+    - `>>` (Right shift)
+    - `>>>` (Unsigned right shift)
+These operators can be combined in expressions to perform complex calculations and logic operations in Java programs.

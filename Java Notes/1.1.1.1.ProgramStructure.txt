@@ -1,0 +1,59 @@
+Java Program Structure
+A Java program is made up of one or more classes. Each class is defined in its own file with a .java extension. The basic structure of a Java program includes the following components:
+1. Package Declaration (optional):
+If the class is part of a package, the package declaration must be the first line in the file.
+Example 
+    package com.example.myapp;
+2. Import Statements (optional):
+Import statements are used to bring other classes or entire packages into the current file.
+Example 
+    import java.util.List;
+    import java.util.ArrayList;
+3. Class Declaration
+Every Java program must have at least one class. The class declaration includes the class name and its body enclosed in curly braces.
+Example 
+    public class MyClass {
+        // class body
+    }
+4. Main Method
+The main method is the entry point of any Java application. It must be defined as follows:
+    public static void main(String[] args) {
+        // code to be executed
+    }
+5. Fields and Methods
+Inside the class body, you can define fields (variables) and methods (functions) that define the behavior of the class.
+Example 
+    public class MyClass {
+        // Field or Variable or Attribute or Property or Member 
+        private int myField;
+
+        // Method
+        public void myMethod() {
+            System.out.println("Hello, World!");
+        }
+    }
+
+Putting It All Together
+Here is a complete example of a simple Java program:
+    package com.example.myapp;
+
+    import java.util.ArrayList;
+
+    public class MyClass {
+        private int myField;
+
+        public static void main(String[] args) {
+            MyClass obj = new MyClass();
+            obj.myMethod();
+        }
+
+        public void myMethod() {
+            System.out.println("Hello, World!");
+        }
+    }
+
+This program defines a class named MyClass within the package com.example.myapp, imports the ArrayList class, and contains a main method that creates an instance of MyClass and calls the myMethod to print "Hello, World!" to the console.
+
+
+
+
