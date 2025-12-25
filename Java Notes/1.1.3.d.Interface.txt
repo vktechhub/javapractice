@@ -5,7 +5,8 @@ We define interfaces for capabilities (e.g. Comparable, Serializable, Drawable).
 
 Notes:-
     * If we  extend a class, we can only extend one class. But we can implement multiple interfaces to a Class.(multiple inheritance)
-    * Interface cannot be instantiated; We can create a Class that implements an interface, which can be instantiated.
+    * Interface cannot be instantiated; except when using anonymous classes.
+        * We can create a Class that implements an interface, which can be instantiated.
         * Interfaces can extend other interfaces
         * To implement an interface, use the implements keyword.
         * A class that implements an interface must implement all the methods of the interface. 
@@ -31,13 +32,13 @@ When to Use Class and Interface?
         * Use an interface when you need to define a contract for behavior that multiple classes can implement.
         * Interface is ideal for achieving abstraction and multiple inheritance.
 
-Before Java8
+Before Java8 - Only Abstract methods in Interface
 interface InterfaceName {
     // abstract methods // no method body
     // variables
 }
 
-After Java8
+After Java8 - Default and Static methods in Interface
 interface InterfaceName {
     // abstract methods
     // variables
@@ -50,7 +51,65 @@ interface InterfaceName {
     }
 }
 
+After Java9 - Private methods in Interface
+interface InterfaceName {
+    // abstract methods
+    // variables
+    default void defaultMethod() {  
+        // default implementation
+    }
+
+    static void staticMethod() {    
+        // static implementation
+    }
+
+    private void privateMethod() {  // private method - can only be called inside default or static methods
+        // private implementation
+    }
+}
+
+Single Abstract Method Interface
+    
+
+
+
 Functional Interface
     A functional interface is an interface that contains exactly one abstract method. 
     These interfaces are used as the basis for lambda expressions and method references in Java.
 
+lambda:- 
+    A lambda expression is a concise way to represent an anonymous function that can be passed around as if it were an object. 
+    It provides a clear and concise way to implement a functional interface.
+    Syntax:
+        (parameters) -> expression
+        or
+        (parameters) -> { statements; }
+
+Method reference
+    A method reference is a shorthand notation of a lambda expression to call a method.
+
+
+Anonymous Class:- 
+    An anonymous class is a class that is defined and instantiated in a single expression, 
+    without a name. It is often used to provide a quick implementation of an interface or an abstract class.
+    It is useful for creating simple, one-off implementations without the need to create a separate named class.
+    Syntax:
+        new InterfaceName() {
+            // implement abstract methods here
+        };
+Example of Anonymous class implementing Interface in Java:
+interface MyInterface {
+    void myMethod();
+}
+public class Main {
+    public static void main(String[] args) {
+        MyInterface obj = new MyInterface() {
+            @Override
+            public void myMethod() {
+                System.out.println("Anonymous class implementing MyInterface");
+            }
+        };
+
+        obj.myMethod(); // Output: Anonymous class implementing MyInterface
+    }
+}

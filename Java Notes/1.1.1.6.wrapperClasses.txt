@@ -1,0 +1,65 @@
+Wrapper Classes in Java
+Wrapper classes in Java are used to convert primitive data types into objects. 
+Each primitive data type has a corresponding wrapper class in the `java.lang` package. 
+The main purpose of wrapper classes is to provide a way to use primitive data types as objects, which is necessary for certain operations, such as working with collections like `ArrayList`, which can only store objects.
+
+Here are the primitive data types and their corresponding wrapper classes:
+- `byte` -> `Byte`
+- `short` -> `Short`
+- `int` -> `Integer`
+- `long` -> `Long`
+- `float` -> `Float`
+- `double` -> `Double`
+- `char` -> `Character`
+- `boolean` -> `Boolean`
+
+Autoboxing and Unboxing
+Java provides a feature called autoboxing and unboxing to automatically convert between primitive types and their corresponding wrapper classes.
+- Autoboxing: The automatic conversion of a primitive type to its corresponding wrapper class object.
+- Unboxing: The automatic conversion of a wrapper class object back to its corresponding primitive type.
+
+Essential methods of the Wrapper class.
+1. Conversion Methods:
+        101. `parse<Type>(String s)`: Converts a string to the corresponding primitive type.
+        - Example: `int num = Integer.parseInt("123");`
+        102. `valueOf(String s)`: Converts a string to the corresponding wrapper class object.
+        - Example: `Integer numObj = Integer.valueOf("123");`
+        103. `toString()`: Converts a wrapper class object to its string representation.
+        - Example: `String str = Integer.valueOf(123).toString();`
+        104. `<Type>Value()`: Converts a wrapper class object to its corresponding primitive type.
+        - Example: `int num = Integer.valueOf(123).intValue();`
+        108. `doubleValue()`, `intValue()`, `longValue()`, etc.: Converts the wrapper class object to the corresponding primitive type.
+        - Example: `Integer numObj = 10; int num = numObj.intValue();`
+
+2. Comparison Methods:
+        201. `compare(Type x, Type y)`: Compares two primitive values of the corresponding type.
+        - Example: `int result = Integer.compare(10, 20); // result will be negative since 10 < 20`
+        202. `equals(Object obj)`: Compares the wrapper class object with another object for equality.
+        - Example: `Integer num1 = 10; Integer num2 = 10; boolean isEqual = num1.equals(num2); // isEqual will be true`
+        205. `compareTo(Type anotherType)`: Compares two wrapper class objects.
+        - Example: `Integer num1 = 10; Integer num2 = 20; int result = num1.compareTo(num2); // result will be negative since num1 < num2`
+        207. `hashCode()`: Returns the hash code for the wrapper class object.
+        - Example: `Integer num = 10; int hash = num.hashCode();`
+
+3. Utility Methods:
+        is XXX() -  to check the nature of the value; 
+        Static methods like isDigit(char ch), isLetter(char ch), isUpperCase(char ch), isLowerCase(char ch) provide checks on the nature of a character.
+        301. `isNaN()`: Checks if the value is "Not a Number" (applicable for Float and Double).
+        - Example: `boolean result = Double.isNaN(Double.NaN); // result will be true`
+        302. `isInfinite()`: Checks if the value is infinite (applicable for Float and Double).
+        - Example: `boolean result = Double.isInfinite(Double.POSITIVE_INFINITY); // result will be true`
+        303. `getNumericValue(char ch)` (for Character class): Returns the int value of a numeric character.
+        - Example: `int numericValue = Character.getNumericValue('5'); // numericValue will be 5`
+        304. `sum()`, `min()`, `max()` (for numeric Wrapper classes): Static methods for performing basic arithmetic operations on primitive values.
+
+4. Data Type Information:
+        401. `TYPE`: A static field that represents the primitive type corresponding to the wrapper class.
+        - Example: `Class<Integer> intType = Integer.TYPE; // represents the primitive type
+        402. `SIZE`: A static field that represents the number of bits used to represent the primitive type.
+        - Example: `int intSize = Integer.SIZE; // intSize will be 32
+        max min constants
+        403. `MAX_VALUE` and `MIN_VALUE`: Static fields that represent the maximum and minimum values of the primitive type.
+        - Example: `int maxInt = Integer.MAX_VALUE; // maxInt will be 2147483647
+                   int minInt = Integer.MIN_VALUE; // minInt will be -2147483648`
+
+

@@ -1,0 +1,41 @@
+1. What is Java?
+        Java is a high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible. 
+        Java supports OOP principles such as inheritance, encapsulation, polymorphism, and abstraction.
+        (doesn't support multiple inheritance through classes but supports it through interfaces)
+        Functional programming features like lambda expressions and streams were introduced in Java 8.
+        It is widely used for building enterprise-scale applications, mobile applications (especially Android apps), web applications, and more. 
+        Java is known for its portability across platforms, thanks to the Java Virtual Machine (JVM) which allows Java programs to run on any device that has the JVM installed.
+        Statically typed, compiled language with automatic memory management (garbage collection).
+
+JVM and JRE:
+        JVM (Java Virtual Machine) is an abstract computing machine that enables a computer to run a Java program. 
+        It provides a runtime environment in which Java bytecode can be executed. The JVM is platform-dependent, meaning there are different implementations for different operating systems.
+        JRE (Java Runtime Environment) is a package that provides the libraries, Java Virtual Machine (JVM), and other components to run applications written in Java. 
+        It does not include development tools like compilers or debuggers, which are part of the JDK (Java Development Kit).
+
+        does jvm part of jre?
+        Yes, the JVM is a part of the JRE. The JRE includes the JVM along with the standard libraries and other components necessary to run Java applications.
+
+2. Object class in Java - Super class of all classes
+        The Object class is the root class of the Java class hierarchy. Every class in Java implicitly extends the Object class if it does not explicitly extend another class. 
+        This means that all classes in Java inherit the methods defined in the Object class.
+
+3. Key methods provided by the Object class include:
+        - toString(): Returns a string representation of the object.
+        - equals(Object obj): Compares this object to the specified object for equality.
+        - hashCode(): Returns a hash code value for the object.
+        - getClass(): Returns the runtime class of the object.
+        - wait(), notify(), notifyAll(): Methods used for thread synchronization.
+    Stay away from:
+        - clone(): Creates and returns a copy of this object (if the class implements Cloneable).
+        - finalize(): Called by the garbage collector before an object is removed from memory.
+
+4. String Vs char[]
+        String is immutable whereas char[] is mutable.
+        String literals are stored in the String pool (a special memory area in the heap) for memory efficiency, while char[] are stored in the regular heap memory.
+        Strings have many built-in methods for manipulation (like substring, concat, etc.), while char[] requires manual handling for such operations.
+        Strings are generally easier to use and more convenient for text manipulation, while char[] can be more efficient for certain operations that require frequent modifications.
+        Strings can be compared using equals() method for content comparison, while char[] can be compared using Arrays.equals() method.
+        String is a class in Java, while char[] is an array of primitive data type char.
+        String to char[] conversion can be done using toCharArray() method method, while char[] to String conversion can be done using the String constructor or toString() method.
+

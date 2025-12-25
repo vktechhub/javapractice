@@ -1,0 +1,247 @@
+Java Persistence API: Getting Started With JPA & Hibernate
+Question 1 of 13
+
+Question: What is the role of Apache Maven in Java projects?
+A.Answer A.
+Framework to connect to a relational database
+
+B.Answer B.
+Framework to manage syntax highlighting and unit tests for your code
+
+C.Answer C.
+Framework to host Java applications on a server
+
+D.Answer D.
+Framework to manage the dependencies for your Java code
+
+Question 2 of 13
+
+Question: What is MySQL used for?
+
+A.Answer A.
+A document database system using to hold data in the form of JSON documents
+
+B.Answer B.
+A graphical user interface to query data stored in a relational database
+
+C.Answer C.
+A relational database management system to hold data in the form of rows and columns
+
+D.Answer D.
+A columnar database system used to hold data in the form of key-value pairs
+
+Question 3 of 13
+
+Question: Which of the following is NOT a reason to use an Object Relational Mapping framework when working with relational databases using a high-level programming language such as Java?
+Instruction: Choose the option that best answers the question. 
+
+A.Answer A.
+There is no way to query data from a database without using a language such as Java
+
+B.Answer B.
+Relational tables consist of rows and columns and objects consist of fields
+
+C.Answer C.
+The fundamental unit of programming for relational databases and Java is different
+
+D.Answer D.
+Relational tables express relationships using constraints and programming languages use design patterns
+
+Question 4 of 13
+
+Question: Match the values for the database action property in persistence.xml with the behavior of the actions.
+Instruction: For each option, select the best answer choice. 
+Options
+
+Tables, if they exist, will be deleted and new ones will be set up each time you run your application
+
+A.Answer A.“drop_and_create”
+
+B.Answer B.“create”
+
+C.Answer C.“none”
+
+Tables will not be created; they need to already exist for your application to work
+
+A.Answer A.“drop_and_create”
+
+B.Answer B.“create”
+
+C.Answer C.“none”
+
+Tables will be created, existing tables will not be deleted
+
+A.Answer A.“drop_and_create”
+
+B.Answer B.“create”
+
+C.Answer C.“none”
+
+Question 5 of 13
+
+Question: Which of the following is true about persistence configurations while working in JPA?
+A.Answer A.
+Tables cannot be created using JPA
+
+B.Answer B.
+Tables can be created using scripts
+
+C.Answer C.
+Tables can be created using the Entity objects
+
+D.Answer D.
+Tables can be created using JSON specifications in code
+
+Question 6 of 13
+
+Question: What is the file that Maven uses to specify Java libraries that your project depends on?
+Instruction: Choose the option that best answers the question. 
+
+A.Answer A.
+web.xml
+
+B.Answer B.
+dependency.xml
+
+C.Answer C.
+servlet.xml
+
+D.Answer D.
+pom.xml
+
+Question 7 of 13
+
+Question: What is the role of the persistence.xml file in JPA?
+Instruction: Choose the option that best answers the question. 
+
+A.Answer A.
+Specifies how many entities and relationships you are modelling
+
+B.Answer B.
+Specifies how the ORM framework can connect to the underlying database
+
+C.Answer C.
+Specifies the libraries that JPA depends on
+
+D.Answer D.
+Specifies all the JPA related annotations that you use in your project
+
+Question 8 of 13
+
+Question: What is MySQL workbench?
+Instruction: Choose the option that best answers the question. 
+
+A.Answer A.
+A constraint validator for a MySQL database
+
+B.Answer B.
+An IDE for Java which you can use to build Java projects
+
+C.Answer C.
+A database server that can be used to store data
+
+D.Answer D.
+A user interface which connects to an underlying database
+
+Question 9 of 13
+
+Question:  What is the Java persistence API or JPA?
+Instruction: Choose the option that best answers the question. 
+
+A.Answer A.
+An interface that allows you to express object relational mapping using annotations
+
+B.Answer B.
+An ORM framework implementation that helps map objects and relationships to database tables
+
+C.Answer C.
+A validation framework that ensures that the data you store in tables is consistent
+
+D.Answer D.
+A framework that allows you to run queries on relational database tables
+
+Question 10 of 13
+
+Question: What is Apache Maven?
+Instruction: Choose the option that best answers the question. 
+
+A.Answer A.
+An IDE to work with Java projects
+
+B.Answer B.
+A build management system to manage dependencies in Java
+
+C.Answer C.
+A graphical user interface which can be used to query a database
+
+D.Answer D.
+A relational database management system
+
+Question 11 of 13
+
+Question: What is Hibernate?
+Instruction: Choose the option that best answers the question. 
+
+A.Answer A.
+A validation framework that ensures that the data you store in tables is consistent
+
+B.Answer B.
+An interface that allows you to express object relational mapping using annotations
+
+C.Answer C.
+A framework that allows you to run queries on relational database tables
+
+D.Answer D.
+An ORM framework implementation that helps map objects and relationships to database tables
+
+Question 12 of 13
+
+Question: What input does the EntityManagerFactory need to connect to the underlying database?
+Instruction: Choose the option that best answers the question. 
+
+A.Answer A.
+The name of the database, along with its username and password
+
+B.Answer B.
+The username and password used to connect to the database
+
+C.Answer C.
+The name of the persistence unit, which contains connection details, from the persistence.xml file
+
+D.Answer D.
+The application token generated by the database, which can be used to connect to the database
+
+
+Question 13 of 13
+
+Question: Which of the following statements are true about entities?
+Instruction: Choose all options that best answer the question. 
+
+A.Answer A.
+They represent constraints on values in a database table
+
+B.Answer B.
+Entity objects correspond to records in a database table
+
+C.Answer C.
+They map to a table in the underlying database
+
+D.Answer D.
+They map to relationships between tables in a database
+
+Java Persistence API: Configuring Fields & Performing CRUD Operations
+Question: Which of the following are advantages of modelling relationships using embedded objects?
+Instruction: Choose all options that best answer the question. 
+
+A.Answer A.
+Can represent relationships using composition in the object-oriented world
+
+B.Answer B.
+Easier to use embeddables rather than individual fields
+
+C.Answer C.
+The same embeddable can be shared across multiple entities
+
+D.Answer D.
+JPA providers are more performant with embedded objects
+

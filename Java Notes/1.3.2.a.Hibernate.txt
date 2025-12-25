@@ -1,0 +1,10 @@
+* Hibernate Search
+* Hibernate Validator
+* Hibernate OGM (Object/Grid Mapper) for NoSQL databases
+* Hibernate Envers for auditing and versioning of entity data
+* Hibernate Tools for code generation and reverse engineering
+* Hibernate Spatial for geographic data handling
+* Hibernate Reactive for non-blocking database access
+* Hibernate Shards for horizontal partitioning of data
+* Hibernate Cache for second-level caching
+* Hibernate Metamodel Generator for type-safe criteria queries

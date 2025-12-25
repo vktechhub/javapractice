@@ -15,3 +15,22 @@ Comparator interface and compare() method:
         a negative integer if the first object is less than the second,
         zero if the first object is equal to the second,
         a positive integer if the first object is greater than the second.
+
+
+Subinterfaces of Comparator:
+    1. BiComparator: A functional interface that extends Comparator to compare two objects of different types.
+    2. DoubleComparator: A specialized comparator for comparing double values.
+    3. IntComparator: A specialized comparator for comparing int values.
+    4. LongComparator: A specialized comparator for comparing long values.
+    5. PrimitiveComparator: A general interface for comparing primitive types.
+    6. ToDoubleComparator: A functional interface for comparing objects based on a double-valued function.
+    7. ToIntComparator: A functional interface for comparing objects based on an int-valued function.
+    8. ToLongComparator: A functional interface for comparing objects based on a long-valued function.
+
+Subinterfaces of Comparable:
+    1. Comparable<T>: The main interface for defining natural ordering.
+    2. ComparableWithContext<T, C>: An interface that allows comparison with additional context information.
+    3. ReverseComparable<T>: An interface that defines reverse natural ordering.
+    4. SafeComparable<T>: An interface that provides safe comparison methods to avoid NullPointerExceptions.
+    5. ContextualComparable<T, C>: An interface that allows comparison based on additional context.
+These interfaces and their methods are essential for sorting and ordering objects in Java collections, such as lists and sets. They provide flexibility in defining how objects should be compared and ordered based on different criteria.

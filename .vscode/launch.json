@@ -6,6 +6,48 @@
     "configurations": [
         {
             "type": "java",
+            "name": "SP_SPEL",
+            "request": "launch",
+            "mainClass": "SP_SPEL",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "CJ_OptionalClass",
+            "request": "launch",
+            "mainClass": "CJ_OptionalClass",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "CJ_ExtendObjectClass",
+            "request": "launch",
+            "mainClass": "CJ_ExtendObjectClass",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "CJ_StreamTerminalOperations",
+            "request": "launch",
+            "mainClass": "CJ_StreamTerminalOperations",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "CJ_StreamIntermediateOperations",
+            "request": "launch",
+            "mainClass": "CJ_StreamIntermediateOperations",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "CJ_Collection_ConvenienceFactoryMethod",
+            "request": "launch",
+            "mainClass": "CJ_Collection_ConvenienceFactoryMethod",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "CJ_ComparatorVsComparable",
             "request": "launch",
             "mainClass": "CJ_ComparatorVsComparable",

@@ -1,0 +1,40 @@
+Escape Sequences in Java
+
+A character with a backslash (\) just before it is an escape sequence or escape character. We use escape characters to perform some specific task.
+
+    \t - Insert Tab
+    \b - Insert Backspace
+    \n - Insert New line
+    \r - carriage return. ()
+    \' - Insert Single quote
+    \" - Insert Double quote
+    \\ - Insert Backslash
+    \f - form feed
+
+Example using System.out.println with escape sequences:
+```java
+public class EscapeSequenceExample {
+    public static void main(String[] args) {
+        System.out.println("Hello\tWorld!"); // Inserts a tab space between Hello and World
+        System.out.println("Hello\bWorld!"); // Inserts a backspace, removing the 'o' in Hello
+        System.out.println("Hello\nWorld!"); // Prints Hello and World on separate lines
+        System.out.println("Hello\rWorld!"); // Carriage return, may overwrite part of the line
+        System.out.println("He said, \'Java is fun!\'"); // Inserts single quotes
+        System.out.println("He said, \"Java is fun!\""); // Inserts double quotes
+        System.out.println("This is a backslash: \\"); // Inserts a backslash
+        System.out.println("First Line\fSecond Line"); // Form feed, may affect printing on some systems
+    }
+}
+
+Output:
+Hello   World!
+HelloWorld!
+Hello
+World!
+World!
+He said, 'Java is fun!'
+He said, "Java is fun!"
+This is a backslash: \
+First Line
+Second Line
+```

@@ -1,0 +1,197 @@
+Multi threading in Java is a powerful feature that allows concurrent execution of two or more threads. 
+
+A thread is a lightweight subprocess, the smallest unit of processing that can be scheduled by an operating system. 
+
+Java provides built-in support for multithreading through the `java.lang.Thread` class and the `java.lang.Runnable` interface.
+
+Creating Threads in Java
+There are two primary ways to create threads in Java:
+    preferred way is to implement the `Runnable` interface, as it allows for better separation of thread logic and task logic, and enables the class to extend other classes if needed.
+
+1. Extending the Thread Class
+You can create a new thread by extending the `Thread` class and overriding its `run()` method.
+Example:
+class MyThread extends Thread {
+    public void run() {         // run method contains the code executed by the thread
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Thread: " + i);
+        }
+    }
+}
+public class ThreadExample {
+    public static void main(String[] args) {
+        MyThread t1 = new MyThread();
+        t1.start();             // Start the thread will call the run() method by itself
+    }
+}
+
+2. Implementing the Runnable Interface
+You can also create a thread by implementing the `Runnable` interface and passing an instance of the class to a `Thread` object.
+Example:
+class MyRunnable implements Runnable {
+    public void run() {
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Runnable: " + i);
+        }
+    }
+}
+public class RunnableExample {
+    public static void main(String[] args) {
+        Thread t1 = new Thread(new MyRunnable());
+        t1.start(); // Start the thread
+    }
+}
+
+How to find thread information
+    * Thread Name: You can get the name of the current thread using `Thread.currentThread().getName()`.
+    * Thread ID: Each thread has a unique ID that can be obtained using `Thread.currentThread().getId()`.
+    * Thread Priority: You can get the priority of the current thread using `Thread.currentThread().getPriority()`.
+Example:
+public class ThreadInfoExample {
+    public static void main(String[] args) {
+        Thread t1 = new Thread(() -> {
+            for (int i = 0; i < 5; i++) {
+                System.out.println("Thread Name: " + Thread.currentThread().getName());
+                System.out.println("Thread ID: " + Thread.currentThread().getId());
+                System.out.println("Thread Priority: " + Thread.currentThread().getPriority());
+            }
+        });
+        t1.start();
+    }
+}
+
+
+Thread Lifecycle
+A thread goes through several states during its lifecycle:
+1. New: The thread is created but not yet started.
+2. Runnable: The thread is ready to run and waiting for CPU time.   
+3. Running: The thread is currently executing.
+4. Blocked/Waiting: The thread is waiting for a resource or another thread to complete.
+5. Terminated: The thread has completed execution.
+
+Thread Synchronization
+When multiple threads access shared resources, it can lead to data inconsistency. To prevent this, Java provides synchronization mechanisms. 
+You can use the `synchronized` keyword to ensure that only one thread can access a method or block of code at a time.
+Example:    
+class Counter {
+    private int count = 0;
+
+    public synchronized void increment() {
+        count++;
+    }
+
+    public int getCount() {
+        return count;
+    }
+}
+public class SyncExample {
+    public static void main(String[] args) throws InterruptedException {
+        Counter counter = new Counter();
+        Thread t1 = new Thread(() -> {      // Lambda expression for Runnable. run method is overridden here
+            for (int i = 0; i < 1000; i++) {
+                counter.increment();
+            }
+        });
+        Thread t2 = new Thread(() -> {
+            for (int i = 0; i < 1000; i++) {
+                counter.increment();
+            }
+        });
+        t1.start();
+        t2.start();
+        t1.join();      // join waits for t1 to finish
+        t2.join();      // join waits for t2 to finish
+        System.out.println("Final Count: " + counter.getCount());
+    }
+}
+
+
+
+Thread Communication
+Java provides methods like `wait()`, `notify()`, and `notifyAll()` for inter-thread communication. These methods are used to coordinate the actions of multiple threads.
+    run() - contains the code executed by the thread
+    start() - starts the thread and calls the run() method itself
+    join() - waits for a thread to finish
+    wait() - makes the current thread wait until another thread calls
+    notify() - wakes up a single waiting thread
+    notifyAll() - wakes up all waiting threads
+
+Example:
+class SharedResource {
+    private int data;
+    private boolean available = false;
+
+    public synchronized int consume() throws InterruptedException {
+        while (!available) {
+            wait();
+        }
+        available = false;
+        notifyAll();
+        return data;
+    }
+
+    public synchronized void produce(int value) throws InterruptedException {
+        while (available) {
+            wait();
+        }
+        data = value;
+        available = true;
+        notifyAll();
+    }
+}
+
+public class ProducerConsumerExample {
+    public static void main(String[] args) {
+        SharedResource resource = new SharedResource();
+
+        Thread producer = new Thread(() -> {
+            try {
+                for (int i = 0; i < 5; i++) {
+                    resource.produce(i);
+                    System.out.println("Produced: " + i);
+                }
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        });
+
+        Thread consumer = new Thread(() -> {
+            try {
+                for (int i = 0; i < 5; i++) {
+                    int value = resource.consume();
+                    System.out.println("Consumed: " + value);
+                }
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        });
+
+        producer.start();
+        consumer.start();
+    }
+}
+
+Thread Pools
+Java provides the `Executor` framework to manage a pool of threads. This is more efficient than creating and destroying threads repeatedly. 
+
+It allows you to reuse a fixed number of threads to execute multiple tasks, which can improve performance and resource management.
+
+Example:
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class ThreadPoolExample {
+    public static void main(String[] args) {
+        ExecutorService executor = Executors.newFixedThreadPool(2);     // Create a thread pool with 2 threads
+
+        for (int i = 0; i < 5; i++) {
+            int finalI = i;
+            executor.submit(() -> {             // submit tasks to the thread pool
+                System.out.println("Task " + finalI + " is running");
+            });
+        }
+
+        executor.shutdown();        // Shutdown the executor service
+    }
+}
+

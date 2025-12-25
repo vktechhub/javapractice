@@ -14,14 +14,14 @@ import java.util.Comparator;
             this.age = age;
         }
 
+        // Comparable has to be implemented in the class whose objects are being compared using compareTo() method        
         @Override
         public int compareTo(Student other) {
             return Integer.compare(this.getAge(), other.getAge()); // Natural ordering by age
         }
     }
 
-    // Comparator interface example
-
+    // Comparator interface has to be implemented in a separate class and compare() method is used to compare two objects
     class StudentComparator implements Comparator<Student> {
         @Override
         public int compare(Student s1, Student s2) {

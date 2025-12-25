@@ -1,0 +1,130 @@
+Naming Rules 
+
+✍️ 0. General / Common Rules for Naming in Java
+        Cannot start with a number.
+        Cannot be a Java keyword.
+        No spaces allowed.
+        No special characters except _ and $.
+        Must start with a letter, _, or $.
+        Cannot be null or empty.
+        Case-sensitive: studentName and StudentName are different.
+        Choose meaningful names that reflect the purpose of the variable, class, package, or constant.
+        Avoid using single-character names except for loop counters (i, j, k).
+
+Specific Rules Based on Context
+✍️ 1. for Data types and variables
+        Use camelCase:
+                Example: int age, String firstName, boolean isActive.
+
+✍️ 2. for Classes
+        Use PascalCase:
+                Example: Student, MaxScore, DataProcessor.
+
+✍️ 3. for Methods
+        Use camelCase:
+                Example: calculateTotal(), isValidInput(), getUserName().
+
+✍️ 4. for Interfaces
+        Use PascalCase:
+                Example: DataProcessor, UserService, PaymentGateway.
+
+✍️ 5. for Packages
+        Use all lowercase letters, separated by dots:
+                Example: com.example.project, org.myapp.utils.
+
+✍️ 6. for Constants
+        Use all uppercase letters, with words separated by underscores:
+                Example: MAX_SCORE, DEFAULT_TIMEOUT, PI_VALUE.
+
+✍️ 7. for Enums
+        Use PascalCase for enum names and uppercase with underscores for enum constants:
+                Example: 
+                        Enum Name: DayOfWeek
+                        Enum Constants: MONDAY, TUESDAY, WEDNESDAY.
+
+✍️ 8. for Annotations
+        Use PascalCase:
+                Example: Override, Deprecated, SuppressWarnings.
+
+✍️ 9. for Type Parameters (Generics)
+        Use single uppercase letters:
+                Example: T (Type), E (Element), K (Key), V (Value).
+
+✍️ 10. for Files
+        Match the class name exactly, including case sensitivity:
+                Example: Student.java for class Student.
+
+✍️ 11. for Lambda Parameters
+        Use meaningful names, following camelCase:
+                Example: (user) -> user.getName(), (item, index) -> item.process().
+
+✍️ 12. for Test Methods
+        Use descriptive names that indicate the purpose of the test, often using camelCase:
+                Example: testCalculateTotal(), shouldReturnTrueForValidInput().
+
+✍️ 13. for Database Entities
+        Use PascalCase for entity names and camelCase for field names:
+                Example: 
+                        Entity Name: UserAccount
+                        Field Names: userName, accountBalance.
+
+✍️ 14. for Configuration Properties
+        Use lowercase letters with dots or underscores:
+                Example: database.url, server.port, max_connections.    
+
+✍️ 15. for Event Handlers
+        Use camelCase with a descriptive prefix:
+                Example: onClickButton(), handleUserInput().
+
+✍️ 16. for Thread Names
+        Use descriptive names indicating the thread's purpose:
+                Example: WorkerThread-1, DataProcessingThread.
+
+✍️ 17. for Loggers
+        Use the class name in uppercase with underscores:
+                Example: LOGGER, APPLICATION_LOGGER.
+
+✍️ 18. for Resource Bundles
+        Use lowercase letters with underscores:
+                Example: messages_en_US, labels_fr_FR.
+
+✍️ 19. for HTML/CSS/JS Files in Web Applications
+        Use lowercase letters with hyphens:
+                Example: index.html, styles-main.css, app-script.js.
+
+✍️ 20. for JSON/XML/YAML Keys
+        Use camelCase or snake_case based on project conventions:
+                Example: 
+                        camelCase: userName, accountBalance
+                        snake_case: user_name, account_balance.
+
+✍️ 21. for Environment Variables
+        Use all uppercase letters with underscores:
+                Example: DATABASE_URL, API_KEY, MAX_CONNECTIONS.
+
+✍️ 22. for Command-Line Arguments
+        Use lowercase letters with hyphens:
+                Example: --input-file, --max-retries, --enable-logging.
+
+✍️ 23. for Annotations Parameters
+        Use camelCase:
+                Example: @JsonProperty("userName"), @Column(name = "user_id").  
+
+✍️ 24. for Maven/Gradle Artifacts
+        Use lowercase letters with dots:
+                Example: com.example.project:my-artifact:1.0.0.
+
+✍️ 25. for RESTful API Endpoints
+        Use lowercase letters with hyphens:
+                Example: /api/v1/users, /api/v1/orders/{orderId}.
+
+✍️ 26. for WebSocket Channels
+        Use lowercase letters with hyphens:
+                Example: user-updates, chat-messages.
+
+✍️ 27. for Microservices
+        Use descriptive names indicating the service's purpose:
+                Example: user-service, order-processing-service.
+
+                
+

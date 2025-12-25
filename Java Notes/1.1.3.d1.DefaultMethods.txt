@@ -1,0 +1,51 @@
+Default Methods in Java
+Default methods were introduced in Java 8 to allow developers to add new methods to interfaces without breaking the existing implementations of those interfaces.
+A default method is a method defined in an interface with the `default` keyword and includes a method body.
+This allows interfaces to evolve over time by adding new methods while maintaining backward compatibility with existing classes that implement the interface.
+
+Key Points about Default Methods:
+- Default methods are defined using the `default` keyword in the interface.
+- They provide a default implementation that can be used by classes that implement the interface. 
+Which can be overridden if needed by the implementing class that implement the interface to provide a specific implementation.
+- Default methods can be called on instances of classes that implement the interface.
+
+Example of Default Method in an Interface:
+```java
+interface MyInterface {
+    // Default method
+    default void defaultMethod() {
+        System.out.println("This is a default method.");
+    }
+}
+class MyClass implements MyInterface {
+    // Optionally override the default method
+    @Override
+    public void defaultMethod() {
+        System.out.println("Overridden default method.");
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        MyClass myClass = new MyClass();
+        myClass.defaultMethod(); // Output: Overridden default method.
+
+        MyInterface myInterface = new MyInterface() {}; // Anonymous class
+        myInterface.defaultMethod(); // Output: This is a default method.
+    }
+}
+
+When to Use Default Methods?
+- Use default methods when you want to add new functionality to an interface without breaking existing implementations.
+- They are useful for providing common behavior that can be shared across multiple classes implementing the interface.
+- Default methods can help reduce code duplication by allowing shared implementations in the interface itself.
+Conflict Resolution with Default Methods
+If a class implements multiple interfaces that contain default methods with the same signature, the class must override the conflicting method to resolve the ambiguity.
+
+Can default methods be final?
+No, default methods cannot be declared as final. 
+Since default methods are meant to provide a default implementation that can be overridden by implementing classes, declaring them as final would contradict their purpose.
+
+Can default methods be static?
+No, default methods cannot be static. Default methods are instance methods that provide a default implementation for classes that implement the interface. 
+Static methods in interfaces are defined using the `static` keyword and belong to the interface itself, not to instances of the implementing classes.
+

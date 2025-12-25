@@ -1,10 +1,49 @@
+Spring Framework provides various annotations to facilitate Dependency Injection and manage beans in the application context. 
+Here are some commonly used Spring Annotations:
+1. @Component
+    * It is a generic stereotype for any Spring-managed component.
+    * It indicates that an annotated class is a "component". 
+        Such classes are considered as candidates for auto-detection when using annotation-based configuration and classpath scanning.
 
+2. @Service
+    * It is a specialization of the @Component annotation.
+    * It indicates that an annotated class is a "Service", originally defined by Domain-Driven Design (DDD) as "an operation offered as an interface that stands alone in the model, with no encapsulated state."
+    * It is used to mark the service layer classes.
 
+3. @Repository
+    * It is also a specialization of the @Component annotation.
+    * It indicates that an annotated class is a "Repository", which is an abstraction of data access and storage.
+    * It is used to mark the Data Access Object (DAO) classes.
 
+4. @Controller
+    * It is a specialization of the @Component annotation.
+    * It indicates that an annotated class is a "Controller", typically used in Spring MVC to handle web requests.
+    * It is used to mark the presentation layer classes.
 
-@Autowired
-* If many Constructors were there, you can apply @Autowired on only one Construtor.
-* @Autowired becomes optional in classes with Single Constructor from Spring version > 4.3
+5. @Autowired
+    * If many Constructors were there, you can apply @Autowired on only one Construtor.
+    * @Autowired becomes optional in classes with Single Constructor from Spring version > 4.3
 
-* Use @Component + @Autowired Constructor (Recommended modern way) 
+    * Use @Component + @Autowired Constructor (Recommended modern way) 
+
+6. @Qualifier
+    * It is used along with @Autowired to resolve the ambiguity when multiple beans of the same type are present in the Spring context.
+    * It allows you to specify which bean should be injected.
+
+7. @Value
+    * It is used to inject values into fields in Spring-managed beans.
+    * It can be used to inject simple values, such as strings or numbers, as well as values from properties files.
+
+8. @Configuration
+    * It indicates that a class declares one or more @Bean methods and may be processed by the Spring container to generate bean definitions and service requests for those beans at runtime.
+
+9. @Bean
+    * It indicates that a method produces a bean to be managed by the Spring container.
+    * It is typically used in @Configuration classes to define beans.
+
+10. @Scope
+    * It is used to specify the scope of a bean.
+    * Common scopes include "singleton" (default) and "prototype".
+
+    
 

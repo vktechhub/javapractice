@@ -1,0 +1,27 @@
+Frequently used SpringBootAnnotations which is not in Spring Framework:- 
+1. @SpringBootApplication
+    * It is a convenience annotation that combines @Configuration, @EnableAutoConfiguration, and @ComponentScan.
+    * It indicates that the class is the main entry point for a Spring Boot application.
+
+        1a. @EnableAutoConfiguration
+            * It tells Spring Boot to automatically configure your application based on the dependencies present on the classpath.
+            * It eliminates the need for manual configuration.
+
+        1b. @ComponentScan
+            * It tells Spring to scan the specified package and its sub-packages for Spring components 
+            (e.g., @Component, @Service, @Repository, @Controller) to register them as beans in the application context.
+
+        1c. @Configuration
+            * It indicates that the class contains bean definitions and configuration settings for the application.
+
+
+
+6. @ConfigurationProperties 
+    * It is used to bind external configuration properties (from application.properties or application.yml) to a Java class.
+    * It allows for type-safe configuration and easier management of application settings.
+
+7. @SpringBootTest
+    * It is used for integration testing in Spring Boot applications.
+    * It loads the full application context and allows you to write tests that interact with the entire application.
+
+These annotations help simplify the development of Spring Boot applications by providing convenient ways to configure and manage various aspects of the application.

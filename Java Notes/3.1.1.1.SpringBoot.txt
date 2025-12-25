@@ -1,0 +1,47 @@
+SpringBoot simplifies Spring Framework by providing auto-configuration and sensible defaults which removes boilerplate code and facilitates faster development with minimal setup and production ready features. 
+
+Key features of Spring Boot include:
+    SpringBoot = Spring Framework (minimal setup and faster development)  +
+                + Auto Configuration ( Beans wired automatically)
+                + Starter and Sensible Defaults (prebuilt dependencies and configurations)
+                + Embedded Server 
+                + Dev Tools ( automatic restart, live reload, No Caching + Debug Friendly)
+                + Production Ready Features(Actuator - Health, Metrics and Info endpoints, Externalized Config, Logging, Security, Scheduler, Graceful Shutdown)
+                + Spring Security (Authentication + Authorization + CSRF Protection + Session Management + Password management)
+                
+
+1. Auto Configuration:
+    * Spring Boot automatically configures your application based on the dependencies you have added to the project.
+    * It eliminates the need for extensive XML configuration or Java-based configuration.
+    * by using the @EnableAutoConfiguration annotation (or the @SpringBootApplication annotation, which includes it), Spring Boot scans the classpath and configures beans and settings accordingly.
+
+2. Starter Dependencies:
+    * Spring Boot provides a set of "starter" dependencies that bundle commonly used libraries and frameworks together.
+    * For example, the "spring-boot-starter-web" starter includes dependencies for building web applications, such as Spring MVC and Tomcat.
+
+3. Embedded Server:
+    * Spring Boot includes embedded servers like Tomcat, Jetty, or Undertow, allowing you to run your application as a standalone Java application without the need for an external server.
+    * This simplifies deployment and development.
+
+4. Actuator:
+    * Spring Boot Actuator provides production-ready features to help you monitor and manage your application.
+    * It includes endpoints for health checks, metrics, and application information.
+
+5. Spring Initializr:
+    * Spring Boot provides a web-based tool called Spring Initializr (https://start.spring.io/) that allows you to quickly generate a Spring Boot project with your desired dependencies and configurations.
+    * It simplifies the process of setting up a new Spring Boot application.
+
+6. Command-Line Interface (CLI):
+    * Spring Boot CLI is a command-line tool that allows you to quickly create and run Spring Boot applications using Groovy scripts.
+    * It provides a simple way to prototype and test Spring Boot applications.
+
+7. Profiles:    
+    * Spring Boot supports the concept of profiles, allowing you to define different configurations for different environments (e.g., development, testing, production).
+    * You can easily switch between profiles to customize the behavior of your application based on the environment.
+
+8. Opinionated Defaults:
+    * Spring Boot provides opinionated defaults for various configurations, allowing you to get started quickly without having to make many decisions.
+    * However, you can still override these defaults as needed to suit your application's requirements.
+
+Overall, Spring Boot simplifies the development of Spring applications by providing a streamlined and opinionated approach, allowing developers to focus on building features rather than dealing with complex configurations.
+

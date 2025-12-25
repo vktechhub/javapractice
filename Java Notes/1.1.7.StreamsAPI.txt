@@ -1,0 +1,274 @@
+Java Streams API:-
+    The Java Streams API, introduced in Java 8, provides a powerful way to process sequences of elements (like collections) in a functional style and declarative way. 
+    Streams make it easier to perform operations such as filtering, mapping, reducing, collecting data and reducing data in a concise and readable manner without writing complex loops.
+
+A Stream is a sequence of elements that supports functional-style operations. 
+Unlike Collections, a Stream does not store data it only processes it.
+
+Features of Streams
+    Declarative: Write concise and readable code using functional style.
+    Lazy Evaluation: Operations are executed only when needed (terminal operation).
+    Parallel Execution: Supports parallel streams to leverage multi-core processors.
+    Reusable Operations: Supports chaining of operations like map(), filter(), sorted().
+    No Storage: Streams don’t store data; they only process it.
+
+How does Stream Work Internally?
+    Create a Stream: From collections, arrays or static methods.
+    Apply Intermediate Operations: Transform data (e.g., filter(), map(), sorted()).
+    Apply Terminal Operation: Produce a result (e.g., forEach(), collect(), reduce()).
+
+Key Concepts of Java Streams API:
+1. **Stream Creation**: Streams can be created from various data sources, such as collections, I/O channels.
+        1. From a Collection: Create a stream directly from a List, Set or any Collection using stream()
+        2. From an Array: Use Arrays.stream(array) to convert an array into a stream.
+        3. Using Stream.of(): Create a stream from a fixed set of values using Stream.of().
+        4. Infinite Stream: Generate an unbounded sequence using Stream.iterate() or Stream.generate()
+        5. I/O Channels: Create streams from files or other I/O sources using Files.lines(Path path).
+
+        Example:-
+            // 1. From a Collection
+            List<String> list = Arrays.asList("Java", "Python", "C++");
+            Stream<String> stream1 = list.stream();
+
+            // 2. From an Array
+            String[] arr = {"A", "B", "C"};
+            Stream<String> stream2 = Arrays.stream(arr);
+
+            // 3. Using Stream.of()
+            Stream<Integer> stream3 = Stream.of(1, 2, 3, 4, 5);
+
+            // 4. Infinite Stream (limit to avoid infinite loop)
+            Stream<Integer> stream4 = Stream.iterate(1, n -> n + 1).limit(5);
+            stream4.forEach(System.out::println);
+
+            // 5. from i/o channels (Files.lines(Path path))
+            Stream<String> stream5 = Files.lines(Paths.get("file.txt"));
+
+3. Stream Pipeline
+    A Stream Pipeline defines how data flows through different stages. It has three parts:
+
+3.1 Source:- as explained in Stream Creation above.
+
+3.2. Intermediate Operations: 
+    Intermediate operations transform a stream into another stream. 
+    They are lazy, meaning they are not executed until a terminal operation is invoked.
+    Some common intermediate operations include:
+        - `filter(Predicate<T> predicate)`: Filters elements based on a condition.
+        - `map(Function<T, R> mapper)`: Transforms each element using a function.
+        - `sorted()`: Sorts the elements of the stream. - Comparator can also be provided for custom sorting.
+        - `distinct()`: Remove duplicates.
+        - `skip(long n)`: Skip first n elements.
+
+    Example:
+            List<Integer> numbers = Arrays.asList(5, 10, 20, 10, 30, 40);
+
+            numbers.stream()
+                .skip(2)                // skip first 2 elements
+                .filter(n -> n > 10)   // keep > 10
+                .map(n -> n * 2)       // double them
+                .distinct()            // remove duplicates
+                .sorted()              // sort ascending
+                .forEach(System.out::println);
+
+3.3. Terminal Operations: 
+    Terminal Operations are the operations that on execution produce a result(return a final result as an absolute value) or a side effect and mark the end of the stream processing.
+    They can trigger the execution of the intermediate operations.
+   - Common terminal operations include:
+            - forEach(): It iterates all the elements in a stream.
+            - collect(Collectors.toList()): It collects stream elements into a list (or other collections like set/map).
+            - reduce(): It reduces stream elements into a single aggregated result.
+            - count(): It returns the total number of elements in a stream.
+            - anyMatch() / allMatch() / noneMatch(): They check whether elements match a given condition.
+            - findFirst() / findAny(): They return the first or any element from a stream.
+   
+    - Example:
+            List<String> names = Arrays.asList("Amit", "Riya", "Rohan", "Amit");
+
+            //forEach - iterate processing for each element
+            names.stream().forEach(System.out::println);
+
+            // Collect to another Collection
+            Set<String> uniqueNames = names.stream().collect(Collectors.toSet());
+            System.out.println(uniqueNames);
+
+            // Reduce to single value
+            String result = names.stream().reduce("", (a, b) -> a + b + " ");
+            System.out.println(result);
+
+            // Count based on condition
+            long count = names.stream().filter(n -> n.startsWith("R")).count();
+            System.out.println("Names starting with R: " + count);
+
+            // anyMatch - check if any element matches the condition
+            boolean hasAmit = names.stream().anyMatch(n -> n.equals("Amit"));
+            System.out.println("Contains Amit: " + hasAmit);
+
+            //findFirst - get the first element
+            String firstName = names.stream().findFirst().orElse("No names");;
+            System.out.println("First Name: " + firstName);
+
+3.4. Short-Circuiting Operations: - part of intermediate or terminal operations
+    - Some operations can terminate the processing of a stream early, such as 
+        - findFirst() - returns the first element that matches a condition
+        - findAny() - returns any element that matches a condition
+        - anyMatch() - checks if any element matches a condition
+        - allMatch() - checks if all elements match a condition
+        - noneMatch() - checks if no elements match a condition
+        - limit(n) - limits the stream to the first n elements
+        - skip(n) - skips the first n elements
+        - startsWith() - checks if any element starts with a given prefix
+        - endsWith() - checks if any element ends with a given suffix
+        
+    - Example:
+            //findFirst
+            List<Integer> nums = Arrays.asList(3, 6, 9, 12, 15);
+            Integer firstEven = nums.stream()
+                                    .filter(n -> n % 2 == 0)
+                                    .findFirst()
+                                    .orElse(null);
+            System.out.println("First even number: " + firstEven);
+
+            //findAny
+            Integer anyMultipleOfThree = nums.stream()
+                                            .filter(n -> n % 3 == 0)
+                                            .findAny()
+                                            .orElse(null);
+            System.out.println("Any multiple of three: " + anyMultipleOfThree);
+
+            //anyMatch
+            boolean hasGreaterThanTen = nums.stream()
+                                            .anyMatch(n -> n > 10);
+            System.out.println("Contains number greater than 10: " + hasGreaterThanTen);
+
+            //allMatch
+            boolean allLessThanTwenty = nums.stream()
+                                            .allMatch(n -> n < 20);
+            System.out.println("All numbers less than 20: " + allLessThanTwenty);
+
+            //noneMatch
+            boolean noneNegative = nums.stream()
+                                        .noneMatch(n -> n < 0);
+            System.out.println("No negative numbers: " + noneNegative);
+
+            //limit
+            List<Integer> limitedList = nums.stream()
+                                            .limit(3)
+                                            .collect(Collectors.toList());
+            System.out.println("Limited List: " + limitedList);
+
+            //skip
+            List<Integer> skippedList = nums.stream()
+                                            .skip(2)
+                                            .collect(Collectors.toList());
+            System.out.println("Skipped List: " + skippedList);
+
+            // startsWith
+            List<String> words = Arrays.asList("apple", "banana", "apricot", "blueberry");
+            boolean anyStartsWithA = words.stream()
+                                            .anyMatch(s -> s.startsWith("a"));  
+            System.out.println("Any word starts with 'a': " + anyStartsWithA);
+
+            // endsWith
+            boolean anyEndsWithY = words.stream()
+                                        .anyMatch(s -> s.endsWith("y"));
+            System.out.println("Any word ends with 'y': " + anyEndsWithY);
+
+
+
+4. Types of Streams
+    Streams can be categorized into different types based on their nature and usage.
+
+    4.1 Sequential Stream
+        Processes elements one by one in a single thread.
+        Created by default when you call stream().          
+
+    - Example:
+            Stream<String> sequentialStream = list.stream();
+
+        4.1.1. **Ordered vs Unordered Streams**: - part of sequential streams
+            - Ordered Streams maintain the order of elements as they are in the source (like List).
+            - Unordered Streams do not guarantee any specific order (like HashSet).
+
+    4.2 Parallel Stream
+        Parallel Streams are the type of streams that can perform operations concurrently on multiple threads. 
+        These Streams are meant to make use of multiple processors or cores available to speed us the processing speed. 
+        This is done by calling `parallelStream()` instead of `stream()`.
+        There are two methods to create parallel streams are mentioned below:
+            * Using the parallel() method on a stream
+                    Example:
+                        Stream<String> parallelStream = list.stream().parallel();
+            * Using parallelStream() on a Collection
+                    Example:
+                        Stream<String> parallelStream2 = list.parallelStream();
+
+    4.3. Infinite Streams: 
+        Streams can be infinite, unbounded sequences, generated using methods like `Stream.generate()` or `Stream.iterate()`. 
+        Care must be taken to limit these streams using operations like `limit()` to avoid infinite execution.
+        - Example:
+                Stream<Double> randomNumbers = Stream.generate(Math::random).limit(10);
+                randomNumbers.forEach(System.out::println);
+
+    4.4. Primitive Streams:
+        Java provides specialized streams for primitive data types to avoid the overhead of boxing and unboxing.
+        These include:
+            - IntStream: for int values
+            - LongStream: for long values
+            - DoubleStream: for double values
+        - Example:
+                IntStream intStream = IntStream.of(1, 2, 3, 4, 5);
+                int sum = intStream.sum();
+                System.out.println("Sum: " + sum);
+
+    4.5 . Boxed Streams:
+        Boxed streams are the opposite of primitive streams. 
+        They convert primitive streams back to their wrapper object types using the `boxed()` method.
+        - Example:
+                IntStream intStream = IntStream.of(1, 2, 3, 4, 5);
+                Stream<Integer> boxedStream = intStream.boxed();
+                boxedStream.forEach(System.out::println);
+
+    4.6 File Operations with Streams:
+        The Streams API can be used to read from and write to files in a functional style.
+        - Example:
+                class GFG {
+                    public static void main(String[] args)
+                    {
+                        // Replace with the actual file path
+                        String fileName = "path/to/your/file.txt";
+
+                        // Step 1: Create a Stream of lines from the file
+                        try (Stream<String> lines = Files.lines(Paths.get(fileName))) {
+
+                            List<String> filteredStrings = filterAndConvertToUpper(lines, 5);
+                            System.out.println("Filtered strings with length 5 (converted to uppercase): "+ filteredStrings);
+                        }
+                        catch (IOException e) {e.printStackTrace();
+                        }
+                    }
+
+                    // Method to filter strings of a given length and convert them to uppercase
+                    private static List<String> filterAndConvertToUpper(Stream<String> stream, int length)
+                    {
+                        return stream.filter(s -> s.length() == length)
+                            .map(String::toUpperCase)
+                            .collect(Collectors.toList());
+                    }
+                }
+
+
+🧭 Java Functional Interface Reference (for Lambdas & Method References)
+Pick the interface by: inputs ▸ output ▸ purpose
+Inputs	Interface	        Output	Need / Purpose / Use it when…
+T	      Consumer<T>	        void	Perform an action	               You want to “use” a value (e.g., print, log, save) without returning anything
+T, U	   BiConsumer<T,U>	    void	Perform an action using two inputs    You want to handle two values together (e.g., key–value pairs)
+T	      Function<T,R>	    R	    Transform input to output	       You need to map or convert a value from one type to another
+T, U	   BiFunction<T,U,R>	R	    Combine two inputs into one output    You want to produce a result from two inputs
+T	      UnaryOperator<T>	T	    Modify and return same type	       You want to apply a change and get the same type back (e.g., trim, uppercase)
+T, T	   BinaryOperator<T>	T	    Combine two of the same type	       You want to reduce or aggregate values of the same type (e.g., sum, concat)
+T	      Predicate<T>	    boolean	Test a condition	                   You want to check or filter based on a condition
+T, U	   BiPredicate<T,U>	boolean	Test a condition on two inputs	       You want to compare or match two inputs (e.g., equals, startsWith)
+—	      Supplier<T>	        T	    Supply or generate a value	       You want to create or provide something without input (factory/lazy creation)
+—	      Runnable	        void	Run a task (no return)	           You want to execute a task with no input or output
+—	      Callable<V>	        V	    Run a task that returns a value	   You want to execute a task that returns a result and may throw exceptions
+T, T	   Comparator<T>	    int	    Compare two values	                   You want to define sorting or ordering logic
+⚠️ “Calculator” isn’t a standard JDK functional interface. You likely meant Callable (task that returns a value) or the Operator types (Unary/Binary) used for “calculations”. If you do have a custom Calculator, prefer using the closest standard interface above unless you truly need custom semantics.

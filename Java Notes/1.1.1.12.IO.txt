@@ -1,0 +1,69 @@
+Input and Output (I/O) in Java:-
+Java provides a robust set of classes and methods for handling input and output operations. 
+The primary packages used for I/O operations are `java.io` and `java.nio`.
+
+1. **Streams**:
+   - Java uses streams to handle I/O operations. A stream is a sequence of data that can be read from or written to.
+   - There are two types of streams:
+     - Byte Streams: Handle binary data (e.g., `InputStream`, `OutputStream`).
+     - Character Streams: Handle character data (e.g., `Reader`, `Writer`).
+2. **File I/O**:
+   - Java provides classes to read from and write to files, such as `FileInputStream`, `FileOutputStream`, `FileReader`, and `FileWriter`.
+   - The `Files` class in `java.nio.file` package provides methods for file operations like reading, writing, copying, and deleting files.
+3. **Buffered I/O**:
+    - Buffered streams improve performance by reducing the number of I/O operations. Examples include `BufferedReader` and `BufferedWriter`.
+4. **Data I/O**:
+   - For reading and writing primitive data types, Java provides `DataInputStream` and `DataOutputStream`.
+5. **Object I/O**:
+   - Java supports serialization, allowing objects to be converted into a byte stream and vice versa using `ObjectInputStream` and `ObjectOutputStream`.    
+6. **Standard I/O**:
+   - Java provides standard input and output streams: `System.in` for input, `System.out` for output, and `System.err` for error output.
+7. **NIO (New I/O)**:
+   - The `java.nio` package offers a more flexible and efficient way to handle I/O operations using channels and buffers.
+   - It supports non-blocking I/O operations, which can improve performance in certain applications.
+8. **Exception Handling**:
+   - I/O operations can throw exceptions, so it is essential to handle them using try-catch blocks or by declaring them in the method signature.
+
+Scanner Class for Input:-
+   The Scanner class is also widely used for reading input from various sources, including user input from the console.
+   Scanner is part of the `java.util` package and provides methods to parse primitive types and strings using regular expressions.
+   Input Sources:
+    - Standard Input (keyboard) - System.in 
+    - Files                     - Example: new Scanner(new File("input.txt"))    
+    - Strings                   - Example: new Scanner("some string")
+    - Other input streams       - Example: new Scanner(InputStream)
+   Functions of Scanner Class:
+    - `nextInt()`: Reads the next integer from the input.
+    - `nextLine()`: Reads the next line of text from the input.
+    - `nextDouble()`: Reads the next double value from the input.
+    - `next()`: Reads the next token from the input.
+    - `hasNext()`: Checks if there is another token in the input.
+    - `close()`: Closes the scanner and releases any associated resources.
+
+Example of using Scanner for input:
+    ```java
+    import java.util.Scanner;
+    public class ScannerExample {
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+            
+            System.out.print("Enter an integer: ");
+            int intValue = scanner.nextInt();
+            
+            System.out.print("Enter a double: ");
+            double doubleValue = scanner.nextDouble();
+            
+            scanner.nextLine(); // Consume the newline character
+            
+            System.out.print("Enter a string: ");
+            String stringValue = scanner.nextLine();
+            
+            System.out.println("You entered: " + intValue + ", " + doubleValue + ", " + stringValue);
+            
+            scanner.close();
+        }
+    }
+
+This example demonstrates how to use the Scanner class to read different types of input from the user.
+
+ 

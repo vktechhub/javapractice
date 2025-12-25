@@ -1,0 +1,129 @@
+I/O Streams in Java
+In Java, I/O streams are the fundamental mechanism for handling input and output operations. They provide a uniform way to read data from various sources (files, network, memory) and write data to different destinations.
+
+Java I/O streams are categorized into two main types based on the type of data they handle:
+1. Byte Streams: These streams handle raw binary data and are used for reading and writing binary files such as images, audio files, and executable files. 
+        The main abstract classes for byte streams are 
+                InputStream and 
+                OutputStream, 
+        along with their implementations like 
+                FileInputStream: reads raw bytes from a file.
+                FileOutputStream: writes raw bytes to a file.
+                BufferedInputStream / BufferedOutputStream: use buffering for faster performance.
+                ByteArrayInputStream: reads data from a byte array as if it were an input stream.
+                ByteArrayOutputStream: writes data into a byte array, which grows automatically.
+
+2. Character Streams: These streams handle character data and are used for reading and writing text files. They automatically handle character encoding and decoding. 
+        The main abstract classes for character streams are 
+                Reader and 
+                Writer, 
+        along with their implementations like 
+                FileReader: reads characters from a file.
+                FileWriter: writes characters to a file.
+                BufferedReader: reads text efficiently using buffering; also provides readLine() for reading lines.
+                BufferedWriter: writes text efficiently using buffering.
+                StringReader: reads characters from a string.
+                StringWriter: writes characters into a string buffer.
+
+
+Java File access:-
+1. Create a new file using createNewFile() method of File class.
+        try {
+            File Obj = new File("myfile.txt");
+            
+          	// Creating File
+          	if (Obj.createNewFile()) {
+                System.out.println("File created: " + Obj.getName());
+            }
+            else {
+                System.out.println("File already exists.");
+            }
+        }
+      
+      	// Exception Thrown
+        catch (IOException e) {
+            System.out.println("An error has occurred.");
+            e.printStackTrace();
+        }
+
+2. Write data to a file using FileWriter class.
+        try {
+            FileWriter Writer = new FileWriter("myfile.txt");
+            Writer.write("Hello, this is a sample text.");
+            Writer.close();
+            System.out.println("Successfully wrote to the file.");
+        } 
+        catch (FileNotFoundException e) // File not found exception
+        {
+            System.out.println("File not found.");
+            e.printStackTrace();
+        }      
+      	// Exception Thrown
+        catch (IOException e) {
+            System.out.println("An error has occurred.");
+            e.printStackTrace();
+        }
+        catch (Exception e) {
+            System.out.println("An unexpected error has occurred.");
+            e.printStackTrace();
+        }
+
+3. Read data from a file using FileReader and BufferedReader classes.
+        try {
+            FileReader Reader = new FileReader("myfile.txt");
+            BufferedReader BufferedReader = new BufferedReader(Reader);
+            String line;
+            while ((line = BufferedReader.readLine()) != null) {
+                System.out.println(line);
+            }
+            BufferedReader.close();
+        } 
+        catch (FileNotFoundException e) // File not found exception
+        {
+            System.out.println("File not found.");
+            e.printStackTrace();
+        }    
+        catch (IOException e) {
+            System.out.println("An error has occurred.");
+            e.printStackTrace();
+        }
+        catch (Exception e) {
+            System.out.println("An unexpected error has occurred.");
+            e.printStackTrace();
+        }
+
+2. read using Scanner class.
+        try {
+            File file = new File("myfile.txt");
+            Scanner scanner = new Scanner(file);
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                System.out.println(line);
+            }
+            scanner.close();
+        } 
+        catch (FileNotFoundException e) // File not found exception
+        {
+            System.out.println("File not found.");
+            e.printStackTrace();
+        }    
+        catch (Exception e) {
+            System.out.println("An unexpected error has occurred.");
+            e.printStackTrace();
+        }
+
+4. Delete a file using delete() method of File class.
+        try {
+            File Obj = new File("myfile.txt");
+            if (Obj.delete()) {
+                System.out.println("Deleted the file: " + Obj.getName());
+            } 
+            else {
+                System.out.println("Failed to delete the file.");
+            }
+        } 
+        catch (Exception e) {
+            System.out.println("An error has occurred.");
+            e.printStackTrace();
+        }
+

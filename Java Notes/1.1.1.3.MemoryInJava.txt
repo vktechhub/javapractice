@@ -1,0 +1,39 @@
+Stack Vs Heap Memory
+------------------------------
+In Java, the run time memory of JVM (in RAM) is primarily divided into two areas: Stack and Heap.
+Stack Memory
+        ✔ Stack memory is used for static memory allocation and the execution of a thread.
+        ✔ It stores primitive data types (int, char, boolean, etc.) and references to objects in heap memory.
+        ✔ Stack memory follows the Last In First Out (LIFO) principle.
+        ✔ Each thread has its own stack memory.
+        ✔ Stack memory is faster to access compared to heap memory.
+Heap Memory
+        ✔ Heap memory is used for dynamic memory allocation for Java objects and JRE classes at runtime
+        ✔ It stores all the objects created using the new keyword.
+        ✔ Heap memory is shared among all threads.
+        ✔ It is managed by the Garbage Collector, which automatically frees up memory occupied by objects that are no longer referenced.
+        ✔ Heap memory is generally larger than stack memory but slower to access.
+
+Stack vs Heap Comparison
+------------------------------
+        Aspect               | Stack Memory                     | Heap Memory
+        ---------------------|----------------------------------|-------------------------------
+        Purpose             | Static memory allocation         | Dynamic memory allocation
+        Storage             | Primitive data types, references | Java objects
+        Access Speed        | Faster                           | Slower
+        Memory Management   | Managed by thread                | Managed by Garbage Collector
+        Size                | Smaller                          | Larger
+        Lifetime           | Short-lived (method scope)       | Long-lived (object lifetime)
+
+Heap and Stack 
+------------------------------
+When a Java program is executed, the JVM allocates memory for variables and objects in both stack and heap memory.
+
+1. Stack Memory Allocation:
+   - When a method is called, a new block is created in the stack memory to hold the method's local variables and references.
+   - Primitive data types are stored directly in the stack.
+   - References to objects created in heap memory are stored in the stack.
+
+2. Heap Memory Allocation:
+   - When an object is created using the new keyword, memory for that object is allocated in the heap.
+   - The reference to that object is returned and stored in the stack memory.

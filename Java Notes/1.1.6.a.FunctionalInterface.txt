@@ -1,0 +1,34 @@
+Functional Interface
+A functional interface in Java is an interface that contains exactly one abstract method. This concept is a key feature of Java 8 and later versions, enabling the use of lambda expressions and method references.
+Key Characteristics:
+Single Abstract Method: A functional interface must have exactly one abstract method. This method defines the contract that the implementing class must fulfill.
+Default and Static Methods: A functional interface can have multiple default and static methods. These methods do not count as abstract methods.
+@FunctionalInterface Annotation: While not mandatory, it is a good practice to use the @FunctionalInterface annotation. This annotation helps to indicate that the interface is intended to be a functional interface and allows the compiler to generate an error if the interface does not meet the criteria.
+Example:
+@FunctionalInterface
+public interface MyFunctionalInterface {
+    void execute(); // Single abstract method
+
+    default void defaultMethod() {
+        System.out.println("This is a default method.");
+    }
+
+    static void staticMethod() {
+        System.out.println("This is a static method.");
+    }
+}
+
+Usage with Lambda Expressions:
+MyFunctionalInterface funcInterface = () -> System.out.println("Executing the functional interface method.");
+funcInterface.execute(); // Output: Executing the functional interface method.
+
+Common Functional Interfaces in Java:
+Java provides several built-in functional interfaces in the java.util.function package.(Covered in detail in later sections))
+
+Benefits:
+Conciseness: Functional interfaces allow for more concise and readable code using lambda expressions.
+Flexibility: They enable functional programming paradigms in Java, allowing for higher-order functions and more abstract code.
+Interoperability: Functional interfaces facilitate the use of APIs that leverage functional programming concepts.
+In summary, functional interfaces are a fundamental part of Java's support for functional programming, enabling developers to write cleaner and more expressive code.
+
+
