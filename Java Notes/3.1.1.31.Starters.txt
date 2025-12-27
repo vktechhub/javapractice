@@ -1,0 +1,49 @@
+SpringBoot Starters:-
+    Spring Boot Starters are a set of convenient dependency descriptors that you can include in your application to quickly add commonly used libraries and frameworks. 
+    They simplify the process of setting up a Spring Boot application by providing a curated set of dependencies for specific functionalities.
+
+Commonly used Spring Boot Starters:
+    * spring-boot-starter-web: 
+        - Used for building web applications, including RESTful services.
+        - Includes dependencies like Spring MVC, Tomcat, and Jackson for JSON processing.
+    * spring-boot-starter-data-jpa:
+        - Used for building applications that interact with relational databases using JPA (Java Persistence API).  
+        - Includes dependencies like Spring Data JPA, Hibernate, and a database connection pool.
+    * spring-boot-starter-security:
+        - Used for adding security features to your application.
+        - Includes dependencies for Spring Security, which provides authentication and authorization capabilities.
+    * spring-boot-starter-thymeleaf:
+        - Used for building web applications with Thymeleaf as the templating engine.
+        - Includes dependencies for Thymeleaf and Spring MVC integration.
+    * spring-boot-starter-test:
+        - Used for testing Spring Boot applications.
+        - Includes dependencies for JUnit, Mockito, Spring Test, and other testing libraries.
+    * spring-boot-starter-actuator:
+        - Used for adding production-ready features to your application, such as monitoring and management endpoints.
+        - Includes dependencies for Spring Boot Actuator.
+    * spring-boot-devtools: 
+        - Used for improving the development experience with features like automatic restarts and live reload.
+        - Includes dependencies for development-time tools.
+    * spring-boot-starter-websocket:
+        - Used for building WebSocket applications.
+        - Includes dependencies for Spring WebSocket and SockJS.
+    * spring-boot-starter-log4j2:
+        - Used for logging in Spring Boot applications using Log4j2.
+        - Includes dependencies for Log4j2 and its integration with Spring Boot.
+    * spring-boot-starter-mail:
+        - Used for sending emails from your application.
+        - Includes dependencies for JavaMail and Spring's email support.
+    * spring-boot-starter-cache:
+        - Used for adding caching support to your application.
+        - Includes dependencies for Spring Cache abstraction and common caching providers.
+    * spring-boot-starter-amqp:
+        - Used for building applications that interact with AMQP messaging systems like RabbitMQ.
+        - Includes dependencies for Spring AMQP and RabbitMQ client libraries.
+    * spring-boot-starter-webflux:
+        - Used for building reactive web applications using Spring WebFlux.
+        - Includes dependencies for Reactor, Netty, and Spring's reactive programming support.  
+    * spring-boot-starter-validation:
+        - Used for adding validation support to your application.
+        - Includes dependencies for Hibernate Validator and Bean Validation API.
+
+These starters help developers quickly set up and configure their Spring Boot applications by providing a pre-defined set of dependencies tailored for specific use cases.

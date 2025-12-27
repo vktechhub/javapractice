@@ -1,0 +1,290 @@
+Overview:- 
+    Aiming to learn Core Java concepts and features; then advanced Java concepts. 
+    Then learn Spring Framework and SpringBoot. 
+    Finally, learn Microservices architecture using SpringBoot and Spring Cloud.
+
+    This document provides a summary of key topics and concepts in each area.
+
+Core Java Summary:- 
+    * Java Basics
+        * Data Types and Variables
+        * Operators
+        * Control Flow Statements (if, switch, loops)
+        * Methods and Functions
+        * Arrays
+        * Strings and String Manipulation
+    * Java I/O
+            * Input and Output (I/O) Basics
+            * File Handling
+            * Streams (Byte Streams, Character Streams)
+        * Java NIO (New I/O)
+    * Object-Oriented Programming (OOP) Concepts
+        * Classes and Objects
+            * Constructors
+            * Methods
+            * Fields
+            * Java Inner Classes (Static and Non-Static)
+        * Inheritance
+            * Method Overriding
+            * Method Overloading
+        * Polymorphism
+            * Dynamic Method Dispatch
+        * Encapsulation
+            * Access Modifiers (public, private, protected, default)
+            * Getters and Setters
+        * Packages and Access Control
+        * Abstraction
+            * Abstract Classes
+            * Interfaces
+                * Default and Static Methods in Interfaces
+                * How Interfaces -> Single Abstract Method (SAM) -> Functional Interfaces -> Lambda Expressions 
+    * Java Packages and Import Statements
+    * Exception Handling
+        * Types of Exceptions
+            * Checked Exceptions
+            * Unchecked Exceptions (Runtime Exceptions)
+        * Try-Catch Blocks
+        * Finally Block
+        * Throw and Throws Keywords
+        * Custom Exceptions
+            * Creating Custom Exception Classes
+    * Collections Framework
+        * List Interface 
+            * ArrayList, LinkedList
+            * Legacy : Vector, Stack
+            * Concurrent : CopyOnWriteArrayList
+        * Set Interface
+            * HashSet, TreeSet
+            * Legacy: Hashtable
+            * Concurrent : CopyOnWriteArraySet, ConcurrentSkipListSet
+        * Map Interface
+            * HashMap, TreeMap
+            * Legacy: Hashtable
+            * Concurrent : ConcurrentHashMap, ConcurrentSkipListMap
+        * Queue Interface
+            * PriorityQueue, LinkedList
+            * Legacy: PriorityQueue
+            * Concurrent : ConcurrentLinkedQueue, LinkedBlockingQueue
+        * Deque Interface
+            * ArrayDeque, LinkedList
+            * Concurrent : ConcurrentLinkedDeque, LinkedBlockingDeque
+        * Collections Utility Class
+        * Iterators and ListIterators and Enhanced For Loop
+    * Multithreading and Concurrency
+        * Thread Creation 
+            * Extending Thread Class
+            * Implementing Runnable Interface
+        * Thread Lifecycle
+        * Thread Synchronization
+        * Inter-Thread Communication (wait(), notify(), notifyAll())
+        * Concurrency Utilities (Executor Framework, Locks, Semaphores, CountDownLatch, CyclicBarrier)
+    * Java 8 Features (Lambdas, Streams, etc.)
+        * Functional Interfaces
+        * Lambda Expressions
+        * Method References
+        * Stream API
+        * Optional Class    
+    * Java Annotations
+        * Built-in Annotations (@Override, @Deprecated, @SuppressWarnings)
+        * Custom Annotations
+    * Java Memory Management and Garbage Collection
+        * Heap and Stack Memory
+        * Garbage Collection Algorithms (Mark-and-Sweep, Generational GC)
+        * Finalization
+        * Java Memory Leaks and Best Practices
+    * Java Networking
+        * Sockets and ServerSockets
+        * URL and HttpURLConnection
+        * DatagramSocket and DatagramPacket
+    * Java Generics
+        * Generic Classes and Methods
+        * Bounded Type Parameters
+        * Wildcards (? extends T, ? super T)
+        * Generic Collections
+    * Java Reflection API
+        * Analyzing Classes, Methods, and Fields at Runtime
+        * Dynamic Proxy Classes
+    * Java Enums
+        * Java Collections Generics with Enums
+    * Java Date and Time API
+    * Java Serialization and Deserialization
+    * Java Modules (introduced in Java 9)
+        * Module Declaration
+        * Module Dependencies
+    * Java Virtual Machine (JVM) Internals
+
+Data Access
+    * JDBC (Java Database Connectivity)
+    * ORM (Object-Relational Mapping) Frameworks (e.g., Hibernate)
+    * Java Persistence API (JPA) and Hibernate
+    * Spring JDBC
+    * Spring Data JPA
+    * Spring ORM
+    * Spring Hibernate Integration
+
+Advanced Java Summary:-
+    * Servlets and JSP (JavaServer Pages)
+    * Java EE (Enterprise Edition) Concepts
+    * Web Services (RESTful and SOAP)
+    * Java Messaging Service (JMS)
+    * Java Transaction Management
+    * Java Security
+    * Java Naming and Directory Interface (JNDI)
+    * JavaMail API
+    * Java EE Design Patterns
+    * Java EE Application Servers (e.g., GlassFish, WildFly)
+    * Java EE Annotations
+    * Java EE Interceptors and Listeners
+    * Java EE Batch Processing
+    * Java EE WebSockets
+    * Java EE CDI (Contexts and Dependency Injection)
+    * Java EE Bean Validation
+    * Java EE Concurrency Utilities
+    * Java EE Deployment and Packaging
+    * Java EE Testing and Debugging
+    * Java EE Performance Tuning and Optimization
+    * Java EE Microservices with Jakarta EE
+    * Java EE Cloud Deployment and DevOps
+    * Java EE Integration with Other Technologies (e.g., Spring, MicroProfile)
+
+Spring Framework Summary:-
+    * Spring Core (Inversion of Control, Dependency Injection)
+    * Spring AOP (Aspect-Oriented Programming)
+    * Spring MVC (Model-View-Controller)
+    * Spring Data (JPA, MongoDB, etc.)
+    * Spring Security
+    * Spring Transaction Management
+    * Spring RESTful Web Services
+    * Spring Testing (Unit Testing, Integration Testing)
+    * Spring Beans and Bean Lifecycle
+    * Spring Context and ApplicationContext
+    * Spring Expression Language (SpEL)
+    * Spring Events and Event Handling
+    * Spring Scheduling and Task Execution
+    * Spring Integration
+    * Spring Batch
+
+Spring Cloud Summary:-
+    * Spring Cloud Introduction
+    * Spring Cloud Overview
+    * Spring Cloud Config
+    * Spring Cloud Netflix (Eureka, Ribbon, Hystrix, Zuul)
+    * Spring Cloud Gateway
+    * Spring Cloud Load Balancing
+    * Spring Cloud Circuit Breaker
+    * Spring Cloud Sleuth
+    * Spring Cloud Zipkin
+    * Spring Cloud Bus
+    * Spring Cloud Stream
+    * Spring Cloud Function
+    * Spring Cloud Kubernetes
+    * Spring Cloud Security
+    * Spring Cloud Deployment (Docker, Kubernetes, Cloud Platforms)
+
+SpringBoot Summary:-
+    * Spring Boot Introduction
+    * Spring Boot Basics
+    * Spring Boot Auto-Configuration
+    * Spring Boot Starters
+        * Core Starter - spring-boot-starter
+        * Web Starter - spring-boot-starter-web
+        * Data JPA Starter - spring-boot-starter-data-jpa
+        * Security Starter - spring-boot-starter-security
+        * Test Starter - spring-boot-starter-test
+        * Started dependency descriptors for various functionalities
+            * Spring Boot Actuator - spring-boot-starter-actuator
+            * Spring Boot DevTools - spring-boot-devtools    
+    * Spring Boot Actuator
+    * Spring Boot CLI (Command Line Interface)
+    * Spring Boot DevTools
+        * Static Resource Caching
+        * Automatic Restart
+        * LiveReload Integration
+
+    * Spring Boot Data Access (Spring Data JPA, Spring Data MongoDB, etc.)
+    * Spring Boot Web Development (Spring MVC, RESTful APIs)
+    * Spring Boot Security (Spring Security)
+    * Spring Boot Testing (Unit Testing, Integration Testing)
+    * Spring Boot Configuration (Properties, YAML, Profiles)
+    * Spring Boot Logging
+    * Spring Boot Caching
+    * Spring Boot Messaging (RabbitMQ, Kafka)
+    * Spring Boot Scheduling and Task Execution
+    * Spring Boot Microservices Architecture
+    * Spring Boot Cloud Integration (Spring Cloud)
+    * Spring Boot Deployment (Docker, Kubernetes, Cloud Platforms)
+    * Spring Boot Monitoring and Management
+
+* Spring Annotations
+        * Core and Context Management Annotations - @Configuration, @Component, @Bean
+            * Specialization of @Component - @Service, @Repository, @Controller
+            * variants of @Configuration - @ComponentScan, @Import, @ImportResource
+                * Conditional Annotations - @Conditional, @ConditionalOnProperty, @ConditionalOnMissingBean
+        * variants of Dependency Injection - @Autowired, @Qualifier, @Value
+        * Lifecycle - @PostConstruct, @PreDestroy
+        * Web and Rest Annotations - @RestController, @ResponseBody, @RequestMapping, @PathVariable, @RequestParam
+        * Aspect-Oriented Programming - @Aspect, @Before, @After, @Around, @Pointcut, @AfterReturning, @AfterThrowing
+        * Data Access Annotations - @Transactional, @Repository, @Entity, @Table, @Id, @GeneratedValue, @Column
+        * Scheduling and Asynchronous Processing - @EnableScheduling, @Scheduled, @Async
+        * Caching Annotations - @EnableCaching, @Cacheable, @CachePut, @CacheEvict
+
+    Other notes:-
+        * @Controller vs @RestController
+        * @Component vs @Service vs @Repository
+        * @Configuration vs @Component
+        * @Bean vs @Component
+        * @Autowired vs @Inject vs @Resource
+        * @RequestMapping vs @GetMapping vs @PostMapping vs @PutMapping vs @DeleteMapping
+        * @PathVariable vs @RequestParam vs @RequestBody vs @ModelAttribute
+        * @Transactional propagation and isolation levels
+
+* Spring Boot Specific Annotations - 
+    * @SpringBootApplication, @EnableAutoConfiguration, @EnableScheduling, @EnableCaching
+
+* Spring Cloud Specific Annotations - 
+    * @EnableEurekaClient, @EnableFeignClients, @EnableCircuitBreaker, @EnableConfigServer
+
+* Spring Profiles and Configuration Management
+    * Profile-Specific Beans
+    * Externalized Configuration
+    * Property Sources and Placeholders
+
+* Spring Boot DevTools and Hot Reloading
+    * Automatic Restart
+    * LiveReload Integration
+
+* Spring Boot Actuator Endpoints
+    * Health Checks
+    * Metrics and Monitoring
+    * Custom Actuator Endpoints
+
+* Spring Boot Testing Annotations
+    * @SpringBootTest
+    * @WebMvcTest
+    * @DataJpaTest
+    * @MockBean
+    * @AutoConfigureMockMvc
+
+* Spring Cloud Config Annotations
+    * @EnableConfigServer
+    * @RefreshScope
+
+* Spring Cloud Netflix Annotations
+    * @EnableEurekaClient
+    * @EnableFeignClients
+    * @EnableCircuitBreaker
+
+* Spring Cloud Gateway Annotations
+    * @EnableGateway
+    * @GatewayFilter
+    * @GlobalFilter
+
+* Spring Cloud Stream Annotations
+    * @EnableBinding
+    * @StreamListener
+    * @SendTo
+
+* Spring Cloud Function Annotations
+    * @EnableFunction
+    * @Bean (for function definitions)
+    
