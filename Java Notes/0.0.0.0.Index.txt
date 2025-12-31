@@ -236,6 +236,7 @@ SpringBoot Summary:-
         * @Autowired vs @Inject vs @Resource
         * @RequestMapping vs @GetMapping vs @PostMapping vs @PutMapping vs @DeleteMapping
         * @PathVariable vs @RequestParam vs @RequestBody vs @ModelAttribute
+        * @PathVariable vs @RequestParam
         * @Transactional propagation and isolation levels
 
 * Spring Boot Specific Annotations - 

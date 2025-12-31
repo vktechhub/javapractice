@@ -45,5 +45,17 @@ Here are some commonly used Spring Annotations:
     * It is used to specify the scope of a bean.
     * Common scopes include "singleton" (default) and "prototype".
 
+11. @PostConstruct
+    * It is used to specify a method that should be executed after the bean's properties have been set.
+    * It is typically used for initialization logic.
+
+12. @PreDestroy
+    * It is used to specify a method that should be executed before the bean is destroyed.
+    * It is typically used for cleanup logic.
+    
+13. @RestController = @Controller + @ResponseBody
+    * It is a convenience annotation that combines @Controller and @ResponseBody.
+    * It indicates that the class is a RESTful web service controller, and the return values of its methods should be serialized directly to the HTTP response body.
+
     
 
