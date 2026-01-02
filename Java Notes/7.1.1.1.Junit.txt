@@ -1,0 +1,140 @@
+Junit:- 
+JUnit is a widely used testing framework for Java programming language. It provides annotations and assertions to help developers write and run repeatable tests. JUnit is an essential tool for test-driven development (TDD) and helps ensure code quality by allowing developers to create unit tests that verify the functionality of individual components of their code.
+
+Key Features of JUnit:
+1. Annotations: JUnit provides various annotations such as @Test, @Before, @After, @BeforeClass, and @AfterClass to define test methods and setup/teardown procedures.
+2. Assertions: JUnit offers a set of assertion methods (e.g., assertEquals, assertTrue, assertFalse) to validate expected outcomes in tests.
+3. Test Suites: JUnit allows grouping multiple test classes into a test suite for organized execution.
+4. Integration: JUnit integrates seamlessly with build tools like Maven and Gradle, as well as IDEs like Eclipse and IntelliJ IDEA.
+5. Parameterized Tests: JUnit supports parameterized tests, allowing developers to run the same test with different inputs.
+6. Extensions: JUnit 5 introduced a modular architecture and extension model, enabling developers to create custom extensions for additional functionality.
+7. @Test annotated method has to be public(so that it can be accessed by the testing framework), void(must not return any value) and no static.
+
+Import library:
+before Junit 5:-    
+    * import org.junit.*;
+
+maven import before Junit 5:-
+    * <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.13.2</version>
+        <scope>test</scope>
+      </dependency>
+
+after Junit 5:-
+    * import org.junit.jupiter.api.*;
+      import org.junit.jupiter.api.assertions.*;
+      import org.junit.jupiter.api.condition.*;
+      import org.junit.jupiter.api.extension.*;
+
+      import org.junit.jupiter.api.AfterEach;
+      import org.junit.jupiter.api.BeforeEach;
+      import org.junit.jupiter.api.Test;
+
+      import org.junit.jupiter.params.*;
+      import org.junit.jupiter.params.provider.*;
+      import org.junit.platform.runner.*;
+      import org.junit.platform.suite.api.*;
+      import org.junit.vintage.engine.*;
+
+maven import after Junit 5:-
+    * <dependency>
+        <groupId>org.junit.platform</groupId>
+        <artifactId>junit-platform-launcher</artifactId>
+        <version>5.8.1</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-engine</artifactId>
+        <version>5.8.1</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.junit.vintage</groupId>
+        <artifactId>junit-vintage-engine</artifactId>
+        <version>5.8.1</version>
+        <scope>test</scope>
+        </dependency>
+
+junit-platform-launcher
+  - Provides a TestEngine for running JUnit 3 and JUnit 4 based tests on the JUnit Platform.
+
+junit-jupiter-engine
+  - Provides a TestEngine for running JUnit Jupiter based tests on the JUnit Platform.
+
+junit-vintage-engine
+  - Provides a TestEngine for running JUnit 3 and JUnit 4 based tests on the JUnit Platform.
+
+Important Annotations:
+- @Test: Marks a method as a test method.
+- @BeforeEach: Indicates that the annotated method should be executed before each test method (JUnit 5).
+- @AfterEach: Indicates that the annotated method should be executed after each test method (JUnit 5).
+- @BeforeAll: Indicates that the annotated method should be executed once before any of the test methods in the class (JUnit 5).
+- @AfterAll: Indicates that the annotated method should be executed once after all the test methods in the class (JUnit 5). 
+    * @BeforeAll and @AfterAll methods must be static unless the test class is annotated with @TestInstance(Lifecycle.PER_CLASS).
+
+- @Before: Indicates that the annotated method should be executed before each test method.(JUnit 4)
+- @After: Indicates that the annotated method should be executed after each test method.(JUnit 4)
+- @BeforeClass: Indicates that the annotated method should be executed once before any of the test methods in the class.(JUnit 4)
+- @AfterClass: Indicates that the annotated method should be executed once after all the test methods in the class.(JUnit 4)
+- @Disabled: Marks a test method or class as disabled, preventing it from being executed.
+
+
+Common Assertions:
+- assertEquals(expected, actual): Asserts that two values are equal.
+- assertNotEquals(unexpected, actual): Asserts that two values are not equal.
+- assertTrue(condition): Asserts that a condition is true.
+- assertFalse(condition): Asserts that a condition is false.
+- assertNull(object): Asserts that an object is null.
+- assertSame(expected, actual): Asserts that two references point to the same object.
+- assertNotSame(unexpected, actual): Asserts that two references do not point to the same object.
+- assertNotNull(object): Asserts that an object is not null.
+- fail(message): Fails a test with the given message.
+
+Common JUnit Commands:
+1. Running Tests in IDE: Most IDEs provide built-in support for running JUnit tests directly from the editor.
+2. Maven: Use the command `mvn test` to run JUnit tests in a Maven project.
+3. Gradle: Use the command `gradle test` to run JUnit tests in a Gradle project.
+4. Command Line: Use the JUnit Console Launcher to run tests from the command line.
+   Example command:
+   ```   java -jar junit-platform-console-standalone-1.8.1.jar -cp <path-to-your-test-classes> --scan-class-path
+   ```
+
+Example JUnit 5 Test Class:
+```java
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
+public class ExampleTest {
+
+    @BeforeAll
+    static void setupAll() {
+        // Code to run before all tests
+    }
+
+    @BeforeEach
+    void setup() {
+        // Code to run before each test
+    }
+
+    @Test
+    void testAddition() {
+        assertEquals(2, 1 + 1);
+    }
+
+    @Test
+    void testSubtraction() {
+        assertEquals(0, 1 - 1);
+    }
+
+    @AfterEach
+    void teardown() {
+        // Code to run after each test
+    }
+
+    @AfterAll
+    static void teardownAll() {
+        // Code to run after all tests
+    }
+}
