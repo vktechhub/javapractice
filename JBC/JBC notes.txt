@@ -1,4 +1,4 @@
-Coding              - 1
+Coding              - 2
 SQL and JDBC        - 2
 SpringBoot          - 4
 Multi-threading     - 2
