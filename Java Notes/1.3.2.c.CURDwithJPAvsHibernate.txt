@@ -73,12 +73,51 @@ Spring Hibernate structure:-
 2. @Autowired private SessionFactory sessionFactory;
 3. Session session = sessionFactory.getCurrentSession();
 4. // Perform CRUD operations
-    example: session.save(entity);    // Create
-             session.get(EntityClass.class, id); // Read
-             session.update(entity);               // Update
-             session.delete(entity);              // Delete
+    example: session.save(entity);                      // Create
+             session.get(EntityClass.class, id);       // Read
+             session.update(entity);                    // Update
+             session.delete(entity);                    // Delete
 5. // Transaction management can be handled by Spring's @Transactional annotation
 6. // No explicit close needed for SessionFactory when managed by Spring
 7. // Additional operations as needed
 
-Config needed for Spring Hibernate :- 
+Config needed for Hibernate :- 
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;   
+import org.hibernate.HibernateException;
+import util.HibernateUtil;
+
+//open session
+1. Session session = HibernateUtil.getSessionFactory().openSession();
+2. Transaction tx = null; 
+try {
+    //begin transaction
+    tx = session.beginTransaction();   
+    for (int i=0; i<1000; i++) {
+            EntityClass entity = new EntityClass();
+            //set entity properties
+     
+            //CRUD operations - example
+                 //session.save(entity);    // Create   
+                 //session.get(EntityClass.class, id); // Read
+                 //session.update(entity);               // Update
+                 //session.delete(entity);              // Delete
+             if(i%30==0){ //flush a batch of inserts and release memory:
+                 session.flush();       // synchronize session with database
+                 session.clear();       // clear the session to free memory
+             }
+    }
+    //commit transaction
+    tx.commit();
+}
+catch(HibernateException e){
+    //rollback transaction  
+    if(tx!=null) tx.rollback();
+    e.printStackTrace();
+}
+finally{
+    //close session
+    session.close();
+}
+System.exit(0);
