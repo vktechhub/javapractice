@@ -4,11 +4,11 @@ A thread is a lightweight subprocess, the smallest unit of processing that can b
 
 Java provides built-in support for multithreading through the `java.lang.Thread` class and the `java.lang.Runnable` interface.
 
-Creating Threads in Java
+1. Creating Threads in Java
 There are two primary ways to create threads in Java:
     preferred way is to implement the `Runnable` interface, as it allows for better separation of thread logic and task logic, and enables the class to extend other classes if needed.
 
-1. Extending the Thread Class
+1.1. Extending the Thread Class
 You can create a new thread by extending the `Thread` class and overriding its `run()` method.
 Example:
 class MyThread extends Thread {
@@ -25,7 +25,7 @@ public class ThreadExample {
     }
 }
 
-2. Implementing the Runnable Interface
+1.2. Implementing the Runnable Interface
 You can also create a thread by implementing the `Runnable` interface and passing an instance of the class to a `Thread` object.
 Example:
 class MyRunnable implements Runnable {
@@ -41,6 +41,70 @@ public class RunnableExample {
         t1.start(); // Start the thread
     }
 }
+
+Thread Lifecycle
+A thread goes through several states during its lifecycle:
+1. New: The thread is created but not yet started.
+        Example:- Thread creation
+        Thread t1 = new Thread(() -> {
+            // thread code
+        });   // t1 is in New state
+2. Runnable: The thread is ready to run and waiting for CPU time.   
+        Example:- starting the thread
+        t1.start();   // t1 is now in Runnable state
+3. Running: The thread is currently executing.
+        Example:- running the thread
+        // When the thread scheduler picks t1 for execution, it enters Running state.
+4. Blocked/Waiting: The thread is waiting for a resource or another thread to complete.
+        Example:- blocked/waiting state
+        synchronized (someObject) {
+            // critical section
+        }   // If someObject is locked by another thread, t1 enters Blocked state.
+
+        Example:- Thread join
+        Thread t2 = new Thread(() -> {
+            try {
+                t1.join();  // t2 will wait for t1 to finish, entering Waiting state
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        });
+
+        Example:- Thread Sleep
+        Thread t3 = new Thread(() -> {
+            try {
+                Thread.sleep(1000);  // t3 will sleep for 1 second, entering Timed Waiting state
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        });
+5. Terminated: The thread has completed execution.
+        Example:- When the run() method of t1 completes, it enters Terminated state.
+
+Related Terminologies:-
+    * Process: An instance of a running program that contains its own memory space.
+    * Multi-Process: A system that runs multiple processes simultaneously.
+    * Thread :- A thread is an independent path of execution within a program.
+    * Single Thread processing : A program that executes one thread at a time.
+    * Same Thread processing: When a program has only one thread of execution.
+    * Multithreading: The ability of a CPU to execute multiple threads concurrently.    
+    * Concurrently: Multiple threads executing in overlapping time periods in same CPU.
+    * Parallelism: Multiple threads executing simultaneously on multiple CPU cores.
+    * thread-safe: Code that can be safely executed by multiple threads at the same time without causing data inconsistency.
+    * mutable state: An object whose state can be changed after it is created.
+    * Immutable state: An object whose state cannot be changed after it is created.
+    * Race Condition: A situation where the outcome of a program depends on the timing or sequence of uncontrollable events, such as thread scheduling.
+
+- Note: When using concurrent execution, ensure that your tests are thread-safe and do not share mutable state that could lead to race conditions.
+
+
+    * Thread Scheduler: A component of the operating system that manages the execution of threads.
+
+    * Context Switching: The process of storing and restoring the state of a thread so that execution can be resumed from the same point later.
+    * Deadlock: A situation where two or more threads are blocked forever, waiting for each other.
+    * Starvation: A situation where a thread is perpetually denied access to resources it needs for execution.
+    * Thread Priority: Each thread has a priority that helps the thread scheduler decide the order of thread execution.
+    * same Thread Group: Threads can be grouped into thread groups for easier management.
 
 How to find thread information
     * Thread Name: You can get the name of the current thread using `Thread.currentThread().getName()`.
@@ -59,15 +123,6 @@ public class ThreadInfoExample {
         t1.start();
     }
 }
-
-
-Thread Lifecycle
-A thread goes through several states during its lifecycle:
-1. New: The thread is created but not yet started.
-2. Runnable: The thread is ready to run and waiting for CPU time.   
-3. Running: The thread is currently executing.
-4. Blocked/Waiting: The thread is waiting for a resource or another thread to complete.
-5. Terminated: The thread has completed execution.
 
 Thread Synchronization
 When multiple threads access shared resources, it can lead to data inconsistency. To prevent this, Java provides synchronization mechanisms. 
@@ -104,8 +159,6 @@ public class SyncExample {
         System.out.println("Final Count: " + counter.getCount());
     }
 }
-
-
 
 Thread Communication
 Java provides methods like `wait()`, `notify()`, and `notifyAll()` for inter-thread communication. These methods are used to coordinate the actions of multiple threads.

@@ -10,6 +10,32 @@ Key Features of JUnit:
 6. Extensions: JUnit 5 introduced a modular architecture and extension model, enabling developers to create custom extensions for additional functionality.
 7. @Test annotated method has to be public(so that it can be accessed by the testing framework), void(must not return any value) and no static.
 
+Different ways to run Junit Tests:
+1. Using an IDE: Most modern IDEs like IntelliJ IDEA, Eclipse, and NetBeans have built-in support for running JUnit tests. You can right-click on the test class or method and select "Run" to execute the tests.
+2. Using Maven: If your project uses Maven as a build tool, you can run JUnit tests using the following command:
+   ```
+   mvn test
+   ```
+3. Using Gradle: If your project uses Gradle as a build tool, you can run JUnit tests using the following command:
+   ```
+    gradle test
+    ```
+4. JUnit Console Launcher: JUnit provides a console launcher that allows you to run tests from the command line. You can download the JUnit platform console standalone JAR file and use the following command:
+   ```
+   java -jar junit-platform-console-standalone-1.8.1.jar -cp <path-to-your-test-classes> --scan-class-path
+   ```
+   --class-path or -cp option specifies the classpath where your test classes are located.
+   --scan-class-path option tells JUnit to scan the specified classpath for test classes to execute. This automatically searches for tests in the specified class path.
+   --select-class option allows you to specify a particular test class to run.
+        multiple classes can be specified by using this option multiple times.
+   --exclude-class option allows you to exclude specific test classes from being executed.
+        multiple classes can be excluded by using this option multiple times.
+   --include-tag option allows you to include tests with specific tags for execution.
+        multiple tags can be included by using this option multiple times.
+   --exclude-tag option allows you to exclude tests with specific tags from execution.
+        multiple tags can be excluded by using this option multiple times.
+
+
 Import library:
 before Junit 5:-    
     * import org.junit.*;
@@ -25,6 +51,7 @@ maven import before Junit 5:-
 after Junit 5:-
     * import org.junit.jupiter.api.*;
       import org.junit.jupiter.api.assertions.*;
+      import org.junit.jupiter.api.Assumptions.*;
       import org.junit.jupiter.api.condition.*;
       import org.junit.jupiter.api.extension.*;
 
@@ -56,7 +83,20 @@ maven import after Junit 5:-
         <artifactId>junit-vintage-engine</artifactId>
         <version>5.8.1</version>
         <scope>test</scope>
-        </dependency>
+        </dependency>        
+      <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-params</artifactId>
+        <version>5.8.1</version>  
+        <scope>test</scope>
+      </dependency>
+
+  plugin needed to run tests:-
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.22.2</version>
+      </plugin>   
 
 junit-platform-launcher
   - Provides a TestEngine for running JUnit 3 and JUnit 4 based tests on the JUnit Platform.
@@ -66,6 +106,12 @@ junit-jupiter-engine
 
 junit-vintage-engine
   - Provides a TestEngine for running JUnit 3 and JUnit 4 based tests on the JUnit Platform.
+
+junit-jupiter-params
+  - Provides support for parameterized tests in JUnit Jupiter.
+
+maven-surefire-plugin
+  - Used to run tests during the build process in Maven projects. It supports running JUnit tests and can be configured to include or exclude specific tests.
 
 Important Annotations:
 - @Test: Marks a method as a test method.
@@ -79,7 +125,74 @@ Important Annotations:
 - @After: Indicates that the annotated method should be executed after each test method.(JUnit 4)
 - @BeforeClass: Indicates that the annotated method should be executed once before any of the test methods in the class.(JUnit 4)
 - @AfterClass: Indicates that the annotated method should be executed once after all the test methods in the class.(JUnit 4)
+
+Other Useful Annotations:
+- @DisplayName: Provides a custom display name for a test class or test method.
 - @Disabled: Marks a test method or class as disabled, preventing it from being executed.
+- @EnabledOnOs: Enables a test method or class only on specified operating systems.
+- @DisabledOnOs: Disables a test method or class on specified operating systems.
+- @EnabledIf: Enables a test method or class based on a specified condition.
+- @DisabledIf: Disables a test method or class based on a specified condition.
+- @EnableonJre: Enables a test method or class only on specified Java Runtime Environment versions.
+- @DisableonJre: Disables a test method or class on specified Java Runtime Environment versions.
+- @EnabledForJreRange: Enables a test method or class for a specified range of Java Runtime Environment versions.
+- @DisabledForJreRange: Disables a test method or class for a specified range of Java Runtime Environment versions.
+- @EnabledIfEnvironmentVariable: Enables a test method or class if a specified environment variable matches a given value.
+- @DisabledIfEnvironmentVariable: Disables a test method or class if a specified environment variable matches a given value.
+- @EnabledIfSystemProperty: Enables a test method or class if a specified system property matches a given value.
+- @DisabledIfSystemProperty: Disables a test method or class if a specified system property matches a given value.
+    - named parameter is the name of the environment variable or system property.
+    - matches parameter is the regular expression to match the value against.
+
+Custom Test Execution Annotations:
+- @TestInstance: Configures the lifecycle of test instances (per-method or per-class).
+- @TestMethodOrder: Specifies the order in which test methods are executed.
+- @Order: Specifies the order of execution for a test method within a test class.
+- @ExtendWith: Registers extensions for a test class or test method.
+- @Retention: Specifies how long annotations with the annotated type are to be retained.
+    - RetentionPolicy.RUNTIME: Annotations are to be recorded in the class file by the compiler and retained by the VM at runtime, so they may be read reflectively.
+    - RetentionPolicy.CLASS: Annotations are to be recorded in the class file by the compiler but need not be retained by the VM at runtime. This is the default behavior.
+    - RetentionPolicy.SOURCE: Annotations are to be discarded by the compiler.
+    - Target: Indicates the kinds of program element to which an annotation type is applicable.
+        - ElementType.TYPE: Class, interface (including annotation type), or enum declaration.
+        - ElementType.FIELD: Field declaration (includes enum constants).
+        - ElementType.METHOD: Method declaration.
+        - ElementType.PARAMETER: Parameter declaration.
+        - ElementType.CONSTRUCTOR: Constructor declaration.
+        - ElementType.LOCAL_VARIABLE: Local variable declaration.
+        - ElementType.ANNOTATION_TYPE: Annotation type declaration.
+        - ElementType.PACKAGE: Package declaration.
+    - public @interface Retention {
+        RetentionPolicy value();
+    }
+- @TestMethodOrder(OrderAnnotation.class): Specifies that the test methods should be executed in the order defined by the @Order annotation.
+    - MethodOrderer options:
+        - Alphanumeric: Orders test methods alphanumerically based on their names.
+        - OrderAnnotation: Orders test methods based on the @Order annotation.  
+            @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+        - Random: Orders test methods in a random order.
+
+Concurrent Execution of Tests:
+  - junit-platform.properties file can be used to configure parallel execution of tests in JUnit 5.
+    - Location: Place the junit-platform.properties file in the src/test/resources directory of your project.
+    - Explanation of properties:
+      - junit.jupiter.execution.parallel.enabled: This property enables or disables parallel execution of tests. Setting it to true allows tests to run concurrently.
+      - junit.jupiter.execution.parallel.mode.default: This property defines the default execution mode for test methods. Setting it to concurrent allows test methods to run in parallel.
+      - junit.jupiter.execution.parallel.mode.classes.default: This property defines the default execution mode for test classes. Setting it to concurrent allows test classes to run in parallel.
+  - @Execution(ExecutionMode.CONCURRENT): This annotation can be used at the class or method level to specify that the annotated test class or method should be executed concurrently.
+  - @Execution(ExecutionMode.SAME_THREAD): This annotation can be used at the class or method level to specify that the annotated test class or method should be executed in the same thread, effectively disabling parallel execution for that specific test.
+
+  - @Tag: Used to categorize tests, allowing for selective test execution based on tags.
+      - multiple tags can be assigned to a test method or class by using multiple @Tag annotations or by providing a comma-separated list of tags in a single @Tag annotation.
+
+Yet to explore:
+
+- @Nested: Denotes that the annotated class is a nested, non-static test class.
+- @ParameterizedTest: Marks a method as a parameterized test, allowing it to run multiple times with different arguments.
+- @ValueSource: Provides a single array of literal values to be used as arguments for a parameterized test.
+- @CsvSource: Provides a set of comma-separated values to be used as arguments for a parameterized test.
+- @MethodSource: Specifies a factory method that generates arguments for a parameterized test.
+
 
 
 Common Assertions:
@@ -91,7 +204,17 @@ Common Assertions:
 - assertSame(expected, actual): Asserts that two references point to the same object.
 - assertNotSame(unexpected, actual): Asserts that two references do not point to the same object.
 - assertNotNull(object): Asserts that an object is not null.
+- assertArrayEquals(expectedArray, actualArray): Asserts that two arrays are equal.
+- assertIterableEquals(expectedIterable, actualIterable): Asserts that two iterables are equal.
+- assertThrows(expectedType, executable): Asserts that a specific exception is thrown.
+- assertTimeout(duration, executable): Asserts that the execution of a block of code completes within a specified duration.
+- assertAll(executables): Asserts that all supplied executables do not throw exceptions.
 - fail(message): Fails a test with the given message.
+
+Common Assumptions:
+- assumeTrue(condition): Assumes that a condition is true; if not, the test is aborted.
+- assumeFalse(condition): Assumes that a condition is false; if not, the test is aborted.
+- assumingThat(condition, executable): Executes the given executable only if the condition is true.
 
 Common JUnit Commands:
 1. Running Tests in IDE: Most IDEs provide built-in support for running JUnit tests directly from the editor.
@@ -138,3 +261,39 @@ public class ExampleTest {
         // Code to run after all tests
     }
 }
+
+
+
+Notes related to Testing:- 
+- Unit Testing: Focuses on testing individual components or units of code in isolation.
+- Integration Testing: Tests the interaction between multiple components or systems to ensure they work together as expected.
+- Test-Driven Development (TDD): A software development approach where tests are written before the actual code, guiding the development process.
+- Behavior-Driven Development (BDD): An extension of TDD that emphasizes collaboration between developers, testers, and business stakeholders to define the behavior of the system through examples and scenarios.
+- Mocking: The practice of creating mock objects to simulate the behavior of real objects in unit tests, allowing for isolated testing of components.
+
+
+Maven related notes:-
+  mvn test
+    - This command is used to run the test phase of the Maven build lifecycle. It compiles and executes the unit tests in the project using the configured testing framework (e.g., JUnit, TestNG).
+
+    mvn test -Dtest=TestClassName
+    - This command runs a specific test class named "TestClassName". Replace "TestClassName" with the actual name of the test class you want to execute.
+
+    mvn test -Dtest=TestClassName1, TestClassName2
+    - This command runs multiple specific test classes named "TestClassName1" and "TestClassName2". Replace these names with the actual names of the test classes you want to execute.
+
+    mvn test -Dtest=TestClassName#testMethodName
+    - This command runs a specific test method named "testMethodName" within the test class "TestClassName". Replace "TestClassName" and "testMethodName" with the actual names of the test class and method you want to execute.
+
+    mvn -Dgroups="groupName" test 
+    - This command runs tests that belong to a specific group named "groupName". Replace "groupName" with the actual name of the test group you want to execute. This runs group of test which are tagged with specific group name.
+
+    mvn -Dgroups="groupName1,groupName2" test
+    - This command runs tests that belong to multiple groups named "groupName1" and "groupName2". Replace these names with the actual names of the test groups you want to execute. This runs group of test which are tagged with specific group names.
+
+    mvn -DexcludeGroups="groupName" test
+    - This command excludes tests that belong to a specific group named "groupName" from being executed. Replace "groupName" with the actual name of the test group you want to exclude.
+
+    mvn -DexcludeGroups="groupName1,groupName2" test
+    - This command excludes tests that belong to multiple groups named "groupName1" and "groupName2" from being executed. Replace these names with the actual names of the test groups you want to exclude.
+

@@ -42,6 +42,12 @@ Common Maven Commands:
 4. mvn package: Packages the compiled code into a distributable format (e.g., JAR, WAR).
 5. mvn install: Installs the packaged code into the local Maven repository.
 6. mvn deploy: Deploys the packaged code to a remote repository for sharing with other developers.
+
+merged use:- to perform multiple phases in a single command
+  mvn clean compile test package install deploy
+  mvn clean compile test package
+
+
 Maven Repositories:
 1. Local Repository: A local cache on the developer's machine where Maven stores downloaded dependencies and plugins.
 2. Central Repository: A public repository maintained by the Maven community that hosts a vast collection of open-source libraries and plugins.

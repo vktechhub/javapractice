@@ -96,9 +96,28 @@ Another notes:-
                         java.lang.Error (e.g., OutOfMemoryError, StackOverflowError - generally not handled by applications)
                             java.lang.Exception (application-level conditions)
                                 Checked Exceptions (must be caught or declared, e.g., IOException, SQLException)
+                                    java.io.IOException
+                                        java.io.FileNotFoundException
+                                        java.io.EOFException
+                                    java.sql.SQLException
+                                    java.text.ParseException
                                 Unchecked Exceptions / Runtime Exceptions (subclasses of RuntimeException, e.g., NullPointerException, ArrayIndexOutOfBoundsException, ArithmeticException) 
-                    
+                                    java.lang.RuntimeException
+                                        java.lang.NullPointerException
+                                        java.lang.ArrayIndexOutOfBoundsException
+                                        java.lang.ArithmeticException
+                                        java.lang.ClassCastException
+                                        java.lang.IllegalArgumentException
+                                        java.lang.IndexOutOfBoundsException
 
+            javax exception Hierarchy:
+                javax.naming
+                    javax.naming.NamingException
+                        javax.naming.AuthenticationException
+                        javax.naming.CommunicationException
+                        javax.naming.ConfigurationException
+                    javax.naming.invalidNameException
+                    
     ```9. **Try-With-Resources**:
    - This feature allows you to declare resources that will be automatically closed after the program is finished using them.
    ```java  

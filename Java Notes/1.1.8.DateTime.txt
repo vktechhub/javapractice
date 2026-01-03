@@ -1,0 +1,53 @@
+Java Date and Time:-
+Java provides the java.time package (introduced in Java 8) for handling date and time. It includes classes like LocalDate, LocalTime, LocalDateTime, ZonedDateTime, and DateTimeFormatter for various date and time operations.
+
+Key Classes:
+1. LocalDate: Represents a date (year, month, day) without time or timezone.
+   Example: LocalDate date = LocalDate.of(2023, 10, 5);
+2. LocalTime: Represents a time (hour, minute, second, nanosecond) without date or timezone.
+   Example: LocalTime time = LocalTime.of(14, 30, 0);
+3. LocalDateTime: Combines date and time without timezone.
+   Example: LocalDateTime dateTime = LocalDateTime.of(2023, 10, 5, 14, 30, 0);
+4. ZonedDateTime: Represents date and time with timezone information.
+   Example: ZonedDateTime zonedDateTime = ZonedDateTime.now(ZoneId.of("America/New_York"));
+5. DateTimeFormatter: Used for formatting and parsing date-time objects.
+   Example:
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    String formattedDateTime = dateTime.format(formatter);
+6. java.time.Instant: Represents a specific moment on the timeline in UTC.
+   Example: Instant instant = Instant.now();
+7. java.time.Duration: Represents a time-based amount of time, such as '34.5 seconds'.
+   Example: Duration duration = Duration.ofHours(5);
+
+Common Operations:
+1. Getting Current Date and Time:
+   LocalDate currentDate = LocalDate.now();
+   LocalTime currentTime = LocalTime.now();
+   LocalDateTime currentDateTime = LocalDateTime.now();
+2. Parsing Date and Time from String:
+   LocalDate parsedDate = LocalDate.parse("2023-10-05");
+    LocalTime parsedTime = LocalTime.parse("14:30:00");
+    LocalDateTime parsedDateTime = LocalDateTime.parse("2023-10-05T14:30:00");
+3. Formatting Date and Time to String:
+   String formattedDate = currentDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+    String formattedTime = currentTime.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+4. Date and Time Arithmetic:
+   LocalDate nextWeek = currentDate.plusWeeks(1);
+    LocalTime oneHourLater = currentTime.plusHours(1);
+    LocalDateTime tomorrowSameTime = currentDateTime.plusDays(1);
+5. Comparing Dates and Times:
+   boolean isBefore = currentDate.isBefore(parsedDate);
+    boolean isAfter = currentTime.isAfter(parsedTime);
+    boolean isEqual = currentDateTime.isEqual(parsedDateTime);
+6. Working with Time Zones:
+    ZonedDateTime utcDateTime = ZonedDateTime.now(ZoneId.of("UTC"));
+     ZonedDateTime tokyoDateTime = utcDateTime.withZoneSameInstant(ZoneId.of("Asia/Tokyo"));
+7. Converting between Date and Time Types:
+    LocalDateTime toLocalDateTime = currentDate.atTime(currentTime);
+     LocalDate toLocalDate = currentDateTime.toLocalDate();
+     LocalTime toLocalTime = currentDateTime.toLocalTime();
+8. Calculating Duration and Period:
+    Duration durationBetween = Duration.between(currentTime, parsedTime);
+     Period periodBetween = Period.between(currentDate, parsedDate);
+     
+
