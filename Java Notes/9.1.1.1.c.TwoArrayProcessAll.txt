@@ -1,0 +1,88 @@
+Two array- process all / (Also called) Two pointers: two inputs, exhaust both 
+
+This is a two-pointer pattern where you: 
+    i. Work with two separate input arrays 
+    ii. Use a pointer for each array and Move through both arrays simultaneously until exhausted 
+
+When to use: 
+    * This technique is useful for problems that require merging, comparing, or processing elements from two different arrays.
+
+Sample problems:-
+    * Merge Two Sorted Arrays (into a new sorted array)
+    * Intersection of Two Sorted Arrays
+    * Find common elements in two sorted arrays
+    * Merge Intervals from two different lists
+    * Find the k smallest/largest elements from two sorted arrays
+
+Template:- 
+public int fn(int[] arr1, int[] arr2) { 
+    int i = 0, j = 0, ans = 0; 
+ 
+    while (i < arr1.length && j < arr2.length) { 
+        // do some logic here 
+        if (CONDITION) { 
+            i++; 
+        } else { 
+            j++; 
+        } 
+    } 
+ 
+    while (i < arr1.length) { 
+        // do logic 
+        i++; 
+    } 
+ 
+    while (j < arr2.length) { 
+        // do logic 
+        j++; 
+    } 
+ 
+    return ans; 
+} 
+ 
+Example 1: Merge Two Sorted Arrays (into a new sorted array) 
+public int[] mergeSortedArrays(int[] nums1, int[] nums2) { 
+    int i = 0, j = 0; 
+    List<Integer> result = new ArrayList<>(); 
+ 
+    while (i < nums1.length && j < nums2.length) { 
+        if (nums1[i] < nums2[j]) { 
+            result.add(nums1[i++]); 
+        } else { 
+            result.add(nums2[j++]); 
+        } 
+    } 
+ 
+    // Add remaining elements from nums1 
+    while (i < nums1.length) { 
+        result.add(nums1[i++]); 
+    } 
+ 
+    // Add remaining elements from nums2 
+    while (j < nums2.length) { 
+        result.add(nums2[j++]); 
+    } 
+ 
+    // Convert list to array 
+    return result.stream().mapToInt(n -> n).toArray(); 
+} 
+ 
+Example 2: Intersection of Two Sorted Arrays 
+public List<Integer> intersectSorted(int[] nums1, int[] nums2) { 
+    int i = 0, j = 0; 
+    List<Integer> result = new ArrayList<>(); 
+ 
+    while (i < nums1.length && j < nums2.length) { 
+        if (nums1[i] == nums2[j]) { 
+            result.add(nums1[i]); 
+            i++; 
+            j++; 
+        } else if (nums1[i] < nums2[j]) { 
+            i++; 
+        } else { 
+            j++; 
+        } 
+    } 
+ 
+    return result; 
+} 

@@ -1,0 +1,199 @@
+Algorithms in DSA for Java:- Summary- 
+1. Sorting Algorithms:
+   - Bubble Sort
+   - Selection Sort
+   - Insertion Sort
+   - Merge Sort
+   - Quick Sort
+   - Heap Sort
+   - Radix Sort
+    - Counting Sort
+    - Bucket Sort
+2. Searching Algorithms:
+   - Linear Search
+    - Binary Search
+    - Depth-First Search (DFS)
+    - Breadth-First Search (BFS)
+3. Graph Algorithms:
+   - Dijkstra's Algorithm
+   - Bellman-Ford Algorithm
+   - Floyd-Warshall Algorithm
+   - Prim's Algorithm
+   - Kruskal's Algorithm
+4. Dynamic Programming Algorithms:
+   - Fibonacci Sequence
+    - Knapsack Problem
+    - Longest Common Subsequence
+    - Matrix Chain Multiplication
+5. Greedy Algorithms:
+   - Activity Selection Problem
+   - Huffman Coding
+   - Job Scheduling Problem
+6. Backtracking Algorithms:
+   - N-Queens Problem
+   - Sudoku Solver
+   - Hamiltonian Cycle Problem
+7. Divide and Conquer Algorithms:
+   - Merge Sort
+   - Quick Sort
+   - Binary Search
+8. String Algorithms:
+   - Knuth-Morris-Pratt (KMP) Algorithm 
+    - Rabin-Karp Algorithm
+    - Z Algorithm
+    - Suffix Trees and Suffix Arrays
+9. Miscellaneous Algorithms:
+   - Euclidean Algorithm for GCD
+    - Fast Exponentiation
+    - Topological Sorting
+    - Union-Find Algorithm
+    - Sliding Window Technique
+    - Two Pointer Technique
+10. Advanced Data Structure Algorithms:
+    - Segment Trees
+    - Fenwick Trees (Binary Indexed Trees)
+    - Trie Data Structure
+    - AVL Trees
+    - Red-Black Trees
+    - B-Trees
+11. Computational Geometry Algorithms:
+    - Convex Hull (Graham's Scan, Jarvis March)
+    - Line Intersection
+    - Closest Pair of Points
+12. Numerical Algorithms:
+    - Sieve of Eratosthenes
+    - Newton-Raphson Method
+    - Fast Fourier Transform (FFT)
+13. Machine Learning Algorithms:
+    - K-Means Clustering
+    - Decision Trees
+    - Neural Networks
+    - Support Vector Machines (SVM)
+14. Cryptographic Algorithms:
+    - RSA Algorithm
+    - AES (Advanced Encryption Standard)
+    - SHA (Secure Hash Algorithms)
+    - Diffie-Hellman Key Exchange
+15. Optimization Algorithms:
+    - Genetic Algorithms
+    - Simulated Annealing
+    - Particle Swarm Optimization
+    - Ant Colony Optimization
+16. Miscellaneous Techniques:
+    - Memoization
+    - Tabulation
+    - Bit Manipulation Techniques
+    - Randomized Algorithms
+17. Parallel Algorithms:
+    - MapReduce
+    - Parallel Sorting Algorithms
+    - Parallel Graph Algorithms
+18. Approximation Algorithms:
+    - Vertex Cover Approximation
+    - Traveling Salesman Problem Approximation
+    - Set Cover Approximation
+19. Online Algorithms:
+    - Ski Rental Problem
+    - Online Paging Algorithms
+    - Competitive Analysis Techniques
+20. Streaming Algorithms:
+    - Count-Min Sketch
+    - HyperLogLog
+    - Reservoir Sampling
+21. Bioinformatics Algorithms:
+    - Needleman-Wunsch Algorithm
+    - Smith-Waterman Algorithm
+    - BLAST Algorithm
+22. Financial Algorithms:
+    - Black-Scholes Model
+    - Monte Carlo Simulation
+    - Binomial Options Pricing Model
+23. Game Theory Algorithms:
+    - Minimax Algorithm
+    - Alpha-Beta Pruning
+    - Nash Equilibrium Computation  
+24. Robotics Algorithms:
+    - A* Search Algorithm
+    - Rapidly-exploring Random Trees (RRT)
+    - Simultaneous Localization and Mapping (SLAM)
+25. Natural Language Processing Algorithms:
+    - Hidden Markov Models (HMM)    
+    - Conditional Random Fields (CRF)
+    - Word2Vec
+    - Transformer Models
+26. Image Processing Algorithms:
+    - Canny Edge Detection
+    - Hough Transform
+    - Image Segmentation Algorithms
+    - Convolutional Neural Networks (CNN)
+27. Audio Processing Algorithms:
+    - Fast Fourier Transform (FFT)
+    - Mel-Frequency Cepstral Coefficients (MFCC)
+    - Dynamic Time Warping (DTW)
+28. Time Series Analysis Algorithms:
+    - ARIMA (AutoRegressive Integrated Moving Average)
+    - Exponential Smoothing
+    - Seasonal Decomposition of Time Series (STL)
+29. Distributed Algorithms:
+    - Paxos Algorithm
+    - Raft Consensus Algorithm
+    - Two-Phase Commit Protocol
+30. Cloud Computing Algorithms:
+    - Load Balancing Algorithms
+    - Autoscaling Algorithms
+    - Resource Allocation Algorithms
+31. Blockchain Algorithms:
+    - Proof of Work (PoW)
+    - Proof of Stake (PoS)
+    - Byzantine Fault Tolerance (BFT)
+32. Quantum Algorithms:
+    - Shor's Algorithm
+    - Grover's Algorithm
+    - Quantum Fourier Transform (QFT)
+33. Miscellaneous Advanced Algorithms:
+    - Viterbi Algorithm
+    - PageRank Algorithm
+    - Latent Dirichlet Allocation (LDA)
+    - Expectation-Maximization (EM) Algorithm
+34. Algorithm Design Paradigms:
+    - Brute Force
+    - Divide and Conquer
+    - Dynamic Programming
+    - Greedy Method
+    - Backtracking
+    - Randomized Algorithms
+35. Algorithm Analysis Techniques:
+    - Time Complexity Analysis
+    - Space Complexity Analysis
+    - Amortized Analysis
+    - Probabilistic Analysis
+    - Competitive Analysis
+36. Common Algorithmic Problems:
+    - Traveling Salesman Problem (TSP)
+    - Knapsack Problem
+    - Graph Coloring Problem
+    - Hamiltonian Cycle Problem 
+    - Vertex Cover Problem
+    - Set Cover Problem
+    - Maximum Flow Problem
+    - Minimum Spanning Tree Problem
+37. Practical Applications of Algorithms:
+    - Search Engines
+    - Social Networks
+    - E-commerce Platforms
+    - Recommendation Systems
+    - Data Compression
+    - Network Routing
+    - Cryptography
+    - Machine Learning
+    - Computer Vision
+    - Natural Language Processing
+38. Emerging Trends in Algorithms:
+    - Quantum Computing Algorithms
+    - Bioinformatics Algorithms
+    - Algorithms for Big Data
+    - Algorithms for Internet of Things (IoT)
+    - Algorithms for Edge Computing
+    - Algorithms for Autonomous Systems
+    
+    

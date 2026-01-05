@@ -1,6 +1,24 @@
 Spring framework consists of many modules / Components
-    * Spring Core
-    * Spring DAO
-    * Spring AOP
-    * Spring Web
-    
+    * Spring Core - Inversion of Control Container                
+            * Spring Beans - Bean Factory
+            * Spring Context - Application Context
+
+    * Spring DAO - Data Access Object
+            * Spring ORM - Object Relational Mapping
+            * Spring TX - Transaction Management
+
+    * Spring AOP - Aspect Oriented Programming
+
+    * Spring Web - Web Application Development
+            * Spring MVC - Model View Controller Framework
+            * Spring WebFlux - Reactive Web Framework
+
+    * Spring Security - Security Framework
+            * Spring OAuth - OAuth2 Implementation
+            * Spring SAML - SAML Implementation
+            * Spring JWT - JSON Web Token Implementation
+            * Spring LDAP - LDAP Integration
+            * Spring CSRF - Cross-Site Request Forgery Protection
+
+    * Spring Boot - Rapid Application Development            
+

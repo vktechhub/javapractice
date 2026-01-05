@@ -177,7 +177,7 @@ Ordering
             Database Impact:- Uses an ORDER BY clause in the SQL query at retrieval time.
 
         @OrderColumn: 
-            Preserves the order in which elements were inserted into a List, using an explicit index column in the database.
+            Preserves the order in which elements were inserted into a List, adding an explicit index column in the database. The Order is physically stored in the database.
             Database Impact:- Requires an additional column in the database table (e.g., _ORDER or a custom name) to store the zero-based index of each element.
                 @OneToMany(mappedBy = "user")
                 @OrderColumn(name = "phone_order") // Maintains the order of phones based on the phone_order column

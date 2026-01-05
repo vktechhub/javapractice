@@ -1,0 +1,103 @@
+Microservices Design Patterns:
+1. API Gateway Pattern
+2. Circuit Breaker Pattern
+3. Service Discovery Pattern
+4. Sidecar Pattern
+5. Strangler Fig Pattern
+6. Bulkhead Pattern
+7. Event Sourcing Pattern
+8. CQRS (Command Query Responsibility Segregation) Pattern
+9. Saga Pattern
+10. Ambassador Pattern
+11. BFF (Backend for Frontend) Pattern
+12. Database per Service Pattern
+13. Shared Database Pattern
+14. Externalized Configuration Pattern
+15. Health Check Pattern
+16. Log Aggregation Pattern
+17. Distributed Tracing Pattern
+18. Rate Limiting Pattern
+19. Retry Pattern
+20. Timeout Pattern
+21. Load Balancing Pattern
+22. Message Broker Pattern
+23. Service Mesh Pattern
+24. Event-Driven Architecture Pattern
+25. Reactive Microservices Pattern
+26. Versioning Pattern
+27. Security Pattern
+28. Monitoring Pattern
+29. Deployment Pattern
+30. Scaling Pattern
+31. Multi-Tenancy Pattern
+32. Blue-Green Deployment Pattern
+33. Canary Deployment Pattern
+34. Rolling Update Pattern
+35. Chaos Engineering Pattern
+36. Feature Toggle Pattern
+37. Idempotency Pattern
+38. Observability Pattern
+39. Configuration Management Pattern
+40. Data Consistency Pattern
+41. Fault Injection Pattern
+42. Service Orchestration Pattern
+43. Service Choreography Pattern
+44. API Composition Pattern
+45. Client-Side Load Balancing Pattern
+46. Server-Side Load Balancing Pattern
+47. Dynamic Scaling Pattern
+48. Resource Pooling Pattern
+49. Throttling Pattern
+50. Circuit Monitoring Pattern
+51. Dependency Management Pattern
+52. Event Notification Pattern
+53. Message Queuing Pattern
+54. Publish-Subscribe Pattern
+55. Command Query Responsibility Segregation (CQRS) Pattern
+56. Domain-Driven Design (DDD) Pattern
+57. Micro Frontends Pattern
+58. Service Versioning Pattern
+59. Data Partitioning Pattern
+60. Data Replication Pattern
+61. API Rate Limiting Pattern
+62. Service Decomposition Pattern
+63. Cloud-Native Pattern
+64. Edge Service Pattern
+65. Hybrid Cloud Pattern
+66. Multi-Cloud Pattern
+67. Serverless Pattern
+68. Function as a Service (FaaS) Pattern
+69. Containerization Pattern
+70. Orchestration Pattern
+71. Continuous Integration/Continuous Deployment (CI/CD) Pattern
+72. Immutable Infrastructure Pattern    
+73. Infrastructure as Code (IaC) Pattern
+74. Secret Management Pattern
+75. Service Accountability Pattern
+76. Data Lake Pattern
+77. Data Warehouse Pattern
+78. Event Storming Pattern
+79. Command Bus Pattern
+80. Query Bus Pattern
+81. API Gateway Aggregation Pattern
+82. Microservice Security Pattern
+83. Data Synchronization Pattern
+84. Service Resilience Pattern
+85. Load Shedding Pattern   
+86. Backpressure Pattern
+87. Circuit Reset Pattern
+88. Service Fallback Pattern
+89. Distributed Cache Pattern
+90. Content Delivery Network (CDN) Pattern
+91. Edge Caching Pattern
+92. API Throttling Pattern
+93. Service Mesh Sidecar Pattern    
+94. Microservice Communication Pattern
+95. Asynchronous Messaging Pattern
+96. Synchronous Communication Pattern
+97. Event-Driven Microservices Pattern
+98. Reactive Streams Pattern
+99. Microservice Testing Pattern
+100. Microservice Logging Pattern
+101. Microservice Auditing Pattern
+102. Microservice Tracing Pattern

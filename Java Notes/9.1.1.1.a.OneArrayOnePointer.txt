@@ -1,0 +1,71 @@
+One Array - One pointer Algorithm - Also called Single Pointer Technique
+
+This is a single-pointer technique where: 
+        i. You have one input array or string
+                - Array can be sorted or unsorted
+        ii. You use one pointer to traverse the array or string from start to end linearly
+                - Pointer can move one step at a time
+                - Pointer can be incremented or decremented based on the logic
+ 
+When to use: 
+    * This technique is useful for problems that require processing elements in a linear fashion, such as searching, filtering, or transforming data. 
+
+Sample problems:- 
+    * Find or Calculate the maximum or minimum or average or sum of elements in an array
+    * Reverse an array or string
+    * Count occurrences of a specific element in an array
+    * Check if an array is sorted or not
+    * Find the first occurrence of a target value in an array
+
+    To try:- 
+    * Sorting an array using selection sort or bubble sort
+    * Move all zeros to the start or end of an array
+    * Remove duplicates from a sorted array
+    * Count the frequency of elements in an array
+    * Find the index of the first non-repeating element in an array
+
+How to apply in Java: 
+    1. Initialize a pointer variable to the starting index of the array (usually 0).
+    2. Use a loop (for or while) to iterate through the array until the pointer reaches the end of the array.
+    3. Inside the loop, access the current element using the pointer and perform the required operations.
+    4. Increment or decrement the pointer based on the logic of your algorithm.
+    5. Continue this process until all elements have been processed.
+
+Template:-
+public int fn(int[] arr) { 
+    int ans = 0; 
+ 
+    for (int pointer = 0; pointer < arr.length; pointer++) { 
+        if (CONDITION) { 
+            // arr[pointer] contributes to the calculation of ans
+        } 
+    }
+    return ans;
+}
+
+    // or use while loop
+public int fn(int[] arr) {
+    int pointer = 0; 
+    while (pointer < arr.length) { 
+        if (CONDITION) { 
+            // arr[pointer] contributes to the calculation of ans
+        } 
+        pointer++; 
+    } 
+    return ans; 
+} 
+
+Example 1: Find the maximum element in an array
+public int findMax(int[] arr) { 
+    int pointer = 0; 
+    int max = Integer.MIN_VALUE;
+    // Loop through the array using single pointer
+    while (pointer < arr.length) { 
+        if (arr[pointer] > max) { 
+            max = arr[pointer]; 
+        } 
+        pointer++; 
+    }
+    return max;
+}
+

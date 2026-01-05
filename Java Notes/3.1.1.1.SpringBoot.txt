@@ -43,5 +43,9 @@ Key features of Spring Boot include:
     * Spring Boot provides opinionated defaults for various configurations, allowing you to get started quickly without having to make many decisions.
     * However, you can still override these defaults as needed to suit your application's requirements.
 
+9. DevTools:
+    * Spring Boot DevTools is a set of tools that enhance the development experience.
+    * It includes features like automatic restarts, live reload, and enhanced logging to make development faster and more efficient.
+
 Overall, Spring Boot simplifies the development of Spring applications by providing a streamlined and opinionated approach, allowing developers to focus on building features rather than dealing with complex configurations.
 

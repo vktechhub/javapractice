@@ -1,0 +1,55 @@
+Asynchronous Programming in Spring Boot:-
+    Asynchronous programming allows tasks to run in the background without blocking the main thread. In Spring Boot, you can achieve asynchronous behavior using the `@Async` annotation.
+
+* Enable Asynchronous Support:
+   To enable asynchronous support in your Spring Boot application, you need to add the `@EnableAsync` annotation to one of your configuration classes.
+
+        ```java 
+        @SpringBootApplication
+        @EnableAsync
+        public class AsynchronousApplication {
+            public static void main(String[] args) {
+                SpringApplication.run(AsynchronousApplication.class, args);
+            }
+
+            @Bean
+            public Executor taskExecutor() {
+                ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+                executor.setCorePoolSize(2);
+                executor.setMaxPoolSize(5);
+                executor.setQueueCapacity(500);
+                executor.setThreadNamePrefix("Async-");
+                executor.initialize();
+                return executor;
+            }
+        }
+        ```
+
+* ThreadpoolTaskExecutor:- 
+   You can customize the thread pool used for asynchronous tasks by defining a `ThreadPoolTaskExecutor` bean.
+
+        * setcorePoolSize(int corePoolSize): Sets the core number of threads.
+        * setMaxPoolSize(int maxPoolSize): Sets the maximum allowed number of threads.
+        * setQueueCapacity(int queueCapacity): Sets the capacity of the queue to hold tasks before they are executed.
+        * setThreadNamePrefix(String threadNamePrefix): Sets the prefix for the names of newly created threads.
+        * initialize(): Initializes the executor.
+        * public Executor taskExecutor(): This method returns the configured ThreadPoolTaskExecutor as an Executor bean.
+* Using @Async Annotation:
+   You can annotate methods with `@Async` to indicate that they should run asynchronously.
+
+        ```java
+        @Service
+        public class AsyncService {
+
+            @Async
+            public CompletableFuture<String> performAsyncTask() {
+                // Simulate a long-running task
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
+                return CompletableFuture.completedFuture("Task Completed");
+            }
+        }
+        ```

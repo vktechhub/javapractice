@@ -1,0 +1,117 @@
+One Array-Two pointers- move towards centre /(Also called) Two pointers: one input, opposite ends 
+
+This is a two-pointer technique where: 
+        i. You have one input array or string 
+        ii. You use two pointers, one starting from the beginning and the other from the end 
+        iii. The pointers move towards each other until they meet in the middle
+
+When to use: 
+    * This technique is useful for problems that require comparing or processing elements from both ends of the array or string simultaneously.
+
+Sample problems:- 
+    * Check if a String is a Palindrome(A string reads the same forwards and backwards)
+    * Valid Palindromic Subsequence of length 2 or more in a String
+    * Find pair with sum X from a sorted array
+    * Reverse a Character Array
+    * Container With Most Water
+    * removes duplicates from a sorted array
+    * Squaring a Sorted Array - which returns a new array containing the squares of each number from the input array, sorted in non-decreasing order.
+    * Merge Two Sorted Arrays In-place
+
+Template:- 
+public int fn(int[] arr) { 
+    int left = 0; 
+    int right = arr.length - 1; 
+    int ans = 0; 
+ 
+    while (left < right) { 
+        // do some logic here with left and right 
+        if (CONDITION) { 
+            left++; 
+        } else { 
+            right--; 
+        } 
+    } 
+ 
+    return ans; 
+} 
+ 
+Example 1: Check if a String is a Palindrome 
+ public boolean isPalindrome(String s) { 
+    int left = 0; 
+    int right = s.length() - 1; 
+     
+    while (left < right) { 
+        if (s.charAt(left) != s.charAt(right)) { 
+            return false; 
+        } 
+        left++; 
+        right--; 
+    } 
+    return true; 
+} 
+ 
+Example 2: Two Sum II – Input Array is Sorted 
+Problem Statement:-  
+Given a sorted array of integers numbers and an integer target, return indices of the 
+two numbers such that they add up to target. The same element cannot be used twice. The 
+array is 1-indexed, i.e., return indices starting from 1 (not 0). 
+ 
+public int[] twoSum(int[] numbers, int target) { 
+    int left = 0;                       // Start from beginning 
+    int right = numbers.length - 1;    // Start from end 
+ 
+    while (left < right) { 
+        int sum = numbers[left] + numbers[right]; 
+ 
+        if (sum == target) { 
+            // Found the pair, return 1-based indices 
+            return new int[]{left + 1, right + 1}; 
+        } else if (sum < target) { 
+            // Sum is too small, move left pointer right to increase sum 
+            left++; 
+        } else { 
+            // Sum is too big, move right pointer left to decrease sum 
+            right--; 
+        } 
+    } 
+ 
+    // Not found (though problem guarantees one solution) 
+    return new int[]{-1, -1}; 
+} 
+ 
+ 
+ 
+Example 3: Reverse a Character Array 
+public void reverse(char[] s) { 
+    int left = 0, right = s.length - 1; 
+    while (left < right) { 
+        char temp = s[left]; 
+        s[left] = s[right]; 
+        s[right] = temp; 
+        left++; 
+        right--; 
+    } 
+} 
+
+Example 4: Container With Most Water
+public int maxArea(int[] height) {
+    int left = 0;
+    int right = height.length - 1;
+    int maxArea = 0;
+
+    while (left < right) {
+        int width = right - left;
+        int currentHeight = Math.min(height[left], height[right]);
+        int currentArea = width * currentHeight;
+        maxArea = Math.max(maxArea, currentArea);
+
+        // Move the pointer pointing to the shorter line
+        if (height[left] < height[right]) {
+            left++;
+        } else {
+            right--;
+        }
+    }
+
+    return maxArea;

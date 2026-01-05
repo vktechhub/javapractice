@@ -1,9 +1,9 @@
 Lambda Expressions in Java
-    Lambda expressions provide a concise way to represent an anonymous function, primarily used with functional interfaces.
-    A lambda expression is a short block of code that optionally takes in parameters and returns a value. 
-    Lambdas look similar to methods, but they do not need a name, and they can be written right inside a method body.
-    The target type of a lambda expression must be a either built-in or user-defined functional interface
-         If a lambda expression is passed as an argument to a method, the corresponding parameter in the method signature must be of a functional interface type.
+    * Lambda expressions provide a concise way to represent an anonymous function, primarily used with functional interfaces.
+    * A lambda expression is a short block of code that optionally takes in parameters and returns a value. 
+    * Lambdas look similar to methods, but they do not need a name, and they can be written right inside a method body.
+    * The target type of a lambda expression must be a either built-in or user-defined functional interface
+         * If a lambda expression is passed as an argument to a method, the corresponding parameter in the method signature must be of a functional interface type.
 
     Syntax:
         No parameters:

@@ -1,22 +1,47 @@
 Sprint Core is the fundamental part of the Spring Framework that provides the basic functionality for building Java applications. 
 It includes features such as Inversion of Control (IoC) and Dependency Injection (DI), which help manage object creation and their dependencies.
+
 Key features of Spring Core include:
 1. Inversion of Control (IoC):
     * IoC is a design principle where the control of object creation and management is transferred from the application code to the Spring container.
     * This allows for better separation of concerns and promotes loose coupling between components.
+
+    1a. Spring IoC container:- 
+        Spring IoC container is responsible for instantiating, configuring, and assembling the objects (beans) in the application based on the configuration provided by the developer.
+
+    1b. Spring beans:
+        * Spring Beans are the objects that are managed by the Spring IoC container.
+        * They are defined in the Spring configuration file (XML or Java-based configuration) and can be instantiated, configured, and wired together by the container.
+
 2. Dependency Injection (DI):
     * DI is a design pattern that allows objects to receive their dependencies from an external source rather than creating them internally.
     * Spring Core supports various types of DI, including constructor injection, setter injection, and field injection.
-3. Bean Factory:
+
+    Types of Dependency Injection:
+    2a. Constructor Injection:- 
+        * In Constructor Injection, the dependencies are provided through the class constructor when the bean is instantiated by the Spring container.
+    2b. Setter Injection:- 
+        * In Setter Injection, the dependencies are provided through setter methods after the bean is instantiated by the Spring container.
+    2c. Field Injection or Method Injection or Parameter Injection:- 
+        * In Field Injection, the dependencies are injected directly into the fields of the bean using annotations like @Autowired.
+
+3. Configuration Metadata:
+    * Spring Core allows developers to define the configuration metadata for the application using XML, Java annotations, or Java-based configuration classes.
+    * This metadata specifies how beans should be created, configured, and wired together in the application. 
+
+4. Bean Factory:
     * The Bean Factory is the core interface for accessing the Spring IoC container.
     * It is responsible for instantiating, configuring, and managing the lifecycle of beans (objects) defined in the Spring configuration.
-4. Application Context:
+
+5. Application Context:
     * The Application Context is a more advanced version of the Bean Factory that provides additional features such as internationalization, event propagation, and support for various application layers.
     * It is the central interface for accessing the Spring IoC container and managing beans.
-5. Resource Management:
+
+6. Resource Management:
     * Spring Core provides a consistent way to access resources such as files, URLs, and classpath resources.
     * It abstracts the underlying resource access mechanisms, making it easier to work with different types of resources.
-6. Type Conversion and Property Editors:
+
+7. Type Conversion and Property Editors:
     * Spring Core includes a type conversion system that allows for automatic conversion between different data types.
     * It also provides support for custom property editors to handle complex data types.
 

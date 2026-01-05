@@ -1,0 +1,94 @@
+Gang of Four Design Patterns:-
+1. Creational Patterns:
+   - Singleton
+   - Factory Method
+   - Abstract Factory
+   - Builder
+   - Prototype
+2. Structural Patterns:
+   - Adapter
+    - Bridge
+    - Composite
+    - Decorator
+    - Facade
+    - Flyweight
+    - Proxy
+3. Behavioral Patterns:
+   - Chain of Responsibility
+   - Command
+   - Interpreter
+   - Iterator
+   - Mediator
+   - Memento
+   - Observer
+   - State
+   - Strategy
+   - Template Method
+   - Visitor
+
+Other Design Patterns:
+1. MVC (Model-View-Controller)
+2. MVVM (Model-View-ViewModel)
+3. DAO (Data Access Object)
+4. DTO (Data Transfer Object)
+5. Dependency Injection
+6. Service Locator
+7. Repository Pattern
+8. Event-Driven Architecture
+9. CQRS (Command Query Responsibility Segregation)
+10. Microservices Architecture
+11. Layered Architecture
+12. Hexagonal Architecture (Ports and Adapters)
+13. Event Sourcing
+14. Builder Pattern
+15. Fluent Interface
+16. Null Object Pattern
+17. Object Pool Pattern
+18. Specification Pattern
+19. Visitor Pattern
+20. Strategy Pattern
+21. State Pattern
+22. Template Method Pattern
+23. Observer Pattern
+24. Command Pattern
+25. Mediator Pattern
+26. Facade Pattern
+27. Proxy Pattern
+28. Decorator Pattern
+29. Adapter Pattern
+30. Composite Pattern
+31. Flyweight Pattern
+32. Bridge Pattern
+33. Prototype Pattern
+34. Factory Method Pattern
+35. Abstract Factory Pattern
+36. Singleton Pattern
+37. Builder Pattern
+38. Chain of Responsibility Pattern
+39. Interpreter Pattern
+40. Iterator Pattern
+41. Memento Pattern
+42. Visitor Pattern
+43. Strategy Pattern
+44. State Pattern
+45. Template Method Pattern
+46. Observer Pattern
+47. Command Pattern
+48. Mediator Pattern
+49. Facade Pattern
+50. Proxy Pattern
+51. Decorator Pattern
+52. Adapter Pattern
+53. Composite Pattern
+54. Flyweight Pattern
+55. Bridge Pattern
+56. Prototype Pattern
+57. Factory Method Pattern
+58. Abstract Factory Pattern
+59. Singleton Pattern
+60. Builder Pattern
+61. Chain of Responsibility Pattern
+62. Interpreter Pattern
+63. Iterator Pattern
+64. Memento Pattern
+65. Visitor Pattern

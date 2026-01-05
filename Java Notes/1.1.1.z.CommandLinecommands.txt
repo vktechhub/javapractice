@@ -1,0 +1,91 @@
+Java Command Line Commands:
+    * java: The java command is used to launch Java applications. It starts the Java Virtual Machine (JVM) and runs the specified Java class.
+        Syntax: 
+            java [options] class [args...]
+        Example:
+            java MyApp arg1 arg2
+
+            //jar 
+            java -jar MyApp.jar arg1 arg2
+
+            Options for java command:
+            -cp or -classpath: Specifies the classpath for locating user-defined classes and packages.
+            -Xmx: Sets the maximum heap size for the JVM.
+            -Xms: Sets the initial heap size for the JVM.
+
+    * javac: The javac command is used to compile Java source files into bytecode (.class files). It takes one or more Java source files as input and produces corresponding class files.
+        Syntax:
+            javac [options] sourcefiles
+        Example:
+            javac MyApp.java
+
+    * jar: The jar command is used to create, view, and manipulate Java Archive (JAR) files. JAR files are used to package multiple class files and resources into a single file for distribution.
+        Syntax:
+            jar [options] [manifest] [jarfile] [inputfiles...]
+        Example:
+            jar cf MyApp.jar MyApp.class
+
+            Options for jar command:
+            c - create a new archive
+            f - specify the archive file name
+            t - list the contents of an archive
+            cf - create a new archive with the specified file name
+            xf - extract the contents of an archive
+
+    * javadoc: The javadoc command is used to generate HTML documentation from Java source code comments. It extracts special comments (doc comments) and creates a set of web pages that describe the classes, methods, and fields in the code.
+        Syntax:
+            javadoc [options] sourcefiles
+        Example:
+            javadoc MyApp.java
+
+    * javap: The javap command is a disassembler that provides information about the fields and methods of a class. It can be used to inspect the bytecode of compiled Java classes.
+        Syntax:
+            javap [options] 
+            
+            //jar 
+            javap -c MyApp.jar
+        Example:
+            javap MyApp
+
+    * jdb: The jdb command is a simple command-line debugger for Java programs. It allows developers to set breakpoints, inspect variables, and control the execution of Java applications.
+        Syntax:
+            jdb [options] class [args...]
+        Example:
+            jdb MyApp arg1 arg2
+
+    * jlink: The jlink command is used to create a custom runtime image containing the application and its dependencies. It allows developers to package only the necessary modules required for their application, reducing the size of the runtime.
+        Syntax:
+            jlink [options] --module-path <path> --add-modules <modules> --output <output-dir>
+        Example:
+            jlink --module-path mods --add-modules my.module --output my-runtime
+
+    * jshell: The jshell command launches the Java Shell, an interactive REPL (Read-Eval-Print Loop) tool for evaluating Java code snippets. It allows developers to quickly test and experiment with Java code without the need for a full class or method structure.
+        Syntax:
+            jshell [options]
+        Example:
+            jshell
+
+    * jstat: The jstat command is used to monitor various performance statistics of a running Java Virtual Machine (JVM). It provides information about memory usage, garbage collection, class loading, and other JVM metrics.
+        Syntax:
+            jstat [options] <vmid> [interval] [count]
+        Example:
+            jstat -gc 12345 1000 10
+
+    * jmap: The jmap command is used to print memory-related statistics and perform heap dumps of a running Java process. It provides insights into the memory usage of the JVM and can help diagnose memory leaks and other issues.
+        Syntax:
+            jmap [options] <vmid>
+        Example:
+            jmap -heap 12345
+
+    * jconsole: The jconsole command launches the Java Monitoring and Management Console, a graphical tool for monitoring and managing Java applications. It provides real-time information about memory usage, thread activity, and other performance metrics.
+        Syntax:
+            jconsole [options] [vmid]
+        Example:
+            jconsole 12345
+
+    * jcmd: The jcmd command is a versatile tool that allows developers to send diagnostic commands to a running Java process. It can be used for various tasks, such as requesting thread dumps, heap dumps, and garbage collection statistics.
+        Syntax:
+            jcmd <vmid> <command> [args...] 
+        Example:
+            jcmd 12345 GC.run
+
