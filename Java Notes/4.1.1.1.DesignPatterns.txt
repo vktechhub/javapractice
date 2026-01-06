@@ -26,6 +26,34 @@ Gang of Four Design Patterns:-
    - Template Method
    - Visitor
 
+   Anti-Patterns:-
+1. Singleton Pattern Misuse
+2. God Object
+3. Spaghetti Code
+4. Golden Hammer
+5. Lava Flow
+6. Copy-Paste Programming
+
+   API Design Patterns:-
+1. Fluent Interface
+2. Builder Pattern
+3. Method Chaining
+4. Immutable Objects
+5. Factory Pattern
+6. Adapter Pattern
+7. Facade Pattern
+8. Proxy Pattern
+9. Observer Pattern
+10. Strategy Pattern
+11. Command Pattern
+12. Decorator Pattern
+13. Template Method Pattern
+14. Chain of Responsibility Pattern
+15. Visitor Pattern
+
+
+
+
 Other Design Patterns:
 1. MVC (Model-View-Controller)
 2. MVVM (Model-View-ViewModel)

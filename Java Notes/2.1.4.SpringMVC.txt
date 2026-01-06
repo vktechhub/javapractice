@@ -1,0 +1,104 @@
+Spring MVC:-
+Spring MVC (Model-View-Controller) is a framework within the Spring ecosystem that is used to build web applications. It follows the MVC design pattern, which separates an application into three main components: Model, View, and Controller.
+
+Key Components of Spring MVC:
+1. Model: The Model represents the data and business logic of the application. It is responsible for managing the data, whether it comes from a database, an external service, or any other source.
+2. View: The View is responsible for rendering the user interface. It displays the data from the Model to the user and sends user input back to the Controller. Common view technologies used with Spring MVC include JSP, Thymeleaf, and FreeMarker.
+3. Controller: The Controller acts as an intermediary between the Model and the View. It handles user requests, processes them (often by interacting with the Model), and determines which View to render in response.
+
+How Spring MVC Works:
+1. A user sends a request to the web application (e.g., by clicking a link or submitting a form).
+2. The DispatcherServlet, which is the front controller in Spring MVC, receives the request and routes it to the appropriate Controller based on the URL mapping.
+3. The Controller processes the request, interacts with the Model to retrieve or update data, and prepares the data for the View.
+4. The Controller returns a ModelAndView object, which contains the data (Model) and the name of the View to be rendered.
+5. The View Resolver resolves the View name to an actual View implementation (e.g., a JSP file).
+6. The View renders the data and sends the response back to the user.   
+
+Advantages of Spring MVC:
+1. Separation of Concerns: The MVC architecture promotes a clear separation between the different components of the application, making it easier to manage and maintain.
+2. Flexibility: Spring MVC supports various view technologies and can be easily integrated with other Spring modules.
+3. Annotation-Based Configuration: Spring MVC allows developers to use annotations to define Controllers, request mappings, and other configurations, reducing the need for XML configuration files.
+4. Built-in Features: Spring MVC provides many built-in features such as data binding, validation, and exception handling, which simplify development.
+Overall, Spring MVC is a powerful and flexible framework for building web applications in Java, leveraging the strengths of the Spring ecosystem.
+
+Controllers in Spring MVC:-
+In Spring MVC, Controllers are responsible for handling incoming HTTP requests, processing them, and returning the appropriate response. Controllers act as intermediaries between the Model (data and business logic) and the View (user interface).
+
+Defining a Controller:
+To define a Controller in Spring MVC, you typically create a Java class and annotate it with @Controller. You can then define methods within the class to handle specific HTTP requests using the @RequestMapping annotation (or other HTTP method-specific annotations like @GetMapping, @PostMapping, etc.).
+Example:
+```java
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+@Controller
+@RequestMapping("/hello")
+public class HelloController {
+    @GetMapping
+    @ResponseBody
+    public String sayHello() {
+        return "Hello, World!";
+    }
+}
+In this example, the HelloController class is annotated with @Controller, and it has a method sayHello() that handles GET requests to the "/hello" URL. The @ResponseBody annotation indicates that the return value should be sent directly as the HTTP response body.
+
+Handling Requests:
+Controllers can handle various types of requests, including GET, POST, PUT, DELETE, etc. You can use method-level annotations to specify which HTTP method a particular method should handle.
+Example:
+```java
+@PostMapping("/submit")
+public String handleSubmit(@RequestParam("name") String name, Model model) {
+    model.addAttribute("message", "Hello, " + name + "!");
+    return "greetingView";
+}
+In this example, the handleSubmit() method handles POST requests to the "/submit" URL. It retrieves a request parameter named "name", adds a message to the Model, and returns the name of the View ("greetingView") to be rendered.
+
+Returning Views:
+Controllers typically return the name of a View that should be rendered. The View Resolver will then resolve this name to an actual View implementation (e.g., a JSP file).
+Example:
+```java
+@GetMapping("/welcome")
+public String showWelcomePage(Model model) {
+    model.addAttribute("welcomeMessage", "Welcome to Spring MVC!");
+    return "welcomeView";
+}
+
+In this example, the showWelcomePage() method adds a welcome message to the Model and returns the name of the View ("welcomeView") to be rendered.
+
+Overall, Controllers in Spring MVC play a crucial role in handling user requests, processing data, and determining the appropriate response to be sent back to the client.
+
+@Controller vs @RestController:-
+In Spring MVC, both @Controller and @RestController are used to define controller classes, but they serve different purposes and have different behaviors.  
+1. @Controller:
+- The @Controller annotation is used to define a standard Spring MVC controller that handles web requests and returns views (e.g., JSP, Thymeleaf).
+- When a method in a class annotated with @Controller returns a value, it is typically interpreted as the name of a View that should be rendered.
+- To return data (e.g., JSON or XML) from a @Controller method, you need to use the @ResponseBody annotation on the method or on the return type.
+Example:
+```java
+@Controller
+public class MyController {
+    @GetMapping("/greeting")
+    @ResponseBody
+    public String greeting() {
+        return "Hello, World!";
+    }
+}
+In this example, the greeting() method returns a plain text response because of the @ResponseBody annotation.
+2. @RestController:
+- The @RestController annotation is a specialized version of @Controller that is used to create RESTful web services.
+- It is a convenience annotation that combines @Controller and @ResponseBody, meaning that all methods in a class annotated with @RestController will automatically have their return values serialized to the HTTP response body (e.g., as JSON or XML).
+Example:
+```java
+@RestController
+public class MyRestController {
+    @GetMapping("/greeting")
+    public String greeting() {
+        return "Hello, World!";
+    }
+}
+
+In this example, the greeting() method in the MyRestController class will return a plain text response without needing to use the @ResponseBody annotation.
+
+In summary, use @Controller when you want to return views and use @RestController when you want to create RESTful APIs that return data directly in the response body.
+

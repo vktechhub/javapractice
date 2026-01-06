@@ -1,0 +1,34 @@
+Mockito:-
+Mockito is a popular Java library used for creating mock objects in unit tests. It allows developers to simulate the behavior of complex objects and verify interactions without needing to rely on their actual implementations. This is particularly useful for isolating the unit of work being tested and ensuring that tests are fast, reliable, and focused.
+
+Key Features of Mockito:
+1. Mocking: Mockito allows you to create mock objects for interfaces and classes, enabling you to simulate their behavior in tests.
+2. Stubbing: You can define the behavior of mock objects by specifying return values for method calls.
+3. Verification: Mockito provides methods to verify that certain interactions with mock objects occurred, such as method calls with specific arguments.
+4. Argument Matchers: Mockito supports argument matchers, allowing you to specify flexible criteria for method calls during verification.
+5. Annotations: Mockito provides annotations like @Mock, @InjectMocks, and @Spy to simplify the creation and injection of mock objects.
+Bas
+    Example:
+        import static org.mockito.Mockito.*;
+        import org.junit.jupiter.api.Test;
+        import static org.junit.jupiter.api.Assertions.*;
+        public class MockitoExampleTest {
+
+            @Test
+            public void testMockito() {
+                // Create a mock object
+                List<String> mockedList = mock(List.class);
+
+                // Stubbing: Define behavior for the mock object
+                when(mockedList.get(0)).thenReturn("Hello, Mockito!");
+
+                // Use the mock object
+                String result = mockedList.get(0);
+
+                // Verify the result
+                assertEquals("Hello, Mockito!", result);
+
+                // Verification: Check that the method was called
+                verify(mockedList).get(0);
+            }
+        }
