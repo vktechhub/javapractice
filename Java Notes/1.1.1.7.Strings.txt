@@ -2,11 +2,16 @@
 * Strings are used for storing text.
 * A String variable is representated as a collection of characters surrounded by double quotes:
         String str = "Hello";
+* Strings are immutable by design, which means that once a String object is created, its value cannot be changed. Why:- 
+1. Security:- Strings are widely used in Java for storing sensitive information like database connection URLs, usernames, passwords, etc. If Strings were mutable, it would be possible for malicious code to change the value of a String after it has been created, leading to security vulnerabilities.
+2. Performance:- Since Strings are immutable, they can be safely shared between multiple threads without the need for synchronization. This can lead to significant performance improvements in multi-threaded applications.
+3. Caching:- The immutability of Strings allows Java to implement a String pool, which is a cache of frequently used String objects. When a new String is created, Java first checks the String pool to see if an identical String already exists. If it does, Java simply returns a reference to the existing String instead of creating a new one. This can lead to significant memory savings and performance improvements.
+
 
 String Methods
 
 Basic:-
-        str.length() - length of a string
+        str.length()  - length of a string
         str.isEmpty() - Check if the String is empty
         str.isBlank() - Check if the String is blank
 
@@ -19,6 +24,11 @@ SubString and Slicing
         str.substring(begin, end) - extracts a part of a string between the begin and end indexes, and returns it as a new string
         str.subSequence(begin, end) - extracts a part of a string and returns it as a new character sequence
         str.subSequence() - extracts a part of a string and returns it as a new character sequence
+                What is character sequence? - A character sequence is a readable sequence of char values.
+                        It is an interface in Java that represents a sequence of characters. The CharSequence interface is implemented by several classes in Java, including String, StringBuilder, and StringBuffer.
+                Example:- 
+                String str = "Hello, World!";
+                CharSequence charSeq = str.subSequence(0, 5); // charSeq contains "Hello"
 
 Searching
         str.contains() - checks whether a string contains a sequence of characters
@@ -26,6 +36,10 @@ Searching
         str.endsWith() - checks whether a string ends with the specified characters
         str.indexOf() - returns the index (the position) of the first occurrence of a specified text in a string
         str.lastIndexOf() - returns the index of the last occurrence
+                Example:-
+                String str = "Hello, World!";
+                int index = str.indexOf("o"); // index will be 4
+                int lastIndex = str.lastIndexOf("o"); // lastIndex will be 8 - position from end
 
 Case  Conversion
         str.toUpperCase() - converts a string to upper case letters
@@ -38,15 +52,15 @@ Trimming
         str.stripTrailing() - removes whitespace from the end of a string
 
 Joining and Splitting
-        str.concat(str2) - concatenates (joins) two or more strings
+        str.concat(str2,str3,str4) - concatenates (joins) two or more strings
         str.join() - joins multiple strings into one string, with a specified delimiter
         str.split() - splits a string into an array of substrings, based on a specified delimiter
         str.join(delimiter, elements) - joins multiple strings into one string, with a specified delimiter
 
 Comparision
-        str.equals() - compares two strings for equality
+        str.equals() - compares two strings for equality - compare by value
         str.equalsIgnoreCase() - compares two strings for equality, ignoring case differences
-        str.compareTo() - compares two strings lexicographically
+        str.compareTo() - compares two strings lexicographically(in dictionary order)
         str.compareToIgnoreCase() - compares two strings lexicographically, ignoring case differences
 
 Replace
@@ -56,11 +70,83 @@ Replace
         str.replaceFirst(regex, replacement) - replaces the first substring that matches the given regular expression with the given replacement
 
 Other Useful Methods
-        str.format() - formats a string using specified format specifiers and arguments
         str.toString() - returns the string representation of an object
-        str.valueOf() - converts different types of values to a string
+        str.valueOf() - converts different types of values to a string. 
+                useful for converting numbers, booleans, characters, and other data types to strings
+                example:- String.valueOf(123) returns "123"
         str.hashCode() - returns the hash code of a string
         str.matches() - checks if a string matches a specified regular expression
+                example:- 
+                        String str = "hello123";
+                        // to check if the string contains only lowercase letters followed by digits
+                        boolean isMatch = str.matches("[a-z]+\\d+"); // returns true
         str.repeat(count) - repeats the string a specified number of times
+                example:-
+                        String str = "abc";
+                        String repeated = str.repeat(3); // returns "abcabcabc"
         str.intern() - returns a canonical representation for the string object
+                When the intern() method is invoked on a String object, it checks the String pool to see if an identical String already exists. If it does, the method returns a reference to the existing String from the pool. If it does not, the method adds the String to the pool and returns a reference to the newly added String.
+
+                useful for memory optimization by storing only one copy of each distinct string value in the string pool.
+                
+                example:-
+                        String str1 = new String("hello");
+                        String str2 = str1.intern();
+                        String str3 = "hello";
+                        System.out.println(str2 == str3); // prints true
+        str.format() - formats a string using specified format specifiers and arguments
+
+Java String format() Method 
+    // Concatenate string using format()
+        String s = "Java";
+        String res = String.format("Welcome to %s!", s); // returns "Welcome to Java!"
+
+    // Adding zeros to a number
+        int num = 5;
+        String formatted = String.format("%03d", num);  // returns "005"
+            0 - to pad with zeros
+            3 - to set width to 3
+
+Java Format Specifiers - https://www.geeksforgeeks.org/java/format-specifiers-in-java/
+    // Format specifiers begin with a percent character (%) and terminate with a "type character, " which indicates the type of data (int, float, etc.) that will be converted
+    // The general syntax of a format specifier is
+            % [flags] [width] [.precision] [argsize] typechar
+
+            Format Specifier	Conversion Applied
+            %%	                Inserts a % sign
+            %x %X	            Integer hexadecimal
+            %t %T	            Time and Date
+            %s %S	            String
+            %n	                Inserts a newline character
+            %o	                Octal integer
+            %f	                Decimal floating-point
+            %e %E	            Scientific notation
+            %g	                Causes Formatter to use either %f or %e, whichever is shorter
+            %h %H	            Hash code of the argument
+            %d	                Decimal integer
+            %c	                Character
+            %b %B	            Boolean
+            %a %A	            Floating-point hexadecimal
+
+    // Space format specifier : When creating columns of numbers, it is sometimes very useful to print a space before a positive number so that positive and negative number get aligned. 
+            Formatter().format("% d", -111);
+            Formatter().format("% d", 111);
+
+                Output:
+                    -111
+                     111
+
+    // + Sign Specifier: This adds the + sign before positive numeric value, and has no effect on negative numeric value. Syntax:
+            Formatter().format("%+d", 111);
+
+                Output:
+                +111
+
+    // ( specifier: This specifier puts the negative numeric values inside the parentheses, and has no effect on the positive numeric values. Syntax:
+                Formatter().format("%(d", -111);
+                Formatter().format("%(d", 111);
+
+                Output:
+                (111)
+                111
 
