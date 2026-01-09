@@ -1,0 +1,54 @@
+Method Reference:-
+    * A method reference is a shorthand notation of a lambda expression to call a method. 
+    * Method references are often used to make the code more readable and concise; 
+    * Method references are a more concise way to express instances of functional interfaces by referring to existing methods.
+    * Method references can be used to refer to methods of existing classes or objects.
+    * Method references are represented by the "::" symbol.
+    * It is used to refer to a method without executing it.
+    * The target type of a method reference must be a either built-in or user-defined functional interface
+         * If a method reference is passed as an argument to a method, the corresponding parameter in the method signature must be of a functional interface type.
+
+Lambda Vs Method Reference:-
+    * Lambda expressions define an anonymous function that can be used to implement a method defined by a functional interface.
+    * Method references are a more concise way to express instances of functional interfaces by referring to existing methods.
+    * Every method reference can be expressed as a lambda expression, but not every lambda expression can be expressed as a method reference.
+            * Reason being, method references can only refer to existing methods, whereas lambda expressions can define new behavior.
+            * For example, a lambda expression that performs complex operations or contains multiple statements cannot be represented as a method reference.
+    * Method references improve code readability by reducing boilerplate code.
+
+There are four types of method references in Java:
+1. Reference to a static method
+        - Syntax: ClassName::staticMethodName
+        - Relational Output: Output of the static method
+        - Output Functional Interface: Function<T,R>, Supplier<T>, Predicate<T>
+        - Simple example: To get max of two numbers
+                Function<Integer[], Integer> maxFunction = Math::max;
+                Integer max = maxFunction.apply(new Integer[]{5, 10}); 
+                    // Math is the class name and max is its static method
+
+2. Reference to an instance method of a particular object   
+        - Syntax: instance::instanceMethodName
+        - Relational Output: Output of the instance method
+        - Output Functional Interface: Consumer<T>, Runnable
+        - Simple example: To print a message
+                Consumer<String> printConsumer = System.out::println;   
+                printConsumer.accept("Hello, Method Reference!"); 
+                    // System.out is the instance of PrintStream class and println is its instance method
+
+3. Reference to an instance method of an arbitrary object of a particular type
+        - Syntax: ClassName::instanceMethodName
+        - Relational Output: Output of the instance method
+        - Output Functional Interface: BiFunction<T,U,R>, BiPredicate<T,U>
+        - Simple example: To compare two strings
+                BiPredicate<String, String> equalsPredicate = String::equals;  
+                boolean isEqual = equalsPredicate.test("test", "test"); 
+                    // String is the instance of String class and equals is its instance method
+
+4. Reference to a constructor
+        - Syntax: ClassName::new
+        - Relational Output: New object of the class
+        - Output Functional Interface: Supplier<T>, Function<T,R>
+        - Simple example: To create a new String object
+                Supplier<String> stringSupplier = String::new;  
+                String str = stringSupplier.get(); 
+                    // String is the class name and new is the constructor

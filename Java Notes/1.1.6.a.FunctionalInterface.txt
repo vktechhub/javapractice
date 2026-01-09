@@ -34,5 +34,3 @@ Conciseness: Functional interfaces allow for more concise and readable code usin
 Flexibility: They enable functional programming paradigms in Java, allowing for higher-order functions and more abstract code.
 Interoperability: Functional interfaces facilitate the use of APIs that leverage functional programming concepts.
 In summary, functional interfaces are a fundamental part of Java's support for functional programming, enabling developers to write cleaner and more expressive code.
-
-

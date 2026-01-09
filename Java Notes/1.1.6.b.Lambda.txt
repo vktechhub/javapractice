@@ -5,18 +5,52 @@ Lambda Expressions in Java
     * The target type of a lambda expression must be a either built-in or user-defined functional interface
          * If a lambda expression is passed as an argument to a method, the corresponding parameter in the method signature must be of a functional interface type.
 
-    Syntax:
-        No parameters:
+Syntax of each type(based on number of parameters and lines of code) of lambda expression:
+        1. No parameters:
                 () -> expression
-        One parameter:
+        or No parameters with multiple lines:
+                () -> {
+                    // statements
+                    return expression;
+                }
+        2. One parameter: (parentheses optional)
                 (parameter) -> expression
-        Multiple parameters:
+        or One parameter without parentheses:
+                parameter -> expression
+        or One parameter with multiple lines:
+                (parameter) -> {
+                    // statements
+                    return expression;
+                }
+        3. Multiple parameters:
                 (parameter1, parameter2) -> expression
-        Multiple lines of expression:
+        or Multiple parameters with multiple lines:
                 (parameter1, parameter2) -> {
                     // statements
                     return expression;
                 }
+        
+    Explanation of Syntax:
+        1. Parameters: 
+                * The parameters are the inputs to the lambda expression.
+                * They can be zero or more in number. 
+                * If there is only one parameter, the parentheses can be omitted.
+        2. Arrow Operator (->): 
+                * The arrow operator separates the parameters from the body of the lambda expression.
+        3. Body: 
+                * The body contains the code statements that defines what the lambda expression does. 
+                * It can be a single line expression or a block of code statements enclosed in curly braces.
+                * Return:- expression body implicitly returns the result of the expression, while a block of code statements requires an explicit return statement if a value is to be returned else returns void.
+                * Expression can be any valid Java expressions:-
+                        * Arithmetic Expressions: x + y, a * b
+                        * Logical Expressions: x > y, a && b
+                        * Method Calls: methodName(args)
+                        * Object Creation: new ClassName(args)
+                        * String Operations: "Hello " + "World"
+                        * Type Casting: (Type) value
+                        * Ternary Operator: condition ? value1 : value2
+                        * Field Access: object.field
+                        * Array Access: array[index]
 
     Example:
         // No parameters
@@ -29,6 +63,9 @@ Lambda Expressions in Java
         // One parameter
                 Function<Integer, Integer> doubleIt = (x) -> x * 2;     // returns double of the input
                 System.out.println(doubleIt.apply(5));                  // Output: 10 ; apply is the abstract method of Function interface used to apply the function to the input
+
+                Consumer<String> printer = s -> System.out.println(s);    // prints the input string
+                printer.accept("Hello, Lambda!");                         // Output: Hello, Lambda! ; accept is the abstract method of Consumer interface used to accept the input
 
         // Multiple parameters
                 BiFunction<Integer, Integer, Integer> add = (a, b) -> a + b;    // returns sum of two inputs
@@ -76,4 +113,123 @@ Lambda Expressions in Java
 
                 List<String> names = Arrays.asList("Alice", "Bob");
                 names.forEach(System.out::println); // Method reference for s -> System.out.println(s)
+
+
+        // Capturing Variables in Lambdas.
+        // Lambdas can capture variables from their enclosing scope. However, these variables must be effectively final, meaning they cannot be modified after being assigned.
+
+                int factor = 2;
+                Function<Integer, Integer> multiply = (x) -> x * factor; // 'factor' is captured from the enclosing scope
+                System.out.println(multiply.apply(5)); // Output: 10
+
+        // Exception Handling in Lambdas.
+        // If a lambda expression throws a checked exception, the functional interface's abstract method must declare that exception.
+
+                @FunctionalInterface
+                interface ExceptionThrowingFunction {
+                        void apply() throws IOException;
+                }
+
+                ExceptionThrowingFunction func = () -> {
+                        throw new IOException("IO Exception occurred");
+                };
+
+                try {
+                        func.apply();
+                } catch (IOException e) {
+                        System.out.println(e.getMessage());
+                }
+
+Benefits of Using Lambda Expressions:
+        * Conciseness: Lambdas reduce boilerplate code, making it easier to read and maintain.
+        * Functional Programming: They enable functional programming techniques, allowing for more expressive code.
+        * Improved Readability: Code that uses lambdas can be more intuitive, especially when working with collections and streams.
+        * Enhanced API Design: Many modern Java APIs, such as the Streams API, are designed to work seamlessly with lambda expressions.
+
+Use of different Built-in Functional Interfaces based on Lambda Signature:
+
+        * Takes No parameters Return no output: () -> void
+                - Runnable: 
+                        Runnable runnable = () -> System.out.println    ("Hello, World!"); 
+
+        * Takes No parameters Return some output: () -> T
+                - Supplier:
+                        Supplier<Integer> five = () -> 5;
+
+        * Takes no parameters Return boolean output: () -> boolean
+                - BooleanSupplier:
+                        BooleanSupplier alwaysTrue = () -> true;
+
+        * Takes no parameters Return some output with exception: () -> T throws Exception
+                - Callable:
+                        Callable<String> callable = () -> {
+                            if (new Random().nextBoolean()) {
+                                throw new Exception("Random failure");
+                            }
+                            return "Success";
+                        };
+                
+        * Takes one parameter Return no output: (T) -> void
+                - Consumer:
+                        Consumer<String> printer = s -> System.out.println(s);
+
+        * Takes one parameter Return some output: (T) -> R
+                - Function:
+                        Function<Integer, Integer> doubleIt = (x) -> x * 2;
+
+        * Takes one parameter Return same type output: (T) -> T
+                - UnaryOperator: (T) -> T
+                        UnaryOperator<Integer> square = (x) -> x * x;
+
+        * Takes one parameter Return boolean output: (T) -> boolean
+                - Predicate:
+                        Predicate<String> isLong = (s) -> s.length() > 5;
+
+        * Takes two parameters Return no output: (T, U) -> void
+                - BiConsumer:
+                        BiConsumer<String, Integer> printer = (s, i) -> System.out.println(s + ": " + i);
+
+        * Takes two parameters Return some output: (T, U) -> R
+                - BiFunction:
+                        BiFunction<Integer, Integer, Integer> add = (a, b) -> a + b;
+
+        * Takes two parameters Return same type output: (T, T) -> T
+                - BinaryOperator: (T, T) -> T
+                        BinaryOperator<Integer> sum = (a, b) -> a + b;
+
+
+        * Takes two parameters Return boolean output: (T, U) -> boolean
+                - BiPredicate:
+                        BiPredicate<Integer, Integer> isGreater = (a, b) -> a > b;
+
+        * Takes two parameters Return some output 
+                - Comparable<T>:
+                        Comparable<String> comparator = (s1, s2) -> s1.length() - s2.length();
+                        // returns negative if s1 is shorter, positive if s1 is longer, zero if equal
+
+                        or 
+                        Comparator<String> comparator = (s1, s2) -> s1.length() > s2.length();
+                        // returns true if s1 is longer than s2
+
+                        or
+                        Comparator<integer> comparator = (a, b) -> a > b;
+                        // returns true if a is greater than b
+
+        * Takes two parameters Return some output with exception: (T, U) -> R throws Exception
+                - Comparable<T>:
+                        Comparable<String> comparator = (s1, s2) -> s1.length() - s2.length();
+                        // returns negative if s1 is shorter, positive if s1 is longer, zero if equal
+
+        * Takes no parameters Return Iterator<T> output:
+                - Iterable:
+                        Iterable<String> iterable = () -> Arrays.asList("A", "B", "C").iterator();
+                        for (String s : iterable) {
+                            System.out.println(s);
+                        }
+
+        * Takes one parameter Return no output by iterating each element:
+                - ForEach<T>:
+                        List<String> list = Arrays.asList("A", "B", "C");
+                        list.forEach(s -> System.out.println(s));
+
 

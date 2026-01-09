@@ -1,0 +1,193 @@
+🧩 Core Functional Interfaces in java.util.function:-These are the most common and versatile built-in functional interfaces: 
+
+1. **Consumer<T>**
+   - Perform an action on an input without returning a result.
+   - Takes one input parameter (of Type T) and returns no result (void). 
+   - It is used to perform an action (side effect) on an input, such as printing to the console or writing to a file.
+   - Abstract Method: void accept(T t)
+   - Example: 
+          Consumer<String> print = s -> System.out.println(s);
+          print.accept("some text");
+
+2. **Function<T, R>**
+   - Perform an action to Transform input to output
+   - Takes one input parameter (of Type T) and returns a value (of Type R).
+   - It is commonly used for data transformation or mapping from one type to another.
+   - Abstract Method: R apply(T t)
+   - Example: Function to calculate string length
+            Function<String, Integer> stringToLength = String::length;`
+            Integer length = stringToLength.apply("Hello");
+
+3. **Supplier<T>**
+   - Supply or generate a value
+   - Without taking any input parameter and returns a value (of Type T).
+   - It is used to generate or supply values, often for lazy evaluation or factory methods.
+   - Abstract Method: T get()
+   - Example: To generate a random number
+          Supplier<Double> randomValue = () -> Math.random();
+          Double randomNumber = randomValue.get();
+
+4. **Predicate<T>**
+   - Performs an action that tests a condition
+   -  on a one input parameter (of Type T) and returns a boolean result (of Type boolean either true or false).
+   - It is commonly used for filtering or conditional checks.
+   - Abstract Method: boolean test(T t)
+   - Example: To check if a number is even
+          Predicate<Integer> isEven = n -> n % 2 == 0;
+          boolean result = isEven.test(4);
+
+🧩 Specialized Variants of Core Functional Interfaces:
+* Bi... variations: These interfaces accept two arguments.
+    - BiConsumer<T, U>: Takes two arguments and returns no result.
+    - BiFunction<T, U, R>: Takes two arguments and returns a result.
+    - BiPredicate<T, U>: Takes two arguments and returns a boolean result.
+
+* Operator variations: These are specializations of Function and BiFunction where all operands and the result are of the same type.
+    - UnaryOperator<T>: Takes one argument and returns a result of the same type.
+    - BinaryOperator<T>: Takes two arguments and returns a result of the same type.
+
+ * Primitive specializations: 
+    * These interfaces are optimized for primitive types (int, long, double) to avoid boxing/unboxing overhead.
+    * Primitive specializations of Interfaces are provided to work directly with primitive types efficiently. 
+        - IntConsumer, LongConsumer, DoubleConsumer
+        - IntFunction<R>, LongFunction<R>, DoubleFunction<R>
+        - ToIntFunction<T>, ToLongFunction<T>, ToDoubleFunction<T>
+        - IntToLongFunction, IntToDoubleFunction, LongToIntFunction, LongToDoubleFunction, DoubleToIntFunction, DoubleToLongFunction
+
+* Legacy Functional Interfaces:
+    Several interfaces that existed before Java 8 were also designated as functional interfaces because they meet the single abstract method (SAM) requirement. They can now be used with lambda expressions: 
+    
+    1. Runnable: 
+        - Represents a task that can be executed without any input or output.
+        - used in multithreading, where a Runnable object is passed to a Thread to be executed.
+        - Example:
+              Runnable task = () -> System.out.println("Task executed");
+              new Thread(task).start();
+    2. Callable<V>: 
+        - Represents a task that can be executed and returns a value (of Type V) and may throw exceptions.
+        - used in concurrent programming, where a Callable object is submitted to an ExecutorService for execution.
+        - Example:
+              Callable<Integer> task = () -> {
+                  // Perform some computation
+                  return 42;
+              };
+              ExecutorService executor = Executors.newSingleThreadExecutor();
+              Future<Integer> future = executor.submit(task);
+              Integer result = future.get(); // result will be 42
+    3. Comparator<T>: 
+        - Represents a comparison function that compares two objects of the same type (Type T) and returns an integer indicating their relative order.
+        - Used for comparing two objects of the same type (Type T) for sorting or ordering.
+        - Example:
+              Comparator<String> stringLengthComparator = (s1, s2) -> Integer.compare(s1.length(), s2.length());
+              List<String> strings = Arrays.asList("apple", "banana", "kiwi");
+              Collections.sort(strings, stringLengthComparator);
+    4. Comparable<T>: 
+        - Represents an object that can be compared to another object of the same type (Type T) for natural ordering.
+        - Used to define the natural ordering of objects of a class.
+        - Example:
+              public class Person implements Comparable<Person> {
+                  private String name;
+                  private int age;
+
+                  public Person(String name, int age) {
+                      this.name = name;
+                      this.age = age;
+                  }
+
+                  @Override
+                  public int compareTo(Person other) {
+                      return Integer.compare(this.age, other.age);
+                  }
+              }
+    5. Iterable<T>: 
+        - Represents a collection of elements that can be iterated over.
+        - Used to provide an iterator for a collection of elements.
+        - Example:
+              public class MyCollection<T> implements Iterable<T> {
+                  private List<T> elements;
+
+                  public MyCollection(List<T> elements) {
+                      this.elements = elements;
+                  }
+
+                  @Override
+                  public Iterator<T> iterator() {
+                      return elements.iterator();
+                  }
+              }
+    6. Serializable: 
+        - A marker interface indicating that a class can be serialized (converted to a byte stream)
+        - Used to enable serialization(means converting an object into a byte stream for security, storage, or transmission) of objects.
+        - Example:
+              public class Person implements Serializable {
+                  private String name;
+                  private int age;
+
+                  public Person(String name, int age) {
+                      this.name = name;
+                      this.age = age;
+                  }
+              }
+    7. EventListener: 
+        - A marker interface for event listener types in the Java event model.
+    8. AutoCloseable: 
+        - Represents a resource that can be closed, typically used in try-with-resources statements.
+    9. Closeable: 
+        - A subinterface of AutoCloseable, specifically for I/O resources that can be closed.
+    10. Observer: 
+        - Represents an observer in the Observer design pattern, used for receiving updates from an Observable.
+    11. Cloneable: 
+        - A marker interface indicating that a class supports cloning (creating a copy of an object).
+    12. EventObject: 
+        - A base class for all event objects in the Java event model.
+    13. ForEach: 
+        - A functional interface for performing an action on each element of a collection.
+
+
+🧩 Functional Interface Selection Guide
+🧭 TL;DR – Think Like This
+    Question	                                            Use
+    “I just need to do something.”	                        → Consumer
+    “I need to create or generate to supply something.”     → Supplier
+    “I need to change or transform something.”	            → Function
+    “I need to check something.”	                        → Predicate
+    “I need to calculate/combine something.”	            → Operator / BiFunction
+    “I need to run a task.”	                                → Runnable / Callable
+
+🧩 General Selection Rules
+    Need a result? → 
+        Use Supplier, Function, BiFunction, UnaryOperator, BinaryOperator, or Callable.
+    Need same type in/out? → 
+        Use UnaryOperator<T> (1 input) or BinaryOperator<T> (2 inputs).
+    Need two inputs of any type and one output? → 
+        Use BiFunction<T,U,R>.
+    No result, just side effect? → 
+        Use Consumer, BiConsumer, or Runnable.
+    Just a boolean answer? → 
+        Use Predicate or BiPredicate.
+    Sorting or ordering? → 
+        Use Comparator.
+
+💡 Pro Tips
+    * Prefer the most specific interface
+        → e.g., UnaryOperator<T> over Function<T,T> improves clarity and overload resolution.
+    * Use primitive specializations for performance-critical code (avoid boxing/unboxing):
+    * Method Reference Mapping:
+        - Static method → ClassName::staticMethod → works with Function, BiFunction, etc.
+        - Instance method (on object) → object::method → works with Consumer, Runnable.
+        - Instance method (on type) → ClassName::instanceMethod → first param is receiver.
+        - Constructor → ClassName::new → maps to Supplier or Function.
+
+🧠 Quick Recall + Practical Summary
+🎯 Choose the Right Functional Interface
+Intent / Action	                Best Interface(s)	                                   Key Idea
+✅ Use / Perform an action	   Consumer<T>, BiConsumer<T,U>, Runnable	               You “do something” (side effect) without returning a value
+🏭 Create / Supply	            Supplier<T>	                                            You “create” or “provide” something — no inputs, just return a new or existing value
+🔄 Transform / Map	            Function<T,R>, BiFunction<T,U,R>	                    You “transform” input(s) into output(s) (different types allowed)
+⚙️ Calculate / Combine	        UnaryOperator<T>, BinaryOperator<T>, BiFunction<T,U,R>	You “process” or “combine” values — usually same type in/out
+🔍 Check / Test condition	    Predicate<T>, BiPredicate<T,U>	                        You “check” or “filter” something — returns boolean
+🚀 Run / Execute a task	        Runnable, Callable<V>	                                You “run” a task — may or may not return a result
+🔢 Sort / Compare	            Comparator<T>	                                        You “compare” two values for ordering
+
+
+

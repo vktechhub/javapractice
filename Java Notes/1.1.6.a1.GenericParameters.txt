@@ -1,0 +1,34 @@
+parameter vs argument
+In programming, particularly in the context of functions or methods, the terms "parameter" and "argument" are often used interchangeably, but they have distinct meanings:
+- Parameter:
+    - A parameter is a variable that is defined in the function or method signature.
+    - It acts as a placeholder for the value that will be passed to the function when it is called.
+    - Parameters are part of the function's definition and specify what type of data the function expects to receive.
+    - Example: In the method definition `void add(int a, int b)`, `a` and `b` are parameters.
+- Argument:
+    - An argument is the actual value that is passed to the function when it is called.
+    - Arguments are the real data that is supplied to the function's parameters during a function call.
+    - Example: In the method call `add(5, 10)`, the values `5` and `10` are arguments.
+    
+Generic Parameters:-
+    * Generic parameters allow developers to create classes, interfaces, and methods that can operate on different data types while providing type safety.
+    * Generic parameters are defined using angle brackets <> and can be used to create reusable and flexible code components.
+
+Generic Parameters in Built-In Functional Interfaces
+    * The Generic type parameters are placeholders that can be replaced with any object type. 
+    * Generic parameterized types allow functional interfaces to work with different data types without needing to create separate interfaces for each type. Hence they help make the functional interfaces flexible and reusable for different data types.
+
+🧩 Generic parameterized types
+The below generic types are commonly used to represent parameters(I/O) of Functional interfaces: 
+    * <T> - First generic type parameter(input/output) 
+    * <U> - Second generic type input parameter(input/output)
+    * <R> - Return type(output)
+    * <E> - Element type - used in collections
+    * <K> - Key type     - used in maps 
+    * <V> - Value type   - used in maps
+
+Note: 
+    * The letters T, U, R, E, K, and V are just conventional names used to represent generic types in Java. They can be replaced with any valid identifier, but using these conventions helps improve code readability and understanding.
+    * T is commonly used to represent the first input type, U for the second input type, and R for the return type in functional interfaces that take multiple inputs or return a value.
+    * They refer to parameters, say T can be either input or output type based on the context of the functional interface.
+

@@ -47,6 +47,13 @@ Key Concepts of Java Streams API:
 3. Stream Pipeline
     A Stream Pipeline defines how data flows through different stages. It has three parts:
 
+        Syntax:- 
+            Obj stream = source
+                            .intermediateOperation1()
+                            .intermediateOperation2()
+                            ...
+                            .terminalOperation();
+
 3.1 Source:- as explained in Stream Creation above.
 
 3.2. Intermediate Operations: 
@@ -173,8 +180,6 @@ Key Concepts of Java Streams API:
                                         .anyMatch(s -> s.endsWith("y"));
             System.out.println("Any word ends with 'y': " + anyEndsWithY);
 
-
-
 4. Types of Streams
     Streams can be categorized into different types based on their nature and usage.
 
@@ -254,21 +259,3 @@ Key Concepts of Java Streams API:
                             .collect(Collectors.toList());
                     }
                 }
-
-
-🧭 Java Functional Interface Reference (for Lambdas & Method References)
-Pick the interface by: inputs ▸ output ▸ purpose
-Inputs	Interface	        Output	Need / Purpose / Use it when…
-T	      Consumer<T>	        void	Perform an action	               You want to “use” a value (e.g., print, log, save) without returning anything
-T, U	   BiConsumer<T,U>	    void	Perform an action using two inputs    You want to handle two values together (e.g., key–value pairs)
-T	      Function<T,R>	    R	    Transform input to output	       You need to map or convert a value from one type to another
-T, U	   BiFunction<T,U,R>	R	    Combine two inputs into one output    You want to produce a result from two inputs
-T	      UnaryOperator<T>	T	    Modify and return same type	       You want to apply a change and get the same type back (e.g., trim, uppercase)
-T, T	   BinaryOperator<T>	T	    Combine two of the same type	       You want to reduce or aggregate values of the same type (e.g., sum, concat)
-T	      Predicate<T>	    boolean	Test a condition	                   You want to check or filter based on a condition
-T, U	   BiPredicate<T,U>	boolean	Test a condition on two inputs	       You want to compare or match two inputs (e.g., equals, startsWith)
-—	      Supplier<T>	        T	    Supply or generate a value	       You want to create or provide something without input (factory/lazy creation)
-—	      Runnable	        void	Run a task (no return)	           You want to execute a task with no input or output
-—	      Callable<V>	        V	    Run a task that returns a value	   You want to execute a task that returns a result and may throw exceptions
-T, T	   Comparator<T>	    int	    Compare two values	                   You want to define sorting or ordering logic
-⚠️ “Calculator” isn’t a standard JDK functional interface. You likely meant Callable (task that returns a value) or the Operator types (Unary/Binary) used for “calculations”. If you do have a custom Calculator, prefer using the closest standard interface above unless you truly need custom semantics.
