@@ -34,3 +34,70 @@ Subinterfaces of Comparable:
     4. SafeComparable<T>: An interface that provides safe comparison methods to avoid NullPointerExceptions.
     5. ContextualComparable<T, C>: An interface that allows comparison based on additional context.
 These interfaces and their methods are essential for sorting and ordering objects in Java collections, such as lists and sets. They provide flexibility in defining how objects should be compared and ordered based on different criteria.
+
+How to use Comparator interface:
+public class Cars {
+    String Model;
+    int Year;
+    public Cars(String model, int year) {
+        Model = model;
+        Year = year;
+    }
+}
+
+public SortByYear implements Comparator {
+    @Override
+    public int compare(Cars c1, Cars c2) {
+        // Make sure that the objects are Car objects
+        Car a = (Car) obj1;
+        Car b = (Car) obj2;
+        
+        // Compare the year of both objects
+        if (a.year < b.year) return -1; // The first car has a smaller year
+        if (a.year > b.year) return 1;  // The first car has a larger year
+        return 0; // Both cars have the same year
+    }
+}
+
+public class Main { 
+  public static void main(String[] args) { 
+    // Create a list of cars
+    ArrayList<Car> myCars = new ArrayList<Car>();    
+    myCars.addAll(new Car("Toyota", "Corolla", 2010), 
+                   new Car("Honda", "Civic", 2015), 
+                   new Car("Ford", "Focus", 2012));
+    // Use a comparator to sort the cars
+    Comparator myComparator = new SortByYear();
+    Collections.sort(myCars, myComparator);
+  } 
+}
+
+How to use Comparable interface:
+public class Cars implements Comparable<Cars> {
+    String Model;
+    int Year;
+    public Cars(String model, int year) {
+        Model = model;
+        Year = year;
+    }
+
+    @Override
+    public int compareTo(Cars other) {
+        // Compare the year of both cars
+        if (this.Year < other.Year) return -1; // This car has a smaller year
+        if (this.Year > other.Year) return 1;  // This car has a larger year
+        return 0; // Both cars have the same year
+    }
+}
+
+public class Main { 
+  public static void main(String[] args) { 
+    // Create a list of cars
+    ArrayList<Car> myCars = new ArrayList<Car>();    
+    myCars.addAll(new Car("Toyota", "Corolla", 2010), 
+                   new Car("Honda", "Civic", 2015), 
+                   new Car("Ford", "Focus", 2012));
+    // Sort the cars using their natural ordering
+    Collections.sort(myCars);
+  } 
+}

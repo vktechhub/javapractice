@@ -9,7 +9,9 @@ In programming, particularly in the context of functions or methods, the terms "
     - An argument is the actual value that is passed to the function when it is called.
     - Arguments are the real data that is supplied to the function's parameters during a function call.
     - Example: In the method call `add(5, 10)`, the values `5` and `10` are arguments.
-    
+
+-------------------------------------------------------------------------------------
+
 Generic Parameters:-
     * Generic parameters allow developers to create classes, interfaces, and methods that can operate on different data types while providing type safety.
     * Generic parameters are defined using angle brackets <> and can be used to create reusable and flexible code components.
