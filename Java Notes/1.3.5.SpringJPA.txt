@@ -1,0 +1,231 @@
+Spring Data JPA is a part of the larger Spring Data family, which makes it easier to implement JPA-based repositories. It provides a set of abstractions and utilities to work with JPA, allowing developers to focus on the business logic rather than boilerplate code.
+
+Spring-framework:-
+
+POM.xml Dependencies: for Spring framework app:
+To use Spring Data JPA in your project, you need to include the following dependencies in your Maven POM file:
+    * spring-core: Since the JPA is part of the core framework, you need to include the Spring Core dependency.
+    * spring-data-jpa: This is the main dependency for Spring Data JPA, which provides the necessary classes and interfaces to work with JPA repositories.
+    * spring-orm: This dependency provides integration between Spring and ORM frameworks like Hibernate.
+        * hibernate-core: If you are using Hibernate as your JPA provider, you need to include this dependency.
+        * hibernate-entitymanager: This dependency is required for JPA entity management when using Hibernate.
+    * Database Driver: Depending on the database you are using (e.g., MySQL, PostgreSQL, H2), you need to include the corresponding JDBC driver.
+        * For MySQL: mysql-connector-java
+        * For PostgreSQL: postgresql
+        * For H2: h2
+
+Record level Object Class:-
+    Say example we have an entity class called Employee; This represents, a table in the database with fields mapping to columns in that table and each instance of the class represents a row in that table.
+
+    @Entity: This annotation is used to mark a class as a JPA entity, which means it will be mapped to a database table.
+
+    @Table(name = "employee"): This annotation is used to specify the name of the database table that the entity is mapped to. If not specified, the table name defaults to the class name.
+
+    @Id: This annotation is used to specify the primary key of the entity.
+
+    @GeneratedValue: This annotation is used to specify how the primary key should be generated (e.g., auto-increment).
+
+    No-args Constructor: JPA requires a no-argument constructor for entity classes to instantiate them via reflection. 
+        What is reflection: Reflection is a feature in Java that allows the program to inspect and manipulate classes, methods, and fields at runtime. JPA uses reflection to create instances of entity classes and access their properties.
+    
+    Getters and Setters: JPA uses getters and setters to access the entity's properties. It is a good practice to provide them for all fields in the entity class.
+
+JPA Configuration Bean Class:-
+
+    @Configuration: This annotation indicates that the class contains Spring configuration.
+
+    @EnableJpaRepositories: This annotation enables the creation of JPA repositories with in the . 
+            The base package is the package where your repository interfaces are located. This tells Spring Data JPA where to scan for repository definitions so that it can create implementations for them at runtime.
+
+    DataSource Bean: It is a data source instance which we will create in order to setup a connection to the data base. For the datasource to be accessible to the application, it will be made available in the form of a bean. This bean configures the database connection details (URL, username, password, driver class).
+
+        @Bean: This annotation is used to define beans in the Spring context. You will typically define beans for DataSource, EntityManagerFactory, and TransactionManager.
+    
+        DriverManagerDataSource: This is a simple implementation of the DataSource interface that is suitable for testing and standalone applications. It allows you to set the database connection properties directly.
+
+        setDriverClassName(): This method sets the fully qualified name of the JDBC driver class.
+
+        setUsername(): This method sets the username for the database connection.
+
+        setPassword(): This method sets the password for the database connection.
+
+        setUrl(): This method sets the JDBC URL for the database connection.
+
+        Data schema parameters in the URL: 
+
+        createDatabaseIfNotExists=true: This parameter in the JDBC URL ensures that the database is created automatically if it does not already exist.
+
+        useSSL=false: This parameter in the JDBC URL disables SSL for the database connection.
+
+        return DataSource: This returns the configured DataSource bean.
+
+    EntityManagerFactory Bean: This bean configures the JPA EntityManagerFactory, which is responsible for creating EntityManager instances. This is essential for persisting and retrieving entities from the database.
+
+        @Bean: This annotation is used to define beans in the Spring context.
+
+        HibernateJpaVendorAdapter: This class is used to configure Hibernate as the JPA provider.
+
+        setGenerateDdl(true): This method configures whether the JPA provider should generate database schema (Data Definition Language) automatically based on the entity mappings.
+
+        LocalContainerEntityManagerFactoryBean: This class is used to create a JPA EntityManagerFactory in a Spring application context.
+
+        setJpaVendorAdapter(): This method sets the JPA vendor adapter (e.g., Hibernate).
+
+        setPackagesToScan(): This method specifies the packages to scan for JPA entity classes.
+
+        setDataSource(): This method sets the DataSource to be used by the EntityManagerFactory.
+
+        return LocalContainerEntityManagerFactoryBean: This returns the configured EntityManagerFactory bean.
+
+    TransactionManager Bean: This bean configures the transaction management for JPA operations.
+
+        @Bean: This annotation is used to define beans in the Spring context.
+
+        JpaTransactionManager: This class is used to manage transactions for JPA operations.
+
+        setEntityManagerFactory(): This method sets the EntityManagerFactory to be used by the TransactionManager. This is to connect it with entity manager factory.
+
+        return JpaTransactionManager: This returns the configured TransactionManager bean.
+
+SpringData JPA Repository Interface:-
+
+    public interface EmployeeRepository extends crudRepository<Employee, Long> {
+        // Custom query methods can be defined here if needed
+    }
+
+    crudRepository: This is a Spring Data interface that provides CRUD (Create, Read, Update, Delete) operations for the entity. By extending this interface, you get basic CRUD functionality without writing any implementation code.
+
+    example <Employee, Long>: Here, Employee is the entity type, and Long is the type of the primary key of the entity.
+
+Application Class:-
+
+    @Configuration("mainBean"): This indicates that the class can be used by the Spring IoC container as a source of bean definitions.
+
+    @import(SpringJpaConfiguration.class): This imports the Spring Data JPA configuration.
+
+    @Autowired Repository: This annotation is used to inject the EmployeeRepository bean into the application class.
+
+    @Autowired DataSource: This annotation is used to inject the DataSource bean into the application class.
+
+    Main Method: This is the entry point of the Spring Boot application. It calls SpringApplication.run() to launch the application.
+
+        AnnotationConfigApplicationContext: This class is used to create a Spring application context based on Java-based configuration.
+
+        register(SpringJpaConfiguration.class): This method registers the Spring Data JPA configuration class with the application context.
+
+        refresh(): This method refreshes the application context, loading all the bean definitions and initializing the beans.
+
+        getBean(EmployeeRepository.class): This method retrieves the EmployeeRepository bean from the application context.
+
+        close(): This method closes the application context, releasing all resources and destroying all beans.
+
+        repository.save() => insert: This method saves a new Employee entity to the database.
+
+        repository.findAll() => select * from employee: This method retrieves all Employee entities from the database.
+
+        repository.findById() => select * from employee where id = ? : This method retrieves an Employee entity by its primary key (ID).
+
+        => update: This is done by first retrieving the entity, modifying its fields, and then calling the save() method again.
+
+        repository.deleteById() => delete from employee where id = ? : This method deletes an Employee entity by its primary key (ID).
+        
+SpringBoot:-
+    POM.xml Dependencies: for Spring boot app:
+        spring-boot-starter-parent: This is the parent POM for Spring Boot applications, which provides default configurations and dependency management.
+        spring-boot-starter-data-jpa: This starter includes all the necessary dependencies for using Spring Data JPA in a Spring Boot application.
+        mysql-connector-java: This is the JDBC driver for MySQL.
+        postgresql: This is the JDBC driver for PostgreSQL.
+        h2: This is the JDBC driver for the H2 in-memory database.
+        spring-boot-starter-test: This starter includes dependencies for testing Spring Boot applications.
+
+    Object Class is kept under Model package.
+
+    Repository Interface is kept under Repository package.
+
+    @SpringBootApplication: This annotation indicates that this is a Spring Boot application. It combines several other annotations, including @Configuration, @EnableAutoConfiguration, and @ComponentScan.
+
+    CommandLineRunner: This is a functional interface in Spring Boot that can be used to execute code after the application context is loaded and before the application starts. It is often used for initialization tasks.
+
+    run() method: This method is overridden from the CommandLineRunner interface. It contains the code that will be executed when the application starts. In this case, it performs CRUD operations using the EmployeeRepository.
+
+    No need to create DataSource, EntityManagerFactory, and TransactionManager beans manually as Spring Boot auto-configures them based on the properties defined in application.properties file.
+
+    JPA Configuration class is not needed in Spring Boot as it auto-configures JPA based on the dependencies and application properties.
+
+    JPA Configuration in Spring Boot:-
+
+     1. Configure application.properties file: This file is used to configure various settings for the Spring Boot application, including database connection properties.
+
+    # Connection properties
+        spring.datasource.driver-class-name: This property specifies the fully qualified name of the JDBC driver class.
+
+        spring.datasource.username: This property specifies the username for the database connection.
+
+        spring.datasource.password: This property specifies the password for the database connection.
+
+        spring.datasource.url: This property specifies the JDBC URL for the database connection.
+
+        spring.jpa.hibernate.ddl-auto: This property configures how Hibernate handles database schema generation. The value "update" means that Hibernate will update the database schema to match the entity mappings without dropping existing data.
+
+    # Log JPA queries
+        spring.jpa.show-sql: This property enables logging of SQL statements generated by Hibernate. Setting it to "true" will print the SQL statements to the console for debugging purposes.
+
+        spring.jpa.properties.hibernate.format_sql: This property formats the SQL statements logged by Hibernate, making them more readable. Setting it to "true" will format the SQL output.
+
+    # Create, create-drop, update, validate, none
+        spring.jpa.hibernate.ddl-auto: This property configures how Hibernate handles database schema generation. The value "update" means that Hibernate will update the database schema to match the entity mappings without dropping existing data.
+
+    # Hibernate SQL dialect
+        spring.jpa.properties.hibernate.dialect: This property specifies the Hibernate dialect to be used for the database. The dialect is a class that tells Hibernate how to generate SQL statements for a specific database. For example, for MySQL, you would use "org.hibernate.dialect.MySQL8Dialect".
+
+
+Defining Named Queries:-
+    Named queries are predefined, static queries that are defined using annotations or XML configuration. They can be defined at the entity level using the @NamedQuery annotation or in a separate XML file.
+    Named queries are useful for reusing queries across different parts of the application and can improve performance by allowing the JPA provider to cache the query plan.
+
+    @NamedQuery: This annotation is used to define a named query at the entity level. It takes two parameters: name (the name of the query) and query (the JPQL query string).
+
+    @Query: This annotation is used to define a query method in a repository interface. It allows you to specify a JPQL query directly on the method.
+        nativeQuery: If you want to use a native SQL query instead of JPQL, you can set the nativeQuery attribute to true in the @Query annotation.
+
+        value=: This attribute specifies the JPQL or SQL query string to be executed.
+
+        ? : positional parameters in the query. You can use ? followed by a number (e.g., ?1, ?2) to indicate the position of the parameter in the query.
+
+        Example: @Query("SELECT e FROM Employee e WHERE e.firstName = ?1 AND e.lastName = ?2")
+                 List<Employee> findByFullName(String firstName, String lastName);
+                        // firstName is bound to ?1 and lastName is bound to ?2
+
+    @Param: parameter annotation is used to bind method parameters to named parameters in the query. It allows you to pass values to the named query or JPQL query.
+        Example: 
+            @Query("SELECT e FROM Employee e WHERE e.firstName = :firstName AND e.lastName = :lastName")
+            List<Employee> findByFullName(@Param("firstName") String firstName, @Param("lastName") String lastName);
+
+    jpa-named-queries.properties file: 
+        This file is used to define named queries in a separate properties file. Each named query is defined with a key-value pair, where the key is the name of the query and the value is the JPQL query string.
+
+    
+
+
+
+
+
+    Example of defining a named query in an entity class:
+
+    @Entity
+    @NamedQuery(name = "Employee.findByLastName", query = "SELECT e FROM Employee e WHERE e.lastName = :lastName")
+    public class Employee {
+        // fields, constructors, getters, setters
+    }
+
+    Using Named Queries in Repository:
+
+    To use a named query in a Spring Data JPA repository, you can define a method in the repository interface that matches the name of the named query.
+
+    Example of using the named query in a repository interface:
+
+    public interface EmployeeRepository extends CrudRepository<Employee, Long> {
+        List<Employee> findByLastName(@Param("lastName") String lastName);
+    }
+
+    In this example, the method findByLastName will execute the named query "Employee.findByLastName" defined in the Employee entity class.
