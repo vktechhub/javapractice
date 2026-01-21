@@ -13,11 +13,10 @@ Associativity decides the order of evaluation when two or more operators of the 
 
     For example:
 
-    int result = 10 - 5 - 2;
+    int result = 10 + 5 - 2;
 
 
-    Both - operators have the same precedence and left-to-right associativity,
-    so it’s evaluated as (10 - 5) - 2 = 3.
+    Both + and - have the same precedence and are left associative, so evaluation happens from left to right → (10 + 5) - 2 = 13.
 
 🔹 3. Operator Precedence Table (Highest → Lowest)
 Category	        Operators	                        Associativity
@@ -35,3 +34,24 @@ Logical AND	        &&	                                Left to Right
 Logical OR	        ||	                                Left to Right
 Ternary	            ?:	                                Right to Left
 Assignment	        =, +=, -=, *=, /=, %= , &=, ^=, `	=, <<=, >>=, >>>=`
+
+🔹 4. Examples Combining Precedence and Associativity
+        Example 1:
+        int a = 5, b = 10, c = 15;
+        int result = a + b * c - b / a;
+        Evaluation steps:
+        1. b * c = 10 * 15 = 150 (Multiplicative)
+        2. b / a = 10 / 5 = 2 (Multiplicative)
+        3. a + 150 = 5 + 150 = 155 (Additive)
+        4. 155 - 2 = 153 (Additive)
+        Final result = 153
+
+🔹 5. Parentheses to Override Precedence
+You can use parentheses to change the default precedence and associativity.
+For example:
+int result = (10 + 5) * 2;
+Here, the expression inside parentheses is evaluated first → (10 + 5) * 2 = 30.
+
+🔹 6. Summary
+Understanding operator precedence and associativity is crucial for writing correct and predictable Java expressions. Always consider using parentheses to make your intentions clear.
+

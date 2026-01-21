@@ -18,12 +18,12 @@ Stack vs Heap Comparison
 ------------------------------
         Aspect               | Stack Memory                     | Heap Memory
         ---------------------|----------------------------------|-------------------------------
-        Purpose             | Static memory allocation         | Dynamic memory allocation
-        Storage             | Primitive data types, references | Java objects
-        Access Speed        | Faster                           | Slower
-        Memory Management   | Managed by thread                | Managed by Garbage Collector
-        Size                | Smaller                          | Larger
-        Lifetime           | Short-lived (method scope)       | Long-lived (object lifetime)
+        Purpose              | Static memory allocation         | Dynamic memory allocation
+        Storage              | Primitive data types, references | Java objects
+        Access Speed         | Faster                           | Slower
+        Memory Management    | Managed by thread                | Managed by Garbage Collector
+        Size                 | Smaller                          | Larger
+        Lifetime             | Short-lived (method scope)       | Long-lived (object lifetime)
 
 Heap and Stack 
 ------------------------------

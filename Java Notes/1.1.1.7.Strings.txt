@@ -3,9 +3,9 @@
 * A String variable is representated as a collection of characters surrounded by double quotes:
         String str = "Hello";
 * Strings are immutable by design, which means that once a String object is created, its value cannot be changed. Why:- 
-1. Security:- Strings are widely used in Java for storing sensitive information like database connection URLs, usernames, passwords, etc. If Strings were mutable, it would be possible for malicious code to change the value of a String after it has been created, leading to security vulnerabilities.
-2. Performance:- Since Strings are immutable, they can be safely shared between multiple threads without the need for synchronization. This can lead to significant performance improvements in multi-threaded applications.
-3. Caching:- The immutability of Strings allows Java to implement a String pool, which is a cache of frequently used String objects. When a new String is created, Java first checks the String pool to see if an identical String already exists. If it does, Java simply returns a reference to the existing String instead of creating a new one. This can lead to significant memory savings and performance improvements.
+        1. Security:- Strings are widely used in Java for storing sensitive information like database connection URLs, usernames, passwords, etc. If Strings were mutable, it would be possible for malicious code to change the value of a String after it has been created, leading to security vulnerabilities.
+        2. Performance:- Since Strings are immutable, they can be safely shared between multiple threads without the need for synchronization. This can lead to significant performance improvements in multi-threaded applications.
+        3. Caching:- The immutability of Strings allows Java to implement a String pool, which is a cache of frequently used String objects. When a new String is created, Java first checks the String pool to see if an identical String already exists. If it does, Java simply returns a reference to the existing String instead of creating a new one. This can lead to significant memory savings and performance improvements.
 
 
 String Methods
