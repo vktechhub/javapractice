@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FundTransferEvent",
+  "description": "Fund transfer event published to Kafka",
+  "type": "object",
+  "required": [
+    "transactionId",
+    "fromAccount",
+    "toAccount",
+    "amount",
+    "currency",
+    "status",
+    "timestamp"
+  ],
+  "properties": {
+    "transactionId": {
+      "type": "string",
+      "description": "Unique transaction identifier"
+    },
+    "fromAccount": {
+      "type": "string",
+      "description": "Debit account"
+    },
+    "toAccount": {
+      "type": "string",
+      "description": "Credit account"
+    },
+    "amount": {
+      "type": "number",
+      "minimum": 0
+    },
+    "currency": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 3
+    },
+    "status": {
+      "type": "string",
+      "enum": ["INITIATED", "COMPLETED", "FAILED"]
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false
+}
