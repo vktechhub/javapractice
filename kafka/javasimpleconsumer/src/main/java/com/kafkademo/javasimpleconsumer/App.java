@@ -28,7 +28,7 @@ public class App {
         props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
 
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
-        consumer.subscribe(Collections.singletonList("quickstart-events"));
+        consumer.subscribe(Collections.singletonList("simple-text-input"));
 
         DateTimeFormatter formatter =
             DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")

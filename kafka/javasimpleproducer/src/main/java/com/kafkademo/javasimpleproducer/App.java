@@ -16,7 +16,7 @@ import java.util.concurrent.Future;
  */
 public class App {
 
-    private static final String TOPIC = "quickstart-events";
+    private static final String TOPIC = "simple-text-input";
 	public static void main(String[] args) throws Exception {
 		System.out.println("Simple Kafka Producer Application Started...");
 
@@ -54,13 +54,11 @@ public class App {
 
                 // RecordMetadata metadata = future.get(); // synchronous send (optional)
 
-                // System.out.printf(
-                //         "Produced record: key=%s value=%s partition=%d offset=%d%n",
-                //         key,
-                //         value,
-                //         metadata.partition(),
-                //         metadata.offset()
-                // );
+                 System.out.printf(
+                         "Produced record: key=%s value=%s%n",
+                         key,
+                         value
+                 );
 
                 // Sleep after each record
                 Thread.sleep(2000); // 2 seconds

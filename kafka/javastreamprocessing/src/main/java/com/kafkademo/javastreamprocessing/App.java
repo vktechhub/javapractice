@@ -23,15 +23,19 @@ public class App {
         StreamsBuilder builder = new StreamsBuilder();
 
         KStream<String, String> inputStream =
-                builder.stream("quickstart-events");
+                builder.stream("simple-text-input");
 
         KStream<String, String> transformedStream =
                 inputStream.mapValues(value -> {
                     int charCount = (value == null) ? 0 : value.length();
-                    return value + " charcount = " + charCount;
+                    return value.toUpperCase() + " charcount = " + charCount;
                 });
+        
+        transformedStream.foreach((k, v) -> System.out.println("Key: " + k + ", Value: " + v));
 
-        transformedStream.to("output-topic");
+        transformedStream.to("simple-text-output");
+        
+        
 
         KafkaStreams streams = new KafkaStreams(builder.build(), props);
 
