@@ -1,0 +1,56 @@
+CLI mode
+Reference - https://kafka.apache.org/quickstart/ 
+
+Generate a Cluster UUID
+KAFKA_CLUSTER_ID="$(bin/kafka-storage.sh random-uuid)"
+
+Format Log Directories
+bin/kafka-storage.sh format --standalone -t $KAFKA_CLUSTER_ID -c config/server.properties
+
+Start the Kafka Server
+bin/kafka-server-start.sh config/server.properties
+
+Basic Kafka health-check
+bin/kafka-topics.sh --bootstrap-server localhost:9092 --list
+
+Topic creation
+bin/kafka-topics.sh --create --topic quickstart-events --bootstrap-server localhost:9092
+
+Producer
+bin/kafka-console-producer.sh --topic quickstart-events --bootstrap-server localhost:9092
+
+Consumer
+bin/kafka-console-consumer.sh --topic quickstart-events --from-beginning --bootstrap-server localhost:9092 --group demo-consumer-group
+
+AKHQ
+Reference - https://akhq.io/docs/installation.html
+
+Configuration
+https://akhq.io/docs/configuration/brokers.html 
+
+Launch the application with java 
+java -Dmicronaut.config.files=/home/v/Documents/AKHQ/application.yml -jar akhq-0.26.0-all.jar --logging.level.root=DEBUG
+
+Go to http://localhost:8080 
+
+Schema Registry:-
+Schema Registry is provided by Confluent, not by core Apache Kafka. You do not need to run Confluent Kafka; only Schema Registry.
+
+Reference - https://www.confluent.io/installation/
+
+Configure Schema Registry for Your Kafka
+    Edit this file: vi etc/schema-registry/schema-registry.properties
+
+Minimal Required Configuration
+    listeners=http://0.0.0.0:8081
+    kafkastore.bootstrap.servers=PLAINTEXT://localhost:9092
+
+Start Schema Registry
+    bin/schema-registry-start etc/schema-registry/schema-registry.properties
+
+If successful, you will see: Server started, listening on http://0.0.0.0:8081
+
+Verify Schema Registry Is Running:- curl http://localhost:8081/subjects
+    Expected output:[]; This confirms Schema Registry is connected to Kafka.
+
+
