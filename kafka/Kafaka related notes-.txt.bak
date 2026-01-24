@@ -1,0 +1,81 @@
+Kafaka related notes:-
+
+Out of 3 versions in download portal "kafka_2.13-4.1.1" is some what working.
+
+To make that work, 
+	* you need move it to personal folder, so that you don't need admin access
+	* 'wmic' is not recognized as an internal or external command,
+		* Open bin\windows\kafka-server-start.bat in a text editor.
+		* Search for any line containing wmic.
+		* Comment out those lines by adding rem at the beginning of the line.
+		* Add a manual heap setting right below the commented lines:
+			set KAFKA_HEAP_OPTS=-Xmx1G -Xms1G
+
+Current Install location
+C:\Users\vigneshkanna.m\k
+
+log file update - C:\Users\vigneshkanna.m\k\config\server.properties
+	log.dirs=C:/Java/kafka/kraft-combined-logs
+
+to generate UUID
+.\bin\windows\kafka-storage.bat random-uuid
+
+format log directories
+.\bin\windows\kafka-storage.bat format --standalone -t Z_FMAhCnR06Rp9xhh7tdcA -c .\config\server.properties
+
+to start server
+.\bin\windows\kafka-server-start.bat .\config\server.properties
+
+sanity check to see topic list
+.\bin\windows\kafka-topics.bat --bootstrap-server localhost:9092 --list
+
+to create topic
+.\bin\windows\kafka-topics.bat --create --topic quickstart-events --bootstrap-server localhost:9092
+
+CLI Producer
+.\bin\windows\kafka-console-producer.bat --topic quickstart-events --bootstrap-server localhost:9092
+
+CLI Consumer
+.\bin\windows\kafka-console-consumer.bat --topic quickstart-events --from-beginning --bootstrap-server localhost:9092 --group demo-consumer-group
+
+Optional:-
+--from-beginning: 
+
+AKHQ - install directory
+C:\Users\vigneshkanna.m\k\AKHQ
+
+Command to run AKHQ
+java -Dmicronaut.config.files=C:\Users\vigneshkanna.m\k\AKHQ\application.yml -jar akhq-0.26.0-all.jar --logging.level.root=DEBUG
+
+AKHQ
+http://localhost:8080 
+
+to create topic
+.\bin\windows\kafka-topics.bat --create --topic simple-text-input --bootstrap-server localhost:9092
+
+to create topic
+.\bin\windows\kafka-topics.bat --create --topic simple-text-output --bootstrap-server localhost:9092
+
+Producer
+bin\windows\kafka-console-producer.bat --topic simple-text-input --bootstrap-server localhost:9092
+
+Consumer
+bin\windows\kafka-console-consumer.bat --topic simple-text-input --bootstrap-server localhost:9092 --group CLI-Consumer
+
+Optional:-
+--from-beginning: 
+
+
+
+
+
+
+Setup issues:---
+
+Schema Registry
+C:\Users\vigneshkanna.m\k\confluent-8.1.1
+
+Run Schema Registry
+.bin\windows\schema-registry-start etc\schema-registry\schema-registry.properties
+
+
