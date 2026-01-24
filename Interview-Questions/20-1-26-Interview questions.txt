@@ -2,9 +2,8 @@ Write a program to find the first non-repeating character in a string
 Input :ssabaccd
 Output : b
 
-
----------------
-
+-----
+My answer during interview:
 public static void main(String args[]){
 
 	LinkedHashMap<Char,Count> hs1 = new LinkedHashMap<>();
@@ -24,14 +23,38 @@ public static void main(String args[]){
 
 }
 
-----------------------------------------------
+----------------------------------
+Expected answer:
+public char firstNonRepeatingChar(String str) {
+	LinkedHashMap<Character, Integer> charCountMap = new LinkedHashMap<>();
+	
+	// Count occurrences of each character
+	for (char c : str.toCharArray()) {
+		charCountMap.put(c, charCountMap.getOrDefault(c, 0) + 1);
+	}
+	
+	// Find the first non-repeating character
+	for (Map.Entry<Character, Integer> entry : charCountMap.entrySet()) {
+		if (entry.getValue() == 1) {
+			return entry.getKey();
+		}
+	}
+	
+	return '\0'; // Return null character if no non-repeating character is found
+}
 
-Given an integer array
-numbers : [2,6,7,4,5,1]
+
+---------------
+
+Given an integer array and a target element,
 find the index of the first 2 numbers whose sum is equal to the target element
+numbers : [2,6,7,4,5,1]
 target:9
 
 output: [0,2]
+--------------------------------
+My answer during interview:
+Brute force approach:
 
 getsum(int[] n, int target){
 	int in_leng = n.length();
@@ -44,5 +67,83 @@ getsum(int[] n, int target){
 }
 
 ---------------------------------------------------
+Expected answer:
+// Using HashMap for efficient lookup
 
-explain <<query>>
+public int[] twoSum(int[] numbers, int target) {
+	Map<Integer, Integer> numIndexMap = new HashMap<>();
+	// how numbers are stored in map: number -> index
+	for (int i = 0; i < numbers.length; i++) {
+		int complement = target - numbers[i];
+		if (numIndexMap.containsKey(complement)) {
+			return new int[] { numIndexMap.get(complement), i };
+		}
+		numIndexMap.put(numbers[i], i);
+	}
+	
+	return new int[] {}; // Return empty array if no solution is found
+}
+--------
+
+How to use explain <<query>> in Java JDBC/Hibernate/Spring Data JPA
+
+In Java, you can use the `EXPLAIN` statement to analyze how a SQL query will be executed by the database. This can be done using JDBC, Hibernate, or Spring Data JPA. Below are examples of how to use `EXPLAIN` in each of these contexts.
+1. Using JDBC:
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+public class ExplainQueryJDBC {
+	public static void main(String[] args) {
+		String url = "jdbc:mysql://localhost:3306/your_database";
+		String user = "your_username";
+		String password = "your_password";
+		String query = "SELECT * FROM your_table WHERE your_column = 'some_value'";
+		
+		try (Connection conn = DriverManager.getConnection(url, user, password);
+			 Statement stmt = conn.createStatement()) {
+			 
+			ResultSet rs = stmt.executeQuery("EXPLAIN " + query);
+			while (rs.next()) {
+				System.out.println(rs.getString(1)); // Print the explain output
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}
+
+2. Using Hibernate:
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.query.NativeQuery;
+public class ExplainQueryHibernate {
+	public void explainQuery(Session session, String query) {
+		Transaction tx = session.beginTransaction();
+		NativeQuery<?> nativeQuery = session.createNativeQuery("EXPLAIN " + query);
+		List<?> result = nativeQuery.getResultList();
+		for (Object row : result) {
+			System.out.println(row); // Print the explain output
+		}
+		tx.commit();
+	}
+}
+
+3. Using Spring Data JPA:
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+@Repository
+public class ExplainQueryRepository {
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+	
+	public void explainQuery(String query) {
+		String explainQuery = "EXPLAIN " + query;
+		List<Map<String, Object>> results = jdbcTemplate.queryForList(explainQuery);
+		for (Map<String, Object> row : results) {
+			System.out.println(row); // Print the explain output
+		}
+	}
+}	
+
