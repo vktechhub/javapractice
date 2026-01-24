@@ -1,0 +1,48 @@
+Write a program to find the first non-repeating character in a string
+Input :ssabaccd
+Output : b
+
+
+---------------
+
+public static void main(String args[]){
+
+	LinkedHashMap<Char,Count> hs1 = new LinkedHashMap<>();
+	String input = "ssabaccd";
+	Char[] input_array = input.toCharArray();
+
+	for-each(input_char : input_array){
+		hs1. // getoradd;
+
+	}
+
+	for( ){
+		if // count=1
+	}
+	
+}
+
+}
+
+----------------------------------------------
+
+Given an integer array
+numbers : [2,6,7,4,5,1]
+find the index of the first 2 numbers whose sum is equal to the target element
+target:9
+
+output: [0,2]
+
+getsum(int[] n, int target){
+	int in_leng = n.length();
+	for(i=0;i<in_leng -2; i++){
+		for(int j=1; j<int_leng -1; j++){
+			if(n[i]	+n[j]) == target)	
+				return 		
+}
+
+}
+
+---------------------------------------------------
+
+explain <<query>>
