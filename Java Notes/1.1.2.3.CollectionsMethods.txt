@@ -3,13 +3,13 @@ CName - Collection instance Name
 LName - List instance Name
 E or EName - Element Name / value to be processed
 
-
 Functions supported based on Collection type
 
 🛠 Common methods for all collections(List, Set and Queue):-
     ●	CName.add(E)    - Adds an element(E) to the collection
     ●	Collections.addAll(CName, E1, E2, E3,...) - Adds multiple elements into a collection
     ●	Collections.addAll(CName, anotherCName) - Adds all elements from another collection into a collection
+    ●	CName.addAll(anotherCName) - Adds all elements from the specified collection to this collection
     ●	CName.clone() - Creates a shallow copy of the collection
     ●	CollectionType CName-new = new CollectionType<>(CName 1, CName 2, CName 3, ...) - Creates a new collection by combining multiple collections
     ●	CName.contains(E) - Returns true if the collection contains a specified element
@@ -30,17 +30,16 @@ Functions supported based on Collection type
     ●	CName.toArray() - Converts the collection to an array
     ●	CName.toString() - Converts the collection to a String
     ●	CName.forEach(EName -> statement) - Performs the given action for each element of the collection
-            // Operations with another Collection
-    ●	CName.addAll(anotherCName) - Adds all elements from the specified collection to this collection
+            
+    // Operations with another Collection
     ●	CName.containsAll(anotherCName) - Returns true if the collection contains all the elements of a specified collection
     ●	CName.retainAll(anotherCName) - Retains only the elements in the collection that are contained in a specified collection
     ●	CName.removeAll(anotherCName) - Removes all the elements of a specified collection from the collection
-    ●	CName.equals(anotherCName) - Compares the collection with another collection for equality
+    ●	CName.equals(anotherCName) - Compares the collection with another collection for equality by checking if both collections contain the same elements
     ●	CName.stream() - Returns a sequential stream with the collection as its source (Java 8 and above)
     ●	CName.parallelStream() - Returns a parallel stream with the collection as its source (Java 8 and above)
     ●	CName.spliterator() - Returns a spliterator over the elements in the collection (Java 8 and above)
     ●	CName.hashCode() - Returns the hash code value for the collection
-
 
 🛠 Common List methods - not in Collection(also available for ArrayList and LinkedList)
     ●	LName.get(index) - Returns the element at a specified index
@@ -74,6 +73,20 @@ Functions supported based on Collection type
     ●	ArrayList.ensureCapacity(n) - Increases the capacity of the ArrayList instance, if necessary, to ensure that it can hold at least the number of elements specified by the minimum capacity argument n
     ●	ArrayList.trimToSize() - Trims the capacity of the ArrayList instance to be the list's current size
 
+# LinkedList only methods:-
+    ●	LinkedList.addFirst(E) - Inserts the specified element at the beginning of the list
+    ●	LinkedList.addLast(E) - Appends the specified element to the end of the list
+    ●	LinkedList.getFirst() - Returns the first element in the list
+    ●	LinkedList.getLast() - Returns the last element in the list
+    ●	LinkedList.removeFirst() - Removes and returns the first element from the list
+    ●	LinkedList.removeLast() - Removes and returns the last element from the list
+    ●	LinkedList.pollFirst() - Retrieves and removes the first element of the list, or returns null if the list is empty
+    ●	LinkedList.pollLast() - Retrieves and removes the last element of the list, or returns null if the list is empty
+    ●	LinkedList.offerFirst(E) - Inserts the specified element at the front of the list
+    ●	LinkedList.offerLast(E) - Inserts the specified element at the end of the list
+    ●	LinkedList.push(E) - Pushes an element onto the stack represented by this list (equivalent to addFirst)
+    ●	LinkedList.pop() - Pops an element from the stack represented by this list (equivalent to removeFirst). Throws an exception if the list is empty
+
 # Queue only methods:-
     ●	QueueName.offer(E) - Inserts the specified element into the queue
     ●	QueueName.peek() - Retrieves, but does not remove, the head of the queue, or returns null if the queue is empty
@@ -96,7 +109,7 @@ Functions supported based on Collection type
     ●	DequeName.pollLast() - Removes and returns the last element of the deque, or returns null if the deque is empty
     ●	DequeName.descendingIterator() - Returns an iterator that iterates over the elements in the deque in reverse order
 
-    # Stack methods supported via Deque interface:-
+# Stack methods supported via Deque interface:-
         ●	DequeName.push(E) - Pushes an element onto the stack represented by this deque (equivalent to addFirst)
         ●	DequeName.pop() - Pops an element from the stack represented by this deque (equivalent to removeFirst). Throws an exception if the deque is empty
 
