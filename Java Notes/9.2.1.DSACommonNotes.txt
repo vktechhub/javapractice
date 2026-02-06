@@ -1,0 +1,7 @@
+Lexicographical Order, also known as alphabetic or dictionary order, orders characters as follows:
+    Eg: A < B < C < ... < Z < a < b < c < ... < z
+
+A palindrome is a word, phrase, number, or other sequence of characters which reads the same backward or forward.
+
+An anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+    Eg: "listen" is an anagram of "silent".

@@ -32,6 +32,8 @@ sanity check to see topic list
 to create topic
 .\bin\windows\kafka-topics.bat --create --topic quickstart-events --bootstrap-server localhost:9092
 
+.\bin\windows\kafka-topics.bat --bootstrap-server localhost:9092 --topic quickstart-events –alter –partitions 4
+
 CLI Producer
 .\bin\windows\kafka-console-producer.bat --topic quickstart-events --bootstrap-server localhost:9092
 
