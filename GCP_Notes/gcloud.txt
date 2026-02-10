@@ -1,0 +1,89 @@
+gcloud is the command-line tool for interacting with Google Cloud Platform (GCP). It allows you to manage your GCP resources and services from the terminal. Here are some common gcloud commands:
+*. To initialize gcloud and set up your environment:
+   ```
+   gcloud init
+   ```  THis is the first command you should run after installing gcloud. It will guide you through the process of setting up your account, selecting a default project, and configuring other settings.
+*. To authenticate with your Google account:
+   ```   gcloud auth login
+   ```
+    You can list the active account name with this command:
+    ```   gcloud auth list
+*. To list all available gcloud commands:
+    ```   gcloud help
+    ```   gcloud -h
+*. To create a new project:
+    ```   gcloud projects create [PROJECT_ID]
+    ```
+*. Config
+    The results of the gcloud config --help and gcloud help config commands are the same. They show you how to manage your gcloud configuration settings, such as setting the active project, region, and zone. Here are some common gcloud config commands:
+    To view the list of configurations in your environment:
+    ```   gcloud config list    
+    To see all properties and their settings:
+    ```   gcloud config list --all
+    To set the active project:
+    ```   gcloud config set project [PROJECT_ID]
+    To set the region to <REGION>
+    ```   gcloud config set compute/region REGION
+    Set the zone to <ZONE>:
+    ```   gcloud config set compute/zone ZONE
+    To view the project region setting, run the following command:
+    ```   gcloud config get-value compute/region
+    To view the project zone setting, run the following command:
+    ```   gcloud config get-value compute/zone
+    To view the project id for your project:
+    ```   gcloud config get-value project
+
+    You can list the project ID with this command:
+    ```   gcloud config list project
+    to view details about the project:
+    ```   gcloud compute project-info describe --project $(gcloud config get-value project)
+
+    List your components:
+    ```   gcloud components list
+
+    Set Environment Variables for Project ID:
+        Create an environment variable to store your Project ID:
+        ```   export PROJECT_ID=$(gcloud config get-value project)
+        Create an environment variable to store your Zone:
+        ```   export ZONE=$(gcloud config get-value compute/zone)
+        To verify that your variables were set properly, run the following commands:
+        ```   echo -e "PROJECT ID: $PROJECT_ID\nZONE: $ZONE"
+   To list all projects:
+    ```   gcloud projects list
+    ```
+*.  Compute Engine Instances
+    To create a new Compute Engine instance:
+    ```   gcloud compute instances create [INSTANCE_NAME] --zone=[ZONE]
+    To open help for the create command, run the following command:
+    ```   gcloud compute instances create --help
+     To list all Compute Engine instances:
+    ```   gcloud compute instances list
+    ```
+    --filter to list specific instances:
+    ```   gcloud compute instances list --filter="name=[INSTANCE_NAME]"
+    ```
+    To delete a Compute Engine instance:
+    ```   gcloud compute instances delete [INSTANCE_NAME] --zone=[ZONE]
+    ```
+*. List the firewall rules in the project:
+    ```   gcloud compute firewall-rules list
+   List the firewall rules for the default network:
+    ```   gcloud compute firewall-rules list --filter="network='default'"
+   List the firewall rules for the default network where the allow rule matches an ICMP rule:
+    ```   gcloud compute firewall-rules list --filter="NETWORK:'default' AND ALLOW:'icmp'"
+
+*. To deploy an application to App Engine:
+    ```   gcloud app deploy
+    ```
+    To list all App Engine services:
+    ```   gcloud app services list
+    ```
+    To view logs for a specific service:
+    ```   gcloud app logs read [SERVICE_NAME]
+    ```
+*. To create a new Cloud Storage bucket:
+    ```   gcloud storage buckets create [BUCKET_NAME]
+    ```
+   To list all Cloud Storage buckets:
+    ```   gcloud storage buckets list
+    ```        
