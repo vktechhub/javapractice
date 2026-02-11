@@ -53,7 +53,8 @@ gcloud is the command-line tool for interacting with Google Cloud Platform (GCP)
     ```
 *.  Compute Engine Instances
     To create a new Compute Engine instance:
-    ```   gcloud compute instances create [INSTANCE_NAME] --zone=[ZONE]
+    ```   gcloud compute instances create [INSTANCE_NAME] --zone=[ZONE] --machine-type=[MACHINE_TYPE] --image-family=[IMAGE_FAMILY] --image-project=[IMAGE_PROJECT]
+    ```
     To open help for the create command, run the following command:
     ```   gcloud compute instances create --help
      To list all Compute Engine instances:
@@ -65,12 +66,32 @@ gcloud is the command-line tool for interacting with Google Cloud Platform (GCP)
     To delete a Compute Engine instance:
     ```   gcloud compute instances delete [INSTANCE_NAME] --zone=[ZONE]
     ```
+    To connect to your VM with SSH, run the following command:
+    ```   gcloud compute ssh [INSTANCE_NAME] --zone $ZONE
+    Add a tag to the virtual machine:
+    ```   gcloud compute instances add-tags [INSTANCE_NAME] --tags [TAG_NAME] 
 *. List the firewall rules in the project:
     ```   gcloud compute firewall-rules list
    List the firewall rules for the default network:
     ```   gcloud compute firewall-rules list --filter="network='default'"
    List the firewall rules for the default network where the allow rule matches an ICMP rule:
     ```   gcloud compute firewall-rules list --filter="NETWORK:'default' AND ALLOW:'icmp'"
+    Update the firewall rule to allow:
+    ```   gcloud compute firewall-rules create [default-allow-http] --direction=INGRESS --priority=1000 --network=default --action=ALLOW --rules=tcp:80 --source-ranges=0.0.0.0/0 --target-tags=http-server
+            Here is a breakdown of the syntax and the purpose of each flag:
+                    Syntax Element 	                        Description
+                    gcloud compute firewall-rules create	The base command to create a new firewall rule resource [2].
+                    [default-allow-http]	                The name you are assigning to this specific firewall rule. This name must be unique within your project [2].
+                    --direction=INGRESS	                    Specifies that the rule applies to incoming traffic to your instances [2]. (The alternative is EGRESS, for outgoing traffic).
+                    --priority=1000	                        Determines the order in which firewall rules are evaluated. Lower numbers have higher priority and are checked first [2].
+                    --network=default	                    pecifies the VPC network the rule applies to. default is the name of the network created automatically for new projects [2].
+                    --action=ALLOW	                        Specifies the action to take when the traffic matches the rule's criteria (in this case, ALLOW the traffic) [2].
+                    --rules=tcp:80	                        The protocol and port to which the rule applies. This allows incoming traffic only on TCP port 80 (standard HTTP) [2].
+                    --source-ranges=0.0.0.0/0	            Defines the source IP addresses the rule applies to. 0.0.0.0/0 is CIDR notation for "any IP address from anywhere on the internet" [2].
+                    --target-tags=http-server	            The rule applies only to VM instances that have the network tag http-server. Instances without this tag are not affected by this rule [2].
+
+    Verify communication is possible for http to the virtual machine:
+    ```   curl http://$(gcloud compute instances list --filter=name:gcelab2 --format='value(EXTERNAL_IP)')
 
 *. To deploy an application to App Engine:
     ```   gcloud app deploy
@@ -87,3 +108,21 @@ gcloud is the command-line tool for interacting with Google Cloud Platform (GCP)
    To list all Cloud Storage buckets:
     ```   gcloud storage buckets list
     ```        
+*. To install
+    To install a specific component, run the following command:
+    ```   gcloud components install [COMPONENT_NAME]
+    ```
+    Run the following command to install NGINX:
+    ```   sudo apt-get install -y nginx
+    Run the following command to confirm that NGINX is running:
+    ```   ps auwx | grep nginx
+*. Viewing the system logs
+    View the available logs on the system:
+    ```   gcloud logging logs list
+    View the logs that relate to compute resources:
+    ```   gcloud logging logs list --filter="compute"
+    Read the logs related to the resource type of gce_instance:
+    ```   gcloud logging read "resource.type=gce_instance" --limit 5
+    Read the logs for a specific virtual machine:
+    ```   gcloud logging read "resource.type=gce_instance AND labels.instance_name='gcelab2'" --limit 5
+

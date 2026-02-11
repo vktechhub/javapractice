@@ -1,0 +1,3 @@
+Organization -> Folder -> Project -> Service based resources
+
+Service based resources are the resources that are created and managed within a project. They include things like Compute Engine instances, Cloud Storage buckets, BigQuery datasets, and more. Each service has its own set of resources that you can create and manage.
