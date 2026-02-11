@@ -1,0 +1,24 @@
+Recursion is a programming technique in which a function calls itself in order to solve a problem. It typically involves a base case that stops the recursion and a recursive case that breaks the problem into smaller subproblems.
+
+    Base case / Halting condition: The condition under which the recursion stops. It prevents infinite recursion and eventual stack overflow.
+    Recursive case: The part of the function where it calls itself with modified arguments to work towards the base case.
+
+    Use cases:-
+        * Factorial calculation
+        * Fibonacci sequence
+        * Tree traversal
+        * Backtracking algorithms
+        * Divide and conquer algorithms
+
+
+Here is an example of a recursive function to calculate the factorial of a number:
+        int result = factorial(number);
+
+    public static int factorial(int n) {
+        // Base case: if n is 0 or 1, return 1
+        if (n == 0 || n == 1) {
+            return 1;
+        }
+        // Recursive case: n! = n * (n - 1)!
+        return n * factorial(n - 1);
+    }
