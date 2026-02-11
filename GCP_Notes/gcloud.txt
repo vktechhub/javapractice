@@ -104,7 +104,7 @@ gcloud is the command-line tool for interacting with Google Cloud Platform (GCP)
     ```
 *. To create a new Cloud Storage bucket:
     ```   gcloud storage buckets create [BUCKET_NAME]
-    ```
+    ```   gcloud storage buckets create gs://[BUCKET_NAME]
    To list all Cloud Storage buckets:
     ```   gcloud storage buckets list
     ```        
