@@ -1,0 +1,30 @@
+Terraform is a tool for building, changing, and versioning infrastructure safely and efficiently. Terraform can manage existing, popular service providers and custom in-house solutions.
+
+Key features of Terraform include:
+- Infrastructure as Code
+- Execution Plans
+- Resource Graph
+- Change Automation
+
+Terraform comes pre-installed in Google Cloud Shell.
+* to verify that Terraform is available:
+``` terraform version
+```
+
+*.tf files are used to define infrastructure resources and their configurations. These files are written in HashiCorp Configuration Language (HCL) or JSON. They contain blocks that describe the desired state of your infrastructure, such as virtual machines, networks, and storage.
+
+* The first command to run for a new configuration—or after checking out an existing configuration from version control—is 
+``` terraform init
+This will initialize various local settings and data that will be used by subsequent commands. and Download and install the provider binary:
+
+* Create an execution plan:
+``` terraform plan
+Terraform performs a refresh, unless explicitly disabled, and then determines what actions are necessary to achieve the desired state specified in the configuration files.
+
+* Apply the changes
+``` terraform apply
+This command executes the actions proposed in a Terraform plan. It creates, updates, or deletes infrastructure resources as needed to match the desired state defined in the configuration files.
+
+* to inspect the current state:
+``` terraform show
+

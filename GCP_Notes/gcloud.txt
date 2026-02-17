@@ -126,3 +126,7 @@ gcloud is the command-line tool for interacting with Google Cloud Platform (GCP)
     Read the logs for a specific virtual machine:
     ```   gcloud logging read "resource.type=gce_instance AND labels.instance_name='gcelab2'" --limit 5
 
+* To enable the Gemini for Google Cloud API with the following command:
+    ```   gcloud services enable cloudaicompanion.googleapis.com
+
+    
