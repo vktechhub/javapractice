@@ -1,0 +1,181 @@
+ Interview Golden Rule (Remember This)
+    1️⃣ If array is sorted
+        → Two Pointers (pairs / triplets / range shrink)
+        → Binary Search (search value / boundary / answer space)
+    2️⃣ If problem says “all combinations / ways / generate”
+        → Recursion 
+        → Backtracking
+    3️⃣ If problem says frequency / count / uniqueness
+        → HashMap for frequency counting    
+        → HashSet (for uniqueness only)
+    4️⃣ If problem says subarray / substring (continuous)
+        → Sliding Window - fixed size (if optimization)  - subarray size is fixed or a specific window constraint is given
+        → Sliding Window - Variable size (if optimization) - maximum/minimum subarray that fits a constrain
+        → Prefix Sum (if sum queries)
+    5️⃣ If same subproblem repeats / optimal overlapping
+        → Dynamic Programming
+    6️⃣ If shortest path
+        → BFS (unweighted)
+        → Dijkstra (weighted)
+    * Others
+    Fast & Slow Pointer (Cycle Detection)
+    Min / Max in range -> Heap / Deque 
+    Optimal decision at each step -> Greedy 
+    Tree traversal DFS / BFS 
+    Graph shortest path BFS / Dijkstra
+
+3️⃣ When to Use Which Java Collection
+    ArrayList → Dynamic array, fast random access, good for lists that change size frequently.
+    LinkedList → Doubly linked list, good for frequent insertions/deletions, not ideal for random access.
+    HashSet → Unordered collection of unique elements, fast lookups, no duplicates allowed.
+    TreeSet → Sorted set of unique elements, slower than HashSet due to sorting overhead.
+    LinkedHashSet - Preserve insertion order, unique elements, slightly slower than HashSet.
+    HashMap → Key-value pairs, fast lookups, allows null keys and values, Frequency counting.
+    TreeMap → Sorted key-value pairs, slower than HashMap due to sorting overhead.
+    LinkedHashMap → Preserve insertion order, key-value pairs, slightly slower than HashMap.
+    Queue in ArrayDeque → Efficient for FIFO operations, good for BFS and level order traversal.
+    Deque in ArrayDeque → Double-ended queue, efficient for both FIFO and LIFO operations, good for sliding window problems.
+    PriorityQueue → Min-heap or max-heap, good for Scheduling, finding the Kth smallest/largest element efficiently.
+
+1️⃣ Subarray / Substring → Sliding Window
+    🔍 Clue in problem
+        * “Longest / shortest subarray”
+        * “Substring without repeating characters”
+        * Continuous portion of array/string
+
+    ✅ Examples: 
+        * To find two numbers in a sorted array that add up to a target sum
+        * Three Sum
+        * To find the maximum sum of a subarray of a fixed size
+        * To find the length of the longest subarray with a sum less than or equal to a target
+        * Remove duplicates
+        * Reverse string
+        * Container with most water
+
+    💡 Why Sliding Window?
+        You process elements only once (O(n)), expanding and shrinking a window.
+    
+    📌 Think sliding window when: continuous + optimization.
+
+2️⃣ Sorted Array → Two Pointers / Binary Search
+    2️⃣a Two Pointers
+    🔍 Clue in problem
+        * “Sorted array”
+        * “Find pairs / triplets”
+        * “Find the closest / smallest / largest pair”
+    
+    💡 Why Two Pointers?
+        You can use two pointers to efficiently find pairs/triplets in a sorted array.
+        Minimal time complexity of O(n) for finding pairs/triplets in sorted arrays.
+    
+    📌 Think two pointers when: sorted + pairs/triplets + optimization.
+
+    2️⃣b Binary Search
+    🔍 Clue in problem 
+        * “Sorted array”
+        * “Find the index of a target value”
+        * “Find the first/last occurrence of a target value”
+
+    💡 Why Binary Search
+        You can use binary search to efficiently find the index of a target value in a sorted array.
+        Minimal time complexity of O(log n) for search operations in sorted arrays.
+
+    📌 Think binary search when: sorted + search for specific value/index.
+
+3️⃣ “All combinations / ways” → Recursion / Backtracking
+    🔍 Clue in problem
+        “Find all possible…”    or    “Number of ways…” or   “Combinations / subsets / permutations”
+        Problem is naturally hierarchical
+        Divide & Conquer structure
+        Tree / graph traversal
+
+    💡 Why recursion?
+        Each choice creates another decision tree.
+
+    📌 Think recursion/backtracking when: 
+        explore all possibilities, all combinations + subsets/permutations/combinations
+
+    ❌ Avoid recursion when:
+        Depth can be very large (StackOverflow risk)   -> consider iterative + stack/queue
+        Overlapping subproblems (inefficient)         -> consider DP
+        Simple iteration is enough                 -> consider loops
+
+4️⃣ Min / Max in Range → Heap / Deque
+    🔍 Clue in problem
+        “Maximum in every window”
+        “Kth smallest / largest elements”
+
+    💡 Why Heap / Deque?
+        Heaps are efficient for maintaining min/max elements.
+        Deques are efficient for maintaining sliding window max/min.
+
+    📌 Think heap/deque when: min/max in range + sliding window + k-th element.
+    📌 Heap → top K problems
+    📌 Deque → sliding window
+
+5️⃣ Frequency / Counting → HashMap
+    🔍 Clue in problem
+        “Count occurrences”
+        “Most frequent”
+        “Anagrams”
+
+    ✅ Example: Character frequency
+
+    💡 Why HashMap?
+        HashMaps are efficient for counting and tracking frequencies of elements.
+
+    📌 Think HashMap when: counting + frequency + anagrams.
+    📌 HashMap = instant frequency tool
+
+6️⃣ Optimal Decision at Each Step → Greedy
+    🔍 Clue in problem
+        “Minimum / maximum”
+        Choice looks locally best
+        No need to reconsider previous choices
+
+    💡 Why Greedy?
+        Greedy algorithms make the optimal choice at each step, which can lead to a globally optimal solution in certain problems.
+
+    📌 Think greedy when: optimization + local optimal choice + no backtracking needed
+    📌 Greedy works only when local optimal = global optimal
+
+7️⃣ Overlapping Subproblems → Dynamic Programming (DP)
+    🔍 Clue in problem
+        Same subproblem solved repeatedly
+        Fibonacci-like structure
+
+    💡 Why DP?
+        DP stores results of subproblems to avoid redundant work, improving efficiency.
+
+    📌 Think DP when: overlapping subproblems + optimal substructure.
+    📌 DP = memoization + tabulation
+    📌 Recursion + memoization = DP
+
+8️⃣ Tree Traversal → DFS / BFS
+    🔍 Clue in problem
+        Tree / hierarchy
+        Parent-child relationships
+    
+    💡 Why DFS/BFS?
+        DFS is good for exploring all paths in a tree.
+        BFS is good for level-by-level traversal or finding the shortest path in an unweighted tree.
+
+    📌 Think DFS/BFS when: tree + traversal + parent-child relationships.
+    📌 DFS = explore all paths, BFS = level order traversal
+    📌 DFS → depth, BFS → level-wise
+
+9️⃣ Graph Shortest Path → BFS / Dijkstra
+    🔍 Clue in problem
+        Shortest path in unweighted graph → BFS
+        Shortest path in weighted graph → Dijkstra
+        Network / cities / nodes
+
+    💡 Why BFS/Dijkstra?
+        BFS is efficient for finding the shortest path in an unweighted graph.
+        Dijkstra is efficient for finding the shortest path in a weighted graph.
+
+    📌 Think BFS/Dijkstra when: graph + shortest path + weighted/unweighted.
+    📌 BFS → unweighted graphs, Dijkstra → weighted graphs
+    📌 Dijkstra = BFS + priority queue
+
+

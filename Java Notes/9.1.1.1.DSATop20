@@ -50,16 +50,20 @@ int maxSumSubarray(int[] arr, int k) {
 
 
 3️⃣ Sliding Window (Variable)
+// To find the length of the longest subarray with a sum less than or equal to a target
+// Inputs: An array of integers and a target sum
+// Output: The length of the longest subarray whose sum is less than or equal to the target sum
 int longestSubarray(int[] arr, int target) {
     int left = 0, sum = 0, max = 0;
 
+    // Expand the right pointer to include elements in the current window 
     for (int right = 0; right < arr.length; right++) {
-        sum += arr[right];
-
+        sum += arr[right];  // Add the current element to the sum
+        // If the sum exceeds the target, shrink the window from the left until the sum is less than or equal to the target
         while (sum > target) {
             sum -= arr[left++];
         }
-        max = Math.max(max, right - left + 1);
+        max = Math.max(max, right - left + 1);  // Update the maximum length of the valid subarray found so far
     }
     return max;
 }
