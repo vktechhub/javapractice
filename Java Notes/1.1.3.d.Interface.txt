@@ -68,10 +68,7 @@ interface InterfaceName {
     }
 }
 
-Single Abstract Method Interface
-    
-
-
+Single Abstract Method Interface: It is an interface that contains only one abstract method. 
 
 Functional Interface
     A functional interface is an interface that contains exactly one abstract method. 

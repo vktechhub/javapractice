@@ -4,7 +4,6 @@ Wildcards in Generics
     Wildcards are mainly used in method parameters to increase the reuse and flexibility of the code by allowing methods to accept a wider range of types with type safety.
 
 Types of Wildcards:
-
         Unbounded Wildcard
             This wildcard type is specified using the wildcard character (?)
             These are useful in the following cases -

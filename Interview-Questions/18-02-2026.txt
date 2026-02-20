@@ -1,0 +1,15 @@
+transform [1,2,[3,4,[5,6,[7,8]]]] into an array in java
+
+http session and hibernate session
+
+save vs persist in hibernate
+
+why stream api introduced in java 8
+
+intrinsic objects in java
+
+hashtable vs hashmap vs hashset
+
+put vs post in rest api
+
+what to take care when coverting a java to springboot application

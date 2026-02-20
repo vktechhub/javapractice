@@ -1,0 +1,12 @@
+Intrinsic objects are objects that are built into the Java language and are not defined by the programmer. They include primitive types (such as int, double, boolean) and their corresponding wrapper classes (such as Integer, Double, Boolean). Intrinsic objects also include special objects like null and void.
+
+
+Intrinsic objects are used to represent basic data types and special values in Java. They are not created using the new keyword and do not have methods or properties like regular objects. Instead, they are treated as fundamental building blocks of the language.
+
+Intrinsic objects are immutable, meaning their values cannot be changed once they are assigned. For example, when you create an Integer object with a value of 5, you cannot change that value to 10. Instead, you would need to create a new Integer object with the new value.
+
+Eg:     
+int x = 5; // x is an intrinsic object of type int
+Integer y = Integer.valueOf(5); // y is an intrinsic object of type Integer
+
+Intrinsic objects are stored in the stack memory, while regular objects created using the new keyword are stored in the heap memory. This is because intrinsic objects are simple and have a fixed size, while regular objects can have varying sizes and may require dynamic memory allocation.

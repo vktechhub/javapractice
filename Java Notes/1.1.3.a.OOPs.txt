@@ -31,9 +31,13 @@ The main concepts of OOP in Java are:
 2. Objects: An object is an instance of a class. It represents a real-world entity and contains data and methods to manipulate that data.
 3. Methods: Methods are functions defined within a class that describe the behaviors of the objects created from that class.
 4. Constructors: A constructor is a special method that is called when an object is instantiated. It initializes the object's properties.
-5. Inheritance: Inheritance is a mechanism that allows a new class (subclass) to inherit properties and methods from an existing class (superclass).
+5. Inheritance: Inheritance is a mechanism that allows a new class (subclass) to inherit properties and methods from an existing class (superclass).    
+    In Java supports single inheritance (a class can inherit(extends) from only one superclass) and multiple inheritance through interfaces (a class can implement multiple interfaces).
 6. Polymorphism: Polymorphism allows methods to do different things based on the object that it is acting upon. It can be achieved through method overloading and method overriding.
+    Method Overloading: Method overloading is a feature that allows a class to have more than one method with the same name, but different parameters.
+    Method Overriding: Method overriding is a feature that allows a subclass to provide a specific implementation of a method that is already defined in its superclass. The method in the subclass must have the same name, return type, and parameters as the method in the superclass.
 7. Abstraction: Abstraction is the concept of hiding the complex implementation details and showing only the essential features of an object.
+    In Java can be achieved through abstract classes and interfaces. An abstract class cannot be instantiated and may contain abstract methods (methods without a body) that must be implemented by subclasses. An interface is a reference type that can contain only abstract methods and constants, and it can be implemented by any class, from any inheritance tree.
 8. Encapsulation: Encapsulation is the technique of wrapping data (attributes) and methods (behaviors) together in a single unit (class) and restricting access to some of the object's components.
 9. Interfaces: An interface is a reference type in Java that defines a contract for classes to implement. It contains abstract methods that must be implemented by the classes that implement the interface.
 10. Packages: A package is a namespace that organizes a set of related classes and interfaces. It helps in avoiding name conflicts and controlling access.

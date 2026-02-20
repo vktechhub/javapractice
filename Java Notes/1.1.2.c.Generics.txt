@@ -6,6 +6,8 @@ here String is the type parameter for the generic class List.
 
 ✅ 2. Key Concepts of Generics
 
+Generics were introduced in Java 5 to provide stronger type checks at compile time and to support generic programming. They allow you to create classes, interfaces, and methods that operate on a specified type, providing type safety and eliminating the need for casting.
+
 ✅ Generics are type parameters, not data types themselves.
 Generics are not a separate data type category, as they are a feature of reference types (specifically, of classes, interfaces, and methods) that work with different data types safely (type-safe, compile-time checking).
 

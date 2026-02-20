@@ -22,6 +22,9 @@ The main method is the entry point of any Java application. It must be defined a
     }
 5. Fields and Methods
 Inside the class body, you can define fields (variables) and methods (functions) that define the behavior of the class.
+    What is a Field? A field (also known as a variable, attribute, property, or member) is a data member of a class that holds a value. It can be of any data type..
+    What is a Method? A method (also known as a function) is a block of code that performs a specific task. It can take parameters as input, return a value. Methods define the behavior of the class and can be called to perform actions or computations.
+    
 Example 
     public class MyClass {
         // Field or Variable or Attribute or Property or Member 

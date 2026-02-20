@@ -1,13 +1,11 @@
 Naming Rules 
 
 ✍️ 0. General / Common Rules for Naming in Java
-        Cannot start with a number.
         Cannot be a Java keyword.
-        No spaces allowed.
-        No special characters except _ and $.
-        Must start with a letter, _, or $.
-        Cannot be null or empty.
         Case-sensitive: studentName and StudentName are different.
+        No spaces allowed. Cannot be null or empty.
+        No special characters except _ and $.
+        Must start with a letter, _, or $. Cannot start with a number.
         Choose meaningful names that reflect the purpose of the variable, class, package, or constant.
         Avoid using single-character names except for loop counters (i, j, k).
 

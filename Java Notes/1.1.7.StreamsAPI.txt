@@ -44,6 +44,32 @@ Key Concepts of Java Streams API:
             // 5. from i/o channels (Files.lines(Path path))
             Stream<String> stream5 = Files.lines(Paths.get("file.txt"));
 
+            // 6. From a Supplier (using Stream.generate())
+            Stream<Double> randomNumbers = Stream.generate(Math::random).limit(5);
+
+            // 7. From a custom source (e.g., Kafka or other messaging systems)
+            // Stream<String> kafkaStream = KafkaConsumer.createStream(...);
+
+            // 8. From a String (using chars() or codePoints())
+            Stream<Character> charStream = "Hello".chars().mapToObj(c -> (char) c);
+            charStream.forEach(System.out::println);
+
+            // 9. From a Range of Numbers (using IntStream.range())
+            IntStream intStream = IntStream.range(1, 10); // 1 to
+            intStream.forEach(System.out::println);
+
+            // 10. From a Stream Builder
+            Stream<String> stream6 = Stream.<String>builder()
+                                        .add("A")
+                                        .add("B")
+                                        .add("C")
+                                        .build();
+
+            // 11. From a Stream of Primitives (using IntStream, LongStream, DoubleStream)
+            IntStream intStream2 = IntStream.of(1, 2, 3, 4, 5);
+            intStream2.forEach(System.out::println);
+
+
 3. Stream Pipeline
     A Stream Pipeline defines how data flows through different stages. It has three parts:
 

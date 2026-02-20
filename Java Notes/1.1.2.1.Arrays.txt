@@ -21,6 +21,18 @@ Here are some key points about arrays in Java:
          {7, 8, 9}
      };
      ```
+   // nested arrays can be accessed using multiple indices, e.g., `matrix[0][1]` accesses the element in the first row and second column.
+      int[][][] nestedArray = {
+         {
+             {1, 2}, 
+             {3, 4}
+         },
+         {
+             {5, 6}, 
+             {7, 8}
+         }
+     };
+     
 5. **Iterating Over Arrays**:
    - Arrays can be iterated using loops, such as `for`, `while`, or enhanced `for` loop:
      ```java

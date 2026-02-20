@@ -1,6 +1,6 @@
 🧩 Core Functional Interfaces in java.util.function:-These are the most common and versatile built-in functional interfaces: 
 
-1. **Consumer<T>**
+1. **Consumer<T>** -> has accept method as its abstract method
    - Perform an action on an input without returning a result.
    - Takes one input parameter (of Type T) and returns no result (void). 
    - It is used to perform an action (side effect) on an input, such as printing to the console or writing to a file.
@@ -9,7 +9,7 @@
           Consumer<String> print = s -> System.out.println(s);
           print.accept("some text");
 
-2. **Function<T, R>**
+2. **Function<T, R>** -> has apply method as its abstract method
    - Perform an action to Transform input to output
    - Takes one input parameter (of Type T) and returns a value (of Type R).
    - It is commonly used for data transformation or mapping from one type to another.
@@ -18,7 +18,7 @@
             Function<String, Integer> stringToLength = String::length;`
             Integer length = stringToLength.apply("Hello");
 
-3. **Supplier<T>**
+3. **Supplier<T>** -> has get method as its abstract method
    - Supply or generate a value
    - Without taking any input parameter and returns a value (of Type T).
    - It is used to generate or supply values, often for lazy evaluation or factory methods.
@@ -27,7 +27,7 @@
           Supplier<Double> randomValue = () -> Math.random();
           Double randomNumber = randomValue.get();
 
-4. **Predicate<T>**
+4. **Predicate<T>** -> has test method as its abstract method
    - Performs an action that tests a condition
    -  on a one input parameter (of Type T) and returns a boolean result (of Type boolean either true or false).
    - It is commonly used for filtering or conditional checks.

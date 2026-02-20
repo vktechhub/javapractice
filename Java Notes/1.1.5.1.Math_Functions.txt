@@ -6,4 +6,10 @@ Math functions:-
         double out = Math.pow(base, exponent);
         int out = (int) Math.pow(base, exponent);
 
+    Min and Max:-
+        int x = 5; y = 2;
+        Math.max(x, y); // returns the maximum of x and y
+        Math.min(x, y); // returns the minimum of x and y
+
+
 

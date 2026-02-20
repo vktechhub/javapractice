@@ -9,7 +9,7 @@ How it is created:-
         * Deque allows insertion and removal of elements from both ends.
     * Map stores key-value pairs and does not allow duplicate keys.
         * Map does not extend Collection interface.
-    * Map is used to store key-value pairs. List, Set, Queue, Deque are used to store single elements.
+    * Map is used to store key-value pairs. Collections: List, Set, Queue, Deque are used to store single elements.
         
 Implementation:- 
     * ArrayList, LinkedList, CopyOnWriteArrayList, Vector, Stack are implementations of the List interface.
