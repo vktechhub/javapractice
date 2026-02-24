@@ -1,0 +1,74 @@
+Java
+    Below version 8:
+        * OOPS
+        * Collections Framework
+        * Multithreading
+        * Exception Handling
+        * Generics
+        * Java Memory Management
+        * Java I/O
+        * Java Concurrency
+        * Java Reflection
+        * Java Annotations
+        * Java Networking
+    Version 8:
+        * Default Methods in Interfaces
+        * Stream API
+        * Functional Interfaces
+        * Lambda Expressions
+    updates till Version 17:
+        * Records
+        * Sealed Classes
+        * Pattern Matching for instanceof
+        * Text Blocks
+        * Switch Expressions
+
+
+    Version 21 & 23:
+        * Virtual Threads
+        * Structured Concurrency
+        * Project Loom
+        * Project Panama
+        * Project Valhalla
+        * Project Amber
+        * Project Metropolis
+
+    Version 25:
+        * Project Lilliput
+        * Project Leyden
+        * Project Kestrel
+        * Project Strix
+        * Project Valhalla (continued)
+
+SpringBoot
+    * Dependency Injection
+    * Spring MVC
+    * Spring Data JPA
+    * Spring Security
+    * Spring Boot Actuator
+    * Spring Boot DevTools
+
+
+Microservices
+    * Service Discovery
+    * API Gateway
+    * Circuit Breaker
+    * Load Balancing
+    * Distributed Tracing
+    * Containerization (Docker, Kubernetes)
+    * Event-Driven Architecture
+
+RDBMS
+    * Data partitioning 
+        sequencial 
+        vertical
+
+
+NoSQL
+
+
+
+Design Patterns
+
+
+Data Structures and Algorithms
