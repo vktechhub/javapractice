@@ -1,6 +1,11 @@
 Multi threading in Java is a powerful feature that allows concurrent execution of two or more threads. 
 
-A thread is a lightweight subprocess, the smallest unit of processing that can be scheduled by an operating system. 
+A thread is a lightweight subprocess, the smallest unit of processing in Java. 
+    * Each thread runs in the context of a process and shares the process's resources, such as memory and file handles.
+    * Multithreading enables a program to perform multiple tasks simultaneously, improving the efficiency and responsiveness of applications, especially those that involve I/O operations or require a responsive user interface.
+    * Multithreading can be used to perform tasks such as background processing, parallel computations, and handling multiple user requests in web applications. It is essential for developers to understand how to create, manage, and synchronize threads to avoid issues such as race conditions, deadlocks, and thread starvation, which can arise when multiple threads access shared resources without proper synchronization.
+    * Multithreading ensures better CPU utilization by executing tasks simultaneously.
+    * Synchronization is needed to prevent data inconsistency when threads share resources.
 
 Java provides built-in support for multithreading through the `java.lang.Thread` class and the `java.lang.Runnable` interface.
 
@@ -93,7 +98,7 @@ Related Terminologies:-
     * thread-safe: Code that can be safely executed by multiple threads at the same time without causing data inconsistency.
     * mutable state: An object whose state can be changed after it is created.
     * Immutable state: An object whose state cannot be changed after it is created.
-    * Race Condition: A situation where the outcome of a program depends on the timing or sequence of uncontrollable events, such as thread scheduling.
+
 
 - Note: When using concurrent execution, ensure that your tests are thread-safe and do not share mutable state that could lead to race conditions.
 
@@ -101,6 +106,8 @@ Related Terminologies:-
     * Thread Scheduler: A component of the operating system that manages the execution of threads.
 
     * Context Switching: The process of storing and restoring the state of a thread so that execution can be resumed from the same point later.
+    
+    * Race Condition: A situation where the outcome of a program depends on the timing or sequence of uncontrollable events, such as thread scheduling.
     * Deadlock: A situation where two or more threads are blocked forever, waiting for each other.
     * Starvation: A situation where a thread is perpetually denied access to resources it needs for execution.
     * Thread Priority: Each thread has a priority that helps the thread scheduler decide the order of thread execution.
@@ -110,19 +117,19 @@ How to find thread information
     * Thread Name: You can get the name of the current thread using `Thread.currentThread().getName()`.
     * Thread ID: Each thread has a unique ID that can be obtained using `Thread.currentThread().getId()`.
     * Thread Priority: You can get the priority of the current thread using `Thread.currentThread().getPriority()`.
-Example:
-public class ThreadInfoExample {
-    public static void main(String[] args) {
-        Thread t1 = new Thread(() -> {
-            for (int i = 0; i < 5; i++) {
-                System.out.println("Thread Name: " + Thread.currentThread().getName());
-                System.out.println("Thread ID: " + Thread.currentThread().getId());
-                System.out.println("Thread Priority: " + Thread.currentThread().getPriority());
+            Example:
+            public class ThreadInfoExample {
+                public static void main(String[] args) {
+                    Thread t1 = new Thread(() -> {
+                        for (int i = 0; i < 5; i++) {
+                            System.out.println("Thread Name: " + Thread.currentThread().getName());
+                            System.out.println("Thread ID: " + Thread.currentThread().getId());
+                            System.out.println("Thread Priority: " + Thread.currentThread().getPriority());
+                        }
+                    });
+                    t1.start();
+                }
             }
-        });
-        t1.start();
-    }
-}
 
 Thread Synchronization
 When multiple threads access shared resources, it can lead to data inconsistency. To prevent this, Java provides synchronization mechanisms. 

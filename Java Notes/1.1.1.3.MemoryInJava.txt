@@ -37,3 +37,15 @@ When a Java program is executed, the JVM allocates memory for variables and obje
 2. Heap Memory Allocation:
    - When an object is created using the new keyword, memory for that object is allocated in the heap.
    - The reference to that object is returned and stored in the stack memory.
+
+Java Memory Management
+------------------------------
+Java uses a garbage collection mechanism to manage memory in the heap. The garbage collector automatically identifies and removes objects that are no longer referenced by the program, freeing up memory for new objects. This helps prevent memory leaks and ensures efficient memory usage.
+        * The garbage collector runs in the background and can be triggered when the heap memory is full or when the JVM determines that it is necessary.
+        * Developers can also suggest garbage collection by calling System.gc(), but it is not guaranteed to run immediately. 
+                * It will start the garbage collection process, but the JVM may choose to ignore the request or delay it based on its own optimization strategies.
+        * Proper memory management and understanding of stack and heap memory can help developers optimize their Java applications for better performance and resource utilization.
+        * It is important to note that while stack memory is automatically managed and deallocated when a method finishes execution, heap memory requires careful management to avoid memory leaks and ensure efficient use of resources.
+
+
+In summary, understanding the differences between stack and heap memory is crucial for Java developers to write efficient and optimized code. Stack memory is used for method execution and primitive data types, while heap memory is used for dynamic object allocation. Proper memory management can lead to better performance and resource utilization in Java applications.

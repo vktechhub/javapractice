@@ -2,6 +2,7 @@ Java
     Below version 8:
         * OOPS
         * Collections Framework
+        * String Handling
         * Multithreading
         * Exception Handling
         * Generics
