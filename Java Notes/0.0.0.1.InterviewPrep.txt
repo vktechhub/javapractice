@@ -60,9 +60,14 @@ Microservices
 
 RDBMS
     * Data partitioning 
-        sequencial 
+        sequencial
         vertical
-
+    * Indexing
+    * Normalization
+    * Transactions
+    * ACID properties
+    * CURD operations
+    * 
 
 NoSQL
 
