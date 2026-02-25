@@ -3,6 +3,17 @@ Annotations are special reference data types that act as metadata — they descr
 not part of the code logic itself to execute it.
 They tell the compiler, IDE, tools, or frameworks or runtime environment to understand how to handle certain pieces of code.
 ✅ Think of them as labels or tags attached to your code that can influence its behavior or provide information to other tools/frameworks.
+✅ They are defined using the @interface keyword and can have elements (like methods) to hold values.
+✅ Annotations can be retained at different levels (SOURCE, CLASS, RUNTIME) depending on how long you want them to be available.
+✅ Common built-in annotations include @Override, @Deprecated, @SuppressWarnings, and @FunctionalInterface, which serve specific purposes in code safety, readability, and framework integration.
+✅ Custom annotations can also be created to provide specific metadata for your applications, and they can be processed at compile-time or runtime using reflection.
+✅ Overall, annotations are a powerful tool in Java that enhance code readability, maintainability, and integration with various frameworks and tools.
+✅ They allow developers to write cleaner and more efficient code by providing additional information about the code's intent and behavior without affecting the actual logic of the program.
+✅ When used effectively, annotations can significantly improve the development process and the quality of the codebase by reducing boilerplate code, preventing common mistakes, and enabling better integration with libraries and frameworks.
+✅ It's important to use annotations judiciously, as overusing them or using them inappropriately can lead to confusion and make the code harder to understand. Always ensure that the annotations you use are relevant and provide meaningful information about the code they are attached to.
+✅ In summary, annotations are a fundamental part of modern Java programming, providing a way to add metadata to your code that can be used by the compiler, tools, and frameworks to enhance the functionality and maintainability of your applications.
+✅ Annoations will begin with @ and can be applied to classes, methods, fields, parameters, constructors, and even local variables. They are a key feature in Java that allows for better code organization and integration with various libraries and frameworks.
+✅ Annotations will start with Uppercase letter and are defined using the @interface keyword. They can have elements (like methods) to hold values, and they can be retained at different levels (SOURCE, CLASS, RUNTIME) depending on how long you want them to be available.
 
 🧾 Summary Table
 Aspect	            Description

@@ -13,13 +13,12 @@ public int[] twoSum(int[] arr, int target) {
             // If match found, return the indices of the two numbers
             return new int[]{l, r};
         }
+        // the array is sorted,
         // If the sum is less than the target, move the left pointer to the right to increase the sum
-        // why ? because the array is sorted, so moving the left pointer to the right will increase the sum
+        // If the sum is greater than the target, move the right pointer to the left to decrease the sum
         if (sum < target) {
             l++;
         } 
-        // If the sum is greater than the target, move the right pointer to the left to decrease the sum
-        // why ? because the array is sorted, so moving the right pointer to the left will decrease the sum
         else {
             r--;
         }
@@ -30,9 +29,9 @@ public int[] twoSum(int[] arr, int target) {
 
 
 2️⃣ Sliding Window (Fixed)
-// To find the maximum sum of a subarray of a fixed size
+// To find the maximum sum of a contiguous subarray of a fixed size
 // Inputs: An array of integers and the size of the subarray (k)
-// Output: The maximum sum of any subarray of size k
+// Output: The maximum sum of any contiguous subarray of size k
 
 int maxSumSubarray(int[] arr, int k) {
     int sum = 0;
@@ -40,17 +39,17 @@ int maxSumSubarray(int[] arr, int k) {
     for (int i = 0; i < k; i++) sum += arr[i];
 
     int max = sum;
-    // Slide the window across the array, updating the sum by adding the next element and removing the first element of the previous window
+    // Slide the window across the array
     for (int i = k; i < arr.length; i++) {
-        sum += arr[i] - arr[i - k];
-        max = Math.max(max, sum);
+        sum += arr[i] - arr[i - k]; // Update the sum by adding the next element and removing the first element of the previous window
+        max = Math.max(max, sum);   // Update the maximum sum found so far
     }
     return max;
 }
 
 
 3️⃣ Sliding Window (Variable)
-// To find the length of the longest subarray with a sum less than or equal to a target
+// To find the length of the longest contiguous subarray with a sum less than or equal to a target
 // Inputs: An array of integers and a target sum
 // Output: The length of the longest subarray whose sum is less than or equal to the target sum
 int longestSubarray(int[] arr, int target) {
@@ -61,14 +60,20 @@ int longestSubarray(int[] arr, int target) {
         sum += arr[right];  // Add the current element to the sum
         // If the sum exceeds the target, shrink the window from the left until the sum is less than or equal to the target
         while (sum > target) {
-            sum -= arr[left++];
+            sum = sum - arr[left];  // Remove the leftmost element from the sum
+            left++;  // Move the left pointer to the right to shrink the window
         }
         max = Math.max(max, right - left + 1);  // Update the maximum length of the valid subarray found so far
     }
     return max;
 }
 
-4️⃣ Fast & Slow Pointer (Cycle Detection)
+4️⃣ Fast & Slow Pointer (Cycle Detection) - (Floyd’s Tortoise and Hare algorithm)
+    // To determine if a linked list has a cycle and to find the starting node of the cycle if it exists
+    // cycle means that a bottom node in the linked list points back to a previous node, creating a loop
+    // Input: The head of a linked list
+    // Output: True if there is a cycle in the linked list, otherwise false
+
 boolean hasCycle(ListNode head) {
     ListNode slow = head, fast = head;
 
@@ -81,10 +86,13 @@ boolean hasCycle(ListNode head) {
 }
 
 5️⃣ Binary Search
+// To find the index of a target value in a sorted array
+// Inputs: A sorted array of integers and a target value
+// Output: The index of the target value if found, otherwise -1
 int binarySearch(int[] arr, int target) {
     int l = 0, r = arr.length - 1;
     while (l <= r) {
-        int mid = l + (r - l) / 2;
+        int mid = l + (r - l) / 2;  // Calculate the middle index to avoid overflow
         if (arr[mid] == target) return mid;
         if (arr[mid] < target) l = mid + 1;
         else r = mid - 1;
@@ -93,6 +101,9 @@ int binarySearch(int[] arr, int target) {
 }
 
 6️⃣ DFS (Tree)
+// To perform a depth-first search on a binary tree
+// Input: The root of the binary tree
+// Output: None (the function processes nodes as it visits them)
 void dfs(TreeNode root) {
     if (root == null) return;
     dfs(root.left);
@@ -122,6 +133,9 @@ List<List<Integer>> levelOrder(TreeNode root) {
 }
 
 8️⃣ Backtracking (Subsets)
+// To generate all possible subsets of a given set of integers
+// Input: An array of integers
+// Output: A list of all possible subsets (the power set) of the input array
 void subsets(int[] nums, int index, List<Integer> curr, List<List<Integer>> res) {
     if (index == nums.length) {
         res.add(new ArrayList<>(curr));
@@ -152,16 +166,22 @@ int[][] merge(int[][] intervals) {
 }
 
 🔟 Heap (Top K)
+// To find the k-th largest element in an unsorted array
+// Inputs: An array of integers and an integer k
+// Output: The k-th largest element in the array
 int findKthLargest(int[] nums, int k) {
-    PriorityQueue<Integer> pq = new PriorityQueue<>();
+    PriorityQueue<Integer> pq = new PriorityQueue<>();  // stores in ascending order (min-heap)
     for (int n : nums) {
         pq.add(n);
-        if (pq.size() > k) pq.poll();
+        if (pq.size() > k) pq.poll();   // poll fetches the smallest element in the min-heap, ensuring that only the k largest elements remain in the heap
     }
     return pq.peek();
 }
 
 1️⃣1️⃣ HashMap Frequency
+// To count the frequency of each integer in an array
+// Input: An array of integers
+// Output: A HashMap where the keys are the integers from the array and the values are their corresponding frequencies
 Map<Integer, Integer> frequency(int[] nums) {
     Map<Integer, Integer> map = new HashMap<>();
     for (int n : nums) {
@@ -171,8 +191,11 @@ Map<Integer, Integer> frequency(int[] nums) {
 }
 
 1️⃣2️⃣ Monotonic Stack (Next Greater Element)
+// To find the next greater element for each element in an array
+// Input: An array of integers
+// Output: An array where each element is the next greater element of the corresponding input element, or -1 if there is no greater element
 int[] nextGreater(int[] nums) {
-    Stack<Integer> stack = new Stack<>();
+    Stack<Integer> stack = new Stack<>();   // Stack to keep track of the next greater elements
     int[] res = new int[nums.length];
 
     for (int i = nums.length - 1; i >= 0; i--) {
@@ -185,7 +208,29 @@ int[] nextGreater(int[] nums) {
     return res;
 }
 
+// Alternate version without using a stack - using modern collections and a more concise approach
+// To find the next greater element for each element in an array
+// Input: An array of integers
+// Output: An array where each element is the next greater element of the corresponding input element, or -1 if there is no greater element
+int[] nextGreater(int[] nums) {
+    Deque<Integer> stack = new ArrayDeque<>();  // Deque used as a stack to keep track of the next greater elements
+    int[] res = new int[nums.length];
+
+    for (int i = nums.length - 1; i >= 0; i--) {
+        while (!stack.isEmpty() && stack.peek() <= nums[i])
+            stack.pop();
+
+        res[i] = stack.isEmpty() ? -1 : stack.peek();
+        stack.push(nums[i]);
+    }
+    return res;
+}
+
+
 1️⃣3️⃣ Kadane’s Algorithm (Max Subarray)
+// To find the maximum sum of a contiguous subarray within a one-dimensional array of integers
+// Input: An array of integers
+// Output: The maximum sum of any contiguous subarray
 int maxSubArray(int[] nums) {
     int max = nums[0], curr = nums[0];
 
@@ -197,6 +242,9 @@ int maxSubArray(int[] nums) {
 }
 
 1️⃣4️⃣ Prefix Sum
+// To compute the prefix sum of an array
+// Input: An array of integers
+// Output: An array where each element is the sum of all previous elements including itself
 int[] prefixSum(int[] arr) {
     int[] prefix = new int[arr.length];
     prefix[0] = arr[0];
@@ -206,6 +254,9 @@ int[] prefixSum(int[] arr) {
 }
 
 1️⃣5️⃣ DP (0/1 Knapsack)
+// To solve the 0/1 Knapsack problem
+// Input: Arrays of weights and values, and the maximum weight capacity
+// Output: The maximum value that can be obtained without exceeding the weight capacity
 int knapsack(int[] wt, int[] val, int W) {
     int n = wt.length;
     int[][] dp = new int[n+1][W+1];

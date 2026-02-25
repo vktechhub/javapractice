@@ -1,0 +1,36 @@
+Java Virtual Threads are a lightweight implementation of threads in Java, designed to provide a more efficient and scalable way to handle concurrent tasks. They are part of the Project Loom initiative, which aims to improve the concurrency model in Java.
+Virtual Threads are created using the `java.lang.Thread` class, but they are managed by the Java Virtual Machine (JVM) rather than the operating system. This allows them to be much more lightweight than traditional threads, as they do not require a separate stack or native thread resources.
+Virtual Threads are designed to be used in scenarios where there are a large number of concurrent tasks, such as in server applications or when performing I/O operations. They can help to improve the performance and scalability of applications by allowing more tasks to be executed concurrently without the overhead of traditional threads.
+
+To create a virtual thread, you can use the `Thread.startVirtualThread()` method, which creates and starts a new virtual thread. For example:
+```javaThread virtualThread = Thread.startVirtualThread(() -> {
+    // Your concurrent task here
+    System.out.println("This is a virtual thread!");
+}); 
+virtualThread.join(); // Wait for the virtual thread to finish
+```In this example, we create a virtual thread that executes a simple task of printing a message to the console. The `join()` method is used to wait for the virtual thread to complete before the main thread continues execution.
+
+Thread.start() vs Thread.startVirtualThread():The `Thread.start()` method is used to create and start a traditional thread, which is managed by the operating system. In contrast, the `Thread.startVirtualThread()` method creates and starts a virtual thread, which is managed by the JVM. Virtual threads are much more lightweight than traditional threads, allowing for a larger number of concurrent tasks without the overhead associated with traditional threads. Additionally, virtual threads are designed to be more efficient in handling I/O-bound tasks, as they can yield control when waiting for I/O operations to complete, allowing other tasks to execute in the meantime.
+
+Virtual Threads can also be used with the `java.util.concurrent` package, allowing you to take advantage of existing concurrency utilities such as `ExecutorService` and `CompletableFuture`. For example:```java
+ExecutorService executor = Executors.newVirtualThreadExecutor();
+executor.submit(() -> {
+    // Your concurrent task here
+    System.out.println("This is a virtual thread using ExecutorService!");
+});
+executor.shutdown(); // Shutdown the executor after use
+```In this example, we create a virtual thread executor using `Executors.newVirtualThreadExecutor()`, and then submit a task to be executed in a virtual thread. After submitting the task, we shut down the executor to release resources.
+
+
+CompletableFuture:
+Virtual Threads can also be used with `CompletableFuture` to handle asynchronous tasks more efficiently. For example:```java
+CompletableFuture.runAsync(() -> {
+    // Your concurrent task here
+    System.out.println("This is a virtual thread using CompletableFuture!");
+}, Executors.newVirtualThreadExecutor());```In this example, we use `CompletableFuture.runAsync()` to execute a task asynchronously in a virtual thread. We provide a virtual thread executor to ensure that the task runs in a virtual thread, allowing for efficient handling of concurrent tasks without blocking the main thread.
+
+Overall, Java Virtual Threads provide a powerful and efficient way to handle concurrency in Java applications, allowing developers to write more scalable and responsive code without the overhead of traditional threads. They are particularly beneficial in scenarios with a high number of concurrent tasks, such as web servers, database connections, and other I/O-bound operations.
+It's important to note that while virtual threads are lightweight, they still require careful management to avoid issues such as resource exhaustion or deadlocks. Developers should ensure that they are properly handling thread lifecycles and synchronizing access to shared resources when using virtual threads in their applications.
+
+In summary, Java Virtual Threads are a significant advancement in the Java concurrency model, providing a more efficient and scalable way to handle concurrent tasks. They allow developers to write more responsive and scalable applications without the overhead of traditional threads, making them an essential tool for modern Java development.
+
