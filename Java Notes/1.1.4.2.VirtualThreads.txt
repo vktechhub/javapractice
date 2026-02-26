@@ -2,6 +2,11 @@ Java Virtual Threads are a lightweight implementation of threads in Java, design
 Virtual Threads are created using the `java.lang.Thread` class, but they are managed by the Java Virtual Machine (JVM) rather than the operating system. This allows them to be much more lightweight than traditional threads, as they do not require a separate stack or native thread resources.
 Virtual Threads are designed to be used in scenarios where there are a large number of concurrent tasks, such as in server applications or when performing I/O operations. They can help to improve the performance and scalability of applications by allowing more tasks to be executed concurrently without the overhead of traditional threads.
 
+Creation Methods
+    * Thread.startVirtualThread(() -> { ... });
+    * Thread.ofVirtual().start(() -> { ... });
+    * Executors.newVirtualThreadPerTaskExecutor(); 
+
 To create a virtual thread, you can use the `Thread.startVirtualThread()` method, which creates and starts a new virtual thread. For example:
 ```javaThread virtualThread = Thread.startVirtualThread(() -> {
     // Your concurrent task here
