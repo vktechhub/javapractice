@@ -168,6 +168,25 @@ Golang Syntax and Basics:-
                 }
                 ```
 
+        * List in Table Variable Type, Default Value, size, Min and Max values
+            | Variable Type | Default Value | Size (bits) | Min Value | Max Value |
+            |---------------|---------------|-------------|-----------|-----------|
+            | int           | 0             | 32 or 64    | -2^31     | 2^31-1    |
+            | int8          | 0             | 8           | -128      | 127       |
+            | int16         | 0             | 16          | -32768    | 32767     |
+            | int32         | 0             | 32          | -2147483648| 2147483647|
+            | int64         | 0             | 64          | -9223372036854775808| 9223372036854775807|
+            | uint          | 0             | 32 or 64    | 0         | 2^32-1 or 2^64-1 |
+            | uint8         | 0             | 8           | 0         | 255       |
+            | uint16        | 0             | 16          | 0         | 65535     |
+            | uint32        | 0             | 32          | 0         | 4294967295|
+            | uint64        | 0             | 64          | 0         | 18446744073709551615|
+            | float32       | 0.0           | 32          | -3.4e38   | 3.4e38    |
+            | float64       | 0.0           | 64          | -1.7e308  | 1.7e308   |
+            | bool          | false         | 1            | N/A       | N/A       |
+            | string        | ""            | N/A          | N/A       | N/A       |
+            ```
+
         * Variable Scope
             In Go, the scope of a variable is determined by where it is declared. Variables declared inside a function are local to that function and cannot be accessed outside of it. Variables declared at the package level (outside of any function) are global and can be accessed from any function within the same package. Additionally, variables declared within a block (e.g., inside an if statement or for loop) are only accessible within that block.
 
