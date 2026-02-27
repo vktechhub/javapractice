@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CJ_NullReturn",
+            "request": "launch",
+            "mainClass": "CJ_NullReturn",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "SP_SPEL",
             "request": "launch",
             "mainClass": "SP_SPEL",

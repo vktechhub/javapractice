@@ -7,9 +7,7 @@
         2. Performance:- Since Strings are immutable, they can be safely shared between multiple threads without the need for synchronization. This can lead to significant performance improvements in multi-threaded applications.
         3. Caching:- The immutability of Strings allows Java to implement a String pool, which is a cache of frequently used String objects. When a new String is created, Java first checks the String pool to see if an identical String already exists. If it does, Java simply returns a reference to the existing String instead of creating a new one. This can lead to significant memory savings and performance improvements.
 
-
 String Methods
-
 Basic:-
         str.length()  - length of a string
         str.isEmpty() - Check if the String is empty

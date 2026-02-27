@@ -1,28 +1,33 @@
 Java Program Structure
 A Java program is made up of one or more classes. Each class is defined in its own file with a .java extension. The basic structure of a Java program includes the following components:
+
 1. Package Declaration (optional):
 If the class is part of a package, the package declaration must be the first line in the file.
 Example 
     package com.example.myapp;
+
 2. Import Statements (optional):
 Import statements are used to bring other classes or entire packages into the current file.
 Example 
     import java.util.List;
     import java.util.ArrayList;
+
 3. Class Declaration
 Every Java program must have at least one class. The class declaration includes the class name and its body enclosed in curly braces.
 Example 
     public class MyClass {
         // class body
     }
+
 4. Main Method
 The main method is the entry point of any Java application. It must be defined as follows:
     public static void main(String[] args) {
         // code to be executed
     }
+
 5. Fields and Methods
 Inside the class body, you can define fields (variables) and methods (functions) that define the behavior of the class.
-    What is a Field? A field (also known as a variable, attribute, property, or member) is a data member of a class that holds a value. It can be of any data type..
+    What is a Field? A field (also known as a variable, attribute, property, or member) is a data member of a class that holds a value. It can be of any data type.
     What is a Method? A method (also known as a function) is a block of code that performs a specific task. It can take parameters as input, return a value. Methods define the behavior of the class and can be called to perform actions or computations.
     
 Example 
