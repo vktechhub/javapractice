@@ -1,0 +1,2 @@
+# Except all .exe files in all directories
+!**/*.exe
