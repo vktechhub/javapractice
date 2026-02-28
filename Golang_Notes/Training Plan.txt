@@ -1,0 +1,268 @@
+LEVEL 1 — Go Developer Foundation (Project-Ready)
+
+    Outcome:
+    After Level 1, the learner can build REST APIs, connect to DB, handle files, write tests, containerize apps, and deploy to cloud.
+
+1️⃣ Go Fundamentals
+Language Core
+    Go philosophy & design principles
+    Installation, Go workspace, modules (go mod)
+    Go toolchain overview:
+        go build
+        go run
+        go test
+        go fmt
+        go vet
+        go mod tidy
+        go clean
+        Cross compilation (GOOS, GOARCH)
+    Package structure & module management
+    Variables, constants
+    Data types
+    Pointers
+    Structs
+    Methods
+    Interfaces
+    Error handling patterns
+    Control structures
+Memory & Execution Model
+    Stack vs Heap
+    Garbage Collector basics
+    Value vs reference types
+    Escape analysis (intro)
+
+2️⃣ Concurrency (Core Strength of Go)
+    Goroutines
+    Channels (buffered/unbuffered)
+    Select statement
+    WaitGroups
+    Mutex / RWMutex
+    Context package (cancellation, timeouts)
+    Worker pool pattern
+    Race conditions (-race flag)
+
+3️⃣ Project Structure & Clean Code
+    Standard project layout
+    Layered architecture (Handler → Service → Repository)
+    Dependency Injection (manual)
+    Logging (log package, structured logging)
+    Configuration management (env variables)
+    12-Factor app principles
+    Go coding standards
+
+4️⃣ REST API Development
+    net/http package
+    Routing (Gorilla Mux / Chi)
+    Middleware
+    JSON encoding/decoding
+    Request validation
+    API versioning
+    Pagination
+    Security Basics
+        JWT authentication
+        Password hashing (bcrypt)
+        CORS handling
+        Basic rate limiting
+
+5️⃣ Database Handling
+    SQL
+        database/sql
+        PostgreSQL / MySQL
+        Connection pooling
+        Transactions
+        Prepared statements
+    ORM (Optional)
+        GORM basics
+    NoSQL (Intro)
+        MongoDB driver basics
+
+6️⃣ File Handling
+    Reading/Writing files
+    Streaming large files
+    File upload API
+    CSV handling
+    JSON file parsing
+
+7️⃣ Testing
+    Unit testing (testing package)
+    Table-driven tests
+    Mocking
+    Test coverage
+    Benchmarking
+
+8️⃣ DevOps & Cloud Overview (Foundation)
+    What is DevOps?
+    CI/CD basics
+    Docker fundamentals
+    Writing Dockerfile for Go
+    Multi-stage build
+    Docker Compose basics
+    Intro to:
+        Kubernetes
+        AWS / GCP overview
+        Cloud deployment basics
+
+🎯 Level 1 Capstone Project
+    Build a Production-Ready REST API with
+        Authentication
+        DB integration
+        File upload
+        Dockerized
+        Unit tested
+        Deploy on cloud
+
+🔹 LEVEL 2 — Intermediate Go Engineer (Working Professional)
+
+    Outcome:
+    Capable of building scalable microservices with performance and production considerations.
+
+1️⃣ Advanced Concurrency
+    Advanced channel patterns
+    Fan-in / Fan-out
+    Pipelines
+    Context propagation
+    Graceful shutdown
+    Deadlock detection
+    Profiling concurrency
+
+2️⃣ Performance & Optimization
+    pprof profiling
+    CPU profiling
+    Memory profiling
+    Benchmark analysis
+    Escape analysis deep dive
+    Avoiding allocations
+    Struct alignment
+    Garbage collection tuning
+
+3️⃣ Microservices Architecture
+    What are Microservices?
+    Monolith vs Microservices
+    Service communication:
+        REST
+        gRPC
+    API Gateway concept
+    Service discovery
+    Circuit breaker pattern
+    Retry patterns
+    Distributed logging
+    Correlation IDs
+
+4️⃣ API Security & Production Hardening
+    OAuth2 overview
+    JWT refresh tokens
+    HTTPS / TLS
+    API rate limiting (Redis)
+    Role-based access control
+    Secrets management
+    Input sanitization
+
+5️⃣ Messaging & Async Processing
+    Kafka basics
+    RabbitMQ basics
+    Event-driven architecture
+    Worker services
+
+6️⃣ Advanced DB Topics
+    Indexing strategy
+    Query optimization
+    Migrations
+    Connection pool tuning
+    Redis caching
+    Read replicas concept
+
+7️⃣ Testing & Observability
+    Integration testing
+    Testcontainers
+    Contract testing
+    OpenTelemetry basics
+    Prometheus metrics
+    Structured logging (Zap)
+
+8️⃣ DevOps Deep Dive
+    CI/CD pipelines (GitHub Actions)
+    Docker best practices
+    Kubernetes fundamentals
+    Helm charts
+    Environment configs
+    Rolling updates
+    Blue/Green deployments
+
+🎯 Level 2 Capstone
+    Build a Microservices System
+        2–3 services
+        Auth service
+        Product service
+        Message queue
+        Redis cache
+        Kubernetes deployment
+
+🔹 LEVEL 3 — Advanced / Senior Go Engineer
+
+    Outcome:
+    Architect scalable, distributed, high-performance Go systems.
+
+1️⃣ Go Internals
+    Go runtime architecture
+    Scheduler internals (GMP model)
+    Garbage collector internals
+    Memory allocator
+    Interface implementation details
+    Reflection deep dive
+    Unsafe package
+
+2️⃣ Advanced Architecture
+    Clean Architecture
+    Hexagonal Architecture
+    Domain-Driven Design
+    CQRS
+    Event Sourcing
+    Saga pattern
+    Distributed transactions
+
+3️⃣ High-Performance Systems
+    Zero-copy techniques
+    Lock-free programming
+    Custom middleware optimization
+    High-throughput HTTP servers
+    gRPC optimization
+
+4️⃣ Advanced Cloud Native
+    Kubernetes advanced concepts
+        Operators
+        CRDs
+        Autoscaling
+    Service mesh (Istio overview)
+    Observability at scale
+    Chaos engineering
+
+5️⃣ Security Deep Dive
+    Secure coding in Go
+    TLS config tuning
+    mTLS
+    Secure API gateways
+    OWASP API top risks
+
+6️⃣ Compiler & Build Optimization
+    Build tags
+    Linker flags (-ldflags)
+    Cross compilation
+    Binary size reduction
+    Static builds
+    Race detector internals
+
+7️⃣ Contribution & Ecosystem
+    Writing reusable libraries
+    Semantic versioning
+    Open-source contribution
+    Code review strategies
+    Documentation standards
+
+🎯 Level 3 Capstone
+    Build a Production-Grade Distributed System
+        Event-driven microservices
+        Kubernetes deployment
+        Autoscaling
+        Observability stack
+        Performance benchmarked
+        Production security hardened
