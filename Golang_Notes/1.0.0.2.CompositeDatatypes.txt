@@ -1,0 +1,100 @@
+Arrays in Go:
+    An array in Go is a fixed-size collection of elements of the same type. 
+    The size of an array is determined at compile time and cannot be changed at runtime. 
+    Arrays in Go are indexed starting from 0, and the length of an array can be obtained using the built-in len function.
+    The zero value of an array is an array with all elements set to their zero values (e.g., 0 for integers, "" for strings, etc.).
+    Arrays can be compared using the == operator, which checks if all elements are equal. However, arrays cannot be compared with >, <, >=, or <= operators.
+
+    The Internal Structure of Array Types
+        In Go, an array is represented as a contiguous block of memory that holds all the elements of the array. 
+        The size of the array is determined by its type declaration (e.g., [5]int), and each element is stored sequentially in memory.
+        When you declare an array, Go allocates enough memory to hold all the elements based on the specified size and type. 
+        This design allows for efficient access to array elements, as they can be accessed directly using their index without needing to traverse any additional data structures.
+
+    Syntax for declaring an array:
+        var array_name [size]type  
+        var array_name = [size]type{value1, value2, ...} // with initialization
+        var array_name = [...]type{value1, value2, ...} // with initialization and size inferred from the number of values
+
+        array_name := [size]type{value1, value2, ...} // shorthand declaration with initialization
+        array_name := [...]type{value1, value2, ...} // shorthand declaration with initialization and size inferred from the number of values
+
+    where size is the number of elements in the array and type is the data type of the elements.
+
+        // Accessing array elements syntax:
+        array_name[index] // where index is the position of the element (starting from 0)
+            Example:-
+                var arr [5]int // declares an array of 5 integers
+                fmt.Println(arr[0]) // Output: 0 (zero value of int)
+                fmt.Println(arr[1]) // Output: 0 (zero value of int)
+        // change or assign value to an array element:
+        array_name[index] = new_value // where index is the position of the element and new_value is the value to be assigned to that element
+            Example:-
+                var arr [5]int // declares an array of 5 integers
+                arr[0] = 1     // assigns value to the first element
+                arr[1] = 2     // assigns value to the second element
+                fmt.Println(arr) // Output: [1 2 0 0 0]
+
+    Array Initialization
+        If an array or one of its elements has not been initialized in the code, it is assigned the default value of its type
+
+    Example:-
+        var arr [5]int // declares an array of 5 integers
+        arr[0] = 1     // assigns value to the first element
+        arr[1] = 2     // assigns value to the second element
+        fmt.Println(arr) // Output: [1 2 0 0 0]     // The remaining elements are initialized to their default value (0 for int)
+
+        arr1 := [5]int{} //not initialized
+        arr2 := [5]int{1,2} //partially initialized
+        arr3 := [5]int{1,2,3,4,5} //fully initialized
+
+    Initialize Only Specific Elements
+        arr4 := [5]int{1:10,2:40}
+        fmt.Println(arr4) // Output: [0 10 40 0 0] // Only the elements at index 1 and 2 are initialized
+
+    Length of an Array
+        The length of an array can be obtained using the built-in len function, which returns the number of elements in the array.
+        Example:-
+            arr := [5]int{1, 2, 3, 4, 5}
+            fmt.Println(len(arr)) // Output: 5
+
+    Multidimensional Arrays
+        Go supports multidimensional arrays, which are arrays of arrays.
+        The syntax for declaring a multidimensional array is as follows:
+            var array_name [size1][size2]type
+            var array_name = [size1][size2]type{...} // with initialization
+            var array_name = [...][size2]type{...} // with initialization and size1 inferred from the number of values
+
+            array_name := [size1][size2]type{...} // shorthand declaration with initialization
+            array_name := [...][size2]type{...} // shorthand declaration with initialization and size1 inferred from the number of values
+
+    // contains check - using for loop
+        func contains(arr [5]int, value int) bool {
+            for _, v := range arr {
+                if v == value {
+                    return true
+                }
+            }
+            return false
+        }
+
+    // contains check - using a map for faster lookups
+        func contains(arr [5]int, value int) bool {
+            m := make(map[int]bool)
+            for _, v := range arr {
+                m[v] = true
+            }
+            return m[value]
+        }
+
+    // contains check - using a set (map with empty struct) for faster lookups
+        func contains(arr [5]int, value int) bool {
+            m := make(map[int]struct{})
+            for _, v := range arr {
+                m[v] = struct{}{}
+            }
+            _, exists := m[value]
+            return exists
+        }
+
+    // 

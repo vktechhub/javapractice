@@ -1,0 +1,31 @@
+https://go.dev/tour/list 
+
+https://go101.org/
+
+https://exercism.org/tracks/go
+
+https://gobyexample.com/
+
+https://www.w3schools.com/go/index.php
+
+https://www.geeksforgeeks.org/go-language/go/ 
+
+https://www.hackerrank.com/domains/tutorials/30-days-of-code 
+
+https://docs.cloud.google.com/docs/samples?l=go&language=golang
+
+https://github.com/GoogleCloudPlatform/golang-samples
+
+To improve your Go coding skills, you can read well-structured open-source repositories designed for learning, or existing production-level projects to see best practices in action. 
+Repositories Designed for Learning
+inancgumus/learngo This extensive repository offers over 1000 hand-crafted Go examples, exercises, and quizzes. It is structured to help you learn by fixing tiny, targeted programs.
+TheAlgorithms/Go A collection of algorithms and data structures implemented in Go, following best practices. It's great for understanding fundamental computer science concepts the "Go way".
+emirpasic/gods (Go Data Structures) This repo provides clear implementations of various data structures like sets, lists, stacks, and trees, which are excellent for studying canonical implementations.
+teivah/100-go-mistakes Based on the book of the same name, this repository helps you identify and avoid common pitfalls and anti-patterns in Go programming. 
+
+Production-Level Projects
+Reading established, high-quality code can teach you about project structure, dependency management, and real-world problem-solving. 
+golang/go The Go programming language's own source code is a fantastic resource. The standard library code is widely regarded as some of the most readable and idiomatic Go code available.
+hashicorp projects, such as Terraform, are often cited as great examples of well-architected distributed systems in Go.
+kubernetes/kubernetes As a major production-grade container orchestration system, the Kubernetes repository offers insights into large-scale, complex Go applications.
+mholt/caddy Caddy is a fast, cross-platform HTTP/2 web server. Its codebase is known for its clear structure and use of modern Go practices.

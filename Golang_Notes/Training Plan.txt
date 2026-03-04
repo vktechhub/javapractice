@@ -1,3 +1,50 @@
+Updated
+
+Level	Scope 
+🔵 Level 1 — Go Fundamentals	
+        Introduction to Go; 
+        Syntax; 
+        Basics; 
+        Basic data types, 
+        Composite Data Types (Go type system); 
+        slice growth behavior, 
+        map internals, 
+        make vs new; 
+        Operators; 
+        Control Flow; 
+        Error Handling; 
+        Functions & Methods; 
+        Modules; 
+        Interfaces; 
+        Generics basics (type parameters, constraints, when to avoid over-generalization). 
+        Intro to Concurrency (goroutines, channels); 
+        Essential Go Tools; 
+        Debugging basics: dlv, stack traces, panic/recover patterns. 
+        Testing; Basic Project Structure; 
+        Writing idiomatic Go. 
+        Operational basics: graceful shutdown, timeout defaults, retry-with-backoff basics.
+        
+🟡 Level 2 — Core Backend & API Development	OpenAPI intro, request/response schema discipline. Build REST APIs using Go standard library & frameworks; Implement routing, middleware, validation; Work with RDBMS/NoSQL; Caching strategies; Create robust API consumers with retries, timeouts, rate-limiting; Apply clean architecture principles.
+🟠 Level 3 — Microservices & Messaging	Design microservices architecture and service boundaries; Implement inter-service communication; Kafka producers/consumers; Async workflows; Event-driven patterns; Resilient communication and service coordination.
+🔴 Level 4 — Advanced Performance & Security	High-performance application design; Profiling & optimization (CPU, Memory, pprof); Compiler options & tuning; Advanced concurrency patterns; Secure coding practices; AuthN/AuthZ, encryption, TLS; Production-grade hardening for distributed systems.
+🟣 Level 5 — Cloud‑Native & Distributed Systems	Design scalable cloud-native Go systems; Kubernetes deployments; gRPC & Protobuf services; Event-driven & distributed architecture; Observability (logs, metrics, tracing); Reliability & scalability patterns; Best practices for production & architectural decision-making.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 LEVEL 1 — Go Developer Foundation (Project-Ready)
 
     Outcome:
